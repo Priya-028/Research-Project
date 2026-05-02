@@ -41,19 +41,20 @@ const getJobUploadDisplayText = (fileName) => fileName || 'No job description up
 const getJobFooterText = (fileName) => fileName ? 'Job description selected' : 'No job description uploaded';
 
 const HIDDEN_PREVIEW_COLUMNS = new Set(['Experience_Years', 'Job_Role_Applied']);
+const PREVIEW_PAGE_SIZE = 10;
 
 const getPreviewFitValue = (row) => Number(row?.Fit_Percentage || 0);
 
 const getPreviewFitBucket = (fitValue) => {
-  if (fitValue >= 80) {
-    return 'Strong Match';
+  if (fitValue >= 65) {
+    return 'High Match';
   }
 
-  if (fitValue >= 60) {
-    return 'Moderate Match';
+  if (fitValue >= 50) {
+    return 'Medium Match';
   }
 
-  return 'Needs Review';
+  return 'Low Match';
 };
 
 const downloadCandidatePreviewRows = (rows, columns) => {
@@ -91,6 +92,7 @@ const CandidateFitPredictor = () => {
   const [previewSearch, setPreviewSearch] = useState('');
   const [previewFilter, setPreviewFilter] = useState('All');
   const [previewSortBy, setPreviewSortBy] = useState('fit-desc');
+  const [previewPage, setPreviewPage] = useState(1);
 
 
   useEffect(() => {
@@ -245,6 +247,7 @@ const CandidateFitPredictor = () => {
         setPreviewSearch('');
         setPreviewFilter('All');
         setPreviewSortBy('fit-desc');
+        setPreviewPage(1);
       } else {
         throw new Error(data.error || 'Preview failed');
       }
@@ -448,6 +451,11 @@ const CandidateFitPredictor = () => {
                   return getPreviewFitValue(right) - getPreviewFitValue(left);
               }
             });
+          const totalPreviewPages = Math.max(1, Math.ceil(filteredPreviewRows.length / PREVIEW_PAGE_SIZE));
+          const currentPreviewPage = Math.min(previewPage, totalPreviewPages);
+          const pageStartIndex = (currentPreviewPage - 1) * PREVIEW_PAGE_SIZE;
+          const pageEndIndex = Math.min(pageStartIndex + PREVIEW_PAGE_SIZE, filteredPreviewRows.length);
+          const paginatedPreviewRows = filteredPreviewRows.slice(pageStartIndex, pageEndIndex);
 
           return (
             <div className="candidate-fit-preview-section">
@@ -458,7 +466,7 @@ const CandidateFitPredictor = () => {
                     Data Preview
                   </h3>
                   <p>
-                    Showing {filteredPreviewRows.length} preview rows from {previewData.total_rows} predicted candidates
+                    Showing {paginatedPreviewRows.length} preview rows from {previewData.total_rows} predicted candidates
                   </p>
                 </div>
 
@@ -468,7 +476,10 @@ const CandidateFitPredictor = () => {
                     <input
                       type="text"
                       value={previewSearch}
-                      onChange={(event) => setPreviewSearch(event.target.value)}
+                      onChange={(event) => {
+                        setPreviewSearch(event.target.value);
+                        setPreviewPage(1);
+                      }}
                       placeholder="Search a candidate"
                     />
                   </label>
@@ -476,17 +487,29 @@ const CandidateFitPredictor = () => {
                   <div className="candidate-fit-preview-toolbar-actions">
                     <label className="candidate-fit-inline-select">
                       <span>Filter by</span>
-                      <select value={previewFilter} onChange={(event) => setPreviewFilter(event.target.value)}>
+                      <select
+                        value={previewFilter}
+                        onChange={(event) => {
+                          setPreviewFilter(event.target.value);
+                          setPreviewPage(1);
+                        }}
+                      >
                         <option value="All">All candidates</option>
-                        <option value="Strong Match">Strong Match</option>
-                        <option value="Moderate Match">Moderate Match</option>
-                        <option value="Needs Review">Needs Review</option>
+                        <option value="High Match">High Match</option>
+                        <option value="Medium Match">Medium Match</option>
+                        <option value="Low Match">Low Match</option>
                       </select>
                     </label>
 
                     <label className="candidate-fit-inline-select">
                       <span>Sort by</span>
-                      <select value={previewSortBy} onChange={(event) => setPreviewSortBy(event.target.value)}>
+                      <select
+                        value={previewSortBy}
+                        onChange={(event) => {
+                          setPreviewSortBy(event.target.value);
+                          setPreviewPage(1);
+                        }}
+                      >
                         <option value="fit-desc">Fit High-Low</option>
                         <option value="fit-asc">Fit Low-High</option>
                         <option value="experience-desc">Experience High-Low</option>
@@ -517,7 +540,7 @@ const CandidateFitPredictor = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {filteredPreviewRows.map((row, idx) => (
+                      {paginatedPreviewRows.map((row, idx) => (
                         <tr key={`${row?.Name || 'candidate'}-${idx}`}>
                           {visibleCols.map((col) => {
                             const value = row[col];
@@ -551,13 +574,35 @@ const CandidateFitPredictor = () => {
 
                 <div className="candidate-fit-preview-footer">
                   <div className="candidate-fit-preview-page-info">
-                    {filteredPreviewRows.length === 0 ? '0 rows' : `1 - ${filteredPreviewRows.length} of ${filteredPreviewRows.length}`}
+                    {filteredPreviewRows.length === 0
+                      ? '0 rows'
+                      : `${pageStartIndex + 1} - ${pageEndIndex} of ${filteredPreviewRows.length}`}
                   </div>
-                </div>
 
-                {previewData.total_rows > previewRows.length && (
-                  <p className="candidate-fit-preview-note">Showing the first {previewRows.length} preview rows returned by the API out of {previewData.total_rows} total candidates.</p>
-                )}
+                  {filteredPreviewRows.length > PREVIEW_PAGE_SIZE && (
+                    <div className="preview-pagination" aria-label="Candidate preview pagination">
+                      <button
+                        type="button"
+                        className="preview-page-btn"
+                        onClick={() => setPreviewPage((page) => Math.max(1, page - 1))}
+                        disabled={currentPreviewPage <= 1}
+                      >
+                        Previous
+                      </button>
+                      <span className="preview-page-indicator">
+                        Page {currentPreviewPage} of {totalPreviewPages}
+                      </span>
+                      <button
+                        type="button"
+                        className="preview-page-btn"
+                        onClick={() => setPreviewPage((page) => Math.min(totalPreviewPages, page + 1))}
+                        disabled={currentPreviewPage >= totalPreviewPages}
+                      >
+                        Next
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           );
@@ -641,6 +686,14 @@ const formatPreviewCell = (value, column, row) => {
 
   if (column === 'Education') {
     str = str.replace(/^Education\s*[:\-]?\s*/i, '');
+  }
+
+  if (column === 'Certifications') {
+    str = str
+      .replace(/(?:^|[;\n\r])\s*(Languages?|References?|Referees?|Declaration|Personal Skills?|Soft Skills?)\s*[:\-]?[\s\S]*$/i, '')
+      .replace(/^(Certifications?|Certificates?|Courses?|Training|Licen[cs]es?)\s*[:\-]?\s*/i, '')
+      .replace(/^\s*;\s*/, '')
+      .trim();
   }
 
   const MAX_LEN = column === 'Skills' ? 1200 : 280;

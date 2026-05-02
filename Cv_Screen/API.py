@@ -309,9 +309,29 @@ def _extract_page_text_multicolumn(page):
     left_words   = [w for w in words if w["x0"] < mid_lo]
     right_words  = [w for w in words if w["x0"] > mid_hi]
 
+    x_starts = sorted(set(round(w["x0"], 1) for w in words))
+    x_gaps = [
+        (right - left, left, right)
+        for left, right in zip(x_starts, x_starts[1:])
+        if page_width * 0.12 <= left <= page_width * 0.80
+    ]
+    best_gap = max(x_gaps, default=(0, None, None))
+    gap_split_x = (best_gap[1] + best_gap[2]) / 2 if best_gap[1] is not None else None
+    gap_left_words = [w for w in words if gap_split_x is not None and w["x0"] < gap_split_x]
+    gap_right_words = [w for w in words if gap_split_x is not None and w["x0"] >= gap_split_x]
+    is_gap_two_column = (
+        gap_split_x is not None
+        and best_gap[0] >= page_width * 0.04
+        and len(gap_left_words) >= 20
+        and len(gap_right_words) >= 20
+    )
+
     is_two_column = (
-        len(right_words) > 5
-        and len(centre_words) < max(len(left_words), len(right_words)) * 0.25
+        is_gap_two_column
+        or (
+            len(right_words) > 5
+            and len(centre_words) < max(len(left_words), len(right_words)) * 0.25
+        )
     )
 
     # FIX: strip leading bullet/special chars from word text so "•Python" → "Python"
@@ -322,12 +342,15 @@ def _extract_page_text_multicolumn(page):
 
     if is_two_column:
         # FIX: use non-overlapping halves so split_x is always inside the gap
-        left_cluster  = sorted([w["x1"] for w in words if w["x0"] < page_width * 0.50])
-        right_cluster = sorted([w["x0"] for w in words if w["x0"] >= page_width * 0.50])
-        if left_cluster and right_cluster:
-            split_x = (left_cluster[-1] + right_cluster[0]) / 2
+        if is_gap_two_column:
+            split_x = gap_split_x
         else:
-            split_x = page_width * 0.50
+            left_cluster  = sorted([w["x1"] for w in words if w["x0"] < page_width * 0.50])
+            right_cluster = sorted([w["x0"] for w in words if w["x0"] >= page_width * 0.50])
+            if left_cluster and right_cluster:
+                split_x = (left_cluster[-1] + right_cluster[0]) / 2
+            else:
+                split_x = page_width * 0.50
 
         def _words_to_lines(word_list):
             if not word_list:
@@ -422,19 +445,260 @@ def extract_technologies_from_text(text):
     """Extract programming languages and tools from experience/skills text."""
     if not text or not text.strip():
         return ""
-    lower = text.lower()
+    lower = normalize_text_for_matching(text).lower()
     found = set()
     techs = [
         "python", "java", "javascript", "typescript", "sql", "r", "c++", "c#", "scala", "go", "kotlin", "swift", "php", "ruby", "matlab", "sas",
-        "power bi", "powerbi", "excel", "tableau", "spark", "hadoop", "tensorflow", "pytorch", "scikit-learn", "pandas", "numpy",
-        "nlp", "machine learning", "data visualization", "etl", "aws", "azure", "gcp", "docker", "kubernetes", "git", "jira", "agile",
-        "figma", "react", "node", "vue", "django", "flask", "html", "css", "mongodb", "postgresql", "mysql", "jupyter"
+        "power bi", "powerbi", "excel", "tableau", "spark", "pyspark", "hadoop", "snowflake", "airflow", "aws glue",
+        "great expectations", "tensorflow", "pytorch", "scikit-learn", "pandas", "numpy", "opencv", "cv2",
+        "nlp", "natural language processing", "machine learning", "deep learning", "computer vision", "data visualization",
+        "etl", "elt", "aws", "aws rds", "azure", "gcp", "docker", "kubernetes", "helm", "git", "github", "github actions",
+        "jenkins", "jira", "agile", "figma", "react", "node", "vue", "django", "fastapi", "flask", "rest api", "html",
+        "css", "mongodb", "postgresql", "pgvector", "mysql", "jupyter", "semantic search", "vector embeddings", "llm",
+        "large language models"
     ]
     for t in techs:
-        if t.replace(" ", "") in lower.replace(" ", "") or t in lower:
-            label = "Power BI" if t in ("power bi", "powerbi") else (t.title() if " " not in t or t in ("power bi", "powerbi") else t.title())
+        compact_term = t.replace(" ", "")
+        if len(compact_term) <= 2:
+            matched = bool(re.search(rf"(?<![a-z0-9+#]){re.escape(t)}(?![a-z0-9+#])", lower))
+        elif " " in t:
+            matched = t in lower or compact_term in lower.replace(" ", "")
+        else:
+            matched = bool(re.search(rf"(?<![a-z0-9+#]){re.escape(t)}(?![a-z0-9+#])", lower))
+
+        if matched:
+            label_overrides = {
+                "power bi": "Power BI", "powerbi": "Power BI", "pyspark": "PySpark",
+                "aws": "AWS", "aws glue": "AWS Glue", "aws rds": "AWS RDS",
+                "sql": "SQL", "mysql": "MySQL", "postgresql": "PostgreSQL",
+                "pgvector": "pgvector", "fastapi": "FastAPI", "rest api": "REST API",
+                "github": "GitHub", "github actions": "GitHub Actions",
+                "opencv": "OpenCV", "cv2": "OpenCV", "nlp": "NLP", "llm": "LLM",
+                "elt": "ELT", "etl": "ETL", "html": "HTML",
+                "javascript": "JavaScript", "pytorch": "PyTorch",
+                "tensorflow": "TensorFlow", "numpy": "NumPy",
+            }
+            label = label_overrides.get(t, t.title())
             found.add(label)
     return ", ".join(sorted(found)) if found else ""
+
+
+def normalize_text_for_matching(text):
+    """Clean common PDF extraction artifacts before similarity scoring."""
+    if not text:
+        return ""
+
+    normalized = str(text)
+    replacements = {
+        "__POSTGRESQL 2__": "PostgreSQL",
+        "__POSTGRESQL2__": "PostgreSQL",
+        "AWSGlue": "AWS Glue",
+        "AWSRDS": "AWS RDS",
+        "My Sql": "MySQL",
+        "Fast Api": "FastAPI",
+        "RESTAPI": "REST API",
+        "RESTful": "RESTful",
+        "GitHubActions": "GitHub Actions",
+        "GitHubActions.Jenkins": "GitHub Actions Jenkins",
+        "Data Enginneringtools": "Data Engineering tools",
+        "Machine Learningand": "Machine Learning and",
+        "Computer Scienceand": "Computer Science and",
+        "Universityof": "University of",
+        "Experiencewithdeep": "Experience with deep",
+        "modeltraining": "model training",
+        "ConfluenceAIAssistant": "Confluence AI Assistant",
+        "Designedand": "Designed and",
+        "developedafull": "developed a full",
+        "automateddataqualitypipeline": "automated data quality pipeline",
+        "validationefficiency": "validation efficiency",
+        "Medallionarchitecture": "Medallion architecture",
+        "datavalidation": "data validation",
+        "dataconsistency": "data consistency",
+        "data completeness": "data completeness",
+        "referentialintegrity": "referential integrity",
+        "Snowflaketables": "Snowflake tables",
+        "schema consistency": "schema consistency",
+        "semanticsearch": "semantic search",
+        "vectorembeddings": "vector embeddings",
+        "Large Language Models": "Large Language Models",
+    }
+    for old, new in replacements.items():
+        normalized = normalized.replace(old, new)
+
+    normalized = re.sub(r"([a-z])([A-Z])", r"\1 \2", normalized)
+    normalized = re.sub(r"([A-Za-z])(\d)", r"\1 \2", normalized)
+    normalized = re.sub(r"(\d)([A-Za-z])", r"\1 \2", normalized)
+    post_replacements = {
+        "Py Spark": "PySpark",
+        "Fast API": "FastAPI",
+        "My SQL": "MySQL",
+        "Postgre SQL": "PostgreSQL",
+        "Git Hub": "GitHub",
+        "Git Hub Actions": "GitHub Actions",
+        "AWS Glue": "AWS Glue",
+        "AWS RDS": "AWS RDS",
+        "S 3": "S3",
+        "JSONand HTML": "JSON and HTML",
+        "Designed andimplementedanautomated": "Designed and implemented an automated",
+        "replacingmanualchecks": "replacing manual checks",
+        "andenablingfulldatasetcoveragecomparedto": "and enabling full dataset coverage compared to",
+        "Integratedautomated": "Integrated automated",
+        "reportgenerationwithinthevalidationpipelinetoprovidestructured": "report generation within the validation pipeline to provide structured",
+        "Developedadedicateddata validation": "Developed a dedicated data validation",
+        "sub-pipelinetoverifydata": "sub-pipeline to verify data",
+        "consistencyandcompletenessduringdata": "consistency and completeness during data",
+        "loadingfrom S3 to ODS": "loading from S3 to ODS",
+        "CTE-drivenauditqueriesthatmirrorstored-procedurelogictovalidatedataintegrityacrosslayers": "CTE-driven audit queries that mirror stored procedure logic to validate data integrity across layers",
+        "Implementedrobustvalidationchecksacrossmultiple": "Implemented robust validation checks across multiple",
+        "coveringschemaconsistency": "covering schema consistency",
+        "andreferentialintegrity": "and referential integrity",
+        "Designed anddeveloped": "Designed and developed",
+        "full-fledgedbudgetapprovalmanagementsystemusing": "full-fledged budget approval management system using",
+        "RESTfulbackendservices": "RESTful backend services",
+        "role-basedfunctionalities": "role-based functionalities",
+        "Dockeranddeployedon": "Docker and deployed on",
+        "Kubernetesclusterswith": "Kubernetes clusters with",
+        "Test Railintegrationagent": "TestRail integration agent",
+        "multi-agent SDLCautomationecosystem": "multi-agent SDLC automation ecosystem",
+        "semanticsearchassistant": "semantic search assistant",
+        "natural-languagequerying": "natural-language querying",
+        "enterprise Confluencedocumentation": "enterprise Confluence documentation",
+        "usingvectorembeddings": "using vector embeddings",
+        "Builta FastAPI": "Built a FastAPI",
+        "async RESTAPI": "async REST API",
+        "healthchecks": "health checks",
+        "errormanagement": "error management",
+        "contentingestionpipeline": "content ingestion pipeline",
+        "embeddinggeneration": "embedding generation",
+        "vectorstorage": "vector storage",
+    }
+    for old, new in post_replacements.items():
+        normalized = normalized.replace(old, new)
+    normalized = re.sub(r"[^\S\r\n]+", " ", normalized)
+    return normalized.strip()
+
+
+def normalize_candidate_name(name):
+    """Clean candidate names extracted from stylized PDF headers."""
+    if not name:
+        return ""
+
+    cleaned = re.sub(r"\s+", " ", str(name)).strip()
+    if "@" in cleaned or re.search(r"https?://|www\.|linkedin|github|\d{3,}", cleaned, re.IGNORECASE):
+        return ""
+    if re.fullmatch(r"(?:[A-Za-z]\s+){2,}[A-Za-z]", cleaned):
+        cleaned = cleaned.replace(" ", "")
+    return cleaned.title()
+
+
+def infer_name_from_email_and_text(email, raw_text, original_filename=None):
+    """Fallback for CVs where decorative headers split a name into fragments."""
+    local_part = (email or "").split("@")[0]
+    if local_part and "." in local_part:
+        parts = [part for part in re.split(r"[._+\-]+", local_part) if part and not part.isdigit()]
+        if len(parts) >= 2 and all(re.fullmatch(r"[A-Za-z]+", part) for part in parts[:2]):
+            first = parts[0].lower()
+            last_prefix = parts[1].lower()
+            lines = [line.strip() for line in (raw_text or "").splitlines() if line.strip()]
+            for line in lines[:30]:
+                if "@" in line or re.search(r"https?://|www\.|linkedin|github|\d{3,}", line, re.IGNORECASE):
+                    continue
+                compact = re.sub(r"[^a-z]", "", line.lower())
+                if first in compact and last_prefix in compact:
+                    return normalize_candidate_name(line)
+            return normalize_candidate_name(" ".join(parts[:2]))
+
+    if original_filename:
+        base = os.path.splitext(original_filename)[0]
+        base = re.sub(r"(?i)\b(cv|resume|example|final|new|copy|\d+)\b", " ", base)
+        base = re.sub(r"[_\-()]+", " ", base)
+        words = [word for word in base.split() if re.fullmatch(r"[A-Za-z]+", word)]
+        if 2 <= len(words) <= 4:
+            return normalize_candidate_name(" ".join(words))
+
+    return ""
+
+
+def extract_experience_evidence_from_text(text):
+    """Return work/project evidence that should influence fit scoring."""
+    if not text or not text.strip():
+        return ""
+
+    normalized = normalize_text_for_matching(text)
+    lines = [line.strip() for line in normalized.splitlines() if line.strip()]
+    lower_lines = [line.lower() for line in lines]
+    start_keywords = [
+        "experience", "work experience", "professional experience",
+        "employment", "career history", "internship",
+    ]
+    end_keywords = [
+        "education", "skills", "technical skills", "certifications",
+        "certificates", "references", "languages", "volunteer",
+        "activities", "declaration",
+    ]
+
+    start_idx = -1
+    for idx, line in enumerate(lower_lines):
+        if any(re.fullmatch(rf".*\b{re.escape(keyword)}\b.*", line) for keyword in start_keywords):
+            start_idx = idx
+            break
+
+    if start_idx != -1:
+        end_idx = len(lines)
+        for idx in range(start_idx + 1, len(lines)):
+            stripped = lower_lines[idx].strip(": -")
+            if any(stripped == keyword or stripped.startswith(keyword + ":") for keyword in end_keywords):
+                end_idx = idx
+                break
+        section = "\n".join(lines[start_idx:end_idx])
+        if len(section) > 120:
+            return section[:6000]
+
+    evidence_keywords = [
+        "engineer", "developer", "intern", "analyst", "data", "pipeline",
+        "etl", "elt", "snowflake", "pyspark", "spark", "sql", "aws",
+        "docker", "kubernetes", "fastapi", "api", "machine learning",
+        "deep learning", "tensorflow", "pytorch", "project", "developed",
+        "designed", "implemented", "automated", "integrated", "deployed",
+    ]
+    evidence_lines = [
+        line for line, lower_line in zip(lines, lower_lines)
+        if any(keyword in lower_line for keyword in evidence_keywords)
+    ]
+    return "\n".join(evidence_lines[:80])[:6000]
+
+
+def extract_project_evidence_from_text(text):
+    """Return project evidence for candidates whose strongest proof is project work."""
+    if not text or not text.strip():
+        return ""
+
+    normalized = normalize_text_for_matching(text)
+    lines = [line.strip() for line in normalized.splitlines() if line.strip()]
+    lower_lines = [line.lower() for line in lines]
+    start_idx = -1
+    for idx, line in enumerate(lower_lines):
+        stripped = line.strip(": -")
+        if stripped == "projects" or stripped.startswith("projects "):
+            start_idx = idx
+            break
+
+    if start_idx == -1:
+        return ""
+
+    end_keywords = [
+        "skills", "technical skills", "certifications", "certificates",
+        "references", "languages", "volunteer", "activities", "declaration",
+        "education", "experience", "work experience",
+    ]
+    end_idx = len(lines)
+    for idx in range(start_idx + 1, len(lines)):
+        stripped = lower_lines[idx].strip(": -")
+        if any(stripped == keyword or stripped.startswith(keyword + ":") for keyword in end_keywords):
+            end_idx = idx
+            break
+
+    return "\n".join(lines[start_idx:end_idx])[:5000]
 
 
 def parse_company_names_from_experience(text):
@@ -466,10 +730,23 @@ def parse_certification_names(text):
     """Extract course and certification names from certifications section."""
     if not text or not text.strip():
         return ""
-    parts = re.split(r"[•\-\–\—\n;]", text)
+    parts = re.split(r"[•\n;]", text)
     certs = []
+    heading_only_re = re.compile(
+        r"^(certifications?|certificates?|courses?|training|licen[cs]es?|professional development)\s*[:\-]?$",
+        re.IGNORECASE
+    )
+    stop_heading_re = re.compile(
+        r"^(languages?|references?|referees?|declaration|personal\s+skills?|soft\s+skills?|"
+        r"education|experience|work\s+experience|projects?|activities|volunteer|membership)\s*[:\-]?",
+        re.IGNORECASE
+    )
     for p in parts:
-        p = p.strip()
+        p = p.strip().lstrip("-–—").strip()
+        if heading_only_re.match(p):
+            continue
+        if stop_heading_re.match(p):
+            break
         if len(p) > 4 and len(p) < 120:
             p = re.sub(r"\s+", " ", p)
             if p and p not in certs and not re.match(r"^\d+$", p):
@@ -550,6 +827,17 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
     )
     raw_json = response.text.strip()
     logger.info(f"[Gemini] Raw response (first 300): {raw_json[:300]}")
+    lower_raw_text = (raw_text or "").lower()
+    has_certification_evidence = any(
+        kw in lower_raw_text
+        for kw in [
+            "certification", "certifications", "certificate", "certificates",
+            "course", "courses", "training", "license", "licenses",
+            "licence", "licences", "coursera", "udemy", "simplilearn",
+            "great learning", "google cloud", "microsoft learn",
+            "test automation university", "linkedin learning",
+        ]
+    )
 
     # Strip markdown code fences if present
     if raw_json.startswith("```"):
@@ -592,8 +880,18 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
     logger.info(f"[EmailFix] Final email after fix: {email!r}")
 
     # 1. Name: always Title Case (handles ALL-CAPS names like KAVILAKSHAN)
-    if name:
-        name = name.title()
+    inferred_name = infer_name_from_email_and_text(email, raw_text, original_filename)
+    if (
+        inferred_name
+        and (
+            not name
+            or len(normalize_candidate_name(name).split()) < 2
+            or re.fullmatch(r"(?:[A-Za-z]\s+){2,}[A-Za-z]", str(name).strip())
+        )
+    ):
+        name = inferred_name
+    elif name:
+        name = normalize_candidate_name(name)
 
     # 2. Strip redundant section header words from the start of each text field
     _HDR = re.compile(
@@ -614,11 +912,18 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
     prev_companies_list = _clean_list(prev_companies_list)
 
     if not name and original_filename:
-        name = os.path.splitext(original_filename)[0].replace("_", " ").title()
+        name = normalize_candidate_name(os.path.splitext(original_filename)[0].replace("_", " "))
 
     skills_text = ", ".join(skills_list) if isinstance(skills_list, list) else str(skills_list)
     certs_text = ", ".join(certs_list) if isinstance(certs_list, list) else str(certs_list)
     prev_companies_text = ", ".join(prev_companies_list) if isinstance(prev_companies_list, list) else str(prev_companies_list)
+    if certs_text and not has_certification_evidence:
+        logger.info(
+            f"[{original_filename or 'unknown CV'}] Ignoring Gemini certifications because no certification evidence was found in CV text."
+        )
+        certs_text = ""
+    elif certs_text:
+        certs_text = parse_certification_names(certs_text)
 
     try:
         exp_years_num = float(experience_years)
@@ -633,6 +938,13 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
     technologies_used = extract_technologies_from_text(
         prev_companies_text + " " + skills_text
     )
+    experience_details = "\n".join(
+        part for part in [
+            extract_experience_evidence_from_text(raw_text),
+            extract_project_evidence_from_text(raw_text),
+        ]
+        if part
+    )
 
     return {
         "Name": name,
@@ -645,6 +957,8 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
         "Certifications": certs_text,
         "Job_Role_Applied": job_role or "",
         "Experience_Source": technologies_used,
+        "Experience_Details": experience_details,
+        "Project_Details": extract_project_evidence_from_text(raw_text),
         "Experience_Years_Output": str(round(exp_years_num, 1)) if exp_source == "gemini" else "N/A",
         "Certifications_Output": certs_text,
     }
@@ -710,7 +1024,7 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             "TailwindCSS": "__TAILWINDCSS__",
             "RestAPI": "__RESTAPI__",
             "SQLite": "__SQLITE__",
-            "PostgreSQL": "__POSTGRESQL2__",
+            "PostgreSQL": "__POSTGRESQL__",
         }
         for term, placeholder in _PROTECT.items():
             raw_text = raw_text.replace(term, placeholder)
@@ -864,12 +1178,23 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                 _current_year, _current_month = 2026, 4
                 _date_re = re.compile(
                     r'(?:(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+)?(\d{4})' +
-                    r'\s*[-\u2013\u2014]\s*' +
+                    r'\s*(?:[-\u2013\u2014]|\s+)\s*' +
                     r'(?:(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+)?(\d{4}|present)',
                     re.IGNORECASE
                 )
                 total_months = 0
-                for sm, sy, em, ey in _date_re.findall(raw_text):
+                exp_context_keywords = [
+                    "experience", "work", "employment", "intern", "internship",
+                    "trainee", "associate", "developer", "engineer", "company",
+                    "freelance", "contract",
+                ]
+                for date_match in _date_re.finditer(raw_text):
+                    sm, sy, em, ey = date_match.groups()
+                    context_start = max(0, date_match.start() - 180)
+                    context_end = min(len(raw_text), date_match.end() + 180)
+                    date_context = raw_text[context_start:context_end].lower()
+                    if not any(keyword in date_context for keyword in exp_context_keywords):
+                        continue
                     try:
                         sy_i = int(sy)
                         sm_i = _month_map.get(sm[:3].lower(), 1) if sm else 1
@@ -900,9 +1225,21 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
         logger.warning(f"[{cv_label}] Experience years not found in CV — defaulting to {experience_years}. Score may be less accurate.")
 
     # Derive a candidate name from filename if we could not read one from the CV
-    if not name and original_filename:
+    inferred_name = infer_name_from_email_and_text(email, raw_text, original_filename)
+    if (
+        inferred_name
+        and (
+            not name
+            or len(normalize_candidate_name(name).split()) < 2
+            or re.fullmatch(r"(?:[A-Za-z]\s+){2,}[A-Za-z]", str(name).strip())
+        )
+    ):
+        name = inferred_name
+    elif name:
+        name = normalize_candidate_name(name)
+    elif original_filename:
         base_name = os.path.splitext(original_filename)[0]
-        name = base_name.replace("_", " ")
+        name = normalize_candidate_name(base_name.replace("_", " "))
 
     # Extract Education, Skills, Previous_Companies, Certifications from CV sections
     education_text = ""
@@ -912,6 +1249,16 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
 
     if raw_text:
         lower = raw_text.lower()
+        has_certification_evidence = any(
+            kw in lower
+            for kw in [
+                "certification", "certifications", "certificate", "certificates",
+                "course", "courses", "training", "license", "licenses",
+                "licence", "licences", "coursera", "udemy", "simplilearn",
+                "great learning", "google cloud", "microsoft learn",
+                "test automation university", "linkedin learning",
+            ]
+        )
 
         def _section_pat(kw):
             """Pattern that matches a section heading line for kw.
@@ -966,7 +1313,7 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             if end_idx - start_idx > max_len:
                 end_idx = start_idx + max_len
 
-            section = raw_text[start_idx:end_idx]
+            section = raw_text[start_idx:end_idx].lstrip()
             if strip_headings:
                 pat = "|".join(re.escape(k) for k in strip_headings)
                 section = re.sub(rf"^({pat})[:\s\-]*", "", section, flags=re.IGNORECASE)
@@ -1102,12 +1449,26 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             if cert_lines:
                 certs_text = "\n".join(cert_lines)
 
+        if certs_text and not has_certification_evidence:
+            logger.info(
+                f"[{original_filename or 'unknown CV'}] Ignoring certifications extraction because no certification evidence was found in CV text."
+            )
+            certs_text = ""
+
     # Parse structured data for display/CSV
     prev_companies_display = parse_company_names_from_experience(prev_companies_text) if prev_companies_text else ""
     certs_display = parse_certification_names(certs_text) if certs_text else ""
     skills_display = parse_skills_list(skills_text) if skills_text else ""
+    project_details = extract_project_evidence_from_text(raw_text)
+    experience_details = "\n".join(
+        part for part in [
+            extract_experience_evidence_from_text(prev_companies_text or raw_text),
+            project_details,
+        ]
+        if part
+    )
     technologies_used = extract_technologies_from_text(
-        (prev_companies_text or "") + " " + (skills_display or skills_text or "")
+        (experience_details or prev_companies_text or "") + " " + (skills_display or skills_text or "")
     )
     experience_years_display = "N/A" if exp_source == "default" else str(experience_years)
 
@@ -1130,6 +1491,8 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
         "Job_Role_Applied": job_role or "",
         # Experience_Source: technologies / tools the candidate has used
         "Experience_Source": technologies_used,
+        "Experience_Details": experience_details,
+        "Project_Details": project_details,
         # Output-only columns (for preview/CSV)
         "Experience_Years_Output": experience_years_display,
         "Certifications_Output": certs_display or certs_text,
@@ -1138,15 +1501,236 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
     return candidate
 
 def candidate_to_text_format(candidate):
-    skills = candidate.get('Skills', '')
-    certs  = candidate.get('Certifications', '')
+    skills = normalize_text_for_matching(candidate.get('Skills', ''))
+    certs = normalize_text_for_matching(candidate.get('Certifications', ''))
+    experience = normalize_text_for_matching(
+        candidate.get('Experience_Details', '') or candidate.get('Previous_Companies', '')
+    )
+    projects = normalize_text_for_matching(candidate.get('Project_Details', ''))
+    technologies = normalize_text_for_matching(candidate.get('Experience_Source', ''))
     # Skills repeated 3x and certifications 2x so that explicitly listed skills/certs
-    # outweigh incidental mentions of a technology inside project descriptions.
-    return (f"{candidate.get('Education', '')} "
+    # outweigh incidental mentions. Experience is repeated because real project
+    # and work evidence should affect fit, not only extracted skill headings.
+    return (f"{normalize_text_for_matching(candidate.get('Education', ''))} "
             f"{skills} {skills} {skills} "
             f"{certs} {certs} "
-            f"{candidate.get('Previous_Companies', '')} "
-            f"{candidate.get('Job_Role_Applied', '')}")
+            f"{experience} {experience} "
+            f"{projects} "
+            f"{technologies} "
+            f"{normalize_text_for_matching(candidate.get('Job_Role_Applied', ''))}")
+
+
+def _contains_term(text, term):
+    compact_text = re.sub(r"[^a-z0-9+#]+", "", (text or "").lower())
+    compact_term = re.sub(r"[^a-z0-9+#]+", "", (term or "").lower())
+    return bool(compact_term and compact_term in compact_text)
+
+
+def _weighted_term_score(text, weighted_terms):
+    if not weighted_terms:
+        return 0.0
+
+    total_weight = sum(weighted_terms.values())
+    matched_weight = sum(
+        weight for term, weight in weighted_terms.items()
+        if _contains_term(text, term)
+    )
+    return (matched_weight / total_weight) * 100 if total_weight else 0.0
+
+
+def _get_job_weighted_terms(job_text):
+    lower_job = (job_text or "").lower()
+    weighted_terms = {}
+
+    base_terms = {
+        "python": 4.0, "java": 3.0, "javascript": 3.0, "typescript": 3.0,
+        "react": 3.0, "node": 3.0, "html": 2.0, "css": 2.0,
+        "sql": 2.5, "mongodb": 2.0, "mysql": 2.0, "aws": 2.5,
+        "docker": 2.0, "git": 1.5, "figma": 4.0, "wireframing": 3.0,
+        "prototype": 3.0, "user research": 4.0, "usability testing": 3.5,
+        "machine learning": 5.0, "deep learning": 5.0, "nlp": 4.0,
+        "natural language processing": 4.0, "computer vision": 4.0,
+        "tensorflow": 4.0, "pytorch": 4.0, "scikit-learn": 3.5,
+        "pandas": 3.0, "numpy": 3.0, "spark": 3.0, "pyspark": 3.0,
+        "snowflake": 2.5, "data engineering": 3.0, "selenium": 1.5,
+        "playwright": 1.5, "jmeter": 1.0, "jenkins": 1.5,
+    }
+
+    for term, weight in base_terms.items():
+        if _contains_term(lower_job, term):
+            weighted_terms[term] = max(weighted_terms.get(term, 0), weight)
+
+    if any(token in lower_job for token in ["ai engineer", "machine learning", "deep learning", "nlp", "computer vision"]):
+        weighted_terms.update({
+            "python": 4.0, "machine learning": 5.0, "deep learning": 5.0,
+            "nlp": 4.0, "computer vision": 4.0, "tensorflow": 4.0,
+            "pytorch": 4.0, "scikit-learn": 3.5, "pandas": 3.0,
+            "numpy": 3.0, "spark": 3.0, "pyspark": 3.0,
+            "snowflake": 2.5, "sql": 2.5, "aws": 2.5, "docker": 2.0,
+            "data engineering": 3.0, "selenium": 1.5, "playwright": 1.5,
+            "jmeter": 1.0, "jenkins": 1.5,
+        })
+
+    if any(token in lower_job for token in ["ui/ux", "ui ux", "designer", "user experience", "user interface"]):
+        weighted_terms.update({
+            "figma": 5.0, "ui": 4.0, "ux": 4.0, "wireframing": 4.0,
+            "prototype": 4.0, "user research": 5.0, "usability testing": 4.0,
+            "html": 2.0, "css": 2.0, "canva": 2.0,
+        })
+
+    software_role_patterns = [
+        r"\bsoftware\s+engineers?\b",
+        r"\bsoftware\s+developers?\b",
+        r"\bfull[-\s]?stack\b",
+    ]
+    if any(re.search(pattern, lower_job) for pattern in software_role_patterns):
+        weighted_terms.update({
+            "java": 3.5, "javascript": 3.5, "typescript": 3.0,
+            "react": 3.5, "node": 3.5, "python": 3.0, "php": 2.5,
+            "html": 2.5, "css": 2.5, "sql": 3.0, "mongodb": 2.5,
+            "mysql": 2.5, "git": 2.0, "docker": 2.0,
+        })
+
+    return weighted_terms
+
+
+def _is_software_engineering_job(job_text):
+    lower_job = (job_text or "").lower()
+    software_role_patterns = [
+        r"\bsoftware\s+engineers?\b",
+        r"\bsoftware\s+developers?\b",
+        r"\bfull[-\s]?stack\b",
+        r"\bbackend\s+developers?\b",
+        r"\bfrontend\s+developers?\b",
+        r"\bweb\s+developers?\b",
+        r"\bapplication\s+developers?\b",
+    ]
+    return any(re.search(pattern, lower_job) for pattern in software_role_patterns)
+
+
+def _is_data_ai_job(job_text):
+    lower_job = (job_text or "").lower()
+    return any(token in lower_job for token in [
+        "data engineer", "data engineering", "machine learning", "ml engineer",
+        "ai engineer", "data scientist", "analytics engineer", "etl", "elt",
+        "snowflake", "pyspark", "spark", "airflow", "data pipeline",
+        "data quality", "semantic search", "large language model", "llm",
+    ])
+
+
+def _data_ai_profile_score(candidate_text):
+    terms = {
+        "python": 4.0, "sql": 4.0, "pyspark": 5.0, "spark": 4.0,
+        "snowflake": 5.0, "aws glue": 4.0, "aws": 3.0, "airflow": 4.0,
+        "great expectations": 5.0, "data engineering": 5.0,
+        "data quality": 4.5, "data pipeline": 4.5, "etl": 3.5, "elt": 3.5,
+        "s3": 3.0, "ods": 2.5, "medallion": 3.5, "bronze": 2.0,
+        "silver": 2.0, "gold": 2.0, "stored procedure": 3.0,
+        "cte": 2.5, "schema consistency": 3.5, "data completeness": 3.5,
+        "referential integrity": 3.5, "json": 2.0, "html": 1.5,
+        "pandas": 3.0, "numpy": 3.0, "machine learning": 4.0,
+        "deep learning": 4.0, "tensorflow": 3.5, "pytorch": 3.5,
+        "natural language processing": 3.0, "nlp": 3.0,
+        "computer vision": 3.0, "fastapi": 3.5, "flask": 2.5,
+        "django": 2.5, "rest api": 3.0, "postgresql": 3.5,
+        "pgvector": 4.0, "vector embeddings": 4.0, "semantic search": 4.0,
+        "large language models": 3.5, "llm": 3.5, "docker": 3.0,
+        "kubernetes": 3.0, "helm": 2.5, "jenkins": 2.5,
+        "github actions": 2.5, "linux": 2.0,
+    }
+
+    profile_score = _weighted_term_score(candidate_text, terms)
+
+    pipeline_hits = sum(_contains_term(candidate_text, term) for term in [
+        "pyspark", "snowflake", "great expectations", "data quality",
+        "data pipeline", "s3", "ods", "medallion",
+    ])
+    ml_hits = sum(_contains_term(candidate_text, term) for term in [
+        "machine learning", "deep learning", "tensorflow", "pytorch",
+        "natural language processing", "nlp", "computer vision",
+    ])
+    api_ai_hits = sum(_contains_term(candidate_text, term) for term in [
+        "fastapi", "postgresql", "pgvector", "vector embeddings",
+        "semantic search", "large language models", "llm",
+    ])
+    devops_hits = sum(_contains_term(candidate_text, term) for term in [
+        "docker", "kubernetes", "helm", "jenkins", "github actions", "aws",
+    ])
+
+    if pipeline_hits >= 5:
+        profile_score += 12
+    elif pipeline_hits >= 3:
+        profile_score += 7
+    if ml_hits >= 4:
+        profile_score += 8
+    if api_ai_hits >= 4:
+        profile_score += 8
+    if devops_hits >= 3:
+        profile_score += 5
+
+    return max(0.0, min(100.0, profile_score))
+
+
+def _software_engineering_profile_score(candidate_text):
+    terms = {
+        "mern": 7.0, "next.js": 5.5, "nextjs": 5.5, "react": 4.5,
+        "node.js": 4.5, "node": 4.5, "express": 4.0,
+        "django": 5.0, "spring boot": 5.0, "laravel": 4.5,
+        "asp.net core": 5.0, "asp.net": 4.5, ".net": 3.5, "fastapi": 3.0,
+        "java": 3.5, "javascript": 3.5, "typescript": 3.5,
+        "python": 2.5, "php": 2.5, "c++": 2.0, "kotlin": 1.5,
+        "postgresql": 4.0, "mongodb": 3.5, "mysql": 3.5,
+        "oracle sql": 3.0, "sql server": 3.0, "mssql": 3.0, "sqlite": 2.0,
+        "aws": 3.0, "docker": 2.5, "git": 2.0, "github": 2.0,
+        "azure devops": 2.5, "jira": 1.5, "rest api": 4.5,
+        "api integration": 3.5, "restful": 4.0, "jwt": 2.5,
+        "agile": 2.0, "scrum": 1.5, "oop": 2.5,
+        "data structures": 2.5, "algorithms": 2.5, "sdlc": 2.0,
+        "full-stack": 5.0, "full stack": 5.0, "product engineering": 3.5,
+        "internship": 3.0, "intern": 2.0, "software engineer intern": 5.0,
+        "software engineer": 4.0, "developer": 3.0, "enterprise": 2.0,
+    }
+
+    profile_score = _weighted_term_score(candidate_text, terms)
+
+    frontend_hits = sum(_contains_term(candidate_text, term) for term in ["mern", "react", "next.js", "nextjs", "html", "css", "tailwind"])
+    backend_hits = sum(_contains_term(candidate_text, term) for term in ["node", "express", "django", "spring boot", "laravel", "asp.net", ".net", "java", "php"])
+    database_hits = sum(_contains_term(candidate_text, term) for term in ["mongodb", "mysql", "postgresql", "oracle sql", "sql server", "mssql"])
+    if frontend_hits >= 2 and backend_hits >= 2 and database_hits >= 1:
+        profile_score += 16
+    elif backend_hits >= 2 and database_hits >= 1:
+        profile_score += 9
+
+    if sum(_contains_term(candidate_text, term) for term in ["django", "spring boot", "laravel", "asp.net", "node", "express"]) >= 3:
+        profile_score += 8
+
+    if _contains_term(candidate_text, "mern") and any(_contains_term(candidate_text, term) for term in ["asp.net", ".net", "oracle sql", "enterprise"]):
+        profile_score += 10
+
+    if all(_contains_term(candidate_text, term) for term in ["react", "asp.net", "node", "mssql"]):
+        profile_score += 10
+
+    if _contains_term(candidate_text, "software engineer intern") and any(_contains_term(candidate_text, term) for term in ["api integration", "azure devops", "product engineering"]):
+        profile_score += 8
+
+    if sum(_contains_term(candidate_text, term) for term in ["jwt", "docker", "rest api", "role-based access", "security"]) >= 3:
+        profile_score += 7
+
+    qa_focus = sum(_contains_term(candidate_text, term) for term in ["qa", "quality assurance", "selenium", "playwright", "jmeter", "testing"])
+    ui_focus = sum(_contains_term(candidate_text, term) for term in ["ui/ux", "ui ux", "user research", "figma", "wireframing", "prototype"])
+    data_focus = sum(_contains_term(candidate_text, term) for term in ["machine learning", "data engineering", "tensorflow", "pytorch", "snowflake", "pyspark"])
+    mobile_ai_tool_focus = sum(_contains_term(candidate_text, term) for term in ["flutter", "react native", "powerbi", "chatgpt", "gemini", "ai tools"])
+
+    if qa_focus >= 3 and backend_hits < 2:
+        profile_score -= 14
+    if ui_focus >= 3 and backend_hits < 2:
+        profile_score -= 16
+    if data_focus >= 3 and frontend_hits < 2 and backend_hits < 2:
+        profile_score -= 12
+    if mobile_ai_tool_focus >= 3 and backend_hits < 3:
+        profile_score -= 7
+
+    return max(0.0, min(100.0, profile_score))
 
 
 def predict_fit_batch_from_dataframe(df, job_text):
@@ -1161,29 +1745,54 @@ def predict_fit_batch_from_dataframe(df, job_text):
             "Skills": row.get("Skills", ""),
             "Previous_Companies": row.get("Previous_Companies", ""),
             "Certifications": row.get("Certifications", ""),
-            "Job_Role_Applied": row.get("Job_Role_Applied", "")
+            "Job_Role_Applied": row.get("Job_Role_Applied", ""),
+            "Experience_Source": row.get("Experience_Source", ""),
+            "Experience_Details": row.get("Experience_Details", ""),
+            "Project_Details": row.get("Project_Details", "")
         }
         candidate_texts.append(candidate_to_text_format(candidate))
 
-    all_texts = candidate_texts + [job_text]
-    tfidf = _TfidfVectorizer(stop_words="english", max_features=500, ngram_range=(1, 2))
-    tfidf_matrix = tfidf.fit_transform(all_texts)
-
-    job_vector = tfidf_matrix[-1]
-    candidate_vectors = tfidf_matrix[:-1]
-    raw_sim = _cosine_similarity(candidate_vectors, job_vector).flatten()
+    normalized_job_text = normalize_text_for_matching(job_text)
+    raw_sim = []
+    for candidate_text in candidate_texts:
+        tfidf = _TfidfVectorizer(stop_words="english", max_features=500, ngram_range=(1, 2))
+        tfidf_matrix = tfidf.fit_transform([candidate_text, normalized_job_text])
+        raw_sim.append(float(_cosine_similarity(tfidf_matrix[0], tfidf_matrix[1]).flatten()[0]))
+    raw_sim = _np.array(raw_sim)
 
     # Scale scores to a meaningful 0–100 range.
     # Map: raw 0 → 10 (minimum baseline), raw max → 95 (best possible).
     # This keeps relative ranking intact while producing readable percentages.
-    sim_min = raw_sim.min()
-    sim_max = raw_sim.max()
-    if sim_max > sim_min:
-        scaled = 10 + (raw_sim - sim_min) / (sim_max - sim_min) * 85
+    text_scores = 20 + _np.sqrt(_np.clip(raw_sim, 0, 1)) * 70
+
+    weighted_terms = _get_job_weighted_terms(normalized_job_text)
+    skill_scores = _np.array([
+        _weighted_term_score(candidate_text, weighted_terms)
+        for candidate_text in candidate_texts
+    ])
+
+    if weighted_terms:
+        skill_scores = _np.sqrt(skill_scores / 100) * 100
+        scaled = (text_scores * 0.5) + (skill_scores * 0.5)
     else:
-        scaled = _np.full_like(raw_sim, 50.0)
+        scaled = text_scores
+
+    if _is_data_ai_job(normalized_job_text):
+        data_scores = _np.array([
+            _data_ai_profile_score(candidate_text)
+            for candidate_text in candidate_texts
+        ])
+        scaled = (scaled * 0.75) + (data_scores * 0.25)
+
+    if _is_software_engineering_job(normalized_job_text):
+        software_scores = _np.array([
+            _software_engineering_profile_score(candidate_text)
+            for candidate_text in candidate_texts
+        ])
+        scaled = (scaled * 0.65) + (software_scores * 0.35)
 
     df_result = df.copy()
+    scaled = _np.clip(scaled, 5, 95)
     df_result["Fit_Percentage"] = [round(float(s), 2) for s in scaled]
 
     return df_result.sort_values("Fit_Percentage", ascending=False).reset_index(drop=True)
@@ -1214,7 +1823,7 @@ def batch_predict_preview():
             # Read CSV and perform prediction
             df = pd.read_csv(csv_path)
             result_df = predict_fit_batch_from_dataframe(df, job_text)
-            preview_data = result_df.head(10).to_dict('records')
+            preview_data = result_df.to_dict('records')
 
             return jsonify({
                 'success': True,
@@ -1256,18 +1865,14 @@ def batch_predict_pdfs_preview():
     temp_files = []
 
     try:
-        # Ensure model is ready
+        # The current PDF matching path uses local TF-IDF/heuristic scoring and
+        # does not require the legacy pickled sklearn model. Try loading it for
+        # health visibility, but do not block predictions on version mismatch.
         if model is None or vectorizer is None:
             if not load_model_global():
-                return jsonify({
-                    'success': False,
-                    'error': model_load_error or 'Model not loaded. Please check server logs.',
-                    'details': {
-                        'model_exists': os.path.exists(Config.MODEL_SAVE_PATH),
-                        'vectorizer_exists': os.path.exists(Config.VECTORIZER_SAVE_PATH),
-                        'model_error': model_load_error
-                    }
-                }), 500
+                logger.warning(
+                    "Legacy CV model is unavailable; continuing with TF-IDF heuristic scoring."
+                )
 
         if 'job_pdf' not in request.files:
             return jsonify({'success': False, 'error': 'No job description PDF uploaded'}), 400
@@ -1304,11 +1909,8 @@ def batch_predict_pdfs_preview():
 
         rows = []
 
-        # Build candidate rows from PDFs (limit preview to first 20 candidates for performance)
-        for idx, file in enumerate(candidate_files):
-            if idx >= 20:
-                break
-
+        # Build candidate rows from all uploaded PDFs.
+        for file in candidate_files:
             if file.filename == '':
                 continue
 
@@ -1342,7 +1944,7 @@ def batch_predict_pdfs_preview():
             output_df["Experience_Years"] = result_df["Experience_Years_Output"]
         if "Certifications_Output" in result_df.columns:
             output_df["Certifications"] = result_df["Certifications_Output"]
-        preview_df = output_df.head(10)
+        preview_df = output_df
 
         return jsonify({
             'success': True,
@@ -1433,18 +2035,12 @@ def batch_predict_csv():
     if datetime.now().minute % 10 == 0:
         cleanup_old_files()
 
-    # Check if model is loaded
+    # The active CSV matching path does not require the legacy pickled model.
     if model is None or vectorizer is None:
         if not load_model_global():
-            return jsonify({
-                'success': False,
-                'error': model_load_error or 'Model not loaded. Please check server logs.',
-                'details': {
-                    'model_exists': os.path.exists(Config.MODEL_SAVE_PATH),
-                    'vectorizer_exists': os.path.exists(Config.VECTORIZER_SAVE_PATH),
-                    'model_error': model_load_error
-                }
-            }), 500
+            logger.warning(
+                "Legacy CV model is unavailable; continuing with TF-IDF heuristic scoring."
+            )
 
     temp_files = []
     output_path = None
@@ -1588,14 +2184,9 @@ def batch_predict_pdfs():
 
     if model is None or vectorizer is None:
         if not load_model_global():
-            return jsonify({
-                'success': False,
-                'error': 'Model not loaded. Please check server logs.',
-                'details': {
-                    'model_exists': os.path.exists(Config.MODEL_SAVE_PATH),
-                    'vectorizer_exists': os.path.exists(Config.VECTORIZER_SAVE_PATH)
-                }
-            }), 500
+            logger.warning(
+                "Legacy CV model is unavailable; continuing with TF-IDF heuristic scoring."
+            )
 
     temp_files = []
     output_path = None

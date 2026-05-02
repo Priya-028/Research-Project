@@ -19,13 +19,12 @@ from sklearn.metrics import (
 from sklearn.ensemble import RandomForestClassifier
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
-from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 
 # =========================
 # SETTINGS
 # =========================
-DATA_PATH = "DataSet_New.csv"
+DATA_PATH = "DataSet_New_generated.csv"
 OUTPUT_DIR = "Two_Model_Output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -95,10 +94,10 @@ X_train_cls, X_test_cls, y_train_cls, y_test_cls = train_test_split(
 )
 
 # =========================
-# MODEL 1 - ANN REGRESSION (FINE-TUNE EPOCHS)
+# MODEL 1 - ANN REGRESSION
 # =========================
 print("\n" + "=" * 80)
-print("TRAINING MODEL 1 - ANN REGRESSION (FINE-TUNE 3-STAGE)")
+print("TRAINING MODEL 1 - ANN REGRESSION")
 print("=" * 80)
 
 ann_model = Sequential([
@@ -118,9 +117,15 @@ ann_model = Sequential([
     Dense(1, activation="linear")
 ])
 
+ann_model.compile(
+    optimizer="adam",
+    loss="mse",
+    metrics=["mae", "mse"]
+)
+
 early_stopping = EarlyStopping(
     monitor="val_loss",
-    patience=15,
+    patience=20,
     restore_best_weights=True,
     verbose=1
 )
@@ -128,91 +133,20 @@ early_stopping = EarlyStopping(
 reduce_lr = ReduceLROnPlateau(
     monitor="val_loss",
     factor=0.5,
-    patience=8,
+    patience=10,
     min_lr=0.00001,
     verbose=1
 )
 
-# =========================
-# STAGE 1: EXPLORATION (Epochs 1-50, LR=0.001)
-# =========================
-print("\nStage 1/3: Exploration Phase (50 epochs, learning_rate=0.001)")
-ann_model.compile(
-    optimizer=Adam(learning_rate=0.001),
-    loss="mse",
-    metrics=["mae", "mse"]
-)
-
-history1 = ann_model.fit(
+history = ann_model.fit(
     X_train_reg,
     y_train_reg,
     validation_data=(X_test_reg, y_test_reg),
-    epochs=50,
+    epochs=150,
     batch_size=32,
     verbose=1,
     callbacks=[early_stopping, reduce_lr]
 )
-
-# =========================
-# STAGE 2: REFINEMENT (Epochs 51-100, LR=0.0005)
-# =========================
-print("\nStage 2/3: Refinement Phase (50 epochs, learning_rate=0.0005)")
-ann_model.compile(
-    optimizer=Adam(learning_rate=0.0005),
-    loss="mse",
-    metrics=["mae", "mse"]
-)
-
-history2 = ann_model.fit(
-    X_train_reg,
-    y_train_reg,
-    validation_data=(X_test_reg, y_test_reg),
-    epochs=50,
-    batch_size=32,
-    verbose=1,
-    callbacks=[early_stopping, reduce_lr]
-)
-
-# =========================
-# STAGE 3: POLISH (Epochs 101-130, LR=0.0001)
-# =========================
-print("\nStage 3/3: Polish Phase (30 epochs, learning_rate=0.0001)")
-ann_model.compile(
-    optimizer=Adam(learning_rate=0.0001),
-    loss="mse",
-    metrics=["mae", "mse"]
-)
-
-history3 = ann_model.fit(
-    X_train_reg,
-    y_train_reg,
-    validation_data=(X_test_reg, y_test_reg),
-    epochs=30,
-    batch_size=32,
-    verbose=1,
-    callbacks=[early_stopping, reduce_lr]
-)
-
-# Combine all histories
-history_combined = {
-    "loss": history1.history["loss"] + history2.history["loss"] + history3.history["loss"],
-    "val_loss": history1.history["val_loss"] + history2.history["val_loss"] + history3.history["val_loss"],
-    "mae": history1.history["mae"] + history2.history["mae"] + history3.history["mae"],
-    "val_mae": history1.history["val_mae"] + history2.history["val_mae"] + history3.history["val_mae"]
-}
-
-# Create combined history object for plotting
-class CombinedHistory:
-    def __init__(self, history_dict):
-        self.history = history_dict
-
-history = CombinedHistory(history_combined)
-
-print("\n" + "=" * 80)
-print("FINE-TUNING COMPLETE")
-print("=" * 80)
-print(f"Total epochs trained: {len(history.history['loss'])}")
-print(f"Best validation loss: {min(history.history['val_loss']):.6f}")
 
 # Regression evaluation
 y_pred_reg = ann_model.predict(X_test_reg).flatten()

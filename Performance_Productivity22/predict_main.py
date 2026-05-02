@@ -40,8 +40,6 @@ FEATURE_COLUMNS = [
     "training_hours",
 ]
 
-FEEDBACK_BLEND_WEIGHT = 0.35
-
 
 # =========================================
 # LOAD MODELS
@@ -150,24 +148,6 @@ def generate_predictions(input_df: pd.DataFrame):
     calibration_factor = attendance_factor * task_factor * overtime_factor * training_factor * project_factor
     calibration_factor = np.clip(calibration_factor, 0.45, 1.05)
     predicted_productivity = np.clip(predicted_productivity * calibration_factor, 0, 100)
-
-    if "FeedBack" in clean_df.columns:
-        feedback_values = pd.to_numeric(clean_df["FeedBack"], errors="coerce")
-        if feedback_values.notna().any():
-            fallback_series = pd.Series(predicted_productivity, index=clean_df.index)
-            feedback_values = feedback_values.fillna(fallback_series)
-            feedback_percentages = np.where(
-                feedback_values.to_numpy() <= 5,
-                feedback_values.to_numpy() * 20,
-                feedback_values.to_numpy(),
-            )
-            feedback_percentages = np.clip(feedback_percentages, 0, 100)
-            predicted_productivity = np.clip(
-                (predicted_productivity * (1 - FEEDBACK_BLEND_WEIGHT)) +
-                (feedback_percentages * FEEDBACK_BLEND_WEIGHT),
-                0,
-                100,
-            )
 
     # Model 2: Random Forest classification
     predicted_risk_encoded = rf_model.predict(X_processed)

@@ -93,7 +93,6 @@ NUMERIC_COLUMNS = [
 ]
 
 CATEGORICAL_COLUMNS = ["role_level", "position"]
-FEEDBACK_BLEND_WEIGHT = 0.35
 
 
 def resolve_existing_path(candidates):
@@ -225,24 +224,6 @@ def predict_productivity_percentage(input_data: pd.DataFrame):
     calibration_factor = attendance_factor * task_factor * overtime_factor * training_factor * project_factor
     calibration_factor = np.clip(calibration_factor, 0.45, 1.05)
     predictions = np.clip(predictions * calibration_factor, 0, 100)
-
-    if "FeedBack" in input_data.columns:
-        feedback_values = pd.to_numeric(input_data["FeedBack"], errors="coerce")
-        if feedback_values.notna().any():
-            fallback_series = pd.Series(predictions, index=input_data.index)
-            feedback_values = feedback_values.fillna(fallback_series)
-            feedback_percentages = np.where(
-                feedback_values.to_numpy() <= 5,
-                feedback_values.to_numpy() * 20,
-                feedback_values.to_numpy(),
-            )
-            feedback_percentages = np.clip(feedback_percentages, 0, 100)
-            predictions = np.clip(
-                (predictions * (1 - FEEDBACK_BLEND_WEIGHT)) +
-                (feedback_percentages * FEEDBACK_BLEND_WEIGHT),
-                0,
-                100,
-            )
 
     return predictions
 

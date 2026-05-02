@@ -1564,14 +1564,14 @@ const EmployeeProductivity = () => {
                     <i className="fas fa-user-plus"></i>
                     Add Employee
                   </button>
-                  <button
+                  {/* <button
                     type="button"
                     className="preview-page-btn"
                     onClick={handlePreview}
                     disabled={loading || employeesLoading || employees.length === 0}
                   >
                     {loading ? 'Previewing...' : 'Preview Database'}
-                  </button>
+                  </button> */}
                   <button
                     type="button"
                     className="preview-page-btn"
