@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- site metas -->
+  <title>AI HRM System</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="/static/Assets/css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" href="/static/Assets/css/style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="/static/Assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- favicon -->
+  <link rel="icon" href="/static/Assets/images/fevicon.png" type="image/gif">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+
+<body class="main-layout inner_page">
+  <!-- loader -->
+  <div class="loader_bg">
+    <div class="loader">
+      <div class="progress-loader">
+        <div class="progress-logo">
+          <img src="/static/Assets/images/logo.png" alt="FOCUSBOOST">
+        </div>
+        <div class="progress-text">AI HRM System</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="progress-percentage" id="progressPercentage">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Optional: Animate progress bar
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 1;
+      document.getElementById('progressBar').style.width = progress + '%';
+      document.getElementById('progressPercentage').textContent = progress + '%';
+      if (progress >= 100) clearInterval(interval);
+    }, 30);
+  </script>
+  <!-- end loader -->
+
+  <!-- main content -->
+  <div id="root"></div>
+
+  <!-- 
+  <footer>
+     <div class="footer">
+        <div class="copyright">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-12">
+                    <p>© 2026 All Rights Reserved  <a href="#"> </a></p>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </footer>
+  -->
+
+  <!-- JavaScript files -->
+  <script src="/static/Assets/js/jquery.min.js"></script>
+  <script src="/static/Assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/Assets/js/custom.js"></script>
+  <!-- React Scripts -->
+  <script src="/static/js/react.production.min.js"></script>
+  <script src="/static/js/react-dom.production.min.js"></script>
+  <script src="/static/js/babel.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+
+</html>

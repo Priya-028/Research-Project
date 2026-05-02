@@ -1,0 +1,5 @@
+Age,BusinessTravel,JobRole,JobLevel,MonthlyIncome,OverTime
+30,Travel_Rarely,Research Scientist,2,5000,Yes
+45,Travel_Frequently,Sales Executive,3,7000,No
+28,Non-Travel,Laboratory Technician,1,3000,Yes
+35,Travel_Rarely,Manager,4,10000,No

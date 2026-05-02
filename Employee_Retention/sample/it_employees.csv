@@ -1,0 +1,21 @@
+Age,BusinessTravel,JobRole,JobLevel,MonthlyIncome,OverTime
+35,Travel_Rarely,DevOps Engineer,2,9128,No
+29,Non-Travel,DevOps Engineer,2,8504,Yes
+33,Travel_Frequently,Data Scientist,3,10156,Yes
+28,Non-Travel,Cloud Engineer,2,4287,Yes
+27,Travel_Frequently,Software Engineer,1,23438,No
+41,Travel_Rarely,DevOps Engineer,3,9956,Yes
+32,Non-Travel,Software Engineer,1,24295,Yes
+28,Travel_Frequently,IT Manager,1,24115,Yes
+27,Travel_Frequently,Support Analyst,2,16801,No
+43,Travel_Rarely,DevOps Engineer,1,12158,No
+44,Travel_Rarely,DevOps Engineer,3,6446,No
+35,Travel_Rarely,Cloud Engineer,4,20831,No
+29,Travel_Rarely,DevOps Engineer,4,17039,Yes
+33,Non-Travel,DevOps Engineer,4,15805,No
+30,Non-Travel,Software Engineer,3,4568,No
+38,Travel_Frequently,Cloud Engineer,3,20857,No
+34,Travel_Rarely,Cloud Engineer,3,10698,Yes
+35,Travel_Rarely,Data Scientist,2,13668,No
+52,Travel_Rarely,Cloud Engineer,4,20497,No
+52,Travel_Rarely,Data Scientist,1,14753,Yes

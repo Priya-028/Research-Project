@@ -1,0 +1,10 @@
+Training Date: 2026-05-01 15:10:56.257176
+Features Used: 26
+              precision    recall  f1-score   support
+
+           0       0.84      0.94      0.89       250
+           1       0.24      0.10      0.14        48
+
+    accuracy                           0.80       298
+   macro avg       0.54      0.52      0.52       298
+weighted avg       0.75      0.80      0.77       298

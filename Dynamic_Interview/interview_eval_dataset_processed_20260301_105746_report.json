@@ -1,0 +1,148 @@
+{
+  "timestamp": "2026-03-01T10:57:46.475901",
+  "total_questions": 120,
+  "unique_roles": 10,
+  "similarity_statistics": {
+    "mean": 71.44416666666666,
+    "median": 76.75,
+    "std": 22.754143757198364,
+    "min": 2.8,
+    "max": 100.0
+  },
+  "role_performance": {
+    "Mobile Developer": {
+      "count": 11,
+      "mean_similarity": 78.43636363636364,
+      "min_similarity": 53.1,
+      "max_similarity": 100.0
+    },
+    "Frontend Developer": {
+      "count": 18,
+      "mean_similarity": 60.05555555555556,
+      "min_similarity": 2.8,
+      "max_similarity": 94.9
+    },
+    "Backend Engineer": {
+      "count": 12,
+      "mean_similarity": 79.79166666666667,
+      "min_similarity": 34.9,
+      "max_similarity": 97.2
+    },
+    "BI Analyst": {
+      "count": 20,
+      "mean_similarity": 77.99,
+      "min_similarity": 31.4,
+      "max_similarity": 100.0
+    },
+    "ML Engineer": {
+      "count": 8,
+      "mean_similarity": 69.75,
+      "min_similarity": 32.0,
+      "max_similarity": 100.0
+    },
+    "Cloud Engineer": {
+      "count": 8,
+      "mean_similarity": 75.425,
+      "min_similarity": 45.5,
+      "max_similarity": 98.0
+    },
+    "Data Scientist": {
+      "count": 13,
+      "mean_similarity": 59.15384615384615,
+      "min_similarity": 28.0,
+      "max_similarity": 83.1
+    },
+    "DevOps Engineer": {
+      "count": 16,
+      "mean_similarity": 72.0,
+      "min_similarity": 24.5,
+      "max_similarity": 100.0
+    },
+    "HR Manager": {
+      "count": 7,
+      "mean_similarity": 68.94285714285715,
+      "min_similarity": 41.2,
+      "max_similarity": 81.1
+    },
+    "Cybersecurity Specialist": {
+      "count": 7,
+      "mean_similarity": 78.17142857142858,
+      "min_similarity": 53.1,
+      "max_similarity": 100.0
+    }
+  },
+  "low_performing_areas": [
+    {
+      "role": "Frontend Developer",
+      "question": "Explain the difference between CSS Grid and Flexbox.",
+      "similarity_score": 34.3,
+      "candidate_answer_preview": "Use test across multiple"
+    },
+    {
+      "role": "Backend Engineer",
+      "question": "How do you handle concurrency in multi-threaded applications?",
+      "similarity_score": 34.9,
+      "candidate_answer_preview": "isolation with"
+    },
+    {
+      "role": "DevOps Engineer",
+      "question": "How do you monitor application performance in production?",
+      "similarity_score": 24.5,
+      "candidate_answer_preview": "High strategies."
+    },
+    {
+      "role": "DevOps Engineer",
+      "question": "How do you monitor application performance in production?",
+      "similarity_score": 33.6,
+      "candidate_answer_preview": "build,"
+    },
+    {
+      "role": "Frontend Developer",
+      "question": "Explain the difference between CSS Grid and Flexbox.",
+      "similarity_score": 2.8,
+      "candidate_answer_preview": "and"
+    },
+    {
+      "role": "DevOps Engineer",
+      "question": "Describe how you use containers and orchestration tools.",
+      "similarity_score": 36.1,
+      "candidate_answer_preview": "automates and"
+    },
+    {
+      "role": "BI Analyst",
+      "question": "What metrics do you track to measure business performance?",
+      "similarity_score": 32.6,
+      "candidate_answer_preview": "via validation."
+    },
+    {
+      "role": "BI Analyst",
+      "question": "What metrics do you track to measure business performance?",
+      "similarity_score": 33.4,
+      "candidate_answer_preview": "validation."
+    },
+    {
+      "role": "Data Scientist",
+      "question": "How do you evaluate model performance and avoid overfitting?",
+      "similarity_score": 28.0,
+      "candidate_answer_preview": "correlation, for"
+    },
+    {
+      "role": "ML Engineer",
+      "question": "How do you handle imbalanced data in deep learning?",
+      "similarity_score": 32.0,
+      "candidate_answer_preview": "data"
+    },
+    {
+      "role": "Frontend Developer",
+      "question": "How do you optimize a webpage for performance?",
+      "similarity_score": 19.2,
+      "candidate_answer_preview": "Use across"
+    },
+    {
+      "role": "BI Analyst",
+      "question": "How do you handle missing or inconsistent data in BI?",
+      "similarity_score": 31.4,
+      "candidate_answer_preview": "Track and"
+    }
+  ]
+}

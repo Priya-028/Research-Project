@@ -1,0 +1,451 @@
+Age,Gender,Education,Skills,Experience_Years,Previous_Companies,Certifications,Job_Role_Applied,Job_Description,Fit_Score
+26,F,B.Tech CS,"Project Management, NLP, Data Analysis, AWS Certified",5,"GlobalCorp, FinTech Ltd",Java,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.97
+32,F,B.Tech CS,"TensorFlow, Oracle Java Cert, AWS Certified",11,FinTech Ltd,AWS Certified,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+36,M,B.Sc IT,"Data Analysis, Agile, Leadership, Machine Learning",1,"CodeFactory, WebWorks, GlobalCorp",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.75
+30,M,B.Tech Computer,"PyTorch, TensorFlow, Oracle Java Cert",15,"WebWorks, CodeFactory","PyTorch, Leadership",Data Analyst,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+38,M,B.Tech Computer,"Leadership, Project Management, AWS Certified, Python",1,"FinTech Ltd, CodeFactory",Machine Learning,Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.81
+38,M,MBA,"NLP, Python, PyTorch",4,TechSoft,,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.85
+35,F,B.Tech CS,"AWS Certified, Agile, Java, PyTorch, Deep Learning",4,TechSoft,SQL,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+38,M,B.Tech CS,"TensorFlow, Leadership, Deep Learning, NLP",15,"AI Labs, FinTech Ltd, CodeFactory",PyTorch,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+37,M,MBA,"Python, Java, AWS Certified, Agile, Deep Learning",1,CodeFactory,,Data Analyst,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.83
+35,M,MBA,"Deep Learning, PyTorch, TensorFlow, Oracle Java Cert",4,"TechSoft, CodeFactory, AI Solutions",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.89
+35,F,B.Sc IT,"AWS Certified, Machine Learning, PyTorch, SQL",1,AI Labs,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.74
+40,M,MBA,"Deep Learning, Leadership, AWS Certified",15,"DataCorp, AI Solutions, TechSoft",Leadership,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+31,F,B.Tech CS,"Project Management, NLP, Oracle Java Cert, Python",11,"DataCorp, AI Solutions, FinTech Ltd","Oracle Java Cert, Leadership",Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+28,F,M.Sc AI,"Machine Learning, Oracle Java Cert, TensorFlow, Java, NLP",13,"CodeFactory, DataCorp, AI Solutions","Agile, Project Management",Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+31,M,MBA,"TensorFlow, Python, SQL, Machine Learning, Agile",2,"CodeFactory, DataCorp, AI Labs",SQL,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.87
+40,M,B.Sc IT,"Oracle Java Cert, Deep Learning, TensorFlow",4,TechSoft,Machine Learning,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.88
+30,M,MBA,"Java, Agile, NLP",12,"DataCorp, AI Labs",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+36,F,MBA,"Oracle Java Cert, TensorFlow",4,WebWorks,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.77
+26,F,B.Tech Computer,"Java, Leadership",14,"GlobalCorp, WebWorks",,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+37,M,M.Sc AI,"Machine Learning, SQL, Oracle Java Cert, NLP",9,"CodeFactory, FinTech Ltd, DataCorp","Machine Learning, SQL",Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+38,M,B.Tech Computer,"Data Analysis, Python, Project Management",1,"DataCorp, AI Solutions",,AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.7
+30,F,B.Tech Computer,"AWS Certified, Machine Learning, Project Management, Deep Learning",12,"FinTech Ltd, WebWorks, CodeFactory",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+40,F,MBA,"PyTorch, Machine Learning",8,FinTech Ltd,SQL,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+27,F,B.Tech Computer,"Java, Data Analysis",3,TechSoft,,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.74
+23,M,B.Sc IT,"Python, Data Analysis",5,GlobalCorp,,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.85
+35,F,B.Tech Computer,"Java, Data Analysis, SQL, Agile",6,"AI Solutions, DataCorp",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+32,F,B.Tech CS,"NLP, SQL, Data Analysis, PyTorch",6,FinTech Ltd,"Leadership, NLP",Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+33,M,B.Tech CS,"Agile, Java, Machine Learning, Project Management",5,"CodeFactory, WebWorks, DataCorp","Machine Learning, AWS Certified",Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+30,F,B.Tech Computer,"Project Management, Leadership",3,"DataCorp, CodeFactory",,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.77
+23,F,M.Sc AI,"Python, NLP, Java, Leadership, Project Management",10,"FinTech Ltd, GlobalCorp, AI Labs",Python,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+23,M,MBA,"Project Management, Oracle Java Cert, Deep Learning",14,"WebWorks, AI Solutions",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+27,M,B.Tech Computer,"SQL, AWS Certified, PyTorch, Java, Machine Learning",8,"FinTech Ltd, WebWorks","PyTorch, Java",Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+33,F,B.Sc IT,"Java, Deep Learning",15,"CodeFactory, WebWorks",,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+26,F,B.Sc IT,"Java, Deep Learning, PyTorch, Agile, Data Analysis",7,"CodeFactory, GlobalCorp",,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+29,F,B.Tech Computer,"Oracle Java Cert, NLP, AWS Certified, Data Analysis",6,FinTech Ltd,Deep Learning,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+27,F,M.Sc AI,"NLP, Python, PyTorch, Java",12,"GlobalCorp, CodeFactory",,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+38,M,MBA,"SQL, PyTorch, NLP",15,DataCorp,"TensorFlow, Data Analysis",Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+29,M,MBA,"TensorFlow, Machine Learning, Python, Oracle Java Cert",11,"TechSoft, DataCorp",,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+30,F,B.Tech CS,"SQL, AWS Certified, NLP, Project Management",14,AI Solutions,Python,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+28,M,B.Tech Computer,"PyTorch, TensorFlow, Java, Machine Learning, Python",1,"DataCorp, TechSoft","PyTorch, Java",Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.83
+29,M,B.Sc IT,"Deep Learning, TensorFlow, Leadership, Project Management",14,"TechSoft, FinTech Ltd, CodeFactory",,Data Scientist,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+35,F,B.Tech CS,"AWS Certified, Oracle Java Cert, PyTorch, TensorFlow",15,TechSoft,,Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+26,F,B.Tech Computer,"SQL, TensorFlow, PyTorch",8,"TechSoft, FinTech Ltd, CodeFactory","Machine Learning, Oracle Java Cert",Software Developer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+40,F,B.Tech CS,"Python, Deep Learning, TensorFlow, Java",6,FinTech Ltd,Deep Learning,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+32,M,M.Sc AI,"AWS Certified, Oracle Java Cert, Python, Java",3,GlobalCorp,Leadership,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.87
+35,M,B.Tech Computer,"Oracle Java Cert, Leadership, AWS Certified, TensorFlow",7,"DataCorp, FinTech Ltd, CodeFactory",,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+22,M,B.Tech Computer,"Java, SQL, Machine Learning",6,"WebWorks, AI Labs",NLP,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.97
+28,M,B.Tech Computer,"Java, Python",3,"CodeFactory, GlobalCorp, FinTech Ltd",,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.77
+25,F,MBA,"Agile, Deep Learning, Java",2,"CodeFactory, WebWorks, TechSoft",Oracle Java Cert,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.79
+32,M,M.Sc AI,"Python, Agile",8,GlobalCorp,Java,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+34,M,M.Sc AI,"Leadership, Deep Learning",10,FinTech Ltd,"Java, Python",AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+23,F,M.Sc AI,"Python, TensorFlow, Agile, Oracle Java Cert",4,"FinTech Ltd, DataCorp","Python, Java",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.97
+37,M,B.Sc IT,"Machine Learning, TensorFlow, PyTorch",1,"CodeFactory, GlobalCorp","Java, TensorFlow",Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.77
+29,M,M.Sc AI,"Data Analysis, Agile, AWS Certified, Project Management",12,DataCorp,,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+36,M,MBA,"Machine Learning, Project Management, Data Analysis",4,WebWorks,,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.84
+38,F,B.Tech Computer,"TensorFlow, Data Analysis, NLP, PyTorch, Python",13,"FinTech Ltd, DataCorp, GlobalCorp",,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+22,F,B.Tech CS,"Data Analysis, Machine Learning, Python",5,"CodeFactory, WebWorks",AWS Certified,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.96
+25,M,B.Tech CS,"AWS Certified, Oracle Java Cert",6,"FinTech Ltd, CodeFactory, WebWorks",,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.91
+31,M,B.Sc IT,"Deep Learning, Java, Leadership",6,GlobalCorp,Machine Learning,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.97
+35,F,B.Tech CS,"PyTorch, Agile, Java, Oracle Java Cert, TensorFlow",7,"CodeFactory, AI Solutions",PyTorch,Software Developer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+40,M,M.Sc AI,"NLP, TensorFlow",10,"TechSoft, WebWorks, GlobalCorp",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+32,F,B.Tech CS,"TensorFlow, Deep Learning",6,"AI Labs, WebWorks","Agile, Leadership",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.97
+25,F,M.Sc AI,"NLP, Leadership, PyTorch, Deep Learning",2,"FinTech Ltd, AI Labs, TechSoft","Data Analysis, PyTorch",Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.88
+38,F,B.Sc IT,"Java, TensorFlow, NLP",3,WebWorks,,Data Scientist,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.8
+26,M,B.Tech Computer,"AWS Certified, Oracle Java Cert",4,"FinTech Ltd, AI Labs, TechSoft",,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.81
+30,M,M.Sc AI,"Python, SQL, AWS Certified",14,CodeFactory,Machine Learning,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+35,F,B.Tech CS,"Machine Learning, TensorFlow, Agile, Data Analysis, NLP",14,AI Solutions,"Java, NLP",Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+25,M,MBA,"Data Analysis, Java, Machine Learning",11,"CodeFactory, FinTech Ltd, AI Labs",Agile,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+24,F,MBA,"Machine Learning, Deep Learning, SQL, PyTorch, AWS Certified",12,"WebWorks, DataCorp",,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+30,F,B.Tech Computer,"AWS Certified, Machine Learning",1,"AI Labs, AI Solutions",,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.7
+36,F,M.Sc AI,"NLP, TensorFlow, Project Management, Agile",6,FinTech Ltd,,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+35,M,B.Sc IT,"Oracle Java Cert, TensorFlow, Python",10,CodeFactory,,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+29,F,B.Sc IT,"NLP, Agile, PyTorch, Machine Learning",8,TechSoft,Machine Learning,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+38,M,B.Tech Computer,"AWS Certified, Machine Learning",11,GlobalCorp,,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+40,F,B.Tech Computer,"NLP, SQL, Agile",13,"FinTech Ltd, AI Labs, WebWorks",Deep Learning,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+26,M,MBA,"Deep Learning, Data Analysis, Agile",8,"AI Labs, DataCorp, TechSoft",Project Management,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+30,M,B.Sc IT,"Python, Deep Learning",7,AI Solutions,,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.97
+40,M,B.Tech Computer,"NLP, Data Analysis, Agile",1,"CodeFactory, WebWorks",,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.7
+23,F,M.Sc AI,"Agile, SQL, Java",6,"CodeFactory, FinTech Ltd, WebWorks",,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.94
+26,M,B.Sc IT,"Deep Learning, Oracle Java Cert, Agile, Machine Learning, Data Analysis",5,TechSoft,NLP,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+36,F,MBA,"AWS Certified, Leadership, Deep Learning",4,WebWorks,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.86
+27,M,MBA,"Oracle Java Cert, Python, Data Analysis, Deep Learning",1,"FinTech Ltd, AI Labs",,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.73
+40,F,M.Sc AI,"AWS Certified, TensorFlow",2,"FinTech Ltd, CodeFactory",Machine Learning,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.73
+32,F,B.Tech Computer,"AWS Certified, Machine Learning, Agile, TensorFlow",9,"FinTech Ltd, TechSoft","Leadership, Python",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+39,F,B.Tech Computer,"Python, Machine Learning, Project Management",7,WebWorks,,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+33,M,B.Sc IT,"PyTorch, Project Management",8,CodeFactory,"Data Analysis, Agile",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+36,F,B.Tech CS,"Data Analysis, Oracle Java Cert, Python",7,FinTech Ltd,,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+37,F,MBA,"SQL, TensorFlow, Python, PyTorch, Agile",2,"GlobalCorp, FinTech Ltd, DataCorp",,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.84
+30,F,B.Tech Computer,"Machine Learning, Data Analysis, AWS Certified, Project Management, Leadership",14,"CodeFactory, TechSoft",,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+36,F,B.Tech Computer,"AWS Certified, PyTorch, Java, SQL, Python",6,"GlobalCorp, FinTech Ltd","Leadership, Python",Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+38,M,B.Tech Computer,"TensorFlow, PyTorch, AWS Certified, Python",10,AI Solutions,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+32,F,MBA,"Project Management, Oracle Java Cert",14,CodeFactory,Oracle Java Cert,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+39,M,M.Sc AI,"SQL, Project Management, NLP, Oracle Java Cert",2,"GlobalCorp, TechSoft","Python, Leadership",AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.83
+25,M,B.Tech CS,"Machine Learning, Java, Project Management, AWS Certified, Deep Learning",14,"AI Labs, TechSoft",,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+28,M,B.Sc IT,"SQL, NLP",12,"TechSoft, FinTech Ltd, GlobalCorp",,Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+40,F,B.Tech CS,"Agile, AWS Certified, Deep Learning, PyTorch",6,CodeFactory,,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.98
+36,M,B.Sc IT,"Java, Agile, Machine Learning",15,"CodeFactory, AI Labs",Java,AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+33,F,MBA,"Deep Learning, PyTorch",13,"WebWorks, DataCorp, TechSoft","AWS Certified, Agile",Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+40,M,M.Sc AI,"NLP, Data Analysis, SQL, Python, Agile",2,CodeFactory,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.86
+30,M,B.Tech CS,"Machine Learning, Python, TensorFlow, Agile",6,AI Solutions,,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.97
+31,M,B.Tech CS,"AWS Certified, Agile",12,DataCorp,Data Analysis,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+23,F,M.Sc AI,"NLP, Machine Learning, PyTorch, Data Analysis",15,"AI Solutions, GlobalCorp, TechSoft","Java, AWS Certified",Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+40,M,B.Tech Computer,"Agile, Oracle Java Cert, Leadership, Python, NLP",11,"GlobalCorp, TechSoft, WebWorks",Deep Learning,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+28,M,B.Sc IT,"TensorFlow, Java",6,AI Labs,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.89
+29,F,B.Tech CS,"Project Management, Deep Learning, Machine Learning",6,GlobalCorp,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.93
+32,F,B.Sc IT,"SQL, PyTorch, Data Analysis, Leadership, Agile",12,"WebWorks, DataCorp","Java, Data Analysis",Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+28,M,B.Tech CS,"TensorFlow, Deep Learning, AWS Certified, SQL, Data Analysis",5,"WebWorks, CodeFactory",Deep Learning,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+33,F,B.Sc IT,"SQL, NLP, Python, Deep Learning",13,"CodeFactory, TechSoft, FinTech Ltd",Project Management,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+33,M,M.Sc AI,"PyTorch, Java, TensorFlow, Project Management",7,GlobalCorp,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+27,M,B.Sc IT,"TensorFlow, Python, Project Management, Java, Leadership",4,"CodeFactory, GlobalCorp",AWS Certified,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+38,F,B.Sc IT,"TensorFlow, Project Management",11,CodeFactory,"Deep Learning, SQL",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+31,M,MBA,"Data Analysis, Java, Agile",14,"GlobalCorp, FinTech Ltd, WebWorks","AWS Certified, Oracle Java Cert",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+24,M,B.Sc IT,"AWS Certified, Agile, Data Analysis",2,"TechSoft, AI Solutions, AI Labs","Machine Learning, Oracle Java Cert",Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.82
+26,F,B.Tech CS,"Deep Learning, Oracle Java Cert",6,GlobalCorp,,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.91
+29,M,M.Sc AI,"Agile, Python",6,"FinTech Ltd, GlobalCorp",SQL,AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.94
+37,M,MBA,"PyTorch, TensorFlow, Agile, Java",5,CodeFactory,,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.97
+23,F,B.Sc IT,"Agile, Data Analysis",2,"WebWorks, CodeFactory, GlobalCorp",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.73
+40,M,M.Sc AI,"NLP, Python, TensorFlow, Java, Machine Learning",9,TechSoft,Deep Learning,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+25,M,M.Sc AI,"Java, TensorFlow, AWS Certified, Deep Learning, Data Analysis",6,"AI Solutions, CodeFactory","NLP, Java",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+38,M,B.Tech CS,"Data Analysis, AWS Certified",8,"AI Solutions, CodeFactory, DataCorp","Deep Learning, Java",Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+39,F,MBA,"Agile, Oracle Java Cert",3,"TechSoft, DataCorp",,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.76
+24,M,B.Sc IT,"Oracle Java Cert, Leadership, Data Analysis",13,"AI Labs, GlobalCorp, WebWorks",NLP,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+32,M,B.Sc IT,"PyTorch, Data Analysis",1,"CodeFactory, AI Labs",Project Management,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.7
+35,M,B.Tech CS,"NLP, Machine Learning, AWS Certified, Project Management, Python",15,AI Solutions,,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+27,M,B.Tech CS,"SQL, PyTorch, TensorFlow, Machine Learning",13,"GlobalCorp, DataCorp",Project Management,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+22,F,B.Sc IT,"SQL, Machine Learning, NLP, Python",5,"FinTech Ltd, CodeFactory","SQL, Oracle Java Cert",Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+26,M,M.Sc AI,"Deep Learning, PyTorch, Oracle Java Cert, Agile",5,"AI Labs, FinTech Ltd",Leadership,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.98
+22,M,B.Tech CS,"Deep Learning, Java, NLP, Project Management, Agile",15,"AI Labs, FinTech Ltd","Leadership, Java",AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+29,M,B.Sc IT,"Leadership, Agile, Oracle Java Cert, Deep Learning",11,"DataCorp, AI Labs, AI Solutions","Leadership, SQL",Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+39,F,M.Sc AI,"AWS Certified, Project Management, Data Analysis",13,"TechSoft, DataCorp, FinTech Ltd","Deep Learning, Python",Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+23,F,B.Tech CS,"Python, Machine Learning",5,"TechSoft, DataCorp, AI Labs",AWS Certified,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.86
+33,M,M.Sc AI,"PyTorch, NLP",4,TechSoft,,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.79
+30,M,B.Tech Computer,"Leadership, PyTorch, Python, AWS Certified, TensorFlow",2,"CodeFactory, WebWorks","PyTorch, SQL",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.91
+28,F,B.Sc IT,"SQL, Project Management, Agile, PyTorch, Python",9,"WebWorks, TechSoft, FinTech Ltd","Project Management, Deep Learning",Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+31,M,MBA,"Project Management, PyTorch, Machine Learning, Agile, NLP",3,"CodeFactory, TechSoft, GlobalCorp",,Software Developer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.91
+39,F,MBA,"Oracle Java Cert, Java, Deep Learning, Leadership",6,GlobalCorp,PyTorch,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+36,M,B.Sc IT,"Deep Learning, Agile, Leadership",5,"CodeFactory, TechSoft",NLP,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.92
+29,F,B.Tech Computer,"PyTorch, Leadership, NLP, Python, Agile",15,"CodeFactory, AI Labs",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+24,M,M.Sc AI,"TensorFlow, Machine Learning, AWS Certified, Agile",4,"DataCorp, AI Labs","Java, Machine Learning",Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.98
+33,F,M.Sc AI,"Project Management, Oracle Java Cert",15,"FinTech Ltd, CodeFactory, DataCorp",TensorFlow,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+24,M,M.Sc AI,"Agile, Machine Learning",11,AI Labs,,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+35,M,B.Sc IT,"Java, Python, Agile, Data Analysis, Leadership",12,"TechSoft, DataCorp, AI Solutions","Python, Java",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+27,F,B.Sc IT,"Project Management, Python, Agile",8,"FinTech Ltd, WebWorks, AI Solutions",Machine Learning,Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+22,M,B.Sc IT,"SQL, Machine Learning",2,"CodeFactory, GlobalCorp",,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.7
+33,M,B.Tech Computer,"Python, Machine Learning, Leadership, Oracle Java Cert",5,"GlobalCorp, FinTech Ltd, WebWorks",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.92
+32,M,MBA,"PyTorch, Oracle Java Cert",13,CodeFactory,SQL,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+28,M,B.Tech CS,"Data Analysis, Agile",11,"TechSoft, FinTech Ltd",,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+35,M,B.Tech Computer,"Data Analysis, NLP, Java, Agile, Python",9,"WebWorks, FinTech Ltd, CodeFactory","AWS Certified, Java",Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+37,M,B.Tech Computer,"Python, AWS Certified, Java, Data Analysis",4,"CodeFactory, FinTech Ltd, TechSoft",AWS Certified,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.96
+25,F,B.Tech CS,"NLP, PyTorch, Machine Learning",3,"FinTech Ltd, WebWorks",Machine Learning,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.83
+39,F,B.Sc IT,"Deep Learning, PyTorch, Data Analysis",8,"AI Solutions, DataCorp",Data Analysis,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+25,M,B.Tech CS,"PyTorch, SQL, Agile",3,"WebWorks, DataCorp, TechSoft",,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.82
+35,M,B.Tech CS,"Machine Learning, Leadership, AWS Certified",6,"GlobalCorp, DataCorp",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.92
+39,F,MBA,"NLP, AWS Certified",13,WebWorks,"NLP, TensorFlow",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+32,M,B.Tech Computer,"Leadership, Deep Learning",4,"GlobalCorp, AI Solutions, DataCorp",Oracle Java Cert,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.81
+40,F,B.Tech CS,"SQL, Machine Learning, Deep Learning",1,"TechSoft, GlobalCorp, AI Solutions",,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.72
+24,F,M.Sc AI,"Oracle Java Cert, Python, AWS Certified, Project Management, Java",5,TechSoft,,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.98
+38,M,M.Sc AI,"SQL, Oracle Java Cert, Deep Learning",10,"WebWorks, AI Labs, AI Solutions",,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+28,M,B.Tech Computer,"Oracle Java Cert, Project Management, AWS Certified",12,"WebWorks, FinTech Ltd, DataCorp",,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+32,M,B.Tech CS,"Oracle Java Cert, Python",9,FinTech Ltd,"Oracle Java Cert, SQL",Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+37,F,MBA,"PyTorch, NLP, Java",13,TechSoft,"SQL, TensorFlow",AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+28,F,MBA,"Python, Java",4,"GlobalCorp, TechSoft, CodeFactory","Java, Project Management",Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.89
+25,F,B.Tech Computer,"Deep Learning, Project Management, Machine Learning, Oracle Java Cert, TensorFlow",13,WebWorks,PyTorch,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+38,M,M.Sc AI,"PyTorch, Java, TensorFlow",11,"AI Solutions, AI Labs, FinTech Ltd",,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+36,F,MBA,"Leadership, NLP, Data Analysis, Python, Agile",4,"DataCorp, AI Labs",Deep Learning,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.96
+40,F,M.Sc AI,"Agile, PyTorch, Python",1,"FinTech Ltd, TechSoft, AI Labs","Agile, SQL",Data Scientist,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.77
+40,M,M.Sc AI,"PyTorch, Leadership",10,TechSoft,"Deep Learning, NLP",Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+39,F,B.Tech CS,"Deep Learning, Project Management, Leadership, PyTorch",2,"TechSoft, FinTech Ltd","SQL, Machine Learning",AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.85
+25,M,B.Sc IT,"TensorFlow, Java, Python",2,"WebWorks, GlobalCorp, DataCorp",NLP,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.77
+40,F,B.Sc IT,"SQL, PyTorch, Python, Project Management, Data Analysis",1,"CodeFactory, AI Solutions, DataCorp","PyTorch, NLP",Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.87
+22,M,M.Sc AI,"Deep Learning, Machine Learning",9,"GlobalCorp, DataCorp",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+24,M,M.Sc AI,"Deep Learning, Project Management, Leadership",6,"DataCorp, CodeFactory, GlobalCorp",Deep Learning,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.98
+34,F,B.Tech CS,"SQL, Leadership",14,"GlobalCorp, FinTech Ltd, CodeFactory",SQL,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+29,M,B.Sc IT,"Agile, NLP",6,"CodeFactory, DataCorp","Java, Deep Learning",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+37,M,MBA,"Machine Learning, SQL, AWS Certified",14,"FinTech Ltd, AI Solutions, DataCorp",Agile,Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+31,F,MBA,"Java, SQL, Oracle Java Cert, PyTorch",12,FinTech Ltd,"Java, NLP",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+39,M,MBA,"SQL, Deep Learning, Oracle Java Cert",4,"GlobalCorp, TechSoft",,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.86
+33,F,B.Tech CS,"Leadership, NLP",15,"WebWorks, CodeFactory","Data Analysis, Machine Learning",AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+25,F,B.Sc IT,"SQL, NLP, Java",7,CodeFactory,Python,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+40,M,MBA,"SQL, Agile, PyTorch, Deep Learning, Python",9,FinTech Ltd,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+32,F,B.Tech CS,"Agile, Deep Learning, TensorFlow",6,"CodeFactory, GlobalCorp",,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.97
+37,M,B.Tech CS,"Agile, PyTorch, NLP",3,TechSoft,Agile,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.85
+23,M,B.Tech CS,"SQL, Python, NLP, PyTorch, Deep Learning",9,"CodeFactory, TechSoft",Deep Learning,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+34,F,B.Tech Computer,"Agile, NLP, SQL, Java, Machine Learning",6,"AI Labs, WebWorks, DataCorp","PyTorch, SQL",Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+30,F,MBA,"Agile, AWS Certified, SQL",15,"CodeFactory, DataCorp","Java, Project Management",Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+40,M,M.Sc AI,"Oracle Java Cert, Deep Learning",15,"GlobalCorp, WebWorks, FinTech Ltd",,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+40,F,B.Tech Computer,"Leadership, Java, Data Analysis",4,"AI Labs, WebWorks, FinTech Ltd","Project Management, SQL",AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.94
+34,M,M.Sc AI,"Python, SQL, Data Analysis",2,TechSoft,Deep Learning,Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.78
+25,F,B.Sc IT,"Java, AWS Certified, SQL",7,DataCorp,NLP,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+30,F,B.Sc IT,"SQL, Leadership, Deep Learning, Agile, Data Analysis",15,"TechSoft, DataCorp, WebWorks",PyTorch,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+24,F,B.Tech CS,"AWS Certified, Machine Learning, PyTorch, Agile, Python",9,"AI Solutions, GlobalCorp","SQL, NLP",Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+28,M,B.Tech CS,"AWS Certified, Machine Learning",7,"CodeFactory, DataCorp, GlobalCorp",AWS Certified,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.96
+40,F,MBA,"Java, Python, SQL, Oracle Java Cert, Deep Learning",3,"AI Labs, FinTech Ltd, DataCorp",,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.91
+22,M,B.Tech Computer,"TensorFlow, Agile, Java, AWS Certified",10,"AI Labs, DataCorp, WebWorks",SQL,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+37,M,B.Tech CS,"Python, AWS Certified, Agile, Project Management, Machine Learning",14,AI Labs,PyTorch,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+39,F,M.Sc AI,"Oracle Java Cert, SQL, Project Management, TensorFlow",13,"CodeFactory, AI Solutions",,Data Scientist,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+37,F,M.Sc AI,"Agile, Deep Learning, Python, Java",7,"WebWorks, GlobalCorp, AI Solutions",Leadership,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+37,F,B.Sc IT,"Machine Learning, Data Analysis, Leadership",4,"AI Solutions, CodeFactory, FinTech Ltd","AWS Certified, Java",Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.92
+32,F,B.Tech Computer,"Oracle Java Cert, SQL, Machine Learning, Project Management, AWS Certified",7,GlobalCorp,,AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+28,F,B.Tech Computer,"Machine Learning, TensorFlow",2,CodeFactory,Oracle Java Cert,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.74
+29,F,B.Tech Computer,"Project Management, Deep Learning, Data Analysis",15,TechSoft,"Data Analysis, Python",Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+36,F,M.Sc AI,"Java, PyTorch, Deep Learning",2,"GlobalCorp, DataCorp, TechSoft","Data Analysis, TensorFlow",Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.83
+34,F,B.Tech Computer,"Python, Leadership, AWS Certified",12,"CodeFactory, AI Solutions, FinTech Ltd",,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+34,F,B.Tech CS,"Leadership, Java, AWS Certified",13,"WebWorks, AI Labs, DataCorp",,AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+23,F,B.Sc IT,"NLP, Java, Project Management",15,FinTech Ltd,Leadership,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+31,F,B.Sc IT,"Leadership, Project Management, TensorFlow",7,"FinTech Ltd, AI Labs",Machine Learning,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+29,F,B.Tech Computer,"Python, NLP, SQL, Data Analysis",7,"WebWorks, FinTech Ltd",,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+38,M,B.Sc IT,"Machine Learning, NLP",7,"FinTech Ltd, CodeFactory",NLP,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+26,F,B.Tech CS,"TensorFlow, Deep Learning",11,"CodeFactory, AI Solutions, AI Labs",AWS Certified,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+39,M,M.Sc AI,"SQL, NLP",7,TechSoft,,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.93
+34,F,MBA,"Java, Oracle Java Cert, Machine Learning",1,AI Labs,SQL,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.73
+30,M,M.Sc AI,"Oracle Java Cert, Machine Learning",3,CodeFactory,"SQL, TensorFlow",Data Scientist,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.8
+23,M,B.Sc IT,"Java, TensorFlow, Project Management, Python",10,"FinTech Ltd, GlobalCorp, DataCorp","Deep Learning, Python",Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+34,M,B.Sc IT,"Machine Learning, SQL",7,"WebWorks, FinTech Ltd, CodeFactory",,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.93
+24,M,B.Tech Computer,"Project Management, Python, SQL",15,"CodeFactory, TechSoft, GlobalCorp",,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+32,F,B.Tech Computer,"Project Management, Data Analysis",11,AI Solutions,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+36,F,MBA,"AWS Certified, Python, Oracle Java Cert, TensorFlow",8,"AI Solutions, FinTech Ltd, TechSoft",,Software Developer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+33,F,B.Sc IT,"NLP, PyTorch, TensorFlow, Project Management, Leadership",9,TechSoft,"Project Management, Python",AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+27,M,B.Tech CS,"Deep Learning, Machine Learning",7,"TechSoft, FinTech Ltd, AI Solutions",Python,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.97
+33,M,MBA,"NLP, Agile, PyTorch, Java, SQL",14,CodeFactory,,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+35,F,M.Sc AI,"Oracle Java Cert, Machine Learning, Data Analysis, TensorFlow, SQL",5,"TechSoft, GlobalCorp, AI Labs",PyTorch,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+24,F,M.Sc AI,"Data Analysis, NLP, Machine Learning",8,GlobalCorp,"Java, TensorFlow",Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+34,F,M.Sc AI,"Python, TensorFlow, SQL",14,"AI Solutions, FinTech Ltd",Deep Learning,Software Developer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+37,F,B.Tech CS,"Oracle Java Cert, Machine Learning, Python, TensorFlow",10,CodeFactory,"Leadership, Oracle Java Cert",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+24,M,B.Sc IT,"Oracle Java Cert, SQL, Data Analysis, Machine Learning",10,"GlobalCorp, DataCorp, FinTech Ltd","Python, SQL",Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+30,F,B.Tech Computer,"AWS Certified, Data Analysis, Deep Learning, Project Management, NLP",10,AI Labs,,Data Analyst,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+36,F,B.Tech CS,"Java, NLP, Deep Learning, Project Management, Python",9,"GlobalCorp, WebWorks, FinTech Ltd",,Data Scientist,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+22,M,M.Sc AI,"Deep Learning, TensorFlow, Machine Learning, Oracle Java Cert, Python",10,"CodeFactory, WebWorks","PyTorch, Leadership",Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+22,F,MBA,"Project Management, NLP, Oracle Java Cert, Machine Learning, Deep Learning",8,"DataCorp, AI Solutions, WebWorks","Oracle Java Cert, NLP",AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+40,F,B.Sc IT,"AWS Certified, Python",6,CodeFactory,,AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.89
+34,F,B.Tech Computer,"PyTorch, SQL, Data Analysis, Leadership",3,"AI Solutions, CodeFactory","Machine Learning, Java",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.89
+30,F,B.Sc IT,"NLP, Deep Learning",10,TechSoft,,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+37,F,MBA,"Oracle Java Cert, SQL, TensorFlow, PyTorch",9,TechSoft,"AWS Certified, Deep Learning",Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+25,M,MBA,"PyTorch, Machine Learning, Oracle Java Cert, SQL, AWS Certified",15,GlobalCorp,"Deep Learning, AWS Certified",Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+22,M,B.Sc IT,"Oracle Java Cert, Deep Learning, Project Management, Data Analysis, Python",9,AI Solutions,"NLP, Agile",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+22,F,M.Sc AI,"AWS Certified, Deep Learning",7,"AI Solutions, WebWorks","PyTorch, TensorFlow",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+24,M,B.Sc IT,"Agile, PyTorch, NLP, TensorFlow, Python",12,"DataCorp, FinTech Ltd","Deep Learning, Java",Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+32,M,B.Tech CS,"TensorFlow, Agile",5,CodeFactory,NLP,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.86
+23,M,B.Tech Computer,"Java, PyTorch, Oracle Java Cert, Data Analysis",13,"FinTech Ltd, GlobalCorp, DataCorp",Deep Learning,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+32,F,B.Tech CS,"Deep Learning, AWS Certified, Agile, Machine Learning",5,"CodeFactory, TechSoft, AI Solutions","PyTorch, Machine Learning",AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+28,F,B.Sc IT,"Leadership, NLP",6,"WebWorks, AI Solutions",Oracle Java Cert,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.91
+36,M,B.Tech Computer,"Machine Learning, NLP, Oracle Java Cert, TensorFlow, Agile",6,DataCorp,Oracle Java Cert,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+30,M,B.Tech CS,"Oracle Java Cert, Java, Python, Data Analysis",13,"CodeFactory, WebWorks, FinTech Ltd",PyTorch,Software Developer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+40,M,M.Sc AI,"Machine Learning, Agile",10,FinTech Ltd,"Project Management, Data Analysis",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+22,M,B.Tech Computer,"Deep Learning, Agile",10,"TechSoft, AI Solutions, FinTech Ltd",Python,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+28,M,MBA,"SQL, Leadership",3,"CodeFactory, GlobalCorp","Project Management, Deep Learning",Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.83
+33,M,B.Sc IT,"AWS Certified, Python, Leadership, Deep Learning",1,"WebWorks, CodeFactory",,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.75
+27,F,B.Tech CS,"Python, Machine Learning",15,"FinTech Ltd, GlobalCorp",Deep Learning,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+28,M,B.Tech Computer,"Data Analysis, TensorFlow, Deep Learning",2,"TechSoft, CodeFactory",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.76
+32,F,B.Tech Computer,"Python, Data Analysis",2,"GlobalCorp, WebWorks",Deep Learning,Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.74
+34,M,B.Sc IT,"Project Management, Machine Learning",12,"DataCorp, FinTech Ltd, TechSoft",Agile,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+23,M,B.Sc IT,"Project Management, SQL",5,AI Solutions,"Python, AWS Certified",Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.9
+37,F,B.Sc IT,"Deep Learning, Java, PyTorch, Agile, Project Management",13,"AI Labs, CodeFactory",Deep Learning,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+39,M,M.Sc AI,"AWS Certified, Machine Learning, NLP",4,"TechSoft, GlobalCorp, DataCorp",SQL,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.87
+32,F,M.Sc AI,"NLP, Leadership, PyTorch",10,"AI Solutions, TechSoft, AI Labs",,Data Scientist,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+24,M,B.Tech CS,"Project Management, TensorFlow",13,"CodeFactory, WebWorks","NLP, Deep Learning",Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+24,M,B.Tech Computer,"Oracle Java Cert, SQL",6,AI Solutions,,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.93
+32,F,M.Sc AI,"SQL, Leadership, Machine Learning",14,"TechSoft, FinTech Ltd, DataCorp","Deep Learning, Agile",Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+33,M,M.Sc AI,"Machine Learning, PyTorch, SQL, Data Analysis, Java",4,TechSoft,,AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.92
+37,F,B.Tech CS,"Data Analysis, Machine Learning",15,CodeFactory,TensorFlow,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+30,M,B.Sc IT,"Machine Learning, AWS Certified, NLP, Oracle Java Cert, PyTorch",3,DataCorp,"Oracle Java Cert, Machine Learning",Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.94
+32,M,MBA,"Project Management, AWS Certified, Java, NLP, TensorFlow",1,TechSoft,Python,Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.85
+28,M,B.Tech CS,"Oracle Java Cert, Agile, Data Analysis",11,"AI Solutions, FinTech Ltd",,Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+26,F,B.Tech CS,"NLP, Deep Learning, Machine Learning, Data Analysis, Leadership",15,"AI Solutions, DataCorp",,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+32,M,B.Sc IT,"AWS Certified, Machine Learning, Leadership, Python",14,CodeFactory,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+25,M,B.Tech Computer,"Leadership, Oracle Java Cert, NLP",6,AI Labs,"Project Management, Agile",AI Engineer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+40,F,B.Tech Computer,"Java, Project Management, Deep Learning, SQL",3,"WebWorks, FinTech Ltd","Java, AWS Certified",Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.91
+36,F,M.Sc AI,"SQL, Python, Machine Learning, NLP, AWS Certified",3,"DataCorp, AI Labs, FinTech Ltd","TensorFlow, Agile",Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.93
+40,M,M.Sc AI,"Data Analysis, TensorFlow",3,"WebWorks, GlobalCorp, AI Labs",,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.78
+25,M,MBA,"AWS Certified, Python, Leadership, Data Analysis",3,"TechSoft, WebWorks","Machine Learning, Project Management",Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.92
+32,F,B.Sc IT,"Agile, TensorFlow, Leadership, Python",6,"FinTech Ltd, AI Labs, WebWorks",,Data Analyst,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+31,M,MBA,"Python, Deep Learning, SQL, PyTorch, Agile",3,"DataCorp, AI Labs","NLP, Deep Learning",Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.97
+40,M,B.Tech Computer,"Leadership, SQL, Python, Oracle Java Cert, PyTorch",10,AI Labs,,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+33,F,B.Tech CS,"AWS Certified, NLP, Python, Agile",6,"GlobalCorp, AI Solutions",,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+39,F,M.Sc AI,"Python, SQL, PyTorch, Deep Learning",13,"AI Labs, TechSoft, CodeFactory",Agile,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+31,F,M.Sc AI,"PyTorch, Data Analysis",2,WebWorks,,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.7
+33,M,B.Tech Computer,"Leadership, SQL, Java, Oracle Java Cert, PyTorch",3,"CodeFactory, DataCorp",,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.87
+40,M,MBA,"NLP, Deep Learning",11,"DataCorp, WebWorks",,Software Developer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+35,M,B.Sc IT,"PyTorch, Agile",15,"WebWorks, AI Solutions","Agile, Oracle Java Cert",AI Engineer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+35,M,B.Tech Computer,"Machine Learning, SQL",10,"AI Solutions, GlobalCorp","Java, Oracle Java Cert",Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+26,F,B.Tech CS,"PyTorch, Machine Learning, SQL, Data Analysis",12,"TechSoft, WebWorks","Data Analysis, Machine Learning",Data Analyst,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+22,F,B.Tech Computer,"Deep Learning, SQL, PyTorch, Oracle Java Cert, Python",12,DataCorp,Agile,AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+32,F,MBA,"Java, Agile, AWS Certified",9,"GlobalCorp, CodeFactory",,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+30,F,B.Tech CS,"TensorFlow, Python, Deep Learning, PyTorch",12,"AI Labs, AI Solutions, FinTech Ltd","Deep Learning, Data Analysis",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+39,M,M.Sc AI,"PyTorch, Leadership, SQL",7,"AI Labs, CodeFactory",Oracle Java Cert,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+31,F,B.Tech Computer,"Python, Machine Learning, Data Analysis",7,"AI Solutions, AI Labs, TechSoft","Agile, Deep Learning",Data Scientist,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+37,M,B.Tech CS,"Python, Data Analysis",15,"WebWorks, TechSoft, AI Labs",AWS Certified,Project Manager,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.99
+40,M,B.Sc IT,"Machine Learning, NLP, SQL",13,WebWorks,,Data Scientist,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.99
+23,F,B.Tech Computer,"Oracle Java Cert, Data Analysis, SQL, Java",2,"FinTech Ltd, GlobalCorp, DataCorp",,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.83
+36,F,B.Sc IT,"Python, Agile, TensorFlow, Java, PyTorch",2,"GlobalCorp, TechSoft",,AI Engineer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.84
+26,F,B.Tech Computer,"Leadership, Machine Learning, Deep Learning, SQL",13,"GlobalCorp, FinTech Ltd",,Data Analyst,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+25,F,B.Tech CS,"Java, NLP",5,"AI Labs, FinTech Ltd","Deep Learning, Java",Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.93
+29,F,B.Tech Computer,"Leadership, Project Management, Machine Learning, NLP",10,FinTech Ltd,Machine Learning,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+36,M,B.Tech CS,"TensorFlow, SQL, Leadership, AWS Certified, Machine Learning",9,"CodeFactory, DataCorp, TechSoft","SQL, Deep Learning",Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.99
+24,M,B.Tech Computer,"Java, Deep Learning, Data Analysis",8,"AI Solutions, FinTech Ltd",,Project Manager,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.99
+25,M,MBA,"NLP, Machine Learning, Project Management",5,"DataCorp, WebWorks, AI Labs","AWS Certified, SQL",Software Developer,Manage projects using Agile and Project Management skills. Leadership required.,0.98
+22,M,B.Tech CS,"TensorFlow, Leadership, Oracle Java Cert, NLP, Deep Learning",10,DataCorp,"Data Analysis, SQL",AI Engineer,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+28,M,MBA,"SQL, NLP, Machine Learning, TensorFlow",1,"FinTech Ltd, AI Labs, AI Solutions",Python,Software Developer,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.76
+23,F,B.Sc IT,"Data Analysis, AWS Certified, Project Management, SQL",1,"AI Labs, AI Solutions, WebWorks",Oracle Java Cert,Project Manager,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.8
+40,M,B.Tech Computer,"Deep Learning, SQL, Data Analysis, NLP",4,"AI Labs, WebWorks, CodeFactory","Deep Learning, Project Management",Project Manager,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.99
+45,M,MBA,"Agile, Project Management, Leadership, Budgeting",12,"RetailCo, BankCorp",PMP,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.12
+42,F,B.Com,"Excel, Accounting, Tally, MS Office",8,"FinanceGroup, AuditFirm",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.15
+50,M,B.A English,"Content Writing, SEO, Social Media",6,MediaHouse,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.1
+48,F,MBA,"HR Management, Recruitment, Payroll",10,"HRCorp, StaffingSolutions",SHRM,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.18
+44,M,B.Com,"Bookkeeping, GST Filing, Tally",5,LocalBusiness,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.13
+46,F,MBA,"Sales Management, CRM, Negotiation, Cold Calling",11,"SalesCorp, RetailGroup",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.14
+41,M,B.A,"Event Planning, Vendor Management, Logistics",7,"EventCo, HospitalityCo",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.16
+49,F,B.Com,"Financial Modeling, Equity Research, DCF Valuation",14,"InvestBank, FundHouse",CFA Level 1,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.2
+43,M,MBA,"Supply Chain, Procurement, Inventory Management",9,"LogisticsCo, ManufacturingInc",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.17
+47,F,B.A,"Teaching, Curriculum Design, Classroom Management",8,"SchoolBoard, EdTech",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.22
+40,M,B.Com,"Legal Research, Contract Drafting, Compliance",6,"LawFirm, CorporateLegal",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.25
+52,F,MBA,"Brand Management, Campaign Planning, PR",13,"AdAgency, FMCG",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.32
+29,M,B.Sc IT,"Python, SQL, Data Analysis",3,"DataCorp, TechSoft",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.5
+31,F,B.Tech Computer,"Python, Excel, Statistics",4,GlobalCorp,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.45
+27,M,B.Sc CS,"SQL, Basic Python, Tableau",2,WebWorks,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.48
+34,F,B.Tech CS,"Data Analysis, R Programming",5,"FinTech Ltd, AI Labs",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.55
+28,M,B.Sc IT,"Python, Pandas, NumPy, Statistics",2,TechSoft,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.52
+32,F,B.Tech CS,"Python, SQL, Data Analysis, Excel",4,CodeFactory,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.58
+30,M,MBA,"Python, Business Analytics, Tableau",4,FinTech Ltd,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.42
+26,F,B.Sc IT,"SQL, Tableau, Excel, Data Visualization",2,RetailCo,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.47
+35,M,B.Tech Computer,"Python, R, Statistics, Data Analysis",6,"GlobalCorp, DataCorp",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.6
+33,F,B.Sc CS,"Python, Machine Learning Basics",4,"TechSoft, WebWorks",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.57
+29,M,B.Tech CS,"SQL, Data Analysis, Python, ETL",3,AI Labs,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.62
+36,F,B.Sc IT,"Python, Pandas, SQL",5,DataCorp,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.53
+24,M,B.Sc CS,"Python, Excel, Statistics, SQL",1,TechSoft,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.44
+31,F,B.Tech Computer,"Data Analysis, Python, Visualization",4,"GlobalCorp, FinTech Ltd",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.63
+28,M,MBA,"Python, SQL, Reporting",3,RetailCo,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.48
+34,F,B.Tech CS,"SQL, Python, Tableau, BI Tools",5,"CodeFactory, TechSoft",,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.65
+27,M,B.Sc IT,"Python, Machine Learning Basics, SQL",2,WebWorks,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.5
+30,F,B.Tech CS,"Data Analysis, Excel, Python, R",4,DataCorp,,AI Engineer,"Analyze large datasets and build AI solutions. Skills: Machine Learning, NLP, SQL.",0.56
+38,M,M.Sc AI,"TensorFlow, PyTorch, Deep Learning, CUDA",9,"AI Labs, ResearchInst",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.2
+45,F,B.Com,"Tally, GST, Bookkeeping, Audit",11,"AccountFirm, BankCorp",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.12
+40,M,B.A,"Event Planning, Vendor Management, Logistics",7,EventCo,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.14
+47,F,MBA,"Strategic Planning, Corporate Governance, Board Relations",15,"Conglomerate, HoldingCo",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.16
+43,M,B.Pharm,"Drug Trials, Clinical Research, Lab Techniques",8,"PharmaCo, Hospital",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.18
+50,F,MBA,"Marketing Strategy, Brand Management, PR",13,"AdAgency, FMCG",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.13
+44,M,B.A,"Legal Research, Contract Drafting, Compliance",10,"LawFirm, CorporateLegal",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.15
+41,F,MBA,"HR Management, Recruitment, Payroll, SHRM",9,"HRCorp, StaffingSolutions",SHRM,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.17
+46,M,B.A English,"Content Writing, SEO, Copywriting",8,"MediaHouse, BlogAgency",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.22
+48,F,MBA,"Supply Chain, Procurement, Inventory",12,"LogisticsCo, ManufacturingInc",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.25
+42,M,B.A,"Teaching, Curriculum Design, Classroom Management",8,SchoolBoard,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.1
+49,F,MBA,"Sales, CRM, Cold Calling, Negotiation",13,"SalesCorp, RetailGroup",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.32
+26,F,B.Sc IT,"Excel, Basic Python, MS Office",2,RetailCo,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.52
+30,M,MBA,"Business Analysis, Excel, Presentations",4,"ConsultFirm, BankCorp",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.58
+28,F,B.Tech Computer,"Python, Java, SQL",3,TechSoft,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.47
+33,M,B.Sc IT,"SQL, Excel, Reporting, MS Access",5,"GlobalCorp, FinTech Ltd",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.62
+25,F,B.Sc CS,"Excel, PowerPoint, Word, Reporting",1,RetailCo,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.42
+31,M,MBA,"Excel, Business Reporting, Dashboard",4,ConsultFirm,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.55
+27,F,B.Tech CS,"SQL, Basic Excel, Database Queries",2,"WebWorks, TechSoft",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.48
+34,M,B.Sc IT,"Excel, Tableau, Data Visualization",5,DataCorp,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.6
+29,F,MBA,"Excel, Power BI, MS Office, Reporting",3,FinTech Ltd,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.53
+32,M,B.Tech Computer,"SQL, Excel, Python Basics",4,"GlobalCorp, RetailCo",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.57
+26,F,B.Sc CS,"Excel, MS Office, Basic Analytics",2,TechSoft,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.45
+35,M,B.Tech CS,"SQL, Data Analysis, Excel, Pivot Tables",6,"DataCorp, CodeFactory",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.64
+28,F,MBA,"Python Basics, Excel, Business Intelligence",3,ConsultFirm,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.5
+30,M,B.Sc IT,"SQL, Excel, Reporting Tools",4,GlobalCorp,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.63
+24,F,B.Sc CS,"Excel, Basic SQL, Word",1,RetailCo,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.44
+33,M,B.Tech Computer,"Python, Excel, SQL, Tableau",5,"DataCorp, TechSoft",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.65
+27,F,B.Sc IT,"SQL, Data Entry, Excel, Spreadsheets",2,WebWorks,,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.47
+31,M,MBA,"Excel, Power BI, Analytics",4,"FinTech Ltd, ConsultFirm",,Data Analyst,"Perform data analysis and reporting. Skills: Data Analysis, Excel, Python.",0.58
+46,M,MBA,"Sales Management, CRM, Cold Calling, Negotiation",12,"SalesCorp, RetailGroup",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.11
+43,F,B.A,"Public Relations, Media Management, Press Releases",9,PRAgency,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.13
+49,M,B.Com,"Financial Modeling, DCF Valuation, Equity Research",14,"InvestBank, FundHouse",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.16
+44,F,MBA,"Supply Chain, Procurement, Inventory Management",10,"LogisticsCo, ManufacturingInc",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.14
+41,M,B.A,"Teaching, Curriculum Design, Classroom Management",8,SchoolBoard,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.12
+47,F,B.Com,"Bookkeeping, GST, Tally, Accounting",11,"AccountFirm, CA Firm",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.1
+45,M,MBA,"HR Management, Talent Acquisition, Payroll",12,"HRCorp, StaffingSolutions",SHRM,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.17
+42,F,B.A English,"Content Writing, SEO, Social Media, Blogging",9,"MediaHouse, BlogAgency",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.15
+50,M,MBA,"Brand Management, Campaign Planning, Marketing Strategy",14,"AdAgency, FMCG",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.2
+48,F,B.A,"Legal Research, Contract Drafting, Compliance",12,"LawFirm, CorporateLegal",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.22
+40,M,MBA,"Event Planning, Vendor Management, Logistics",8,"EventCo, HospitalityCo",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.25
+52,F,MBA,"Operations Management, Six Sigma, Lean, Process Improvement",15,"ManufacturingCo, OpsGroup",Six Sigma,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.32
+28,M,B.Tech CS,"Python, Machine Learning Basics, Statistics",2,TechSoft,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.55
+30,F,B.Sc IT,"Python, Scikit-learn, SQL",3,"DataCorp, AI Labs",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.5
+26,M,B.Tech Computer,"Python, R Programming, Data Analysis",2,GlobalCorp,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.48
+32,F,MBA,"Python, Business Analytics, Tableau",5,"FinTech Ltd, CodeFactory",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.43
+29,M,B.Tech CS,"Python, Pandas, NumPy, Scikit-learn",3,"TechSoft, DataCorp",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.58
+27,F,B.Sc CS,"Python, SQL, Machine Learning Basics",2,WebWorks,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.47
+34,M,B.Tech CS,"Python, Data Analysis, Statistics, R",5,"GlobalCorp, AI Labs",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.62
+31,F,B.Sc IT,"Python, Scikit-learn, Pandas",4,DataCorp,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.53
+25,M,B.Tech Computer,"Python, SQL, Statistics",1,TechSoft,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.45
+33,F,B.Tech CS,"Python, Machine Learning, Data Analysis",4,"CodeFactory, WebWorks",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.6
+28,M,MBA,"Python, Tableau, Business Intelligence, Analytics",3,ConsultFirm,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.44
+35,F,B.Tech CS,"Python, Scikit-learn, SQL, Statistics",6,"DataCorp, AI Labs",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.64
+30,M,B.Sc IT,"Python, Machine Learning Basics, SQL",4,TechSoft,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.52
+27,F,B.Tech Computer,"Python, R, Data Analysis, Visualization",2,GlobalCorp,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.48
+32,M,B.Tech CS,"Python, Pandas, NumPy, Statistics",4,"CodeFactory, TechSoft",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.57
+29,F,B.Sc CS,"Python, SQL, Machine Learning, Scikit-learn",3,DataCorp,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.65
+26,M,B.Tech CS,"Python, Machine Learning Basics, Data Analysis",2,"TechSoft, WebWorks",,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.5
+34,F,MBA,"Python, Analytics, Tableau, Statistics",5,FinTech Ltd,,Data Scientist,"Develop ML and DL models. Skills: Python, TensorFlow, PyTorch. Education: B.Tech CS, M.Sc AI.",0.55
+35,M,M.Sc AI,"TensorFlow, Keras, CUDA, GPU Programming",7,"AI Labs, ResearchInst",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.15
+29,F,B.Tech CS,"Java, Spring Boot, Microservices, Docker",4,CodeFactory,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.18
+38,M,B.Sc IT,"Network Administration, Cisco, Firewall, CCNA",9,"TelecomCo, ISP",CCNA,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.2
+33,F,B.Pharm,"Clinical Trials, Drug Formulation, Lab Research",6,PharmaCo,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.13
+42,M,B.A,"Graphic Design, Photoshop, Illustrator, UI",10,DesignAgency,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.17
+36,F,B.Tech CS,"Python, TensorFlow, Deep Learning, NLP",7,"AI Labs, DataCorp",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.14
+31,M,B.Sc CS,"React, Node.js, HTML, CSS, JavaScript",5,"WebWorks, TechSoft",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.16
+44,F,B.Com,"Accounting, Tally, GST, Financial Reporting",10,"CA Firm, AccountFirm",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.12
+40,M,B.A English,"SEO, Content Marketing, Copywriting, Blogging",8,MediaHouse,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.1
+47,F,MBA,"Supply Chain, Procurement, Inventory Management",12,"LogisticsCo, ManufacturingInc",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.22
+39,M,B.Pharm,"Drug Trials, Lab Analysis, Pharmacology",8,"PharmaCo, Hospital",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.25
+45,F,B.Com,"Bookkeeping, Audit, Financial Analysis",11,"BankCorp, AuditFirm",CPA,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.32
+34,F,MBA,"Team Coordination, Reporting, MS Project",5,"ConsultFirm, RetailCo",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.6
+36,M,B.Tech CS,"Team Lead, Python, System Design",6,"TechSoft, GlobalCorp",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.55
+30,F,B.Sc IT,"Coordination, Documentation, Excel, Leadership",3,WebWorks,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.48
+38,M,MBA,"Business Development, Client Relations, Presentations",7,"BizCorp, FinTech Ltd",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.52
+32,F,MBA,"Team Management, Reporting, Stakeholder Communication",4,ConsultFirm,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.58
+35,M,B.Tech Computer,"Team Coordination, Documentation, Requirements Gathering",5,"GlobalCorp, TechSoft",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.5
+28,F,MBA,"Leadership, Business Analysis, Excel",3,BizCorp,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.45
+40,M,B.Sc IT,"Coordination, Client Communication, MS Office",8,"RetailCo, FinTech Ltd",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.62
+33,F,MBA,"Team Lead, Planning, Reporting",5,"ConsultFirm, GlobalCorp",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.53
+37,M,B.Tech CS,"Team Coordination, Agile Basics, System Design",6,"CodeFactory, TechSoft",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.57
+29,F,MBA,"Business Analysis, Leadership, Excel, Reporting",3,BizCorp,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.42
+42,M,B.Sc IT,"Stakeholder Management, Documentation, Coordination",9,"GlobalCorp, RetailCo",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.65
+31,F,MBA,"Team Management, Client Relations, Presentations",4,"ConsultFirm, FinTech Ltd",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.5
+36,M,B.Tech Computer,"Team Lead, Planning, Coordination, Excel",5,"TechSoft, DataCorp",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.63
+27,F,MBA,"Leadership, Reporting, Communication, MS Project",2,BizCorp,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.44
+39,M,B.Sc IT,"Coordination, Stakeholder Relations, Documentation",7,"GlobalCorp, RetailCo",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.6
+33,F,B.Tech CS,"Team Coordination, Agile Basics, Leadership",4,CodeFactory,,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.47
+35,M,MBA,"Business Analysis, Team Management, Excel, Planning",6,"ConsultFirm, FinTech Ltd",,Project Manager,Manage projects using Agile and Project Management skills. Leadership required.,0.58
+47,F,MBA,"Marketing Strategy, Brand Management, Campaign Planning",13,"AdAgency, FMCG",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.11
+44,M,B.A,"Legal Research, Contract Drafting, Compliance",11,"LawFirm, CorporateLegal",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.13
+40,F,B.Com,"Taxation, GST, Financial Reporting, Tally",8,"CA Firm, TaxConsult",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.15
+45,M,MBA,"Operations Management, Six Sigma, Lean, Process",12,"ManufacturingCo, OpsGroup",Six Sigma,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.14
+39,F,B.A,"Counseling, Psychology, Behavioral Therapy",7,"NGO, CounselingCenter",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.12
+48,M,MBA,"HR Management, Recruitment, Payroll, Training",13,"HRCorp, StaffingSolutions",SHRM,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.17
+42,F,B.A English,"Content Writing, SEO, Social Media, PR",9,"MediaHouse, PRAgency",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.1
+46,M,MBA,"Sales Management, CRM, Cold Calling, Negotiation",12,"SalesCorp, RetailGroup",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.16
+43,F,B.Pharm,"Drug Trials, Lab Research, Pharmacology",9,"PharmaCo, Hospital",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.18
+50,M,MBA,"Supply Chain, Procurement, Inventory Management",14,"LogisticsCo, ManufacturingInc",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.22
+41,F,B.A,"Event Planning, Vendor Management, Logistics",8,"EventCo, HospitalityCo",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.25
+52,M,MBA,"Financial Modeling, Equity Research, Investment Banking",15,"InvestBank, FundHouse",CFA Level 1,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.32
+27,M,B.Sc IT,"SQL, HTML, CSS, Basic JavaScript",2,WebWorks,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.5
+31,F,B.Tech Computer,"MS Office, VBA, Excel Macros, SQL",4,"DataCorp, RetailCo",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.45
+29,M,B.Sc CS,"PHP, MySQL, Basic Python",3,TechSoft,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.6
+33,F,B.Tech CS,"JavaScript, React, HTML, CSS",5,"WebWorks, CodeFactory",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.57
+26,M,B.Sc IT,"SQL, HTML, Basic PHP, MySQL",2,TechSoft,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.48
+30,F,B.Tech Computer,"Python Basics, SQL, Excel, Data Entry",4,RetailCo,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.52
+28,M,B.Sc CS,"JavaScript, HTML, CSS, Node.js Basics",3,"WebWorks, TechSoft",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.55
+34,F,B.Tech CS,"SQL, Python, Excel, Automation Basics",5,"CodeFactory, DataCorp",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.62
+25,M,B.Sc IT,"HTML, CSS, JavaScript, Basic SQL",1,WebWorks,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.43
+32,F,MBA,"Python Basics, SQL, Excel, Reporting",4,"RetailCo, ConsultFirm",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.47
+29,M,B.Tech Computer,"PHP, MySQL, HTML, JavaScript",3,"TechSoft, WebWorks",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.58
+35,F,B.Tech CS,"SQL, Python, JavaScript, HTML",6,"CodeFactory, GlobalCorp",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.65
+27,M,B.Sc CS,"PHP, MySQL, SQL, Basic Python",2,TechSoft,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.5
+31,F,B.Tech Computer,"Python, SQL, Excel, Basic Java",4,"DataCorp, RetailCo",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.63
+26,M,B.Sc IT,"SQL, JavaScript, HTML, CSS",2,WebWorks,,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.44
+33,F,B.Tech CS,"Python, SQL, JavaScript, Basic Backend",5,"CodeFactory, TechSoft",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.6
+28,M,B.Sc CS,"SQL, PHP, HTML, MySQL",3,"TechSoft, WebWorks",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.52
+30,F,MBA,"Python Basics, SQL, Excel, Automation",4,"RetailCo, ConsultFirm",,Software Developer,"Develop software systems and backend applications. Skills: Java, Python, SQL.",0.57
