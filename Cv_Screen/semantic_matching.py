@@ -107,6 +107,73 @@ _LEADING_ACTION_WORDS = {
     "used",
 }
 
+_ROLE_CATEGORY_TERMS = {
+    "software": {
+        "title": [
+            "software engineer", "software developer", "full stack", "full-stack",
+            "backend developer", "frontend developer", "web developer",
+            "application developer", "mern", "java developer", "react developer",
+        ],
+        "skills": [
+            "java", "python", "javascript", "typescript", "react", "node",
+            "node.js", "express", "spring boot", "django", "laravel", "asp.net",
+            ".net", "php", "html", "css", "tailwind", "rest api", "api",
+            "mongodb", "mysql", "postgresql", "sql", "git", "docker",
+            "microservices", "oop", "data structures", "algorithms",
+        ],
+    },
+    "qa": {
+        "title": [
+            "quality assurance", "qa engineer", "test engineer", "software tester",
+            "automation tester", "manual tester", "qa analyst", "sdet",
+        ],
+        "skills": [
+            "selenium", "playwright", "cypress", "postman", "jmeter", "jira",
+            "test case", "test cases", "test plan", "bug", "defect", "regression",
+            "smoke testing", "manual testing", "automation testing", "cucumber",
+            "serenity", "functional testing", "api testing",
+        ],
+    },
+    "uiux": {
+        "title": [
+            "ui/ux", "ui ux", "ux designer", "ui designer", "product designer",
+            "user experience", "user interface", "visual designer",
+        ],
+        "skills": [
+            "figma", "adobe xd", "wireframe", "wireframing", "prototype",
+            "prototyping", "user research", "usability testing", "user testing",
+            "user flow", "journey map", "persona", "design system",
+            "information architecture", "affinity diagram", "storyboard",
+        ],
+    },
+    "business_analyst": {
+        "title": [
+            "business analyst", "product manager", "product owner",
+            "business systems analyst", "ba consultant",
+        ],
+        "skills": [
+            "requirement elicitation", "requirements gathering", "user stories",
+            "brd", "frd", "srs", "functional specification", "process mapping",
+            "stakeholder", "stakeholders", "scrum", "agile", "jira", "confluence",
+            "product backlog", "roadmap", "uat", "market research", "balsamiq",
+            "ms visio", "draw.io",
+        ],
+    },
+    "data_ai": {
+        "title": [
+            "data engineer", "data scientist", "machine learning engineer",
+            "ml engineer", "ai engineer", "analytics engineer", "bi engineer",
+        ],
+        "skills": [
+            "machine learning", "deep learning", "tensorflow", "pytorch",
+            "scikit-learn", "pandas", "numpy", "pyspark", "spark", "snowflake",
+            "etl", "elt", "airflow", "data pipeline", "data engineering",
+            "data analytics", "power bi", "powerbi", "tableau", "nlp",
+            "computer vision", "llm", "large language model",
+        ],
+    },
+}
+
 
 def clean_text(text: object) -> str:
     """General text cleanup for semantic matching without domain dictionaries."""
@@ -572,6 +639,58 @@ def _education_match_score(candidate_text: str, job_text: str) -> float:
     return max(0.0, min(100.0, (sum(scores) / len(scores)) * 100))
 
 
+def _role_category_scores(text: str) -> dict:
+    cleaned = clean_text(text).lower()
+    if not cleaned:
+        return {}
+
+    scores = {}
+    for category, groups in _ROLE_CATEGORY_TERMS.items():
+        title_hits = sum(1 for term in groups["title"] if _contains_term(cleaned, term))
+        skill_hits = sum(1 for term in groups["skills"] if _contains_term(cleaned, term))
+        scores[category] = (title_hits * 3.0) + skill_hits
+    return scores
+
+
+def _primary_role_category(text: str, min_score: float = 3.0) -> Optional[str]:
+    scores = _role_category_scores(text)
+    if not scores:
+        return None
+
+    category, score = max(scores.items(), key=lambda item: item[1])
+    if score < min_score:
+        return None
+    return category
+
+
+def _role_category_alignment(candidate_text: str, job_text: str, evidence_score: float) -> tuple:
+    """
+    Return (multiplier, cap) for JD role-category fit.
+
+    A mismatched role should not rank high purely because of seniority or generic
+    words like Agile/Jira/projects. Strong literal JD evidence can soften the cap,
+    but it should not erase a clear BA/UI/UX/QA/software mismatch.
+    """
+    job_category = _primary_role_category(job_text, min_score=3.0)
+    if not job_category:
+        return 1.0, 99.0
+
+    candidate_scores = _role_category_scores(candidate_text)
+    candidate_category = _primary_role_category(candidate_text, min_score=3.0)
+    job_score_in_candidate = candidate_scores.get(job_category, 0.0)
+
+    if candidate_category == job_category:
+        return 1.0, 99.0
+
+    if job_score_in_candidate >= 5.0:
+        return 0.85, 72.0
+    if evidence_score >= 55.0 and job_score_in_candidate >= 3.0:
+        return 0.80, 68.0
+    if candidate_category:
+        return 0.55, 45.0
+    return 0.70, 58.0
+
+
 def _calibrate_match_score(raw_score: float) -> float:
     """Scale the weighted ATS raw score into a practical 0-99 fit percentage."""
     score = max(0.0, float(raw_score))
@@ -600,5 +719,7 @@ def score_candidates(candidate_texts: Sequence[str], job_text: str, experience_s
             + (evidence * 0.45)
             + (exp * 0.15)
         )
-        final_scores.append(round(_calibrate_match_score(score), 2))
+        calibrated = _calibrate_match_score(score)
+        role_multiplier, role_cap = _role_category_alignment(candidate_text, job_text, evidence)
+        final_scores.append(round(min(calibrated * role_multiplier, role_cap), 2))
     return final_scores

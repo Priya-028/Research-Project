@@ -1589,8 +1589,7 @@ def candidate_to_text_format(candidate):
             f"{certs} {certs} "
             f"{experience} {experience} "
             f"{projects} "
-            f"{technologies} "
-            f"{normalize_text_for_matching(candidate.get('Job_Role_Applied', ''))}")
+            f"{technologies}")
 
 
 r'''
