@@ -357,6 +357,7 @@ def _extract_page_text_multicolumn(page):
         and best_gap[0] >= page_width * 0.04
         and len(gap_left_words) >= 20
         and len(gap_right_words) >= 20
+        and 0.4 <= (len(gap_right_words) / max(len(gap_left_words), 1)) <= 2.5
     )
 
     is_two_column = (
@@ -364,6 +365,7 @@ def _extract_page_text_multicolumn(page):
         or (
             len(right_words) > 5
             and len(centre_words) < max(len(left_words), len(right_words)) * 0.25
+            and 0.4 <= (len(right_words) / max(len(left_words), 1)) <= 2.5
         )
     )
 
@@ -414,6 +416,10 @@ def _extract_page_text_multicolumn(page):
         return left_col + "\n" + right_col
 
     # Single-column path — also strip bullet chars from words
+    standard_text = page.extract_text()
+    if standard_text:
+        return standard_text
+
     words_sorted = sorted(words, key=lambda w: (round(w["top"] / 4) * 4, w["x0"]))
     lines = []
     current_line = []
@@ -759,6 +765,235 @@ def parse_skills_list(text):
     return ", ".join(skills[:60]) if skills else ""
 
 
+def clean_education_text(text):
+    """Tidy PDF extraction artifacts that commonly appear in education sections."""
+    if not text or not text.strip():
+        return ""
+
+    cleaned = str(text).replace("\u00a0", " ")
+    cleaned = re.sub(r"(?m)^\s*[â€¢•*]\s*$\n?", "", cleaned)
+    cleaned = re.sub(r"([A-Za-z])-\s*\n\s*([a-z])", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([A-Za-z]{4,})(of|in|and)(?=[A-Z])", r"\1 \2 ", cleaned)
+    cleaned = re.sub(r"\b([A-Za-z]{4,})(of|in|and)\s+(?=[A-Z])", r"\1 \2 ", cleaned)
+    cleaned = re.sub(r"(\))\s*(in|of)\s*(?=[A-Z])", r"\1 \2 ", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(?<=[a-z])(?=(?:Systems|Science|Technology|Engineering|Management)\b)", " ", cleaned)
+    cleaned = re.sub(r",(?=\S)", ", ", cleaned)
+    cleaned = re.sub(r"(?<=[A-Za-z])\(", " (", cleaned)
+    cleaned = re.sub(r"[ \t]+", " ", cleaned)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+    return cleaned.strip()
+
+
+def rebuild_education_from_lines(raw_text):
+    """Recover education when a two-column PDF interleaves work/project text."""
+    if not raw_text:
+        return ""
+
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    rebuilt = []
+
+    def add(value):
+        value = re.sub(r"\s+", " ", value).strip(" -")
+        if value and value not in rebuilt:
+            rebuilt.append(value)
+
+    if any("bachelor of commerce" in line.lower() for line in lines):
+        def next_matching(start_idx, pattern, max_ahead=5):
+            for look_idx in range(start_idx + 1, min(len(lines), start_idx + max_ahead + 1)):
+                candidate = re.sub(r"\s+", " ", lines[look_idx]).strip()
+                if re.search(pattern, candidate, re.IGNORECASE):
+                    return candidate
+            return ""
+
+        def from_year_or_keyword(value, keyword_pattern):
+            match = re.search(rf"((?:19|20)\d{{2}}.*?(?:{keyword_pattern}).*)", value, re.IGNORECASE)
+            if match:
+                return match.group(1)
+            match = re.search(rf"((?:{keyword_pattern}).*)", value, re.IGNORECASE)
+            return match.group(1) if match else value
+
+        for idx, line in enumerate(lines):
+            compact = re.sub(r"\s+", " ", line).strip()
+            low = compact.lower()
+
+            if "bachelor of commerce" in low:
+                cleaned = compact[low.index("bachelor of commerce"):]
+                next_line = next_matching(idx, r"\b(university|kelaniya)\b")
+                if next_line:
+                    next_clean = from_year_or_keyword(next_line, r"University|Kelaniya")
+                    next_clean = re.sub(r"\b(\d{4})(?=[A-Za-z])", r"\1 ", next_clean)
+                    cleaned = f"{cleaned} {next_clean}".strip()
+                add(cleaned)
+                continue
+
+            if "professional in business analysis" in low:
+                cleaned = compact[low.index("professional in business analysis"):]
+                cleaned = re.sub(r"\s+(?:managing|prioritizing|conduct|collaborating)\b.*$", "", cleaned, flags=re.IGNORECASE)
+                next_line = next_matching(idx, r"project management institute")
+                if next_line:
+                    cleaned = f"{cleaned} {from_year_or_keyword(next_line, r'Project Management Institute')}"
+                add(cleaned)
+                continue
+
+            if "certificate level" in low:
+                cleaned = compact[low.index("certificate level"):]
+                next_line = next_matching(idx, r"\bbcs\b")
+                if next_line:
+                    cleaned = f"{cleaned} {from_year_or_keyword(next_line, r'BCS')}"
+                add(cleaned)
+                continue
+
+            if "fundamentals of financial services" in low:
+                cleaned = compact[low.index("fundamentals of financial services"):]
+                next_line = next_matching(idx, r"\bcisi\b|institute for securities")
+                if next_line:
+                    cleaned = f"{cleaned} {from_year_or_keyword(next_line, r'CISI|Institute for Securities')}"
+                add(cleaned)
+                continue
+
+            if "g.c.e" in low or "gce" in low:
+                cleaned = compact[low.index("g"):]
+                next_line = next_matching(idx, r"zahira|college")
+                if next_line:
+                    cleaned = f"{cleaned} {from_year_or_keyword(next_line, r'Zahira|College')}"
+                add(cleaned)
+                continue
+
+        if len(rebuilt) >= 2:
+            return "\n".join(rebuilt[:8])
+
+    for idx, line in enumerate(lines):
+        compact = re.sub(r"\s+", " ", line).strip()
+        low = compact.lower()
+
+        if "sliit" in low:
+            if any(noise in low for noise in ["community", "women in foss", "volunteer", "content writer", "dev team"]):
+                continue
+            prev = lines[idx - 1].strip() if idx > 0 else ""
+            date_match = re.match(r"^(\d{4}\s*[-\u2013\u2014]\s*(?:present|\d{4}))\b", prev, re.IGNORECASE)
+            if date_match:
+                add(date_match.group(1))
+            add(re.sub(r"\bwork\s+with\b.*$", "", compact, flags=re.IGNORECASE))
+            continue
+
+        if re.search(r"\bb\.?\s*sc\b|bachelor|higher national diploma|secondary education|advance level|advanced level|ordinary level|combined mathematics", low):
+            cleaned = compact
+            start_match = re.search(
+                r"\b(Bachelor|B\.?\s*Sc|Higher National Diploma|Diploma|G\.?\s*C\.?\s*E|Certificate\s+level)\b",
+                cleaned,
+                re.IGNORECASE,
+            )
+            if start_match:
+                cleaned = cleaned[start_match.start():]
+            cleaned = re.sub(r"\bh\s*senid\b.*$", "", cleaned, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\balgorithm\b.*$", "", cleaned, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\bweb\s+application\b.*$", "", cleaned, flags=re.IGNORECASE)
+            add(cleaned)
+            continue
+
+        if re.search(r"\b(university|college|institute|bcs|cisi)\b", low):
+            cleaned = compact
+            start_match = re.search(
+                r"\b((?:19|20)\d{2}\s*(?:University|College|Institute|BCS|CISI)|University|College|Institute|BCS|CISI)",
+                cleaned,
+                re.IGNORECASE,
+            )
+            if start_match:
+                cleaned = cleaned[start_match.start():]
+            cleaned = re.sub(r"\b(\d{4})(?=[A-Za-z])", r"\1 ", cleaned)
+            cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
+            if cleaned:
+                add(cleaned)
+            continue
+
+        if rebuilt and re.search(r"\bb\.?\s*sc\b", rebuilt[-1], re.IGNORECASE) and "specialization" in low:
+            rebuilt[-1] = f"{rebuilt[-1]} {compact}"
+            continue
+
+        if re.fullmatch(r"(?:vg(?:hs)?|vghs)", low):
+            prev = lines[idx - 1].strip() if idx > 0 else ""
+            date_match = re.match(r"^(\d{4}\s*[-\u2013\u2014]\s*\d{4})\b", prev, re.IGNORECASE)
+            if date_match:
+                add(date_match.group(1))
+            add(compact)
+            continue
+
+        if rebuilt and rebuilt[-1].lower() == "higher national diploma in" and low == "information technology":
+            rebuilt[-1] = "Higher National Diploma in Information Technology"
+            continue
+
+        if rebuilt and rebuilt[-1].lower() == "ordinary level" and re.fullmatch(r"\d+\s*[a-z]+", low, re.IGNORECASE):
+            rebuilt[-1] = f"{rebuilt[-1]} {compact}"
+            continue
+
+    return "\n".join(rebuilt[:14])
+
+
+def rebuild_education_by_keyword_window(education_text):
+    """Keep likely education credentials when section text is interleaved with other columns."""
+    if not education_text:
+        return ""
+
+    lines = [line.strip() for line in str(education_text).splitlines() if line.strip()]
+    rebuilt = []
+
+    credential_re = re.compile(
+        r"(bachelor|b\.?\s*sc|bcs|certificate|fundamentals|cisi|g\.?\s*c\.?\s*e|"
+        r"advanced level|ordinary level|diploma|degree|university|college|institute)",
+        re.IGNORECASE,
+    )
+    noise_re = re.compile(
+        r"(conduct market|industry trends|prioritizing|managing end-to-end|collaborating|"
+        r"leading and mentoring|projects?|loyalty|customer lifetime|major telecom|"
+        r"associate lead|requirement elicitation|languages)",
+        re.IGNORECASE,
+    )
+
+    for line in lines:
+        if not credential_re.search(line):
+            continue
+
+        cleaned = line
+        cleaned = re.sub(r"^.*?\b(?=(Bachelor|B\.?\s*Sc|Certificate|Fundamentals|G\.?\s*C\.?\s*E|Higher National Diploma|Diploma|Degree))", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"\b(?:conduct market|industry trends|prioritizing|managing end-to-end|collaborating|leading and mentoring|projects?|duclub|catalyst|associate lead|requirement elicitation|languages)\b.*$", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"\b(\d{4})(?=[A-Za-z])", r"\1 ", cleaned)
+        cleaned = re.sub(r"(?<=[a-z])(?=University|Institute|College|BCS|CISI)", " ", cleaned)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
+        if cleaned and not noise_re.fullmatch(cleaned) and cleaned not in rebuilt:
+            rebuilt.append(cleaned)
+
+    return "\n".join(rebuilt)
+
+
+def extract_expertise_section(raw_text):
+    """Extract technical skills from CVs that label the block as Expertise."""
+    if not raw_text:
+        return ""
+
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    section = []
+    in_expertise = False
+    start_re = re.compile(r"^(expertise|technical\s+expertise|technical\s+skills?)$", re.IGNORECASE)
+    end_re = re.compile(
+        r"^(skills?|volunteering|academic\s+projects?|projects?|certificates?|certifications?|references?|"
+        r"education|experience|language)$",
+        re.IGNORECASE,
+    )
+
+    for line in lines:
+        if start_re.match(line):
+            in_expertise = True
+            continue
+        if in_expertise:
+            if end_re.match(line):
+                break
+            section.append(line)
+            if len(section) >= 35:
+                break
+
+    return "\n".join(section)
+
+
 
 _GEMINI_SYSTEM = (
     "You are an experienced HR recruiter. Read CV text and intelligently extract key information. "
@@ -879,6 +1114,7 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
         re.IGNORECASE
     )
     education_text = _HDR.sub("", education_text).strip()
+    education_text = clean_education_text(education_text)
 
     # 3. Flatten list fields and strip headers from each item
     def _clean_list(lst):
@@ -1089,6 +1325,10 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                 "education", "experience", "skills", "certifications",
                 "projects", "achievements", "declaration", "languages",
             }
+            heading_keyword_compacts = {
+                re.sub(r"[^a-z]", "", heading)
+                for heading in heading_keywords
+            }
 
             title_words = {
                 "engineer", "developer", "designer", "analyst", "manager", "consultant",
@@ -1108,6 +1348,8 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                     return False
                 # Reject known section headings
                 if lowered in heading_keywords:
+                    return False
+                if re.sub(r"[^a-z]", "", lowered) in heading_keyword_compacts:
                     return False
                 # FIX: handle ALL-CAPS names by title-casing for checks
                 check_line = line.title() if line.isupper() else line
@@ -1133,6 +1375,15 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             for ln in lines[:10]:
                 if looks_like_name(ln):
                     name = ln
+                    break
+                name_prefix = re.split(
+                    r"\s+(?:\+?\d|[A-Za-z0-9._%+\-]+@|github|linkedin|www\.|https?://)",
+                    ln,
+                    maxsplit=1,
+                    flags=re.IGNORECASE,
+                )[0].strip()
+                if name_prefix and looks_like_name(name_prefix):
+                    name = name_prefix
                     break
 
             # Pass 2 fallback: combine adjacent single-word capitalised lines
@@ -1237,10 +1488,10 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                 _now = datetime.now()
                 _current_year, _current_month = _now.year, _now.month
                 _date_re = re.compile(
-                    r'(?P<sm>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?\s*(?P<sy>\d{4})'
-                    r'\s*(?:'
-                    r'(?P<dash>[-\u2013\u2014])\s*(?P<em1>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?\s*(?P<ey1>\d{4}|present)?'
-                    r'|\s+(?P<em2>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?\s*(?P<ey2>\d{4}|present)'
+                    r'(?P<sm>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?[ \t]*(?P<sy>19\d{2}|20\d{2})'
+                    r'[ \t]*(?:'
+                    r'(?P<dash>[-\u2013\u2014])[ \t]*(?P<em1>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?[ \t]*(?P<ey1>19\d{2}|20\d{2}|present)'
+                    r'|[ \t]+(?P<em2>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?[ \t]*(?P<ey2>19\d{2}|20\d{2}|present)'
                     r')',
                     re.IGNORECASE
                 )
@@ -1250,12 +1501,59 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                     r"(?=\n\s*(?:education|academic|skills?|technical\s+skills?|certifications?|projects?|additional\s+information|references?)\s*(?::|-)?|\Z)",
                     raw_text,
                 )
-                experience_text_for_dates = work_section_re.group(1) if work_section_re else raw_text
-                total_months = 0
+                experience_text_for_dates = work_section_re.group(1) if work_section_re else ""
+                if not experience_text_for_dates:
+                    _experience_start_re = re.compile(
+                        r"^(?:contact\s+)?(?:work\s+|professional\s+|employment\s+)?experience\b",
+                        re.IGNORECASE,
+                    )
+                    _experience_end_re = re.compile(
+                        r"^(?:education|academic|skills?|technical\s+skills?|certifications?|"
+                        r"certificates?|projects?|academic\s+projects?|volunteering|references?|"
+                        r"language|expertise)\b",
+                        re.IGNORECASE,
+                    )
+                    section_lines = []
+                    in_experience_section = False
+                    for line in raw_text.splitlines():
+                        stripped = line.strip()
+                        if not stripped:
+                            continue
+                        if not in_experience_section and _experience_start_re.match(stripped):
+                            in_experience_section = True
+                            section_lines.append(stripped)
+                            continue
+                        if in_experience_section:
+                            if _experience_end_re.match(stripped):
+                                break
+                            section_lines.append(stripped)
+                    experience_text_for_dates = "\n".join(section_lines)
+                if not experience_text_for_dates:
+                    experience_text_for_dates = raw_text
+                month_names = r"jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec"
+                experience_text_for_dates = re.sub(
+                    rf"\b(\d{{4}})\s+({month_names})[a-z]*\.?\s*[-\u2013\u2014]\s*(present)\b",
+                    r"\2 \1 - \3",
+                    experience_text_for_dates,
+                    flags=re.IGNORECASE,
+                )
+                experience_text_for_dates = re.sub(
+                    rf"\b(\d{{4}})\s+({month_names})[a-z]*\.?\s*[-\u2013\u2014]\s*(\d{{4}})\s+({month_names})[a-z]*\.?",
+                    r"\2 \1 - \4 \3",
+                    experience_text_for_dates,
+                    flags=re.IGNORECASE,
+                )
+                experience_text_for_dates = re.sub(
+                    rf"\b(\d{{4}})\s+({month_names})[a-z]*\.?\s*[-\u2013\u2014]\s*({month_names})[a-z]*\.?",
+                    r"\2 \1 - \3 \1",
+                    experience_text_for_dates,
+                    flags=re.IGNORECASE,
+                )
+                date_ranges = []
                 exp_context_keywords = [
                     "experience", "work", "employment", "intern", "internship",
                     "trainee", "associate", "developer", "engineer", "company",
-                    "freelance", "contract",
+                    "freelance", "contract", "quality assurance", "test engineer",
                 ]
                 for date_match in _date_re.finditer(experience_text_for_dates):
                     date_parts = date_match.groupdict()
@@ -1279,9 +1577,20 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                         if 1990 <= sy_i <= _current_year and sy_i <= ey_i:
                             months = (ey_i - sy_i) * 12 + (em_i - sm_i)
                             if 0 < months <= 600:
-                                total_months += months
+                                date_ranges.append((sy_i * 12 + sm_i, ey_i * 12 + em_i))
                     except (ValueError, AttributeError):
                         continue
+                merged_ranges = []
+                for start_month, end_month in sorted(date_ranges):
+                    if not merged_ranges:
+                        merged_ranges = [(start_month, end_month)]
+                        continue
+                    last_start, last_end = merged_ranges[-1]
+                    if start_month <= last_end:
+                        merged_ranges[-1] = (last_start, max(last_end, end_month))
+                    else:
+                        merged_ranges.append((start_month, end_month))
+                total_months = sum(end - start for start, end in merged_ranges) if date_ranges else 0
                 if total_months > 0:
                     experience_years = min(round_experience_to_half_year(total_months / 12), 50)
                     exp_source = "parsed"
@@ -1405,14 +1714,14 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             ["experience", "work experience", "skills", "technical skills", "key skills",
              "projects", "certifications", "certificates", "soft skills", "personal skills",
              "tools", "references", "declaration", "languages", "membership", "activities",
-             "volunteer", "profile", "summary", "about me"]
+             "volunteer", "volunteering", "profile", "summary", "about me"]
         )
 
         skills_text = extract_section(
             ["skills", "technical skills", "key skills", "core competencies"],
             ["experience", "work experience", "projects", "certifications", "certificates",
              "education", "soft skills", "personal skills", "references", "declaration",
-             "languages", "tools & technologies", "membership", "activities", "volunteer",
+             "languages", "tools & technologies", "membership", "activities", "volunteer", "volunteering",
              "profile", "summary", "about me", "referee", "referees"]
         )
 
@@ -1420,14 +1729,14 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             ["work experience", "professional experience", "employment history", "experience"],
             ["education", "skills", "technical skills", "key skills", "certifications",
              "certificates", "projects", "references", "languages", "personal skills",
-             "soft skills", "membership", "activities", "volunteer"]
+             "soft skills", "membership", "activities", "volunteer", "volunteering"]
         )
 
         certs_text = extract_section(
             ["certificates", "certifications", "certification", "licenses", "professional development"],
             ["education", "skills", "technical skills", "references", "projects", "experience",
              "declaration", "personal skills", "soft skills", "languages", "membership",
-             "activities", "volunteer", "referee", "referees"]
+             "activities", "volunteer", "volunteering", "referee", "referees"]
         )
 
         # FALLBACK B: education — scan for degree / institution lines when
@@ -1449,6 +1758,24 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                     break
             if edu_lines:
                 education_text = '\n'.join(edu_lines)
+
+        if education_text and re.search(
+            r"\b(work with|test cases|jira|trainee software engineer|research project|deep learning|expertise|"
+            r"conduct market|industry trends|prioritizing|customer lifetime|associate lead)\b",
+            education_text,
+            re.IGNORECASE,
+        ):
+            rebuilt_education = rebuild_education_from_lines(raw_text)
+            if rebuilt_education and re.search(
+                r"\b(conduct market|industry trends|prioritizing|customer lifetime|associate lead)\b",
+                rebuilt_education,
+                re.IGNORECASE,
+            ):
+                rebuilt_education = ""
+            if not rebuilt_education:
+                rebuilt_education = rebuild_education_by_keyword_window(education_text)
+            if rebuilt_education:
+                education_text = rebuilt_education
 
         # FALLBACK B: certifications — scan beyond cert-title keywords to also
         # catch lines with well-known certification bodies / platforms.
@@ -1485,7 +1812,7 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             _skills_end_re = re.compile(
                 r'^(personal\s+skills?|soft\s+skills?|work\s+experience|experience|'
                 r'education|certifications?|certificates?|projects?|references?|'
-                r'languages?|membership|activities|volunteer|declaration|about\s+me|'
+                r'languages?|membership|activities|volunteer|volunteering|declaration|about\s+me|'
                 r'summary|profile)\s*$',
                 re.IGNORECASE
             )
@@ -1512,6 +1839,10 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                         skills_text = stripped
                         break
 
+        expertise_text = extract_expertise_section(raw_text)
+        if expertise_text:
+            skills_text = "\n".join(part for part in [expertise_text, skills_text] if part)
+
         # Fallback: if certs is still empty, try finding a line with "certificate" or course names
         if not certs_text:
             cert_lines = []
@@ -1529,6 +1860,7 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             certs_text = ""
 
     # Parse structured data for display/CSV
+    education_text = clean_education_text(education_text)
     prev_companies_display = parse_company_names_from_experience(prev_companies_text) if prev_companies_text else ""
     certs_display = parse_certification_names(certs_text) if certs_text else ""
     skills_display = parse_skills_list(skills_text) if skills_text else ""

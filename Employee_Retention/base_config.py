@@ -17,10 +17,10 @@ class AppConfig:
     MODEL_PATH = _resolve_model_path()
     APP_NAME = "Employee Attrition Risk Engine"
     VERSION = "2.0.0"
-    RISK_THRESHOLD_CRITICAL = 0.70
-    RISK_THRESHOLD_HIGH = 0.45
-    RISK_THRESHOLD_MEDIUM = 0.25
-    RISK_THRESHOLD_LOW = 0.10
+    RISK_THRESHOLD_CRITICAL = 0.80
+    RISK_THRESHOLD_HIGH = 0.60
+    RISK_THRESHOLD_MEDIUM = 0.40
+    RISK_THRESHOLD_LOW = 0.20
 
     RISK_LEVEL_CRITICAL = "Critical Risk"
     RISK_LEVEL_HIGH = "High Risk"

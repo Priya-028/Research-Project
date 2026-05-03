@@ -1,0 +1,2501 @@
+Age,BusinessTravel,JobRole,JobLevel,MonthlyIncome,OverTime,Risk_Score,Risk_Percentage,Risk_Label
+23,Travel_Rarely,Research Scientist,1,1512.0,Yes,0.1171,11.71,Minimal Risk
+49,Travel_Rarely,Lab Technician,1,4581.0,No,0.3048,30.48,Low Risk
+36,Non-Travel,Finance Manager,3,23364.0,Yes,0.1513,15.13,Minimal Risk
+36,Non-Travel,HR Associate,2,15285.6,No,0.031,3.1,Minimal Risk
+25,Travel_Frequently,R&D Manager,4,28231.2,Yes,0.1747,17.47,Minimal Risk
+54,Travel_Rarely,IT Manager,2,17708.4,No,0.7635,76.35,High Risk
+26,Travel_Frequently,Finance Manager,2,13002.0,No,0.2379,23.79,Low Risk
+26,Non-Travel,Sales Executive,3,23328.0,Yes,0.0583,5.83,Minimal Risk
+25,Travel_Rarely,Finance Manager,3,9208.8,No,0.0478,4.78,Minimal Risk
+32,Travel_Frequently,Lab Technician,1,3807.0,No,0.2295,22.95,Low Risk
+25,Non-Travel,Sales Manager,1,6799.8,Yes,0.1948,19.48,Minimal Risk
+51,Travel_Frequently,Finance Manager,5,19035.0,Yes,0.1857,18.57,Minimal Risk
+38,Travel_Frequently,Systems Administrator,3,9603.0,No,0.0919,9.19,Minimal Risk
+57,Travel_Frequently,Sales Executive,1,6925.8,Yes,0.0961,9.61,Minimal Risk
+37,Travel_Rarely,Sales Executive,3,8294.4,No,0.0728,7.28,Minimal Risk
+26,Travel_Rarely,Software Engineer,5,14775.0,Yes,0.6406,64.06,High Risk
+45,Travel_Frequently,Recruiter,3,12720.6,No,0.044,4.4,Minimal Risk
+49,Travel_Rarely,HR Manager,4,23404.8,No,0.0464,4.64,Minimal Risk
+51,Travel_Rarely,Accountant,4,35407.2,No,0.0292,2.92,Minimal Risk
+57,Travel_Frequently,Accountant,3,17890.2,No,0.0258,2.58,Minimal Risk
+26,Travel_Rarely,Software Engineer,4,35068.8,No,0.0543,5.43,Minimal Risk
+43,Travel_Rarely,Lab Technician,2,14036.4,Yes,0.1262,12.62,Minimal Risk
+39,Travel_Rarely,Financial Analyst,5,44397.0,Yes,0.2924,29.24,Low Risk
+45,Non-Travel,Sales Executive,3,20579.4,Yes,0.1672,16.72,Minimal Risk
+22,Travel_Frequently,Accountant,4,33652.8,No,0.0256,2.56,Minimal Risk
+43,Travel_Rarely,Lab Technician,2,14120.4,Yes,0.2487,24.87,Low Risk
+47,Travel_Frequently,Software Engineer,4,34130.4,No,0.0386,3.86,Minimal Risk
+39,Travel_Rarely,Software Engineer,1,4747.2,Yes,0.1411,14.11,Minimal Risk
+33,Travel_Rarely,Sales Executive,4,10665.6,Yes,0.0782,7.82,Minimal Risk
+61,Travel_Frequently,Lab Technician,1,1937.4,No,0.1674,16.74,Minimal Risk
+49,Travel_Frequently,Lab Technician,2,14098.8,No,0.032,3.2,Minimal Risk
+60,Non-Travel,R&D Manager,5,43506.0,No,0.0599,5.99,Minimal Risk
+43,Travel_Frequently,Finance Manager,1,4377.6,Yes,0.1153,11.53,Minimal Risk
+40,Travel_Frequently,Sales Manager,5,33072.0,Yes,0.0224,2.24,Minimal Risk
+51,Non-Travel,R&D Manager,5,43977.0,No,0.0399,3.99,Minimal Risk
+34,Travel_Frequently,Financial Analyst,4,19980.0,Yes,0.1697,16.97,Minimal Risk
+26,Non-Travel,IT Manager,4,19742.4,No,0.043,4.3,Minimal Risk
+50,Travel_Frequently,Sales Representative,1,2631.0,Yes,0.9119,91.19,Critical Risk
+51,Travel_Frequently,Sales Representative,3,17071.2,No,0.0802,8.02,Minimal Risk
+40,Travel_Frequently,R&D Manager,2,14736.0,No,0.107,10.7,Minimal Risk
+55,Travel_Rarely,HR Manager,3,5819.4,No,0.0508,5.08,Minimal Risk
+28,Non-Travel,Sales Manager,5,37230.0,No,0.0666,6.66,Minimal Risk
+64,Travel_Rarely,IT Manager,2,14503.2,No,0.0245,2.45,Minimal Risk
+51,Travel_Rarely,Systems Administrator,1,8935.8,Yes,0.1819,18.19,Minimal Risk
+33,Non-Travel,Sales Representative,2,7616.4,No,0.0244,2.44,Minimal Risk
+64,Travel_Rarely,Sales Executive,4,24076.8,No,0.121,12.1,Minimal Risk
+63,Non-Travel,Lab Technician,4,22632.0,Yes,0.6186,61.86,High Risk
+45,Non-Travel,IT Manager,5,23379.0,Yes,0.1593,15.93,Minimal Risk
+29,Non-Travel,Finance Manager,5,7422.0,No,0.6343,63.43,High Risk
+46,Non-Travel,Lab Technician,3,8188.2,Yes,0.0822,8.22,Minimal Risk
+40,Travel_Rarely,IT Manager,3,3825.0,Yes,0.4182,41.82,Medium Risk
+26,Travel_Frequently,Sales Representative,1,8174.4,Yes,0.122,12.2,Minimal Risk
+55,Non-Travel,HR Associate,3,22273.2,Yes,0.0677,6.77,Minimal Risk
+33,Travel_Frequently,IT Manager,4,10735.2,No,0.0387,3.87,Minimal Risk
+26,Travel_Frequently,IT Manager,4,27278.4,No,0.0829,8.29,Minimal Risk
+45,Non-Travel,Accountant,5,22203.0,No,0.0377,3.77,Minimal Risk
+41,Travel_Frequently,HR Associate,5,23784.0,Yes,0.0835,8.35,Minimal Risk
+64,Non-Travel,Software Engineer,2,3258.0,Yes,0.2451,24.51,Low Risk
+51,Travel_Frequently,Software Engineer,2,3424.8,Yes,0.1165,11.65,Minimal Risk
+50,Travel_Frequently,Sales Representative,5,24426.0,Yes,0.3454,34.54,Low Risk
+38,Travel_Frequently,IT Manager,4,9590.4,No,0.1044,10.44,Minimal Risk
+33,Travel_Frequently,HR Associate,5,29106.0,No,0.0266,2.66,Minimal Risk
+65,Travel_Rarely,Research Scientist,1,3181.2,Yes,0.1021,10.21,Minimal Risk
+39,Non-Travel,Finance Manager,4,24309.6,No,0.0397,3.97,Minimal Risk
+32,Travel_Frequently,Financial Analyst,3,5812.2,Yes,0.795,79.5,High Risk
+60,Travel_Rarely,HR Manager,1,4290.0,Yes,0.2925,29.25,Low Risk
+34,Non-Travel,Financial Analyst,4,32700.0,No,0.0573,5.73,Minimal Risk
+45,Travel_Frequently,Finance Manager,2,10227.6,No,0.0481,4.81,Minimal Risk
+49,Travel_Frequently,Systems Administrator,3,13804.2,Yes,0.6221,62.21,High Risk
+58,Travel_Frequently,Sales Manager,5,36381.0,No,0.0498,4.98,Minimal Risk
+43,Travel_Rarely,Recruiter,3,20163.6,No,0.13,13.0,Minimal Risk
+42,Non-Travel,Lab Technician,5,7137.0,No,0.0731,7.31,Minimal Risk
+28,Travel_Frequently,HR Manager,3,9340.2,Yes,0.4794,47.94,Medium Risk
+31,Travel_Rarely,Finance Manager,1,5856.6,Yes,0.1173,11.73,Minimal Risk
+48,Non-Travel,Sales Manager,4,27744.0,No,0.0515,5.15,Minimal Risk
+54,Travel_Rarely,Sales Manager,2,12730.8,No,0.0401,4.01,Minimal Risk
+40,Non-Travel,Accountant,4,9590.4,No,0.0879,8.79,Minimal Risk
+35,Non-Travel,IT Manager,3,5095.8,Yes,0.1647,16.47,Minimal Risk
+52,Travel_Rarely,HR Manager,1,8461.2,No,0.0401,4.01,Minimal Risk
+40,Travel_Frequently,Financial Analyst,5,22251.0,No,0.0473,4.73,Minimal Risk
+33,Non-Travel,Research Scientist,3,13320.0,Yes,0.4987,49.87,Medium Risk
+45,Travel_Frequently,Lab Technician,2,16200.0,Yes,0.0643,6.43,Minimal Risk
+32,Travel_Rarely,Sales Manager,2,12433.2,No,0.0505,5.05,Minimal Risk
+24,Travel_Rarely,Sales Manager,1,4021.8,No,0.0912,9.12,Minimal Risk
+22,Travel_Rarely,Software Engineer,5,23013.0,Yes,0.2645,26.45,Low Risk
+37,Non-Travel,Financial Analyst,5,20217.0,No,0.0833,8.33,Minimal Risk
+57,Non-Travel,Finance Manager,3,12443.4,No,0.0524,5.24,Minimal Risk
+35,Travel_Rarely,HR Associate,5,24537.0,Yes,0.1095,10.95,Minimal Risk
+37,Travel_Frequently,Lab Technician,2,11566.8,No,0.0363,3.63,Minimal Risk
+58,Travel_Frequently,Recruiter,5,15642.0,Yes,0.1479,14.79,Minimal Risk
+55,Travel_Rarely,Sales Executive,4,32606.4,No,0.0596,5.96,Minimal Risk
+23,Travel_Frequently,Sales Executive,5,18405.0,Yes,0.4511,45.11,Medium Risk
+25,Travel_Rarely,Research Scientist,4,25567.2,No,0.0573,5.73,Minimal Risk
+26,Non-Travel,R&D Manager,4,34509.6,Yes,0.0943,9.43,Minimal Risk
+23,Travel_Frequently,Financial Analyst,3,23644.8,Yes,0.1833,18.33,Minimal Risk
+45,Travel_Frequently,HR Manager,3,6174.0,No,0.0292,2.92,Minimal Risk
+58,Travel_Frequently,Financial Analyst,2,5268.0,No,0.1168,11.68,Minimal Risk
+41,Non-Travel,Software Engineer,3,12459.6,Yes,0.1379,13.79,Minimal Risk
+45,Travel_Frequently,IT Manager,2,16326.0,Yes,0.1118,11.18,Minimal Risk
+59,Non-Travel,Finance Manager,1,8758.8,No,0.0542,5.42,Minimal Risk
+50,Travel_Rarely,IT Manager,5,11136.0,Yes,0.1195,11.95,Minimal Risk
+42,Travel_Rarely,Sales Executive,3,18817.2,No,0.0386,3.86,Minimal Risk
+46,Travel_Rarely,Recruiter,1,4404.0,No,0.0562,5.62,Minimal Risk
+61,Travel_Frequently,Lab Technician,1,4869.6,No,0.2485,24.85,Low Risk
+42,Travel_Frequently,HR Associate,4,24674.4,No,0.0807,8.07,Minimal Risk
+51,Non-Travel,Systems Administrator,5,43197.0,No,0.114,11.4,Minimal Risk
+37,Travel_Rarely,Recruiter,5,44574.0,Yes,0.779,77.9,High Risk
+25,Non-Travel,Research Scientist,2,12022.8,No,0.0299,2.99,Minimal Risk
+27,Travel_Frequently,HR Associate,5,30315.0,No,0.6677,66.77,High Risk
+50,Travel_Frequently,R&D Manager,2,7786.8,No,0.0395,3.95,Minimal Risk
+35,Travel_Rarely,Systems Administrator,5,40188.0,No,0.0417,4.17,Minimal Risk
+63,Non-Travel,IT Manager,1,4651.8,Yes,0.207,20.7,Low Risk
+42,Non-Travel,Sales Executive,5,38361.0,Yes,0.1112,11.12,Minimal Risk
+45,Non-Travel,Software Engineer,3,26317.8,Yes,0.1424,14.24,Minimal Risk
+39,Travel_Rarely,Systems Administrator,2,8497.2,Yes,0.3382,33.82,Low Risk
+53,Non-Travel,HR Associate,3,13478.4,Yes,0.184,18.4,Minimal Risk
+36,Travel_Rarely,Sales Executive,2,5349.6,No,0.1168,11.68,Minimal Risk
+47,Travel_Frequently,HR Manager,1,3172.2,Yes,0.1399,13.99,Minimal Risk
+62,Travel_Frequently,Sales Manager,4,25632.0,Yes,0.0617,6.17,Minimal Risk
+62,Travel_Frequently,Systems Administrator,4,15062.4,No,0.0401,4.01,Minimal Risk
+48,Non-Travel,Lab Technician,3,8247.6,Yes,0.121,12.1,Minimal Risk
+23,Travel_Rarely,Systems Administrator,1,1317.0,Yes,0.0711,7.11,Minimal Risk
+43,Travel_Frequently,Sales Executive,5,24810.0,Yes,0.5299,52.99,Medium Risk
+46,Travel_Frequently,Systems Administrator,5,29577.0,No,0.0246,2.46,Minimal Risk
+55,Travel_Rarely,Research Scientist,2,17955.6,No,0.0676,6.76,Minimal Risk
+53,Travel_Frequently,Financial Analyst,1,6375.0,Yes,0.1047,10.47,Minimal Risk
+26,Non-Travel,Sales Representative,3,26951.4,No,0.0457,4.57,Minimal Risk
+58,Travel_Rarely,Recruiter,2,5164.8,Yes,0.1836,18.36,Minimal Risk
+22,Travel_Frequently,Financial Analyst,4,19557.6,Yes,0.1478,14.78,Minimal Risk
+32,Travel_Frequently,Sales Representative,5,38127.0,Yes,0.6232,62.32,High Risk
+31,Travel_Rarely,Financial Analyst,3,6460.2,No,0.654,65.4,High Risk
+33,Travel_Rarely,Lab Technician,1,3423.6,Yes,0.5083,50.83,Medium Risk
+58,Travel_Rarely,Sales Representative,1,8643.0,Yes,0.0572,5.72,Minimal Risk
+27,Travel_Frequently,Software Engineer,3,26652.6,Yes,0.0315,3.15,Minimal Risk
+24,Non-Travel,R&D Manager,5,22293.0,No,0.039,3.9,Minimal Risk
+30,Travel_Frequently,Recruiter,4,22168.8,No,0.1123,11.23,Minimal Risk
+25,Travel_Rarely,Sales Representative,2,10203.6,Yes,0.4179,41.79,Medium Risk
+40,Non-Travel,R&D Manager,2,7689.6,Yes,0.1626,16.26,Minimal Risk
+44,Travel_Frequently,Accountant,5,6360.0,No,0.0907,9.07,Minimal Risk
+25,Travel_Frequently,Recruiter,2,7500.0,Yes,0.0897,8.97,Minimal Risk
+30,Travel_Frequently,Systems Administrator,3,10186.2,No,0.065,6.5,Minimal Risk
+55,Travel_Rarely,Research Scientist,2,8619.6,No,0.2337,23.37,Low Risk
+53,Travel_Rarely,Finance Manager,4,4982.4,No,0.0912,9.12,Minimal Risk
+46,Travel_Frequently,Research Scientist,1,7062.0,Yes,0.7972,79.72,High Risk
+59,Travel_Rarely,Recruiter,1,7325.4,Yes,0.1193,11.93,Minimal Risk
+65,Non-Travel,Finance Manager,1,5317.2,Yes,0.338,33.8,Low Risk
+40,Travel_Rarely,Financial Analyst,4,31209.6,No,0.0735,7.35,Minimal Risk
+28,Non-Travel,Recruiter,3,3884.4,Yes,0.0954,9.54,Minimal Risk
+46,Non-Travel,Research Scientist,2,10579.2,No,0.0376,3.76,Minimal Risk
+38,Non-Travel,IT Manager,5,31512.0,Yes,0.1861,18.61,Minimal Risk
+53,Travel_Rarely,HR Associate,3,22572.0,Yes,0.1305,13.05,Minimal Risk
+28,Non-Travel,IT Manager,1,6727.8,No,0.0427,4.27,Minimal Risk
+28,Travel_Rarely,HR Manager,3,4950.0,No,0.1115,11.15,Minimal Risk
+48,Travel_Rarely,Accountant,5,6213.0,No,0.0436,4.36,Minimal Risk
+48,Non-Travel,Accountant,3,21367.8,No,0.0418,4.18,Minimal Risk
+57,Travel_Rarely,Finance Manager,5,11232.0,Yes,0.1004,10.04,Minimal Risk
+44,Non-Travel,Systems Administrator,5,24753.0,No,0.1956,19.56,Minimal Risk
+40,Non-Travel,Sales Executive,2,3198.0,No,0.0371,3.71,Minimal Risk
+53,Travel_Frequently,Sales Manager,3,5610.6,No,0.0749,7.49,Minimal Risk
+29,Travel_Rarely,R&D Manager,5,39546.0,No,0.0729,7.29,Minimal Risk
+28,Non-Travel,Sales Manager,1,2221.2,No,0.4543,45.43,Medium Risk
+38,Non-Travel,Accountant,3,3772.8,Yes,0.1873,18.73,Minimal Risk
+46,Travel_Rarely,R&D Manager,2,8259.6,Yes,0.7571,75.71,High Risk
+61,Travel_Rarely,R&D Manager,5,9594.0,No,0.0283,2.83,Minimal Risk
+53,Travel_Frequently,Recruiter,5,27051.0,Yes,0.0919,9.19,Minimal Risk
+33,Travel_Rarely,HR Associate,5,6915.0,No,0.0382,3.82,Minimal Risk
+47,Non-Travel,R&D Manager,2,5529.6,Yes,0.1817,18.17,Minimal Risk
+46,Travel_Rarely,Sales Manager,3,20664.0,No,0.0428,4.28,Minimal Risk
+60,Travel_Frequently,Financial Analyst,2,5353.2,Yes,0.391,39.1,Low Risk
+23,Travel_Rarely,IT Manager,2,3499.2,No,0.1185,11.85,Minimal Risk
+60,Travel_Rarely,IT Manager,5,35319.0,No,0.0976,9.76,Minimal Risk
+27,Travel_Rarely,Systems Administrator,4,32232.0,No,0.0644,6.44,Minimal Risk
+38,Travel_Frequently,Sales Manager,5,38172.0,No,0.0364,3.64,Minimal Risk
+57,Travel_Rarely,Recruiter,5,44052.0,Yes,0.784,78.4,High Risk
+27,Travel_Frequently,Financial Analyst,1,7186.8,No,0.0944,9.44,Minimal Risk
+61,Non-Travel,R&D Manager,1,4671.0,Yes,0.8957,89.57,Critical Risk
+51,Non-Travel,HR Associate,4,16370.4,No,0.028,2.8,Minimal Risk
+52,Travel_Rarely,Finance Manager,2,9342.0,No,0.0459,4.59,Minimal Risk
+33,Non-Travel,Research Scientist,2,6386.4,No,0.0997,9.97,Minimal Risk
+53,Travel_Frequently,Financial Analyst,5,32577.0,No,0.1333,13.33,Minimal Risk
+33,Non-Travel,HR Manager,5,26835.0,No,0.1637,16.37,Minimal Risk
+34,Non-Travel,Sales Executive,4,16596.0,Yes,0.1558,15.58,Minimal Risk
+38,Non-Travel,Software Engineer,3,23641.2,Yes,0.0821,8.21,Minimal Risk
+48,Non-Travel,Financial Analyst,1,4314.6,No,0.1209,12.09,Minimal Risk
+64,Travel_Frequently,Lab Technician,1,1728.6,Yes,0.3232,32.32,Low Risk
+30,Travel_Frequently,Sales Manager,3,19540.8,Yes,0.0968,9.68,Minimal Risk
+48,Non-Travel,Sales Executive,5,29061.0,No,0.0293,2.93,Minimal Risk
+63,Travel_Frequently,HR Associate,4,30297.6,No,0.024,2.4,Minimal Risk
+31,Travel_Rarely,Research Scientist,3,10465.2,No,0.0888,8.88,Minimal Risk
+26,Non-Travel,Lab Technician,4,19929.6,Yes,0.069,6.9,Minimal Risk
+57,Travel_Frequently,Finance Manager,3,6930.0,No,0.0941,9.41,Minimal Risk
+45,Non-Travel,Financial Analyst,5,23472.0,Yes,0.0946,9.46,Minimal Risk
+24,Travel_Frequently,Recruiter,4,18470.4,No,0.1234,12.34,Minimal Risk
+61,Non-Travel,Recruiter,1,6351.6,Yes,0.7731,77.31,High Risk
+34,Travel_Rarely,Sales Executive,5,36669.0,No,0.0335,3.35,Minimal Risk
+61,Travel_Frequently,Sales Representative,1,8328.6,Yes,0.1119,11.19,Minimal Risk
+33,Travel_Frequently,Recruiter,2,8595.6,No,0.061,6.1,Minimal Risk
+24,Non-Travel,Systems Administrator,3,12886.2,No,0.039,3.9,Minimal Risk
+27,Travel_Rarely,R&D Manager,1,5999.4,No,0.0798,7.98,Minimal Risk
+63,Non-Travel,Financial Analyst,3,20259.0,Yes,0.6052,60.52,High Risk
+27,Travel_Rarely,Sales Manager,4,21883.2,No,0.1107,11.07,Minimal Risk
+29,Travel_Frequently,HR Manager,2,5727.6,Yes,0.4015,40.15,Medium Risk
+40,Travel_Rarely,Sales Representative,4,33897.6,No,0.0657,6.57,Minimal Risk
+25,Non-Travel,Finance Manager,3,4161.6,No,0.1594,15.94,Minimal Risk
+24,Non-Travel,HR Manager,4,31706.4,No,0.0263,2.63,Minimal Risk
+27,Travel_Frequently,IT Manager,2,8541.6,Yes,0.2054,20.54,Low Risk
+42,Travel_Frequently,Sales Executive,3,15809.4,No,0.0348,3.48,Minimal Risk
+27,Travel_Rarely,IT Manager,4,20035.2,Yes,0.4032,40.32,Medium Risk
+33,Non-Travel,HR Manager,2,16558.8,Yes,0.6662,66.62,High Risk
+47,Non-Travel,Lab Technician,3,22653.0,Yes,0.0862,8.62,Minimal Risk
+38,Non-Travel,Sales Executive,1,6349.2,Yes,0.6133,61.33,High Risk
+50,Travel_Rarely,Research Scientist,1,6091.8,No,0.0435,4.35,Minimal Risk
+61,Non-Travel,Sales Executive,2,5257.2,No,0.0524,5.24,Minimal Risk
+24,Non-Travel,HR Manager,1,5827.8,No,0.0567,5.67,Minimal Risk
+38,Non-Travel,HR Associate,5,14841.0,No,0.043,4.3,Minimal Risk
+22,Travel_Frequently,HR Manager,1,2319.0,Yes,0.7878,78.78,High Risk
+51,Travel_Frequently,Recruiter,3,20628.0,Yes,0.0447,4.47,Minimal Risk
+42,Travel_Frequently,Financial Analyst,4,16699.2,Yes,0.1,10.0,Minimal Risk
+55,Travel_Rarely,Sales Manager,2,16430.4,No,0.128,12.8,Minimal Risk
+42,Travel_Rarely,Recruiter,3,8002.8,Yes,0.6063,60.63,High Risk
+56,Non-Travel,Sales Representative,1,5392.2,No,0.6176,61.76,High Risk
+65,Non-Travel,Research Scientist,2,10107.6,No,0.0355,3.55,Minimal Risk
+60,Non-Travel,Sales Representative,1,6436.8,No,0.1174,11.74,Minimal Risk
+58,Travel_Frequently,Research Scientist,1,7021.2,Yes,0.7895,78.95,High Risk
+59,Non-Travel,Lab Technician,5,16107.0,No,0.542,54.2,Medium Risk
+29,Non-Travel,Finance Manager,5,25956.0,Yes,0.7868,78.68,High Risk
+63,Travel_Frequently,Finance Manager,4,22730.4,Yes,0.153,15.3,Minimal Risk
+54,Non-Travel,Software Engineer,1,2312.4,Yes,0.5632,56.32,Medium Risk
+56,Travel_Rarely,Software Engineer,5,20481.0,No,0.1673,16.73,Minimal Risk
+39,Travel_Rarely,HR Manager,3,23038.2,No,0.0347,3.47,Minimal Risk
+64,Travel_Frequently,IT Manager,3,5148.0,No,0.1496,14.96,Minimal Risk
+46,Travel_Rarely,Sales Executive,5,22464.0,No,0.0984,9.84,Minimal Risk
+48,Travel_Rarely,Accountant,2,3068.4,Yes,0.2513,25.13,Low Risk
+38,Travel_Rarely,Sales Manager,4,14918.4,No,0.0557,5.57,Minimal Risk
+61,Travel_Rarely,Financial Analyst,2,11080.8,Yes,0.2152,21.52,Low Risk
+47,Non-Travel,Accountant,4,19915.2,No,0.0507,5.07,Minimal Risk
+57,Non-Travel,Lab Technician,4,8136.0,Yes,0.1002,10.02,Minimal Risk
+23,Non-Travel,Recruiter,1,5705.4,Yes,0.7208,72.08,High Risk
+41,Travel_Rarely,R&D Manager,1,7048.8,Yes,0.1737,17.37,Minimal Risk
+43,Travel_Rarely,Lab Technician,2,7189.2,Yes,0.175,17.5,Minimal Risk
+48,Non-Travel,Research Scientist,2,7102.8,Yes,0.3169,31.69,Low Risk
+61,Travel_Rarely,Lab Technician,2,5332.8,Yes,0.6544,65.44,High Risk
+56,Non-Travel,Finance Manager,1,5319.0,No,0.8863,88.63,Critical Risk
+25,Travel_Frequently,Software Engineer,2,16551.6,No,0.1101,11.01,Minimal Risk
+36,Travel_Rarely,Systems Administrator,5,31644.0,No,0.0291,2.91,Minimal Risk
+48,Travel_Rarely,Systems Administrator,4,22588.8,Yes,0.6766,67.66,High Risk
+58,Non-Travel,Accountant,2,14722.8,Yes,0.1102,11.02,Minimal Risk
+61,Non-Travel,HR Associate,1,4793.4,Yes,0.5312,53.12,Medium Risk
+54,Non-Travel,Sales Executive,3,19132.2,No,0.2377,23.77,Low Risk
+28,Travel_Rarely,Lab Technician,2,10588.8,No,0.0308,3.08,Minimal Risk
+48,Travel_Frequently,HR Manager,5,20946.0,Yes,0.1296,12.96,Minimal Risk
+56,Travel_Rarely,Research Scientist,2,11067.6,Yes,0.3602,36.02,Low Risk
+23,Non-Travel,Accountant,2,11716.8,Yes,0.1629,16.29,Minimal Risk
+50,Non-Travel,Sales Manager,2,6247.2,No,0.0571,5.71,Minimal Risk
+22,Non-Travel,HR Manager,5,27747.0,No,0.1404,14.04,Minimal Risk
+27,Non-Travel,HR Manager,2,6056.4,No,0.0616,6.16,Minimal Risk
+29,Travel_Frequently,Lab Technician,2,3711.6,No,0.0448,4.48,Minimal Risk
+42,Non-Travel,Research Scientist,3,12148.2,Yes,0.5193,51.93,Medium Risk
+28,Travel_Rarely,Research Scientist,2,10500.0,Yes,0.231,23.1,Low Risk
+52,Non-Travel,HR Associate,4,32712.0,Yes,0.0811,8.11,Minimal Risk
+26,Travel_Rarely,Sales Executive,1,2368.8,No,0.1254,12.54,Minimal Risk
+59,Travel_Rarely,IT Manager,5,34416.0,Yes,0.2492,24.92,Low Risk
+33,Travel_Rarely,R&D Manager,2,11559.6,No,0.0461,4.61,Minimal Risk
+65,Travel_Frequently,Accountant,4,11848.8,Yes,0.1841,18.41,Minimal Risk
+26,Travel_Frequently,R&D Manager,4,15751.2,No,0.0799,7.99,Minimal Risk
+62,Travel_Frequently,Sales Executive,4,28572.0,Yes,0.1529,15.29,Minimal Risk
+24,Travel_Frequently,Accountant,4,11752.8,Yes,0.1673,16.73,Minimal Risk
+54,Non-Travel,Finance Manager,4,17400.0,Yes,0.0364,3.64,Minimal Risk
+64,Non-Travel,Recruiter,1,4518.6,No,0.0576,5.76,Minimal Risk
+42,Travel_Frequently,Sales Manager,2,14487.6,Yes,0.0887,8.87,Minimal Risk
+59,Travel_Rarely,HR Associate,5,16308.0,No,0.0488,4.88,Minimal Risk
+23,Non-Travel,Software Engineer,2,14479.2,Yes,0.1473,14.73,Minimal Risk
+62,Travel_Rarely,Recruiter,2,7088.4,Yes,0.773,77.3,High Risk
+64,Travel_Rarely,Sales Manager,4,17143.2,No,0.0523,5.23,Minimal Risk
+42,Travel_Frequently,Finance Manager,2,4500.0,No,0.1222,12.22,Minimal Risk
+31,Non-Travel,HR Manager,1,7989.6,No,0.0355,3.55,Minimal Risk
+41,Travel_Frequently,Research Scientist,4,15573.6,No,0.0442,4.42,Minimal Risk
+25,Travel_Rarely,Finance Manager,2,8568.0,Yes,0.0872,8.72,Minimal Risk
+27,Travel_Rarely,Accountant,5,37806.0,Yes,0.2209,22.09,Low Risk
+22,Non-Travel,Finance Manager,4,35553.6,No,0.6808,68.08,High Risk
+37,Travel_Rarely,Recruiter,4,17510.4,No,0.0657,6.57,Minimal Risk
+22,Travel_Frequently,Accountant,4,6415.2,Yes,0.4724,47.24,Medium Risk
+53,Travel_Frequently,HR Manager,5,14109.0,Yes,0.6368,63.68,High Risk
+49,Travel_Frequently,Accountant,5,41376.0,Yes,0.5146,51.46,Medium Risk
+65,Travel_Frequently,Recruiter,1,2711.4,No,0.095,9.5,Minimal Risk
+63,Travel_Frequently,Sales Manager,5,14748.0,Yes,0.1271,12.71,Minimal Risk
+65,Non-Travel,Sales Representative,5,29415.0,No,0.1051,10.51,Minimal Risk
+63,Travel_Rarely,IT Manager,5,9891.0,Yes,0.102,10.2,Minimal Risk
+64,Travel_Rarely,HR Manager,5,42396.0,No,0.0528,5.28,Minimal Risk
+60,Non-Travel,Systems Administrator,1,7646.4,No,0.327,32.7,Low Risk
+34,Travel_Frequently,R&D Manager,2,8316.0,No,0.1249,12.49,Minimal Risk
+25,Non-Travel,Accountant,4,23968.8,No,0.0775,7.75,Minimal Risk
+53,Travel_Rarely,Financial Analyst,2,11013.6,No,0.1258,12.58,Minimal Risk
+27,Travel_Rarely,Research Scientist,2,12106.8,Yes,0.3022,30.22,Low Risk
+57,Non-Travel,HR Manager,1,7984.2,Yes,0.1823,18.23,Minimal Risk
+45,Travel_Rarely,Finance Manager,4,17956.8,No,0.0287,2.87,Minimal Risk
+31,Travel_Frequently,Lab Technician,4,31624.8,Yes,0.0976,9.76,Minimal Risk
+58,Non-Travel,Accountant,5,6387.0,Yes,0.2407,24.07,Low Risk
+46,Travel_Rarely,Software Engineer,2,9098.4,Yes,0.2311,23.11,Low Risk
+50,Non-Travel,Sales Representative,3,12423.6,Yes,0.3231,32.31,Low Risk
+27,Travel_Frequently,Financial Analyst,4,25204.8,No,0.0409,4.09,Minimal Risk
+35,Travel_Frequently,R&D Manager,3,7164.0,Yes,0.3582,35.82,Low Risk
+25,Non-Travel,R&D Manager,4,6556.8,No,0.0402,4.02,Minimal Risk
+27,Travel_Rarely,Financial Analyst,4,33736.8,Yes,0.5784,57.84,Medium Risk
+23,Travel_Rarely,Software Engineer,1,6988.8,No,0.1128,11.28,Minimal Risk
+31,Travel_Rarely,Lab Technician,4,11935.2,No,0.0073,0.73,Minimal Risk
+60,Travel_Frequently,IT Manager,4,17316.0,Yes,0.6995,69.95,High Risk
+50,Travel_Frequently,Lab Technician,5,28203.0,No,0.0226,2.26,Minimal Risk
+24,Non-Travel,Sales Representative,1,3946.8,No,0.7217,72.17,High Risk
+63,Non-Travel,Sales Executive,2,12979.2,Yes,0.7764,77.64,High Risk
+34,Travel_Rarely,Sales Representative,3,10508.4,No,0.0725,7.25,Minimal Risk
+26,Non-Travel,Sales Executive,3,25095.6,Yes,0.5545,55.45,Medium Risk
+53,Travel_Frequently,Research Scientist,3,3751.2,Yes,0.3108,31.08,Low Risk
+23,Travel_Rarely,IT Manager,3,17566.2,No,0.1146,11.46,Minimal Risk
+30,Travel_Frequently,Recruiter,4,6852.0,No,0.0599,5.99,Minimal Risk
+51,Non-Travel,Research Scientist,1,6834.6,No,0.0405,4.05,Minimal Risk
+41,Non-Travel,Lab Technician,3,3837.6,Yes,0.498,49.8,Medium Risk
+34,Travel_Rarely,Finance Manager,3,15946.2,No,0.0491,4.91,Minimal Risk
+35,Non-Travel,HR Associate,1,4056.0,No,0.1749,17.49,Minimal Risk
+33,Travel_Rarely,HR Associate,1,7637.4,No,0.0381,3.81,Minimal Risk
+56,Travel_Rarely,Software Engineer,2,8182.8,Yes,0.1292,12.92,Minimal Risk
+53,Non-Travel,Recruiter,3,11512.8,Yes,0.1151,11.51,Minimal Risk
+38,Travel_Frequently,Sales Representative,4,23092.8,No,0.0533,5.33,Minimal Risk
+63,Travel_Rarely,Recruiter,5,17193.0,No,0.0562,5.62,Minimal Risk
+22,Travel_Rarely,Accountant,5,38148.0,No,0.0401,4.01,Minimal Risk
+49,Non-Travel,Accountant,5,21018.0,No,0.0211,2.11,Minimal Risk
+43,Travel_Rarely,Software Engineer,4,19994.4,No,0.7993,79.93,High Risk
+26,Travel_Frequently,Lab Technician,5,31485.0,No,0.1106,11.06,Minimal Risk
+41,Travel_Frequently,IT Manager,3,9547.2,Yes,0.0837,8.37,Minimal Risk
+44,Non-Travel,Systems Administrator,4,19924.8,Yes,0.0819,8.19,Minimal Risk
+45,Travel_Rarely,HR Manager,4,6554.4,No,0.0427,4.27,Minimal Risk
+53,Travel_Rarely,IT Manager,2,7887.6,Yes,0.6747,67.47,High Risk
+65,Travel_Rarely,Sales Manager,5,39930.0,Yes,0.7647,76.47,High Risk
+43,Travel_Frequently,Sales Manager,2,12475.2,No,0.0128,1.28,Minimal Risk
+47,Travel_Rarely,Financial Analyst,4,6525.6,No,0.0592,5.92,Minimal Risk
+64,Travel_Rarely,Sales Manager,5,34875.0,Yes,0.8148,81.48,Critical Risk
+35,Travel_Frequently,Software Engineer,3,18959.4,Yes,0.2224,22.24,Low Risk
+50,Non-Travel,Financial Analyst,2,4868.4,Yes,0.1128,11.28,Minimal Risk
+62,Non-Travel,Sales Representative,4,21420.0,No,0.0276,2.76,Minimal Risk
+41,Travel_Rarely,IT Manager,4,12494.4,Yes,0.2193,21.93,Low Risk
+29,Travel_Frequently,Lab Technician,3,24138.0,No,0.0348,3.48,Minimal Risk
+22,Non-Travel,Accountant,5,14148.0,No,0.0334,3.34,Minimal Risk
+41,Travel_Rarely,Sales Executive,1,8406.0,No,0.0805,8.05,Minimal Risk
+38,Travel_Frequently,Systems Administrator,2,4850.4,Yes,0.2651,26.51,Low Risk
+28,Travel_Frequently,Finance Manager,5,43203.0,No,0.0669,6.69,Minimal Risk
+51,Non-Travel,Research Scientist,5,24108.0,No,0.1131,11.31,Minimal Risk
+60,Non-Travel,Systems Administrator,3,12265.2,Yes,0.2056,20.56,Low Risk
+37,Non-Travel,Sales Executive,4,19879.2,No,0.0383,3.83,Minimal Risk
+46,Non-Travel,Research Scientist,3,6228.0,Yes,0.4659,46.59,Medium Risk
+42,Travel_Frequently,IT Manager,2,11455.2,Yes,0.2389,23.89,Low Risk
+62,Travel_Frequently,Financial Analyst,3,26485.2,No,0.056,5.6,Minimal Risk
+40,Non-Travel,Software Engineer,1,5697.6,Yes,0.1381,13.81,Minimal Risk
+46,Travel_Frequently,Sales Representative,4,30362.4,Yes,0.049,4.9,Minimal Risk
+64,Non-Travel,Accountant,4,8047.2,Yes,0.792,79.2,High Risk
+56,Non-Travel,Sales Representative,5,31503.0,Yes,0.0956,9.56,Minimal Risk
+57,Travel_Frequently,Sales Manager,3,23009.4,Yes,0.087,8.7,Minimal Risk
+37,Non-Travel,HR Associate,2,7852.8,No,0.031,3.1,Minimal Risk
+56,Travel_Frequently,Recruiter,2,5416.8,No,0.021,2.1,Minimal Risk
+39,Travel_Frequently,Sales Executive,4,11709.6,No,0.0769,7.69,Minimal Risk
+52,Travel_Frequently,Sales Manager,5,24618.0,Yes,0.1064,10.64,Minimal Risk
+55,Travel_Rarely,Sales Representative,4,7814.4,Yes,0.2551,25.51,Low Risk
+22,Travel_Rarely,IT Manager,3,8569.8,Yes,0.1455,14.55,Minimal Risk
+65,Travel_Frequently,HR Manager,4,33818.4,Yes,0.721,72.1,High Risk
+33,Travel_Rarely,Sales Representative,4,9669.6,No,0.0252,2.52,Minimal Risk
+64,Travel_Rarely,Recruiter,4,12252.0,No,0.0484,4.84,Minimal Risk
+42,Travel_Rarely,Financial Analyst,1,2728.8,Yes,0.1964,19.64,Minimal Risk
+54,Non-Travel,Sales Representative,2,16288.8,Yes,0.0391,3.91,Minimal Risk
+27,Non-Travel,Software Engineer,2,3606.0,Yes,0.6623,66.23,High Risk
+25,Travel_Frequently,HR Manager,3,9050.4,No,0.0408,4.08,Minimal Risk
+35,Travel_Rarely,Sales Executive,5,40635.0,Yes,0.138,13.8,Minimal Risk
+45,Travel_Rarely,Sales Representative,4,28358.4,No,0.0174,1.74,Minimal Risk
+47,Non-Travel,Research Scientist,2,11353.2,No,0.0583,5.83,Minimal Risk
+39,Non-Travel,Research Scientist,5,21951.0,No,0.0852,8.52,Minimal Risk
+56,Travel_Rarely,Finance Manager,3,10105.2,No,0.0399,3.99,Minimal Risk
+34,Travel_Rarely,R&D Manager,3,15224.4,Yes,0.1251,12.51,Minimal Risk
+22,Non-Travel,Research Scientist,3,26946.0,No,0.072,7.2,Minimal Risk
+62,Travel_Rarely,Sales Executive,5,6057.0,No,0.0779,7.79,Minimal Risk
+44,Non-Travel,Sales Representative,1,5413.2,Yes,0.092,9.2,Minimal Risk
+22,Travel_Frequently,Lab Technician,4,27520.8,Yes,0.1584,15.84,Minimal Risk
+30,Travel_Rarely,Finance Manager,4,25884.0,No,0.0971,9.71,Minimal Risk
+30,Non-Travel,HR Associate,3,9813.6,Yes,0.1271,12.71,Minimal Risk
+23,Non-Travel,Sales Executive,1,8724.0,Yes,0.0703,7.03,Minimal Risk
+60,Travel_Rarely,Sales Representative,4,16833.6,No,0.0916,9.16,Minimal Risk
+52,Travel_Frequently,Research Scientist,3,6796.8,No,0.055,5.5,Minimal Risk
+62,Travel_Frequently,Sales Manager,5,8361.0,Yes,0.1233,12.33,Minimal Risk
+54,Non-Travel,Accountant,5,13446.0,Yes,0.173,17.3,Minimal Risk
+24,Travel_Frequently,R&D Manager,5,6732.0,Yes,0.1908,19.08,Minimal Risk
+33,Travel_Frequently,Accountant,4,6355.2,No,0.0201,2.01,Minimal Risk
+61,Travel_Frequently,R&D Manager,5,24471.0,Yes,0.7259,72.59,High Risk
+28,Travel_Frequently,Accountant,1,8103.6,No,0.1351,13.51,Minimal Risk
+35,Travel_Rarely,Accountant,3,5641.2,No,0.0458,4.58,Minimal Risk
+32,Travel_Rarely,Accountant,5,40056.0,Yes,0.7519,75.19,High Risk
+38,Non-Travel,R&D Manager,4,13394.4,Yes,0.1636,16.36,Minimal Risk
+54,Travel_Rarely,Accountant,4,34884.0,No,0.0735,7.35,Minimal Risk
+27,Travel_Rarely,Financial Analyst,4,24592.8,No,0.0182,1.82,Minimal Risk
+48,Travel_Frequently,HR Associate,5,26382.0,Yes,0.0697,6.97,Minimal Risk
+25,Travel_Rarely,Finance Manager,2,6940.8,Yes,0.7832,78.32,High Risk
+23,Travel_Rarely,Software Engineer,1,3033.6,No,0.0389,3.89,Minimal Risk
+29,Travel_Rarely,Sales Executive,3,18174.6,No,0.0534,5.34,Minimal Risk
+62,Non-Travel,HR Associate,2,9139.2,Yes,0.1233,12.33,Minimal Risk
+42,Travel_Frequently,Lab Technician,3,24481.8,No,0.0343,3.43,Minimal Risk
+59,Non-Travel,R&D Manager,4,17332.8,No,0.0607,6.07,Minimal Risk
+60,Travel_Rarely,Financial Analyst,1,4716.6,No,0.2358,23.58,Low Risk
+36,Non-Travel,Recruiter,2,7866.0,Yes,0.2271,22.71,Low Risk
+48,Non-Travel,R&D Manager,3,12006.0,Yes,0.1356,13.56,Minimal Risk
+41,Travel_Frequently,Financial Analyst,5,25332.0,No,0.0464,4.64,Minimal Risk
+36,Travel_Rarely,Recruiter,1,2289.0,No,0.0351,3.51,Minimal Risk
+62,Travel_Rarely,Systems Administrator,5,21822.0,No,0.1188,11.88,Minimal Risk
+46,Travel_Rarely,HR Associate,5,40824.0,Yes,0.2242,22.42,Low Risk
+58,Non-Travel,Financial Analyst,1,3822.0,No,0.0802,8.02,Minimal Risk
+50,Non-Travel,Sales Manager,4,12247.2,No,0.0337,3.37,Minimal Risk
+37,Non-Travel,HR Associate,5,10977.0,No,0.0362,3.62,Minimal Risk
+32,Travel_Frequently,Lab Technician,4,17935.2,Yes,0.0817,8.17,Minimal Risk
+36,Travel_Frequently,Research Scientist,1,8423.4,No,0.2523,25.23,Low Risk
+36,Travel_Frequently,Financial Analyst,2,17034.0,Yes,0.0823,8.23,Minimal Risk
+59,Non-Travel,Sales Representative,4,5126.4,Yes,0.6698,66.98,High Risk
+35,Travel_Frequently,Sales Representative,3,5070.6,No,0.1126,11.26,Minimal Risk
+37,Travel_Frequently,Financial Analyst,3,20230.2,Yes,0.1188,11.88,Minimal Risk
+49,Travel_Frequently,Finance Manager,3,14045.4,No,0.0605,6.05,Minimal Risk
+25,Travel_Frequently,Sales Representative,5,19278.0,Yes,0.4976,49.76,Medium Risk
+41,Travel_Rarely,Sales Representative,5,6000.0,Yes,0.0561,5.61,Minimal Risk
+37,Non-Travel,Finance Manager,5,15081.0,Yes,0.1077,10.77,Minimal Risk
+51,Non-Travel,Sales Representative,4,27626.4,No,0.0467,4.67,Minimal Risk
+54,Travel_Frequently,Lab Technician,5,44580.0,Yes,0.3263,32.63,Low Risk
+32,Travel_Frequently,Sales Representative,4,11640.0,Yes,0.8852,88.52,Critical Risk
+46,Non-Travel,Research Scientist,3,9532.8,Yes,0.099,9.9,Minimal Risk
+43,Travel_Rarely,Research Scientist,5,36399.0,Yes,0.6577,65.77,High Risk
+23,Non-Travel,Finance Manager,3,19359.0,No,0.0512,5.12,Minimal Risk
+30,Non-Travel,Recruiter,1,4599.6,Yes,0.2887,28.87,Low Risk
+36,Travel_Frequently,R&D Manager,5,29697.0,Yes,0.0498,4.98,Minimal Risk
+37,Travel_Rarely,Sales Executive,4,33103.2,Yes,0.1623,16.23,Minimal Risk
+60,Travel_Rarely,Sales Manager,1,8132.4,No,0.0925,9.25,Minimal Risk
+39,Travel_Rarely,Systems Administrator,3,14581.8,No,0.5746,57.46,Medium Risk
+53,Travel_Frequently,Financial Analyst,2,12868.8,Yes,0.0911,9.11,Minimal Risk
+28,Travel_Rarely,Recruiter,4,19792.8,Yes,0.1784,17.84,Minimal Risk
+39,Travel_Rarely,Systems Administrator,1,2957.4,No,0.2214,22.14,Low Risk
+26,Travel_Rarely,HR Manager,4,29097.6,Yes,0.109,10.9,Minimal Risk
+65,Travel_Rarely,Sales Manager,2,11125.2,Yes,0.0767,7.67,Minimal Risk
+43,Travel_Rarely,Recruiter,1,2674.8,Yes,0.1114,11.14,Minimal Risk
+56,Non-Travel,Sales Manager,4,15384.0,No,0.0493,4.93,Minimal Risk
+45,Non-Travel,Systems Administrator,3,26787.6,Yes,0.136,13.6,Minimal Risk
+58,Travel_Rarely,Financial Analyst,2,16386.0,Yes,0.1183,11.83,Minimal Risk
+40,Travel_Frequently,IT Manager,5,28062.0,No,0.0623,6.23,Minimal Risk
+46,Non-Travel,IT Manager,5,30246.0,No,0.2183,21.83,Low Risk
+28,Travel_Rarely,Sales Representative,3,12106.8,Yes,0.5269,52.69,Medium Risk
+58,Travel_Rarely,Lab Technician,3,16347.6,Yes,0.1494,14.94,Minimal Risk
+42,Travel_Frequently,Software Engineer,2,7234.8,Yes,0.1221,12.21,Minimal Risk
+22,Travel_Frequently,IT Manager,2,15925.2,Yes,0.1457,14.57,Minimal Risk
+40,Non-Travel,HR Manager,4,11726.4,Yes,0.1109,11.09,Minimal Risk
+25,Travel_Frequently,HR Manager,4,15050.4,Yes,0.2167,21.67,Low Risk
+30,Non-Travel,Sales Representative,1,1823.4,Yes,0.4371,43.71,Medium Risk
+22,Travel_Rarely,Sales Manager,4,15931.2,Yes,0.6826,68.26,High Risk
+23,Non-Travel,Research Scientist,5,44571.0,Yes,0.8504,85.04,Critical Risk
+57,Travel_Rarely,IT Manager,2,9727.2,No,0.0316,3.16,Minimal Risk
+28,Travel_Rarely,Finance Manager,2,12690.0,Yes,0.1239,12.39,Minimal Risk
+35,Travel_Rarely,Accountant,2,13306.8,No,0.6911,69.11,High Risk
+53,Non-Travel,R&D Manager,5,11778.0,No,0.0311,3.11,Minimal Risk
+52,Travel_Frequently,Research Scientist,5,26460.0,Yes,0.1436,14.36,Minimal Risk
+44,Travel_Frequently,Recruiter,1,5389.2,No,0.0758,7.58,Minimal Risk
+55,Travel_Rarely,IT Manager,5,14262.0,Yes,0.397,39.7,Low Risk
+49,Travel_Frequently,Recruiter,1,8807.4,No,0.3187,31.87,Low Risk
+65,Non-Travel,HR Associate,1,8361.0,Yes,0.2475,24.75,Low Risk
+38,Non-Travel,HR Associate,3,24111.0,Yes,0.7391,73.91,High Risk
+61,Travel_Rarely,Research Scientist,1,7466.4,No,0.7641,76.41,High Risk
+39,Travel_Frequently,Sales Representative,5,37224.0,No,0.7887,78.87,High Risk
+32,Travel_Rarely,HR Manager,1,8547.0,No,0.0457,4.57,Minimal Risk
+38,Travel_Rarely,Sales Representative,3,16860.6,Yes,0.3309,33.09,Low Risk
+38,Travel_Frequently,Sales Executive,5,12870.0,No,0.0223,2.23,Minimal Risk
+33,Travel_Frequently,Finance Manager,2,14070.0,No,0.027,2.7,Minimal Risk
+48,Non-Travel,Finance Manager,1,7066.8,Yes,0.1373,13.73,Minimal Risk
+34,Non-Travel,Sales Executive,2,16636.8,No,0.042,4.2,Minimal Risk
+28,Travel_Frequently,Lab Technician,3,19350.0,Yes,0.1004,10.04,Minimal Risk
+30,Travel_Frequently,Lab Technician,4,21537.6,No,0.0567,5.67,Minimal Risk
+63,Travel_Frequently,HR Associate,5,29892.0,No,0.6895,68.95,High Risk
+49,Travel_Frequently,Sales Executive,1,6261.6,No,0.3574,35.74,Low Risk
+65,Travel_Rarely,HR Associate,3,13172.4,Yes,0.4904,49.04,Medium Risk
+39,Travel_Rarely,Systems Administrator,5,22050.0,Yes,0.1819,18.19,Minimal Risk
+49,Travel_Rarely,HR Manager,5,24393.0,No,0.0567,5.67,Minimal Risk
+64,Travel_Rarely,Finance Manager,3,24508.8,No,0.2084,20.84,Low Risk
+31,Non-Travel,IT Manager,2,3033.6,No,0.7446,74.46,High Risk
+61,Non-Travel,Financial Analyst,3,19452.6,Yes,0.1038,10.38,Minimal Risk
+35,Travel_Rarely,HR Manager,1,6465.0,No,0.1429,14.29,Minimal Risk
+65,Non-Travel,Accountant,4,10248.0,Yes,0.1411,14.11,Minimal Risk
+57,Travel_Rarely,Accountant,2,5007.6,Yes,0.3218,32.18,Low Risk
+32,Travel_Frequently,Sales Executive,1,5821.8,No,0.1309,13.09,Minimal Risk
+49,Travel_Rarely,Recruiter,1,7653.6,No,0.0189,1.89,Minimal Risk
+43,Travel_Frequently,Recruiter,1,4035.0,No,0.021,2.1,Minimal Risk
+46,Non-Travel,R&D Manager,3,14338.8,No,0.0378,3.78,Minimal Risk
+22,Travel_Frequently,Lab Technician,2,15178.8,No,0.2676,26.76,Low Risk
+57,Non-Travel,Sales Representative,5,42342.0,Yes,0.1887,18.87,Minimal Risk
+55,Travel_Rarely,Research Scientist,5,10830.0,No,0.0314,3.14,Minimal Risk
+58,Travel_Frequently,Sales Manager,4,4819.2,No,0.0078,0.78,Minimal Risk
+33,Travel_Frequently,Software Engineer,4,31262.4,No,0.1157,11.57,Minimal Risk
+61,Non-Travel,Lab Technician,2,14395.2,No,0.043,4.3,Minimal Risk
+42,Travel_Rarely,Software Engineer,4,18703.2,No,0.0766,7.66,Minimal Risk
+57,Non-Travel,IT Manager,4,14359.2,No,0.0448,4.48,Minimal Risk
+56,Travel_Frequently,Sales Representative,2,5383.2,Yes,0.1012,10.12,Minimal Risk
+45,Non-Travel,HR Manager,2,15722.4,Yes,0.0777,7.77,Minimal Risk
+23,Travel_Rarely,Software Engineer,5,42096.0,Yes,0.0751,7.51,Minimal Risk
+63,Non-Travel,Software Engineer,4,27398.4,No,0.0211,2.11,Minimal Risk
+58,Travel_Rarely,Research Scientist,2,12886.8,Yes,0.1089,10.89,Minimal Risk
+35,Travel_Frequently,Financial Analyst,4,6734.4,Yes,0.1705,17.05,Minimal Risk
+42,Travel_Frequently,Sales Manager,3,4075.2,No,0.0192,1.92,Minimal Risk
+52,Travel_Rarely,HR Associate,2,4915.2,No,0.0675,6.75,Minimal Risk
+64,Travel_Rarely,Research Scientist,4,15225.6,Yes,0.862,86.2,Critical Risk
+44,Travel_Frequently,Sales Executive,4,28519.2,No,0.0565,5.65,Minimal Risk
+31,Non-Travel,Sales Manager,4,13694.4,No,0.1639,16.39,Minimal Risk
+62,Travel_Frequently,Sales Executive,1,4370.4,No,0.0231,2.31,Minimal Risk
+43,Travel_Frequently,Finance Manager,4,15134.4,No,0.0071,0.71,Minimal Risk
+57,Non-Travel,Finance Manager,2,6306.0,Yes,0.6618,66.18,High Risk
+31,Travel_Frequently,Lab Technician,1,6328.8,No,0.6864,68.64,High Risk
+30,Travel_Rarely,Lab Technician,2,7286.4,No,0.2652,26.52,Low Risk
+55,Travel_Frequently,R&D Manager,4,7567.2,Yes,0.8579,85.79,Critical Risk
+37,Travel_Frequently,Accountant,1,3673.8,No,0.0659,6.59,Minimal Risk
+53,Non-Travel,Finance Manager,5,35571.0,Yes,0.0871,8.71,Minimal Risk
+47,Travel_Rarely,Sales Executive,5,20364.0,No,0.025,2.5,Minimal Risk
+32,Non-Travel,Recruiter,4,8294.4,Yes,0.1273,12.73,Minimal Risk
+44,Travel_Frequently,Research Scientist,3,18525.6,Yes,0.0887,8.87,Minimal Risk
+28,Travel_Frequently,Systems Administrator,3,19760.4,Yes,0.1569,15.69,Minimal Risk
+61,Non-Travel,IT Manager,5,34551.0,No,0.031,3.1,Minimal Risk
+42,Non-Travel,Systems Administrator,1,4281.6,Yes,0.3121,31.21,Low Risk
+23,Travel_Frequently,Sales Representative,4,7370.4,Yes,0.1608,16.08,Minimal Risk
+31,Travel_Frequently,Sales Manager,1,7234.2,Yes,0.0722,7.22,Minimal Risk
+48,Travel_Rarely,HR Associate,1,3676.8,No,0.0834,8.34,Minimal Risk
+57,Non-Travel,Research Scientist,5,21051.0,No,0.0189,1.89,Minimal Risk
+50,Non-Travel,Lab Technician,1,4064.4,Yes,0.1393,13.93,Minimal Risk
+64,Travel_Frequently,Lab Technician,2,3217.2,Yes,0.1547,15.47,Minimal Risk
+47,Travel_Frequently,Financial Analyst,4,16826.4,Yes,0.2261,22.61,Low Risk
+34,Travel_Rarely,Finance Manager,5,16542.0,Yes,0.1926,19.26,Minimal Risk
+40,Non-Travel,HR Associate,4,6559.2,Yes,0.0692,6.92,Minimal Risk
+53,Travel_Rarely,Financial Analyst,4,29870.4,No,0.0262,2.62,Minimal Risk
+28,Travel_Rarely,Sales Manager,4,23625.6,Yes,0.1354,13.54,Minimal Risk
+64,Travel_Rarely,HR Associate,5,14625.0,Yes,0.7639,76.39,High Risk
+26,Non-Travel,Recruiter,2,4588.8,Yes,0.1767,17.67,Minimal Risk
+46,Travel_Frequently,Sales Manager,5,19881.0,Yes,0.0372,3.72,Minimal Risk
+46,Travel_Rarely,Sales Representative,3,24557.4,No,0.065,6.5,Minimal Risk
+42,Travel_Frequently,Systems Administrator,2,11509.2,No,0.0512,5.12,Minimal Risk
+43,Travel_Rarely,Finance Manager,4,19975.2,No,0.0254,2.54,Minimal Risk
+42,Travel_Rarely,Sales Manager,1,1285.2,No,0.0304,3.04,Minimal Risk
+52,Non-Travel,HR Associate,5,11820.0,No,0.1689,16.89,Minimal Risk
+52,Non-Travel,Sales Manager,3,4185.0,No,0.0383,3.83,Minimal Risk
+62,Travel_Frequently,Sales Representative,5,14307.0,Yes,0.0822,8.22,Minimal Risk
+43,Non-Travel,Finance Manager,1,7335.6,Yes,0.0792,7.92,Minimal Risk
+48,Travel_Frequently,Recruiter,3,11464.2,Yes,0.3143,31.43,Low Risk
+27,Travel_Frequently,Sales Manager,3,20784.6,No,0.62,62.0,High Risk
+35,Travel_Frequently,Recruiter,5,35757.0,Yes,0.1951,19.51,Minimal Risk
+34,Travel_Frequently,Lab Technician,5,37485.0,No,0.2072,20.72,Low Risk
+61,Travel_Frequently,Financial Analyst,1,6795.0,No,0.708,70.8,High Risk
+48,Travel_Rarely,Accountant,4,21297.6,No,0.0208,2.08,Minimal Risk
+47,Travel_Rarely,HR Associate,1,6600.0,No,0.0923,9.23,Minimal Risk
+60,Non-Travel,Software Engineer,2,14815.2,No,0.0446,4.46,Minimal Risk
+26,Travel_Frequently,Financial Analyst,2,14862.0,No,0.0461,4.61,Minimal Risk
+23,Travel_Frequently,Financial Analyst,5,35616.0,No,0.1436,14.36,Minimal Risk
+57,Travel_Frequently,Accountant,5,35370.0,Yes,0.6353,63.53,High Risk
+27,Travel_Frequently,Finance Manager,4,9036.0,Yes,0.3487,34.87,Low Risk
+31,Travel_Rarely,Sales Manager,4,17642.4,No,0.0759,7.59,Minimal Risk
+27,Travel_Frequently,Sales Representative,3,19675.8,No,0.0155,1.55,Minimal Risk
+25,Travel_Frequently,Sales Executive,2,12241.2,No,0.0666,6.66,Minimal Risk
+22,Non-Travel,Recruiter,2,2544.0,No,0.0731,7.31,Minimal Risk
+50,Non-Travel,Software Engineer,2,4497.6,No,0.7409,74.09,High Risk
+43,Travel_Frequently,Finance Manager,3,17760.6,Yes,0.0747,7.47,Minimal Risk
+28,Travel_Rarely,Lab Technician,3,12371.4,No,0.1375,13.75,Minimal Risk
+59,Travel_Frequently,HR Associate,5,9201.0,Yes,0.1334,13.34,Minimal Risk
+34,Non-Travel,HR Associate,2,13472.4,No,0.039,3.9,Minimal Risk
+57,Non-Travel,HR Manager,2,9230.4,No,0.0837,8.37,Minimal Risk
+24,Non-Travel,R&D Manager,3,26964.0,No,0.0161,1.61,Minimal Risk
+45,Travel_Rarely,Financial Analyst,5,37479.0,Yes,0.2021,20.21,Low Risk
+34,Travel_Frequently,HR Associate,2,7382.4,No,0.0345,3.45,Minimal Risk
+65,Non-Travel,HR Manager,1,8767.2,No,0.2142,21.42,Low Risk
+51,Travel_Rarely,Software Engineer,1,7233.0,Yes,0.1072,10.72,Minimal Risk
+38,Travel_Frequently,Software Engineer,2,3182.4,No,0.0759,7.59,Minimal Risk
+41,Non-Travel,Software Engineer,2,5632.8,Yes,0.1358,13.58,Minimal Risk
+26,Non-Travel,HR Manager,4,5748.0,Yes,0.2467,24.67,Low Risk
+34,Non-Travel,Financial Analyst,3,19069.2,Yes,0.6776,67.76,High Risk
+57,Non-Travel,R&D Manager,2,11791.2,Yes,0.1398,13.98,Minimal Risk
+23,Non-Travel,Finance Manager,2,10392.0,Yes,0.1106,11.06,Minimal Risk
+45,Travel_Frequently,Finance Manager,3,17458.2,Yes,0.111,11.1,Minimal Risk
+42,Non-Travel,Lab Technician,3,11381.4,Yes,0.6758,67.58,High Risk
+62,Non-Travel,HR Associate,4,32995.2,No,0.7056,70.56,High Risk
+38,Travel_Frequently,Software Engineer,5,8505.0,Yes,0.7616,76.16,High Risk
+39,Travel_Rarely,HR Associate,1,1592.4,Yes,0.4335,43.35,Medium Risk
+23,Non-Travel,Research Scientist,4,8383.2,No,0.0461,4.61,Minimal Risk
+28,Travel_Rarely,HR Manager,5,16488.0,No,0.0225,2.25,Minimal Risk
+42,Non-Travel,Software Engineer,4,32460.0,No,0.0129,1.29,Minimal Risk
+60,Travel_Frequently,Systems Administrator,1,4734.0,No,0.1432,14.32,Minimal Risk
+36,Non-Travel,Systems Administrator,1,2084.4,Yes,0.0673,6.73,Minimal Risk
+36,Travel_Frequently,Systems Administrator,2,8066.4,Yes,0.0819,8.19,Minimal Risk
+57,Travel_Rarely,Systems Administrator,2,17466.0,Yes,0.063,6.3,Minimal Risk
+51,Travel_Frequently,Sales Manager,2,9819.6,No,0.0305,3.05,Minimal Risk
+30,Travel_Rarely,Software Engineer,3,14686.2,No,0.4412,44.12,Medium Risk
+47,Travel_Rarely,Lab Technician,3,14556.6,No,0.1493,14.93,Minimal Risk
+26,Non-Travel,IT Manager,4,17832.0,Yes,0.7152,71.52,High Risk
+44,Non-Travel,HR Associate,5,27300.0,Yes,0.1098,10.98,Minimal Risk
+24,Travel_Frequently,Research Scientist,4,21585.6,Yes,0.1249,12.49,Minimal Risk
+29,Non-Travel,IT Manager,3,19758.6,No,0.0558,5.58,Minimal Risk
+53,Travel_Rarely,Software Engineer,3,10935.0,Yes,0.1143,11.43,Minimal Risk
+42,Travel_Frequently,Financial Analyst,4,9448.8,No,0.0695,6.95,Minimal Risk
+28,Travel_Rarely,Sales Executive,5,8523.0,Yes,0.7686,76.86,High Risk
+24,Travel_Rarely,Lab Technician,4,7617.6,Yes,0.5885,58.85,Medium Risk
+50,Travel_Rarely,Recruiter,4,13077.6,Yes,0.4862,48.62,Medium Risk
+42,Travel_Frequently,Accountant,4,23407.2,Yes,0.0652,6.52,Minimal Risk
+42,Travel_Frequently,Finance Manager,3,26697.6,Yes,0.0482,4.82,Minimal Risk
+62,Non-Travel,HR Manager,1,2652.6,No,0.8329,83.29,Critical Risk
+23,Travel_Frequently,Sales Representative,4,28034.4,No,0.024,2.4,Minimal Risk
+49,Non-Travel,IT Manager,4,24326.4,No,0.0776,7.76,Minimal Risk
+28,Travel_Rarely,Recruiter,3,25102.8,No,0.0501,5.01,Minimal Risk
+50,Travel_Rarely,Software Engineer,5,23508.0,No,0.1053,10.53,Minimal Risk
+23,Non-Travel,Sales Manager,4,35212.8,Yes,0.0552,5.52,Minimal Risk
+58,Travel_Rarely,Recruiter,3,6112.8,Yes,0.1443,14.43,Minimal Risk
+25,Travel_Frequently,HR Manager,2,12838.8,No,0.1595,15.95,Minimal Risk
+38,Non-Travel,R&D Manager,2,7836.0,Yes,0.6894,68.94,High Risk
+39,Non-Travel,Sales Executive,5,29061.0,Yes,0.4741,47.41,Medium Risk
+52,Travel_Rarely,Systems Administrator,4,24170.4,No,0.0198,1.98,Minimal Risk
+48,Non-Travel,Sales Executive,4,27472.8,Yes,0.0915,9.15,Minimal Risk
+29,Travel_Rarely,R&D Manager,1,4555.2,Yes,0.7027,70.27,High Risk
+34,Travel_Rarely,Accountant,4,23028.0,No,0.0721,7.21,Minimal Risk
+55,Travel_Frequently,HR Manager,2,10078.8,Yes,0.2936,29.36,Low Risk
+39,Non-Travel,Financial Analyst,1,3678.0,Yes,0.6725,67.25,High Risk
+49,Travel_Rarely,R&D Manager,4,19737.6,Yes,0.157,15.7,Minimal Risk
+26,Non-Travel,Lab Technician,1,8460.6,No,0.7655,76.55,High Risk
+63,Non-Travel,Sales Representative,2,17953.2,Yes,0.7596,75.96,High Risk
+58,Non-Travel,HR Manager,4,29462.4,No,0.0335,3.35,Minimal Risk
+25,Non-Travel,Systems Administrator,1,7950.6,Yes,0.8018,80.18,Critical Risk
+35,Non-Travel,Sales Representative,2,16431.6,No,0.0131,1.31,Minimal Risk
+34,Non-Travel,Software Engineer,1,1728.6,Yes,0.1915,19.15,Minimal Risk
+37,Travel_Rarely,Recruiter,5,32979.0,Yes,0.1592,15.92,Minimal Risk
+42,Travel_Frequently,HR Manager,1,8308.2,Yes,0.0411,4.11,Minimal Risk
+42,Non-Travel,HR Manager,3,17659.8,Yes,0.1169,11.69,Minimal Risk
+60,Non-Travel,HR Associate,4,19012.8,Yes,0.1141,11.41,Minimal Risk
+45,Travel_Frequently,Finance Manager,1,5197.8,No,0.1989,19.89,Minimal Risk
+38,Travel_Rarely,IT Manager,1,6581.4,Yes,0.2362,23.62,Low Risk
+32,Non-Travel,HR Manager,3,25909.2,No,0.6975,69.75,High Risk
+40,Travel_Rarely,R&D Manager,3,9252.0,No,0.0879,8.79,Minimal Risk
+43,Travel_Frequently,IT Manager,1,7951.2,Yes,0.0868,8.68,Minimal Risk
+27,Non-Travel,Software Engineer,1,7032.0,Yes,0.1036,10.36,Minimal Risk
+42,Travel_Rarely,Software Engineer,5,15084.0,Yes,0.1829,18.29,Minimal Risk
+38,Travel_Frequently,Sales Manager,4,19264.8,Yes,0.067,6.7,Minimal Risk
+23,Travel_Frequently,Research Scientist,2,7120.8,No,0.1533,15.33,Minimal Risk
+43,Travel_Rarely,Accountant,1,5392.8,Yes,0.3899,38.99,Low Risk
+28,Non-Travel,HR Manager,1,6823.2,No,0.0487,4.87,Minimal Risk
+34,Non-Travel,Finance Manager,5,8265.0,No,0.0606,6.06,Minimal Risk
+58,Travel_Frequently,Accountant,5,43680.0,No,0.0468,4.68,Minimal Risk
+58,Non-Travel,Research Scientist,2,17661.6,Yes,0.109,10.9,Minimal Risk
+35,Non-Travel,R&D Manager,5,31569.0,Yes,0.125,12.5,Minimal Risk
+56,Travel_Rarely,HR Associate,5,26001.0,Yes,0.7746,77.46,High Risk
+39,Travel_Rarely,R&D Manager,3,4467.6,Yes,0.0937,9.37,Minimal Risk
+27,Travel_Frequently,HR Associate,1,1750.2,Yes,0.0833,8.33,Minimal Risk
+63,Travel_Frequently,HR Associate,3,16655.4,Yes,0.1851,18.51,Minimal Risk
+62,Travel_Rarely,R&D Manager,5,31752.0,Yes,0.7032,70.32,High Risk
+28,Travel_Frequently,Financial Analyst,2,14253.6,Yes,0.161,16.1,Minimal Risk
+64,Non-Travel,Recruiter,1,2584.2,Yes,0.2973,29.73,Low Risk
+31,Travel_Rarely,Systems Administrator,2,12063.6,Yes,0.0559,5.59,Minimal Risk
+56,Travel_Rarely,R&D Manager,3,20480.4,No,0.0081,0.81,Minimal Risk
+55,Travel_Frequently,Sales Representative,5,17004.0,Yes,0.1458,14.58,Minimal Risk
+55,Non-Travel,Systems Administrator,3,20041.2,No,0.0808,8.08,Minimal Risk
+64,Non-Travel,IT Manager,3,21459.6,Yes,0.1395,13.95,Minimal Risk
+50,Travel_Rarely,IT Manager,2,9879.6,No,0.0829,8.29,Minimal Risk
+63,Travel_Rarely,Systems Administrator,4,6837.6,No,0.025,2.5,Minimal Risk
+45,Travel_Rarely,Software Engineer,4,18679.2,Yes,0.6368,63.68,High Risk
+33,Non-Travel,Financial Analyst,3,20973.6,Yes,0.1821,18.21,Minimal Risk
+57,Non-Travel,HR Manager,3,9325.8,Yes,0.1024,10.24,Minimal Risk
+24,Travel_Rarely,Accountant,1,4411.8,Yes,0.5742,57.42,Medium Risk
+23,Travel_Rarely,Sales Representative,1,4963.8,No,0.1175,11.75,Minimal Risk
+43,Travel_Rarely,Sales Representative,5,27735.0,Yes,0.3021,30.21,Low Risk
+33,Travel_Rarely,Systems Administrator,1,2538.0,Yes,0.4201,42.01,Medium Risk
+26,Travel_Rarely,HR Manager,1,8455.8,No,0.0974,9.74,Minimal Risk
+40,Non-Travel,Sales Executive,3,12090.6,Yes,0.1186,11.86,Minimal Risk
+25,Travel_Frequently,Systems Administrator,4,33014.4,Yes,0.0852,8.52,Minimal Risk
+38,Non-Travel,HR Manager,2,5199.6,No,0.0527,5.27,Minimal Risk
+65,Non-Travel,R&D Manager,5,14934.0,Yes,0.1053,10.53,Minimal Risk
+42,Non-Travel,R&D Manager,5,26538.0,No,0.061,6.1,Minimal Risk
+61,Travel_Rarely,Finance Manager,5,27633.0,No,0.053,5.3,Minimal Risk
+65,Non-Travel,Finance Manager,1,1636.8,No,0.0923,9.23,Minimal Risk
+34,Travel_Rarely,Lab Technician,1,5724.0,Yes,0.2593,25.93,Low Risk
+25,Travel_Frequently,Software Engineer,4,28732.8,Yes,0.6833,68.33,High Risk
+29,Non-Travel,Sales Executive,2,5073.6,No,0.0964,9.64,Minimal Risk
+51,Travel_Frequently,Sales Executive,3,4269.6,Yes,0.2216,22.16,Low Risk
+44,Travel_Frequently,Sales Executive,5,6837.0,Yes,0.6371,63.71,High Risk
+38,Travel_Frequently,Lab Technician,1,5911.8,No,0.0682,6.82,Minimal Risk
+30,Travel_Rarely,Sales Representative,3,24278.4,Yes,0.0547,5.47,Minimal Risk
+50,Travel_Frequently,HR Manager,2,4491.6,No,0.049,4.9,Minimal Risk
+50,Travel_Rarely,Financial Analyst,4,8630.4,Yes,0.3472,34.72,Low Risk
+37,Travel_Rarely,Lab Technician,1,3908.4,No,0.1723,17.23,Minimal Risk
+60,Travel_Frequently,Research Scientist,5,35832.0,No,0.7322,73.22,High Risk
+39,Non-Travel,Sales Representative,3,7034.4,No,0.0206,2.06,Minimal Risk
+37,Travel_Frequently,Research Scientist,3,22667.4,No,0.0309,3.09,Minimal Risk
+28,Travel_Rarely,Research Scientist,4,27252.0,Yes,0.7519,75.19,High Risk
+64,Travel_Rarely,Financial Analyst,5,10374.0,Yes,0.1536,15.36,Minimal Risk
+56,Travel_Rarely,Systems Administrator,1,6460.2,No,0.2015,20.15,Low Risk
+48,Non-Travel,Sales Executive,2,14110.8,Yes,0.0959,9.59,Minimal Risk
+64,Travel_Rarely,Sales Manager,3,26901.0,No,0.034,3.4,Minimal Risk
+59,Non-Travel,Recruiter,1,7194.6,Yes,0.1424,14.24,Minimal Risk
+46,Travel_Rarely,Systems Administrator,4,24559.2,No,0.1533,15.33,Minimal Risk
+60,Non-Travel,Sales Manager,1,2310.0,Yes,0.102,10.2,Minimal Risk
+33,Travel_Frequently,Recruiter,5,14136.0,No,0.2783,27.83,Low Risk
+47,Non-Travel,Finance Manager,1,7044.6,Yes,0.122,12.2,Minimal Risk
+36,Non-Travel,Finance Manager,4,29076.0,No,0.0427,4.27,Minimal Risk
+29,Non-Travel,IT Manager,2,7243.2,Yes,0.923,92.3,Critical Risk
+37,Travel_Rarely,IT Manager,3,17917.2,No,0.0414,4.14,Minimal Risk
+49,Travel_Frequently,HR Manager,3,16092.0,No,0.3196,31.96,Low Risk
+45,Non-Travel,R&D Manager,2,3464.4,No,0.0959,9.59,Minimal Risk
+49,Travel_Frequently,Financial Analyst,3,6656.4,Yes,0.1264,12.64,Minimal Risk
+57,Non-Travel,R&D Manager,5,19428.0,No,0.0572,5.72,Minimal Risk
+43,Non-Travel,IT Manager,4,26587.2,Yes,0.0835,8.35,Minimal Risk
+25,Travel_Rarely,Recruiter,3,25416.0,Yes,0.1369,13.69,Minimal Risk
+64,Non-Travel,Research Scientist,2,3830.4,Yes,0.4146,41.46,Medium Risk
+42,Non-Travel,Lab Technician,5,21018.0,Yes,0.0403,4.03,Minimal Risk
+38,Non-Travel,HR Manager,1,4754.4,Yes,0.0562,5.62,Minimal Risk
+61,Non-Travel,IT Manager,5,21456.0,Yes,0.1228,12.28,Minimal Risk
+38,Travel_Rarely,R&D Manager,2,7028.4,Yes,0.7293,72.93,High Risk
+24,Travel_Rarely,Research Scientist,1,5466.0,Yes,0.1525,15.25,Minimal Risk
+25,Non-Travel,HR Manager,2,7832.4,Yes,0.1341,13.41,Minimal Risk
+33,Travel_Frequently,Recruiter,5,6960.0,No,0.0129,1.29,Minimal Risk
+40,Travel_Rarely,HR Associate,4,6448.8,No,0.0581,5.81,Minimal Risk
+22,Non-Travel,Finance Manager,5,32007.0,Yes,0.6896,68.96,High Risk
+30,Non-Travel,Finance Manager,3,4032.0,Yes,0.0876,8.76,Minimal Risk
+40,Non-Travel,Lab Technician,3,6447.6,Yes,0.0836,8.36,Minimal Risk
+50,Travel_Rarely,HR Manager,2,9729.6,No,0.1079,10.79,Minimal Risk
+26,Travel_Frequently,HR Manager,3,9829.8,Yes,0.7074,70.74,High Risk
+50,Travel_Frequently,Financial Analyst,4,23731.2,Yes,0.1126,11.26,Minimal Risk
+27,Travel_Rarely,HR Associate,4,6523.2,No,0.0707,7.07,Minimal Risk
+40,Travel_Frequently,Software Engineer,4,18350.4,No,0.0562,5.62,Minimal Risk
+24,Travel_Frequently,Lab Technician,5,39648.0,No,0.0504,5.04,Minimal Risk
+24,Travel_Frequently,R&D Manager,5,30741.0,Yes,0.2912,29.12,Low Risk
+25,Non-Travel,Software Engineer,3,9673.2,Yes,0.1759,17.59,Minimal Risk
+36,Travel_Frequently,Finance Manager,4,17716.8,No,0.0345,3.45,Minimal Risk
+65,Travel_Frequently,Research Scientist,4,5215.2,Yes,0.7227,72.27,High Risk
+24,Travel_Frequently,Research Scientist,4,32649.6,Yes,0.0663,6.63,Minimal Risk
+22,Non-Travel,Sales Executive,4,7629.6,Yes,0.7648,76.48,High Risk
+46,Non-Travel,Accountant,5,25551.0,Yes,0.0543,5.43,Minimal Risk
+35,Travel_Frequently,HR Manager,5,6135.0,No,0.0421,4.21,Minimal Risk
+38,Non-Travel,HR Associate,4,29481.6,Yes,0.1357,13.57,Minimal Risk
+44,Travel_Frequently,IT Manager,4,10754.4,No,0.1213,12.13,Minimal Risk
+27,Travel_Rarely,Software Engineer,3,10684.8,Yes,0.279,27.9,Low Risk
+22,Travel_Rarely,HR Associate,2,6116.4,Yes,0.6253,62.53,High Risk
+54,Non-Travel,HR Manager,5,39927.0,Yes,0.105,10.5,Minimal Risk
+54,Non-Travel,Software Engineer,3,18754.2,No,0.0639,6.39,Minimal Risk
+39,Non-Travel,R&D Manager,2,10686.0,Yes,0.1526,15.26,Minimal Risk
+30,Travel_Rarely,HR Associate,1,8836.2,No,0.0969,9.69,Minimal Risk
+51,Travel_Rarely,Systems Administrator,5,39609.0,Yes,0.0583,5.83,Minimal Risk
+26,Travel_Rarely,Research Scientist,5,29928.0,No,0.0417,4.17,Minimal Risk
+58,Travel_Frequently,HR Associate,3,22946.4,No,0.0524,5.24,Minimal Risk
+30,Travel_Rarely,Financial Analyst,1,8925.0,No,0.1767,17.67,Minimal Risk
+41,Travel_Rarely,IT Manager,4,18122.4,No,0.2008,20.08,Low Risk
+37,Travel_Frequently,Recruiter,5,41328.0,No,0.0439,4.39,Minimal Risk
+45,Travel_Frequently,Accountant,5,27177.0,Yes,0.1253,12.53,Minimal Risk
+33,Travel_Rarely,HR Manager,5,14931.0,Yes,0.7279,72.79,High Risk
+63,Travel_Rarely,Research Scientist,4,16946.4,No,0.0652,6.52,Minimal Risk
+32,Non-Travel,Recruiter,5,13686.0,No,0.0303,3.03,Minimal Risk
+63,Non-Travel,Software Engineer,3,17247.6,No,0.0326,3.26,Minimal Risk
+62,Travel_Rarely,Finance Manager,1,7671.0,Yes,0.7876,78.76,High Risk
+60,Travel_Rarely,Sales Executive,4,11265.6,Yes,0.0951,9.51,Minimal Risk
+30,Travel_Frequently,Recruiter,2,5364.0,Yes,0.1297,12.97,Minimal Risk
+30,Travel_Rarely,Sales Manager,3,5043.6,Yes,0.7422,74.22,High Risk
+28,Non-Travel,IT Manager,5,38745.0,No,0.0455,4.55,Minimal Risk
+31,Non-Travel,Systems Administrator,1,2713.2,Yes,0.6627,66.27,High Risk
+46,Travel_Rarely,Sales Manager,1,7920.6,Yes,0.7192,71.92,High Risk
+33,Non-Travel,Recruiter,4,19982.4,No,0.0839,8.39,Minimal Risk
+26,Travel_Frequently,HR Manager,4,28094.4,No,0.4543,45.43,Medium Risk
+64,Non-Travel,Financial Analyst,2,8444.4,Yes,0.1826,18.26,Minimal Risk
+36,Non-Travel,Lab Technician,4,32145.6,No,0.156,15.6,Minimal Risk
+23,Travel_Frequently,HR Associate,2,4779.6,Yes,0.6309,63.09,High Risk
+57,Travel_Frequently,Recruiter,4,28120.8,Yes,0.1073,10.73,Minimal Risk
+36,Travel_Rarely,IT Manager,4,23059.2,No,0.0565,5.65,Minimal Risk
+32,Non-Travel,Finance Manager,2,8572.8,No,0.0621,6.21,Minimal Risk
+36,Non-Travel,Recruiter,1,8136.6,No,0.2666,26.66,Low Risk
+30,Travel_Rarely,R&D Manager,5,18246.0,No,0.121,12.1,Minimal Risk
+45,Travel_Frequently,Research Scientist,1,3934.2,No,0.2502,25.02,Low Risk
+43,Travel_Rarely,Software Engineer,2,2444.4,Yes,0.8389,83.89,Critical Risk
+56,Travel_Frequently,Lab Technician,2,3057.6,No,0.7287,72.87,High Risk
+54,Non-Travel,Sales Executive,5,33969.0,Yes,0.1111,11.11,Minimal Risk
+25,Travel_Frequently,HR Associate,2,10083.6,No,0.401,40.1,Medium Risk
+35,Travel_Frequently,Sales Executive,2,3730.8,No,0.1596,15.96,Minimal Risk
+35,Travel_Frequently,R&D Manager,5,17550.0,Yes,0.1059,10.59,Minimal Risk
+40,Non-Travel,Finance Manager,4,23527.2,No,0.0474,4.74,Minimal Risk
+31,Non-Travel,Lab Technician,5,21564.0,No,0.0502,5.02,Minimal Risk
+33,Non-Travel,Sales Executive,1,8050.2,No,0.041,4.1,Minimal Risk
+28,Travel_Rarely,Recruiter,3,18167.4,Yes,0.1337,13.37,Minimal Risk
+31,Non-Travel,Finance Manager,3,9358.2,Yes,0.7275,72.75,High Risk
+23,Non-Travel,IT Manager,4,28867.2,No,0.0492,4.92,Minimal Risk
+33,Travel_Frequently,HR Associate,2,10624.8,No,0.6735,67.35,High Risk
+35,Travel_Frequently,HR Manager,5,28770.0,Yes,0.2647,26.47,Low Risk
+63,Travel_Frequently,Sales Executive,2,17347.2,Yes,0.246,24.6,Low Risk
+45,Non-Travel,Software Engineer,5,11109.0,No,0.0537,5.37,Minimal Risk
+50,Non-Travel,Lab Technician,5,25626.0,Yes,0.2754,27.54,Low Risk
+26,Travel_Rarely,Recruiter,1,6428.4,No,0.1133,11.33,Minimal Risk
+29,Travel_Rarely,Sales Executive,4,32568.0,No,0.0918,9.18,Minimal Risk
+39,Non-Travel,IT Manager,1,7254.6,Yes,0.0455,4.55,Minimal Risk
+54,Travel_Frequently,Research Scientist,4,29616.0,Yes,0.1444,14.44,Minimal Risk
+34,Non-Travel,Sales Manager,5,15183.0,Yes,0.064,6.4,Minimal Risk
+59,Travel_Rarely,IT Manager,1,8772.0,No,0.0322,3.22,Minimal Risk
+44,Travel_Frequently,Sales Manager,2,16082.4,Yes,0.0522,5.22,Minimal Risk
+60,Travel_Rarely,Sales Representative,3,11505.6,No,0.029,2.9,Minimal Risk
+38,Non-Travel,IT Manager,3,9306.0,No,0.1186,11.86,Minimal Risk
+59,Travel_Rarely,HR Manager,1,5077.8,Yes,0.7373,73.73,High Risk
+39,Non-Travel,Systems Administrator,2,8884.8,Yes,0.1051,10.51,Minimal Risk
+25,Non-Travel,Recruiter,4,28084.8,Yes,0.1011,10.11,Minimal Risk
+54,Travel_Rarely,Sales Manager,4,9242.4,No,0.0286,2.86,Minimal Risk
+64,Travel_Frequently,Accountant,2,17880.0,No,0.0778,7.78,Minimal Risk
+43,Travel_Frequently,HR Manager,1,5022.0,No,0.8086,80.86,Critical Risk
+30,Travel_Rarely,HR Associate,1,8484.0,Yes,0.1773,17.73,Minimal Risk
+61,Non-Travel,Recruiter,3,23689.8,No,0.0487,4.87,Minimal Risk
+45,Travel_Rarely,HR Manager,4,34867.2,No,0.1603,16.03,Minimal Risk
+60,Travel_Frequently,Lab Technician,5,12132.0,Yes,0.0975,9.75,Minimal Risk
+52,Travel_Frequently,Sales Representative,5,21405.0,No,0.0463,4.63,Minimal Risk
+34,Travel_Rarely,Financial Analyst,4,27952.8,Yes,0.1257,12.57,Minimal Risk
+25,Travel_Rarely,HR Manager,2,5618.4,No,0.0581,5.81,Minimal Risk
+32,Non-Travel,Recruiter,5,42465.0,Yes,0.1696,16.96,Minimal Risk
+27,Travel_Rarely,IT Manager,3,26893.8,No,0.0427,4.27,Minimal Risk
+49,Travel_Rarely,Systems Administrator,5,22542.0,Yes,0.1227,12.27,Minimal Risk
+27,Travel_Frequently,IT Manager,1,3118.2,Yes,0.0768,7.68,Minimal Risk
+44,Travel_Rarely,Financial Analyst,5,10965.0,Yes,0.1671,16.71,Minimal Risk
+35,Non-Travel,Financial Analyst,2,6508.8,Yes,0.8105,81.05,Critical Risk
+46,Travel_Frequently,Finance Manager,2,9867.6,Yes,0.6161,61.61,High Risk
+48,Travel_Rarely,HR Associate,5,9375.0,Yes,0.2016,20.16,Low Risk
+34,Travel_Frequently,Sales Executive,4,23932.8,Yes,0.1334,13.34,Minimal Risk
+58,Travel_Frequently,Accountant,5,30852.0,No,0.0275,2.75,Minimal Risk
+34,Non-Travel,Systems Administrator,1,3196.2,Yes,0.2367,23.67,Low Risk
+22,Travel_Frequently,Sales Manager,1,6239.4,Yes,0.1221,12.21,Minimal Risk
+36,Non-Travel,HR Manager,4,7406.4,No,0.1738,17.38,Minimal Risk
+61,Travel_Frequently,Research Scientist,3,17596.8,No,0.0672,6.72,Minimal Risk
+38,Non-Travel,Financial Analyst,1,3091.2,No,0.6301,63.01,High Risk
+24,Non-Travel,Lab Technician,4,12528.0,Yes,0.1352,13.52,Minimal Risk
+23,Travel_Rarely,Financial Analyst,2,5550.0,No,0.0665,6.65,Minimal Risk
+42,Travel_Rarely,Financial Analyst,4,7488.0,No,0.1214,12.14,Minimal Risk
+27,Travel_Frequently,Lab Technician,2,5190.0,No,0.0935,9.35,Minimal Risk
+30,Non-Travel,Finance Manager,3,11572.2,No,0.0547,5.47,Minimal Risk
+32,Non-Travel,Recruiter,5,29541.0,No,0.0785,7.85,Minimal Risk
+50,Travel_Rarely,Systems Administrator,5,10212.0,Yes,0.5111,51.11,Medium Risk
+54,Travel_Rarely,IT Manager,4,10620.0,Yes,0.6782,67.82,High Risk
+23,Non-Travel,Lab Technician,4,4932.0,Yes,0.1465,14.65,Minimal Risk
+65,Non-Travel,IT Manager,5,25080.0,No,0.0553,5.53,Minimal Risk
+65,Travel_Rarely,Sales Executive,2,12690.0,No,0.1395,13.95,Minimal Risk
+42,Travel_Frequently,Financial Analyst,4,27684.0,No,0.4134,41.34,Medium Risk
+54,Non-Travel,R&D Manager,4,20176.8,No,0.0424,4.24,Minimal Risk
+48,Non-Travel,HR Manager,1,7292.4,Yes,0.1063,10.63,Minimal Risk
+29,Travel_Rarely,Systems Administrator,2,2862.0,Yes,0.0783,7.83,Minimal Risk
+26,Travel_Frequently,Sales Manager,3,18279.0,Yes,0.1089,10.89,Minimal Risk
+46,Travel_Rarely,Sales Representative,2,16789.2,No,0.0337,3.37,Minimal Risk
+51,Travel_Rarely,Financial Analyst,5,40344.0,No,0.0661,6.61,Minimal Risk
+45,Travel_Frequently,Sales Manager,3,7893.0,No,0.1256,12.56,Minimal Risk
+38,Travel_Frequently,HR Manager,5,38436.0,Yes,0.1492,14.92,Minimal Risk
+43,Travel_Frequently,IT Manager,2,12954.0,No,0.0188,1.88,Minimal Risk
+27,Travel_Rarely,Sales Executive,4,14224.8,No,0.7453,74.53,High Risk
+24,Travel_Frequently,Financial Analyst,2,17379.6,Yes,0.0813,8.13,Minimal Risk
+45,Travel_Rarely,Lab Technician,3,4266.0,No,0.0982,9.82,Minimal Risk
+57,Travel_Rarely,Software Engineer,2,11858.4,Yes,0.6544,65.44,High Risk
+57,Travel_Rarely,HR Manager,5,38889.0,Yes,0.0942,9.42,Minimal Risk
+23,Travel_Frequently,HR Associate,4,32205.6,Yes,0.6312,63.12,High Risk
+63,Travel_Frequently,HR Associate,1,4036.2,Yes,0.8132,81.32,Critical Risk
+45,Travel_Frequently,Recruiter,5,17358.0,Yes,0.0892,8.92,Minimal Risk
+53,Non-Travel,Sales Representative,4,34072.8,Yes,0.0984,9.84,Minimal Risk
+46,Non-Travel,Software Engineer,2,8211.6,No,0.6885,68.85,High Risk
+25,Non-Travel,HR Manager,3,22509.0,Yes,0.1136,11.36,Minimal Risk
+54,Non-Travel,Lab Technician,1,3751.2,No,0.3149,31.49,Low Risk
+65,Non-Travel,Sales Manager,2,10281.6,Yes,0.1729,17.29,Minimal Risk
+33,Non-Travel,Lab Technician,1,3166.2,Yes,0.229,22.9,Low Risk
+53,Travel_Rarely,HR Associate,4,35520.0,Yes,0.19,19.0,Minimal Risk
+52,Travel_Rarely,Accountant,4,8990.4,No,0.0556,5.56,Minimal Risk
+35,Travel_Frequently,Sales Executive,4,15264.0,No,0.0262,2.62,Minimal Risk
+47,Travel_Frequently,Recruiter,1,3250.8,Yes,0.0994,9.94,Minimal Risk
+56,Non-Travel,Accountant,3,13185.0,Yes,0.2249,22.49,Low Risk
+44,Travel_Rarely,Software Engineer,1,5083.8,No,0.1694,16.94,Minimal Risk
+41,Non-Travel,Accountant,4,26253.6,Yes,0.0573,5.73,Minimal Risk
+61,Travel_Rarely,IT Manager,1,4625.4,Yes,0.3782,37.82,Low Risk
+29,Travel_Rarely,HR Manager,1,7332.0,Yes,0.6156,61.56,High Risk
+29,Non-Travel,Sales Executive,5,21387.0,Yes,0.1187,11.87,Minimal Risk
+32,Travel_Rarely,R&D Manager,3,13681.8,Yes,0.188,18.8,Minimal Risk
+39,Non-Travel,IT Manager,4,32371.2,No,0.0539,5.39,Minimal Risk
+32,Travel_Rarely,Recruiter,2,8647.2,Yes,0.18,18.0,Minimal Risk
+45,Travel_Rarely,Research Scientist,5,40425.0,Yes,0.1457,14.57,Minimal Risk
+32,Non-Travel,Accountant,1,4545.0,No,0.0618,6.18,Minimal Risk
+23,Non-Travel,Accountant,2,8398.8,No,0.0541,5.41,Minimal Risk
+44,Travel_Rarely,HR Manager,2,5943.6,Yes,0.1413,14.13,Minimal Risk
+24,Travel_Frequently,Sales Representative,3,9325.8,No,0.0455,4.55,Minimal Risk
+30,Non-Travel,Sales Executive,5,26637.0,Yes,0.0866,8.66,Minimal Risk
+52,Travel_Frequently,HR Associate,5,34134.0,Yes,0.11,11.0,Minimal Risk
+48,Travel_Rarely,Software Engineer,3,7646.4,No,0.0317,3.17,Minimal Risk
+48,Travel_Frequently,Lab Technician,5,27063.0,No,0.0405,4.05,Minimal Risk
+57,Travel_Frequently,HR Manager,1,3840.6,Yes,0.2483,24.83,Low Risk
+30,Travel_Rarely,Sales Representative,4,7284.0,No,0.0562,5.62,Minimal Risk
+24,Travel_Frequently,Systems Administrator,3,18012.6,Yes,0.5643,56.43,Medium Risk
+63,Non-Travel,Accountant,2,13280.4,No,0.0191,1.91,Minimal Risk
+22,Travel_Frequently,Sales Manager,4,16204.8,No,0.1044,10.44,Minimal Risk
+52,Travel_Frequently,Research Scientist,4,33696.0,No,0.0326,3.26,Minimal Risk
+46,Non-Travel,Financial Analyst,3,4309.2,No,0.0578,5.78,Minimal Risk
+56,Non-Travel,Accountant,2,17401.2,Yes,0.2431,24.31,Low Risk
+36,Travel_Rarely,Sales Manager,4,20733.6,Yes,0.2505,25.05,Low Risk
+60,Travel_Frequently,Recruiter,4,28677.6,Yes,0.1899,18.99,Minimal Risk
+46,Travel_Frequently,Recruiter,2,13801.2,No,0.1176,11.76,Minimal Risk
+48,Travel_Rarely,Financial Analyst,2,14994.0,No,0.0794,7.94,Minimal Risk
+51,Non-Travel,Software Engineer,5,10365.0,Yes,0.1154,11.54,Minimal Risk
+23,Travel_Frequently,Financial Analyst,2,7916.4,No,0.0558,5.58,Minimal Risk
+41,Travel_Rarely,Finance Manager,1,5707.2,Yes,0.6867,68.67,High Risk
+37,Non-Travel,HR Associate,3,18381.6,No,0.0507,5.07,Minimal Risk
+55,Travel_Frequently,Accountant,2,3154.8,No,0.3272,32.72,Low Risk
+33,Travel_Frequently,Systems Administrator,1,5659.8,Yes,0.3117,31.17,Low Risk
+53,Non-Travel,HR Manager,1,6362.4,No,0.779,77.9,High Risk
+26,Travel_Rarely,Accountant,2,16971.6,Yes,0.6854,68.54,High Risk
+63,Travel_Rarely,R&D Manager,2,3493.2,No,0.7032,70.32,High Risk
+63,Non-Travel,Research Scientist,1,7372.8,No,0.0748,7.48,Minimal Risk
+53,Travel_Frequently,Lab Technician,2,15385.2,Yes,0.5657,56.57,Medium Risk
+27,Travel_Rarely,R&D Manager,3,18806.4,No,0.0659,6.59,Minimal Risk
+49,Travel_Frequently,Software Engineer,2,2500.8,Yes,0.1961,19.61,Minimal Risk
+27,Non-Travel,Lab Technician,1,1213.8,Yes,0.1378,13.78,Minimal Risk
+63,Non-Travel,Sales Representative,1,4335.0,No,0.1039,10.39,Minimal Risk
+37,Travel_Frequently,Software Engineer,3,19539.0,No,0.0742,7.42,Minimal Risk
+34,Non-Travel,Accountant,3,17973.0,No,0.0286,2.86,Minimal Risk
+28,Non-Travel,Recruiter,3,15375.6,Yes,0.1292,12.92,Minimal Risk
+52,Travel_Rarely,HR Manager,4,7941.6,No,0.0338,3.38,Minimal Risk
+33,Non-Travel,Software Engineer,1,8563.2,No,0.075,7.5,Minimal Risk
+47,Non-Travel,Financial Analyst,4,9880.8,Yes,0.6632,66.32,High Risk
+62,Travel_Frequently,Research Scientist,5,43716.0,No,0.7447,74.47,High Risk
+44,Non-Travel,HR Manager,3,13006.8,No,0.0276,2.76,Minimal Risk
+40,Travel_Frequently,Research Scientist,5,12060.0,Yes,0.1674,16.74,Minimal Risk
+50,Travel_Frequently,Lab Technician,4,7272.0,Yes,0.4135,41.35,Medium Risk
+44,Travel_Frequently,Sales Representative,2,6512.4,No,0.4496,44.96,Medium Risk
+59,Non-Travel,Financial Analyst,5,42549.0,No,0.0368,3.68,Minimal Risk
+47,Travel_Rarely,Financial Analyst,2,13057.2,Yes,0.1899,18.99,Minimal Risk
+35,Travel_Rarely,Software Engineer,3,7533.0,No,0.273,27.3,Low Risk
+63,Travel_Frequently,R&D Manager,2,15940.8,Yes,0.0881,8.81,Minimal Risk
+60,Travel_Frequently,HR Associate,3,15071.4,No,0.2588,25.88,Low Risk
+33,Travel_Rarely,Accountant,4,21084.0,No,0.0886,8.86,Minimal Risk
+43,Travel_Frequently,IT Manager,3,25066.8,No,0.0472,4.72,Minimal Risk
+45,Travel_Frequently,Research Scientist,1,7711.2,No,0.0757,7.57,Minimal Risk
+58,Travel_Frequently,Sales Representative,5,34962.0,No,0.1502,15.02,Minimal Risk
+46,Non-Travel,R&D Manager,5,22197.0,No,0.0345,3.45,Minimal Risk
+59,Non-Travel,HR Associate,2,16084.8,Yes,0.1271,12.71,Minimal Risk
+34,Travel_Frequently,HR Manager,3,4321.8,No,0.0911,9.11,Minimal Risk
+56,Travel_Frequently,Financial Analyst,4,21261.6,No,0.0558,5.58,Minimal Risk
+28,Travel_Frequently,Accountant,1,5587.8,Yes,0.7768,77.68,High Risk
+41,Travel_Frequently,IT Manager,4,12729.6,No,0.03,3.0,Minimal Risk
+61,Non-Travel,R&D Manager,4,33554.4,Yes,0.0561,5.61,Minimal Risk
+30,Travel_Frequently,Software Engineer,1,6376.8,Yes,0.1409,14.09,Minimal Risk
+43,Travel_Rarely,R&D Manager,4,10584.0,Yes,0.6512,65.12,High Risk
+28,Non-Travel,Accountant,3,21578.4,No,0.0225,2.25,Minimal Risk
+54,Non-Travel,Financial Analyst,2,3012.0,No,0.0617,6.17,Minimal Risk
+46,Travel_Frequently,R&D Manager,1,6516.6,Yes,0.3702,37.02,Low Risk
+36,Non-Travel,Finance Manager,5,14415.0,Yes,0.0966,9.66,Minimal Risk
+62,Travel_Rarely,HR Manager,2,13032.0,No,0.0215,2.15,Minimal Risk
+32,Travel_Rarely,Software Engineer,5,31809.0,Yes,0.2358,23.58,Low Risk
+27,Travel_Rarely,R&D Manager,5,31104.0,No,0.0397,3.97,Minimal Risk
+46,Travel_Frequently,Lab Technician,5,8271.0,Yes,0.6411,64.11,High Risk
+50,Travel_Rarely,Research Scientist,3,16574.4,Yes,0.7611,76.11,High Risk
+41,Non-Travel,Sales Manager,1,1683.6,No,0.0199,1.99,Minimal Risk
+36,Travel_Frequently,HR Manager,4,23400.0,Yes,0.2409,24.09,Low Risk
+35,Non-Travel,Research Scientist,3,24431.4,Yes,0.225,22.5,Low Risk
+63,Travel_Frequently,Lab Technician,1,4610.4,Yes,0.2549,25.49,Low Risk
+46,Travel_Frequently,Software Engineer,5,19158.0,Yes,0.1135,11.35,Minimal Risk
+28,Travel_Frequently,Accountant,1,3199.2,No,0.0985,9.85,Minimal Risk
+62,Travel_Rarely,Software Engineer,2,9813.6,No,0.098,9.8,Minimal Risk
+30,Non-Travel,Lab Technician,5,16260.0,Yes,0.3747,37.47,Low Risk
+29,Travel_Frequently,Systems Administrator,2,8377.2,No,0.2383,23.83,Low Risk
+58,Travel_Frequently,Finance Manager,3,17931.6,Yes,0.1869,18.69,Minimal Risk
+40,Travel_Rarely,Accountant,2,8311.2,Yes,0.7258,72.58,High Risk
+29,Travel_Rarely,IT Manager,4,10068.0,No,0.0286,2.86,Minimal Risk
+28,Travel_Rarely,Research Scientist,3,6314.4,No,0.242,24.2,Low Risk
+49,Travel_Rarely,Financial Analyst,4,21621.6,Yes,0.5459,54.59,Medium Risk
+43,Travel_Frequently,Sales Manager,3,25448.4,Yes,0.1305,13.05,Minimal Risk
+49,Non-Travel,Systems Administrator,2,3019.2,Yes,0.7576,75.76,High Risk
+35,Travel_Frequently,Research Scientist,5,23871.0,Yes,0.6862,68.62,High Risk
+41,Non-Travel,Financial Analyst,2,6200.4,Yes,0.8977,89.77,Critical Risk
+36,Travel_Frequently,Recruiter,2,13462.8,No,0.0648,6.48,Minimal Risk
+36,Travel_Rarely,HR Associate,3,16407.0,No,0.0263,2.63,Minimal Risk
+41,Travel_Rarely,Sales Executive,4,34092.0,No,0.041,4.1,Minimal Risk
+47,Travel_Rarely,Recruiter,4,35757.6,No,0.038,3.8,Minimal Risk
+30,Travel_Rarely,Research Scientist,1,6644.4,No,0.1083,10.83,Minimal Risk
+47,Travel_Frequently,HR Associate,5,40530.0,Yes,0.1313,13.13,Minimal Risk
+64,Non-Travel,Finance Manager,4,29193.6,Yes,0.7216,72.16,High Risk
+29,Travel_Rarely,Software Engineer,5,17382.0,No,0.2347,23.47,Low Risk
+26,Non-Travel,Research Scientist,1,5136.6,Yes,0.19,19.0,Minimal Risk
+26,Non-Travel,Lab Technician,2,17001.6,No,0.23,23.0,Low Risk
+35,Non-Travel,Sales Representative,4,12792.0,Yes,0.5551,55.51,Medium Risk
+30,Non-Travel,HR Manager,2,10974.0,No,0.0412,4.12,Minimal Risk
+64,Non-Travel,HR Associate,2,7982.4,Yes,0.0923,9.23,Minimal Risk
+43,Travel_Frequently,Finance Manager,3,22267.8,Yes,0.1169,11.69,Minimal Risk
+49,Non-Travel,Financial Analyst,3,9032.4,Yes,0.0961,9.61,Minimal Risk
+23,Travel_Rarely,Recruiter,3,18617.4,No,0.0683,6.83,Minimal Risk
+53,Travel_Rarely,Sales Representative,4,18607.2,Yes,0.4696,46.96,Medium Risk
+60,Travel_Frequently,Sales Executive,3,21450.6,Yes,0.07,7.0,Minimal Risk
+22,Non-Travel,HR Manager,5,17808.0,Yes,0.0889,8.89,Minimal Risk
+54,Travel_Rarely,Finance Manager,4,26450.4,Yes,0.1626,16.26,Minimal Risk
+36,Travel_Frequently,Accountant,2,8925.6,No,0.0393,3.93,Minimal Risk
+41,Travel_Frequently,IT Manager,4,20076.0,Yes,0.128,12.8,Minimal Risk
+36,Travel_Frequently,Recruiter,5,37212.0,Yes,0.0402,4.02,Minimal Risk
+42,Travel_Rarely,Research Scientist,2,8326.8,No,0.0309,3.09,Minimal Risk
+56,Travel_Rarely,Recruiter,1,1346.4,No,0.079,7.9,Minimal Risk
+62,Non-Travel,Financial Analyst,1,5056.2,Yes,0.1265,12.65,Minimal Risk
+29,Travel_Frequently,Lab Technician,4,20378.4,Yes,0.6629,66.29,High Risk
+64,Non-Travel,Systems Administrator,2,14278.8,Yes,0.1937,19.37,Minimal Risk
+65,Non-Travel,IT Manager,3,25041.6,Yes,0.1019,10.19,Minimal Risk
+40,Travel_Frequently,Finance Manager,3,26672.4,No,0.0305,3.05,Minimal Risk
+63,Non-Travel,Sales Manager,2,13162.8,Yes,0.7928,79.28,High Risk
+62,Travel_Rarely,Research Scientist,2,12999.6,Yes,0.2996,29.96,Low Risk
+34,Travel_Rarely,Lab Technician,3,24332.4,No,0.0995,9.95,Minimal Risk
+65,Travel_Frequently,Systems Administrator,3,6379.2,Yes,0.1088,10.88,Minimal Risk
+26,Travel_Frequently,HR Manager,3,23436.0,No,0.0776,7.76,Minimal Risk
+23,Travel_Frequently,Lab Technician,1,4414.2,Yes,0.1403,14.03,Minimal Risk
+61,Travel_Frequently,Recruiter,3,20572.2,No,0.0207,2.07,Minimal Risk
+30,Travel_Rarely,Recruiter,1,7587.0,Yes,0.2576,25.76,Low Risk
+53,Travel_Rarely,Financial Analyst,4,21564.0,Yes,0.1004,10.04,Minimal Risk
+49,Non-Travel,Sales Manager,2,16629.6,Yes,0.0706,7.06,Minimal Risk
+58,Non-Travel,Research Scientist,3,14634.0,Yes,0.0518,5.18,Minimal Risk
+35,Travel_Rarely,Sales Representative,3,5410.8,No,0.1145,11.45,Minimal Risk
+52,Travel_Frequently,Recruiter,1,5164.2,No,0.0467,4.67,Minimal Risk
+64,Travel_Frequently,IT Manager,5,27426.0,No,0.0451,4.51,Minimal Risk
+48,Non-Travel,HR Associate,3,11136.6,Yes,0.1215,12.15,Minimal Risk
+40,Travel_Frequently,Research Scientist,4,6501.6,No,0.0274,2.74,Minimal Risk
+33,Travel_Frequently,IT Manager,2,16922.4,Yes,0.0999,9.99,Minimal Risk
+30,Non-Travel,Financial Analyst,5,29058.0,Yes,0.2433,24.33,Low Risk
+31,Non-Travel,HR Associate,2,6657.6,No,0.118,11.8,Minimal Risk
+47,Travel_Frequently,Sales Manager,5,17526.0,Yes,0.0732,7.32,Minimal Risk
+30,Non-Travel,HR Associate,5,23784.0,Yes,0.728,72.8,High Risk
+24,Non-Travel,Lab Technician,1,5145.0,Yes,0.1432,14.32,Minimal Risk
+60,Travel_Frequently,Software Engineer,4,14332.8,No,0.0413,4.13,Minimal Risk
+55,Travel_Rarely,Software Engineer,3,23353.2,Yes,0.5348,53.48,Medium Risk
+57,Travel_Frequently,Lab Technician,1,7540.2,No,0.7165,71.65,High Risk
+26,Travel_Frequently,Sales Manager,1,6377.4,No,0.089,8.9,Minimal Risk
+37,Non-Travel,IT Manager,1,7829.4,Yes,0.6886,68.86,High Risk
+24,Travel_Rarely,Research Scientist,5,36411.0,Yes,0.2885,28.85,Low Risk
+47,Travel_Rarely,Sales Manager,4,26138.4,No,0.0156,1.56,Minimal Risk
+49,Travel_Frequently,Systems Administrator,5,10206.0,Yes,0.1428,14.28,Minimal Risk
+49,Travel_Rarely,Accountant,1,1441.8,No,0.0796,7.96,Minimal Risk
+47,Non-Travel,Software Engineer,1,5412.6,No,0.1788,17.88,Minimal Risk
+25,Non-Travel,Sales Executive,5,41934.0,Yes,0.768,76.8,High Risk
+32,Travel_Frequently,Systems Administrator,1,2852.4,Yes,0.0705,7.05,Minimal Risk
+62,Travel_Frequently,HR Manager,1,5043.6,No,0.0622,6.22,Minimal Risk
+26,Travel_Rarely,Finance Manager,5,15762.0,No,0.06,6.0,Minimal Risk
+37,Travel_Rarely,Accountant,3,21558.6,No,0.0874,8.74,Minimal Risk
+42,Travel_Frequently,Sales Manager,2,5647.2,Yes,0.0926,9.26,Minimal Risk
+39,Travel_Frequently,Sales Executive,5,12768.0,Yes,0.1287,12.87,Minimal Risk
+36,Non-Travel,Software Engineer,2,6097.2,Yes,0.088,8.8,Minimal Risk
+57,Non-Travel,HR Associate,1,6395.4,No,0.6237,62.37,High Risk
+64,Non-Travel,Recruiter,2,5067.6,Yes,0.0468,4.68,Minimal Risk
+52,Non-Travel,Lab Technician,3,4446.0,Yes,0.6395,63.95,High Risk
+61,Non-Travel,Finance Manager,4,6076.8,Yes,0.123,12.3,Minimal Risk
+27,Non-Travel,Research Scientist,2,8253.6,Yes,0.5708,57.08,Medium Risk
+33,Travel_Rarely,Sales Manager,3,22140.0,Yes,0.3386,33.86,Low Risk
+42,Travel_Rarely,Systems Administrator,4,7324.8,Yes,0.2372,23.72,Low Risk
+42,Travel_Frequently,Accountant,4,27009.6,No,0.0269,2.69,Minimal Risk
+33,Travel_Rarely,Finance Manager,5,36126.0,No,0.117,11.7,Minimal Risk
+39,Travel_Rarely,HR Manager,1,6525.0,Yes,0.1163,11.63,Minimal Risk
+56,Non-Travel,Sales Executive,2,7040.4,Yes,0.0474,4.74,Minimal Risk
+37,Travel_Rarely,Sales Representative,5,29697.0,Yes,0.6326,63.26,High Risk
+23,Travel_Rarely,HR Associate,2,9699.6,Yes,0.2239,22.39,Low Risk
+43,Non-Travel,Lab Technician,4,22341.6,No,0.0339,3.39,Minimal Risk
+56,Travel_Frequently,HR Manager,2,12716.4,Yes,0.0893,8.93,Minimal Risk
+35,Non-Travel,Recruiter,1,7925.4,Yes,0.3783,37.83,Low Risk
+38,Non-Travel,IT Manager,4,13310.4,Yes,0.4393,43.93,Medium Risk
+31,Travel_Frequently,Lab Technician,1,1833.0,Yes,0.2864,28.64,Low Risk
+23,Non-Travel,Finance Manager,5,22449.0,No,0.0893,8.93,Minimal Risk
+43,Travel_Rarely,Sales Manager,5,27264.0,No,0.0616,6.16,Minimal Risk
+33,Travel_Rarely,Finance Manager,3,20131.2,Yes,0.1644,16.44,Minimal Risk
+34,Non-Travel,Financial Analyst,2,11643.6,No,0.0525,5.25,Minimal Risk
+55,Travel_Rarely,Recruiter,4,23745.6,Yes,0.0892,8.92,Minimal Risk
+62,Non-Travel,Financial Analyst,1,1566.6,No,0.0234,2.34,Minimal Risk
+60,Non-Travel,Software Engineer,5,40197.0,No,0.0506,5.06,Minimal Risk
+48,Travel_Frequently,Sales Executive,2,10830.0,Yes,0.0939,9.39,Minimal Risk
+28,Travel_Rarely,Research Scientist,4,21859.2,Yes,0.632,63.2,High Risk
+32,Non-Travel,HR Associate,5,40482.0,No,0.0934,9.34,Minimal Risk
+34,Travel_Rarely,Recruiter,2,12398.4,Yes,0.1336,13.36,Minimal Risk
+46,Travel_Rarely,Finance Manager,2,6955.2,No,0.0686,6.86,Minimal Risk
+49,Travel_Rarely,Lab Technician,4,25984.8,No,0.0503,5.03,Minimal Risk
+40,Travel_Frequently,Finance Manager,2,11241.6,Yes,0.1898,18.98,Minimal Risk
+42,Travel_Rarely,Accountant,1,6341.4,No,0.236,23.6,Low Risk
+51,Travel_Rarely,Sales Representative,1,3763.8,Yes,0.3888,38.88,Low Risk
+22,Non-Travel,IT Manager,5,30153.0,Yes,0.3742,37.42,Low Risk
+63,Travel_Rarely,Systems Administrator,4,32793.6,No,0.1549,15.49,Minimal Risk
+56,Non-Travel,Lab Technician,3,18855.0,Yes,0.356,35.6,Low Risk
+31,Non-Travel,Finance Manager,3,25984.8,No,0.0602,6.02,Minimal Risk
+49,Travel_Rarely,HR Associate,5,17433.0,Yes,0.1518,15.18,Minimal Risk
+41,Non-Travel,Accountant,2,7216.8,No,0.0741,7.41,Minimal Risk
+30,Travel_Frequently,Finance Manager,4,23524.8,No,0.0433,4.33,Minimal Risk
+34,Non-Travel,HR Manager,2,17907.6,Yes,0.056,5.6,Minimal Risk
+38,Travel_Frequently,Recruiter,4,12674.4,Yes,0.2555,25.55,Low Risk
+48,Non-Travel,IT Manager,5,10263.0,No,0.0427,4.27,Minimal Risk
+27,Travel_Frequently,Finance Manager,1,7798.2,Yes,0.8063,80.63,Critical Risk
+39,Travel_Rarely,R&D Manager,2,10712.4,No,0.071,7.1,Minimal Risk
+56,Travel_Frequently,HR Manager,3,21022.2,No,0.0337,3.37,Minimal Risk
+65,Travel_Frequently,Finance Manager,2,17100.0,No,0.1075,10.75,Minimal Risk
+54,Non-Travel,Accountant,5,36570.0,No,0.0122,1.22,Minimal Risk
+46,Non-Travel,Research Scientist,5,32172.0,Yes,0.0533,5.33,Minimal Risk
+28,Travel_Rarely,Software Engineer,2,3644.4,No,0.0758,7.58,Minimal Risk
+45,Non-Travel,HR Associate,1,1300.8,Yes,0.066,6.6,Minimal Risk
+42,Travel_Frequently,R&D Manager,5,22770.0,No,0.0443,4.43,Minimal Risk
+30,Travel_Frequently,Systems Administrator,4,31814.4,No,0.0441,4.41,Minimal Risk
+22,Non-Travel,Research Scientist,3,22098.6,Yes,0.0792,7.92,Minimal Risk
+29,Travel_Rarely,Sales Representative,3,22548.6,No,0.1936,19.36,Minimal Risk
+38,Non-Travel,Software Engineer,1,2019.6,No,0.045,4.5,Minimal Risk
+36,Travel_Rarely,IT Manager,5,40269.0,Yes,0.1381,13.81,Minimal Risk
+57,Travel_Rarely,Finance Manager,3,9919.8,No,0.1144,11.44,Minimal Risk
+45,Travel_Rarely,R&D Manager,2,11722.8,No,0.0196,1.96,Minimal Risk
+46,Travel_Rarely,Lab Technician,5,14097.0,Yes,0.1411,14.11,Minimal Risk
+65,Travel_Frequently,Finance Manager,1,6622.8,No,0.7929,79.29,High Risk
+42,Non-Travel,R&D Manager,5,10275.0,No,0.0417,4.17,Minimal Risk
+49,Travel_Frequently,Recruiter,4,35416.8,Yes,0.7882,78.82,High Risk
+47,Non-Travel,Recruiter,4,15840.0,No,0.0335,3.35,Minimal Risk
+27,Non-Travel,HR Associate,2,8959.2,Yes,0.2956,29.56,Low Risk
+47,Non-Travel,Accountant,4,6688.8,Yes,0.1327,13.27,Minimal Risk
+24,Travel_Frequently,Recruiter,2,11325.6,Yes,0.0927,9.27,Minimal Risk
+22,Travel_Frequently,Sales Representative,3,5506.2,No,0.1301,13.01,Minimal Risk
+61,Travel_Frequently,R&D Manager,3,16574.4,No,0.0196,1.96,Minimal Risk
+36,Non-Travel,Financial Analyst,3,25007.4,No,0.0581,5.81,Minimal Risk
+64,Non-Travel,Recruiter,3,21722.4,Yes,0.2818,28.18,Low Risk
+63,Travel_Frequently,Sales Representative,5,16518.0,Yes,0.1996,19.96,Minimal Risk
+54,Travel_Rarely,Sales Executive,5,26178.0,No,0.0408,4.08,Minimal Risk
+38,Non-Travel,Software Engineer,2,13644.0,Yes,0.6511,65.11,High Risk
+51,Non-Travel,Sales Manager,1,4966.8,No,0.0298,2.98,Minimal Risk
+59,Travel_Rarely,Accountant,4,35884.8,No,0.0623,6.23,Minimal Risk
+35,Travel_Frequently,R&D Manager,1,7133.4,Yes,0.1142,11.42,Minimal Risk
+39,Travel_Frequently,Sales Manager,1,8810.4,Yes,0.0631,6.31,Minimal Risk
+26,Travel_Frequently,Accountant,5,15639.0,Yes,0.1104,11.04,Minimal Risk
+50,Non-Travel,Recruiter,2,8030.4,Yes,0.1584,15.84,Minimal Risk
+59,Non-Travel,Finance Manager,3,5967.0,Yes,0.1681,16.81,Minimal Risk
+33,Travel_Frequently,Lab Technician,1,4061.4,Yes,0.6862,68.62,High Risk
+63,Non-Travel,Financial Analyst,1,6563.4,No,0.0746,7.46,Minimal Risk
+63,Non-Travel,Software Engineer,4,6254.4,Yes,0.3391,33.91,Low Risk
+60,Non-Travel,Systems Administrator,3,15310.8,No,0.0289,2.89,Minimal Risk
+30,Travel_Frequently,Sales Executive,2,16316.4,No,0.667,66.7,High Risk
+50,Travel_Rarely,Accountant,3,26352.0,Yes,0.0891,8.91,Minimal Risk
+58,Travel_Rarely,Recruiter,4,23906.4,No,0.0629,6.29,Minimal Risk
+56,Travel_Frequently,HR Associate,2,17264.4,No,0.0474,4.74,Minimal Risk
+27,Travel_Frequently,Sales Executive,2,8953.2,No,0.151,15.1,Minimal Risk
+23,Travel_Rarely,Financial Analyst,4,23568.0,Yes,0.1537,15.37,Minimal Risk
+31,Non-Travel,Research Scientist,4,24732.0,Yes,0.1395,13.95,Minimal Risk
+63,Travel_Frequently,R&D Manager,2,14683.2,No,0.0951,9.51,Minimal Risk
+26,Non-Travel,Financial Analyst,3,9126.0,Yes,0.7831,78.31,High Risk
+23,Travel_Frequently,Software Engineer,2,15265.2,No,0.59,59.0,Medium Risk
+38,Non-Travel,HR Manager,5,11721.0,Yes,0.1473,14.73,Minimal Risk
+30,Travel_Rarely,Finance Manager,4,20404.8,Yes,0.0852,8.52,Minimal Risk
+57,Non-Travel,IT Manager,2,12610.8,Yes,0.0977,9.77,Minimal Risk
+49,Non-Travel,R&D Manager,5,6951.0,Yes,0.6887,68.87,High Risk
+45,Travel_Frequently,Sales Representative,3,5238.0,Yes,0.7147,71.47,High Risk
+25,Non-Travel,Finance Manager,3,3994.2,No,0.1976,19.76,Minimal Risk
+36,Travel_Rarely,Sales Representative,5,6342.0,Yes,0.4815,48.15,Medium Risk
+57,Travel_Rarely,Research Scientist,2,13711.2,No,0.0607,6.07,Minimal Risk
+60,Travel_Frequently,Recruiter,2,8350.8,Yes,0.0803,8.03,Minimal Risk
+26,Travel_Frequently,Software Engineer,4,23673.6,No,0.1455,14.55,Minimal Risk
+43,Travel_Rarely,IT Manager,1,3856.2,No,0.0803,8.03,Minimal Risk
+52,Travel_Rarely,Lab Technician,2,9595.2,Yes,0.8771,87.71,Critical Risk
+28,Travel_Rarely,Research Scientist,4,17707.2,Yes,0.7714,77.14,High Risk
+63,Travel_Rarely,Finance Manager,4,14596.8,Yes,0.6877,68.77,High Risk
+58,Travel_Frequently,HR Manager,4,10526.4,Yes,0.2269,22.69,Low Risk
+49,Travel_Frequently,Systems Administrator,5,34875.0,Yes,0.1096,10.96,Minimal Risk
+36,Travel_Frequently,Lab Technician,3,8931.6,Yes,0.7438,74.38,High Risk
+36,Non-Travel,Sales Representative,1,2142.0,Yes,0.103,10.3,Minimal Risk
+41,Travel_Rarely,Systems Administrator,3,13059.0,No,0.0388,3.88,Minimal Risk
+61,Travel_Frequently,Financial Analyst,3,18232.2,No,0.0566,5.66,Minimal Risk
+30,Travel_Frequently,Recruiter,4,35433.6,Yes,0.1192,11.92,Minimal Risk
+26,Travel_Frequently,R&D Manager,4,9096.0,No,0.0526,5.26,Minimal Risk
+37,Travel_Frequently,Finance Manager,4,25538.4,Yes,0.2771,27.71,Low Risk
+53,Travel_Frequently,Systems Administrator,3,9815.4,Yes,0.5637,56.37,Medium Risk
+44,Travel_Rarely,Lab Technician,4,23704.8,No,0.0214,2.14,Minimal Risk
+44,Travel_Rarely,Financial Analyst,3,9777.6,Yes,0.089,8.9,Minimal Risk
+23,Non-Travel,Accountant,5,11295.0,No,0.0725,7.25,Minimal Risk
+64,Travel_Rarely,Systems Administrator,5,25731.0,No,0.041,4.1,Minimal Risk
+64,Travel_Frequently,Systems Administrator,3,21837.6,No,0.0584,5.84,Minimal Risk
+28,Travel_Rarely,Research Scientist,3,5241.6,Yes,0.8079,80.79,Critical Risk
+64,Travel_Frequently,Sales Representative,1,1317.6,No,0.0561,5.61,Minimal Risk
+62,Travel_Frequently,Software Engineer,2,11712.0,No,0.0328,3.28,Minimal Risk
+37,Travel_Rarely,Sales Representative,3,19317.6,No,0.0659,6.59,Minimal Risk
+54,Non-Travel,IT Manager,2,8372.4,Yes,0.1999,19.99,Minimal Risk
+57,Non-Travel,Sales Representative,1,7453.8,Yes,0.1363,13.63,Minimal Risk
+64,Travel_Frequently,Research Scientist,1,8699.4,No,0.1687,16.87,Minimal Risk
+38,Travel_Rarely,IT Manager,5,35904.0,No,0.0426,4.26,Minimal Risk
+50,Travel_Rarely,Systems Administrator,3,23814.0,No,0.6102,61.02,High Risk
+50,Travel_Frequently,Finance Manager,3,21025.8,Yes,0.0969,9.69,Minimal Risk
+26,Travel_Rarely,Accountant,5,7815.0,Yes,0.7664,76.64,High Risk
+27,Travel_Frequently,Accountant,3,12535.2,No,0.129,12.9,Minimal Risk
+41,Non-Travel,Lab Technician,4,33885.6,No,0.0254,2.54,Minimal Risk
+57,Travel_Frequently,Recruiter,2,15352.8,Yes,0.106,10.6,Minimal Risk
+45,Travel_Rarely,Lab Technician,4,20078.4,No,0.5018,50.18,Medium Risk
+64,Non-Travel,Financial Analyst,2,11746.8,No,0.0406,4.06,Minimal Risk
+22,Non-Travel,Sales Executive,3,20863.8,No,0.0983,9.83,Minimal Risk
+64,Travel_Rarely,Sales Manager,5,15663.0,No,0.0952,9.52,Minimal Risk
+26,Travel_Rarely,Research Scientist,4,9578.4,Yes,0.282,28.2,Low Risk
+48,Travel_Rarely,Sales Executive,2,15348.0,Yes,0.1404,14.04,Minimal Risk
+33,Non-Travel,Accountant,3,25628.4,No,0.6601,66.01,High Risk
+42,Travel_Frequently,Sales Representative,3,24201.0,No,0.0349,3.49,Minimal Risk
+48,Non-Travel,Sales Executive,2,12921.6,No,0.0513,5.13,Minimal Risk
+58,Travel_Rarely,Accountant,1,5048.4,No,0.0743,7.43,Minimal Risk
+35,Travel_Rarely,Systems Administrator,3,24226.2,No,0.6493,64.93,High Risk
+36,Non-Travel,Recruiter,3,7543.8,No,0.0712,7.12,Minimal Risk
+62,Travel_Rarely,R&D Manager,3,4140.0,Yes,0.3091,30.91,Low Risk
+35,Travel_Rarely,Research Scientist,2,6939.6,No,0.085,8.5,Minimal Risk
+60,Travel_Rarely,Financial Analyst,1,5832.0,Yes,0.7488,74.88,High Risk
+22,Travel_Frequently,Recruiter,3,25093.8,No,0.658,65.8,High Risk
+63,Travel_Rarely,IT Manager,4,11186.4,Yes,0.3654,36.54,Low Risk
+25,Travel_Rarely,Financial Analyst,3,4977.0,No,0.094,9.4,Minimal Risk
+39,Travel_Rarely,Research Scientist,3,7070.4,No,0.4718,47.18,Medium Risk
+58,Non-Travel,Accountant,5,44595.0,Yes,0.1109,11.09,Minimal Risk
+27,Travel_Rarely,Software Engineer,5,23133.0,Yes,0.7491,74.91,High Risk
+22,Travel_Frequently,Financial Analyst,1,5785.8,No,0.0724,7.24,Minimal Risk
+37,Travel_Frequently,Research Scientist,5,17658.0,No,0.0451,4.51,Minimal Risk
+46,Travel_Frequently,Lab Technician,4,6016.8,Yes,0.2223,22.23,Low Risk
+43,Travel_Frequently,Accountant,5,30024.0,Yes,0.2545,25.45,Low Risk
+31,Travel_Frequently,Software Engineer,3,20752.2,Yes,0.0691,6.91,Minimal Risk
+51,Travel_Rarely,HR Associate,3,21123.0,Yes,0.0807,8.07,Minimal Risk
+45,Travel_Frequently,Research Scientist,1,1923.6,No,0.0937,9.37,Minimal Risk
+62,Travel_Rarely,Sales Representative,3,8136.0,Yes,0.1348,13.48,Minimal Risk
+43,Non-Travel,Lab Technician,2,12224.4,No,0.4945,49.45,Medium Risk
+37,Travel_Frequently,Lab Technician,5,9048.0,No,0.0556,5.56,Minimal Risk
+33,Travel_Rarely,Systems Administrator,3,16470.0,Yes,0.1614,16.14,Minimal Risk
+63,Travel_Rarely,Sales Representative,2,5806.8,Yes,0.0829,8.29,Minimal Risk
+53,Non-Travel,Financial Analyst,5,15510.0,Yes,0.1168,11.68,Minimal Risk
+53,Travel_Frequently,Finance Manager,1,2729.4,Yes,0.8362,83.62,Critical Risk
+60,Non-Travel,Accountant,4,10394.4,No,0.0458,4.58,Minimal Risk
+38,Travel_Frequently,Sales Representative,2,10740.0,No,0.0386,3.86,Minimal Risk
+51,Travel_Frequently,Sales Executive,3,14601.6,Yes,0.1658,16.58,Minimal Risk
+45,Travel_Rarely,Finance Manager,1,1771.8,No,0.0589,5.89,Minimal Risk
+27,Non-Travel,Sales Manager,4,33775.2,Yes,0.084,8.4,Minimal Risk
+24,Non-Travel,R&D Manager,4,30295.2,No,0.0646,6.46,Minimal Risk
+25,Travel_Rarely,HR Associate,3,4759.2,Yes,0.1855,18.55,Minimal Risk
+55,Non-Travel,Sales Representative,3,18963.0,No,0.0452,4.52,Minimal Risk
+65,Travel_Rarely,HR Manager,1,2995.2,No,0.3913,39.13,Low Risk
+56,Travel_Frequently,Finance Manager,5,14154.0,No,0.0365,3.65,Minimal Risk
+38,Non-Travel,Finance Manager,2,13147.2,No,0.1898,18.98,Minimal Risk
+22,Travel_Frequently,Lab Technician,1,2971.8,Yes,0.1679,16.79,Minimal Risk
+61,Travel_Frequently,Software Engineer,5,22251.0,No,0.1099,10.99,Minimal Risk
+43,Non-Travel,Accountant,1,4904.4,Yes,0.2104,21.04,Low Risk
+45,Non-Travel,R&D Manager,2,2954.4,No,0.0561,5.61,Minimal Risk
+37,Non-Travel,Finance Manager,2,12955.2,Yes,0.7068,70.68,High Risk
+53,Non-Travel,Finance Manager,1,4335.0,No,0.7451,74.51,High Risk
+43,Non-Travel,IT Manager,5,36150.0,No,0.0505,5.05,Minimal Risk
+61,Travel_Frequently,Sales Manager,2,10904.4,No,0.0468,4.68,Minimal Risk
+23,Travel_Rarely,Sales Manager,4,22008.0,No,0.0327,3.27,Minimal Risk
+50,Travel_Frequently,HR Manager,2,6692.4,Yes,0.1737,17.37,Minimal Risk
+43,Travel_Frequently,Finance Manager,5,28518.0,Yes,0.0446,4.46,Minimal Risk
+43,Travel_Rarely,HR Manager,5,42672.0,Yes,0.6138,61.38,High Risk
+32,Travel_Frequently,Recruiter,5,19494.0,Yes,0.0708,7.08,Minimal Risk
+29,Travel_Rarely,Sales Representative,2,10741.2,No,0.0532,5.32,Minimal Risk
+23,Non-Travel,R&D Manager,4,28711.2,No,0.0196,1.96,Minimal Risk
+62,Non-Travel,Sales Representative,1,1930.2,No,0.1884,18.84,Minimal Risk
+28,Travel_Rarely,Research Scientist,3,24553.8,Yes,0.3303,33.03,Low Risk
+34,Travel_Rarely,Research Scientist,1,1294.2,No,0.0406,4.06,Minimal Risk
+44,Travel_Rarely,IT Manager,1,7174.2,Yes,0.0804,8.04,Minimal Risk
+38,Travel_Frequently,Sales Executive,2,11476.8,Yes,0.1607,16.07,Minimal Risk
+54,Travel_Rarely,Sales Representative,5,36378.0,Yes,0.1481,14.81,Minimal Risk
+54,Travel_Frequently,Research Scientist,3,16642.8,No,0.146,14.6,Minimal Risk
+40,Travel_Frequently,Sales Executive,2,7755.6,No,0.0146,1.46,Minimal Risk
+44,Travel_Frequently,Research Scientist,4,5824.8,Yes,0.0859,8.59,Minimal Risk
+22,Travel_Rarely,HR Manager,5,41178.0,Yes,0.8172,81.72,Critical Risk
+57,Travel_Frequently,Research Scientist,3,19362.6,Yes,0.1012,10.12,Minimal Risk
+65,Travel_Rarely,HR Manager,3,20588.4,Yes,0.6376,63.76,High Risk
+56,Travel_Frequently,Lab Technician,3,16018.2,No,0.0912,9.12,Minimal Risk
+32,Non-Travel,Financial Analyst,1,6241.2,No,0.1985,19.85,Minimal Risk
+29,Travel_Frequently,Sales Executive,4,34231.2,No,0.0276,2.76,Minimal Risk
+53,Non-Travel,Sales Executive,3,11880.0,No,0.0207,2.07,Minimal Risk
+31,Travel_Rarely,Software Engineer,5,38028.0,No,0.0381,3.81,Minimal Risk
+48,Non-Travel,Systems Administrator,1,3564.6,No,0.3615,36.15,Low Risk
+64,Non-Travel,Sales Representative,2,14452.8,No,0.0178,1.78,Minimal Risk
+29,Travel_Frequently,Financial Analyst,3,20853.0,Yes,0.7169,71.69,High Risk
+22,Non-Travel,R&D Manager,5,25908.0,Yes,0.3427,34.27,Low Risk
+31,Non-Travel,Lab Technician,2,10369.2,Yes,0.5811,58.11,Medium Risk
+43,Non-Travel,Sales Manager,4,33170.4,Yes,0.0278,2.78,Minimal Risk
+25,Travel_Frequently,HR Associate,3,19719.0,Yes,0.1408,14.08,Minimal Risk
+37,Non-Travel,Research Scientist,5,25962.0,Yes,0.0733,7.33,Minimal Risk
+58,Travel_Rarely,Sales Representative,3,26263.8,Yes,0.1451,14.51,Minimal Risk
+49,Travel_Rarely,Sales Representative,1,6160.2,No,0.0603,6.03,Minimal Risk
+43,Travel_Rarely,Lab Technician,4,35210.4,Yes,0.2264,22.64,Low Risk
+33,Travel_Frequently,Systems Administrator,1,4594.2,No,0.5618,56.18,Medium Risk
+31,Travel_Frequently,Accountant,4,32642.4,Yes,0.0907,9.07,Minimal Risk
+30,Travel_Frequently,Financial Analyst,5,30441.0,Yes,0.2415,24.15,Low Risk
+35,Travel_Frequently,HR Associate,2,12517.2,No,0.1127,11.27,Minimal Risk
+65,Travel_Frequently,Finance Manager,4,19329.6,Yes,0.2066,20.66,Low Risk
+34,Non-Travel,IT Manager,3,19116.0,Yes,0.5993,59.93,Medium Risk
+59,Non-Travel,HR Associate,1,5484.6,No,0.2145,21.45,Low Risk
+37,Travel_Rarely,Recruiter,5,22461.0,No,0.0368,3.68,Minimal Risk
+36,Non-Travel,Software Engineer,5,33666.0,No,0.6612,66.12,High Risk
+27,Travel_Frequently,Financial Analyst,4,18597.6,Yes,0.3391,33.91,Low Risk
+22,Travel_Frequently,Sales Manager,1,8277.6,Yes,0.8478,84.78,Critical Risk
+25,Travel_Rarely,Lab Technician,1,7476.6,No,0.171,17.1,Minimal Risk
+56,Travel_Rarely,HR Associate,5,25119.0,Yes,0.1074,10.74,Minimal Risk
+54,Non-Travel,Systems Administrator,4,14224.8,No,0.0729,7.29,Minimal Risk
+29,Travel_Rarely,HR Manager,1,1249.8,Yes,0.7738,77.38,High Risk
+38,Travel_Rarely,Finance Manager,5,9984.0,No,0.6304,63.04,High Risk
+29,Travel_Rarely,Research Scientist,2,2424.0,No,0.0622,6.22,Minimal Risk
+26,Travel_Rarely,Financial Analyst,5,42747.0,No,0.0671,6.71,Minimal Risk
+58,Travel_Rarely,Sales Manager,4,23791.2,No,0.1538,15.38,Minimal Risk
+31,Travel_Frequently,Research Scientist,2,5049.6,Yes,0.1795,17.95,Minimal Risk
+46,Travel_Frequently,Lab Technician,2,10034.4,Yes,0.1516,15.16,Minimal Risk
+64,Travel_Frequently,R&D Manager,5,8913.0,No,0.0373,3.73,Minimal Risk
+23,Travel_Rarely,Sales Manager,4,18926.4,Yes,0.2067,20.67,Low Risk
+38,Non-Travel,IT Manager,1,3723.0,Yes,0.1463,14.63,Minimal Risk
+54,Travel_Rarely,Accountant,3,13872.6,No,0.0812,8.12,Minimal Risk
+49,Travel_Frequently,Software Engineer,4,12475.2,No,0.0918,9.18,Minimal Risk
+30,Travel_Frequently,Software Engineer,4,10190.4,Yes,0.2481,24.81,Low Risk
+32,Travel_Rarely,HR Associate,2,6454.8,No,0.0951,9.51,Minimal Risk
+60,Non-Travel,Research Scientist,3,3843.0,Yes,0.1803,18.03,Minimal Risk
+40,Travel_Frequently,Research Scientist,1,6888.0,Yes,0.1109,11.09,Minimal Risk
+52,Travel_Rarely,HR Associate,2,5294.4,No,0.554,55.4,Medium Risk
+51,Travel_Rarely,R&D Manager,3,11923.2,No,0.409,40.9,Medium Risk
+34,Travel_Frequently,Finance Manager,5,8262.0,No,0.0771,7.71,Minimal Risk
+24,Non-Travel,Software Engineer,3,24919.2,No,0.0527,5.27,Minimal Risk
+64,Travel_Frequently,Recruiter,1,7447.8,Yes,0.7582,75.82,High Risk
+28,Non-Travel,Research Scientist,3,21949.2,No,0.0461,4.61,Minimal Risk
+57,Non-Travel,Sales Manager,5,31152.0,Yes,0.0537,5.37,Minimal Risk
+40,Travel_Frequently,Research Scientist,2,7591.2,Yes,0.2919,29.19,Low Risk
+38,Non-Travel,Lab Technician,4,4946.4,Yes,0.1523,15.23,Minimal Risk
+50,Travel_Frequently,R&D Manager,2,15057.6,Yes,0.0778,7.78,Minimal Risk
+35,Travel_Frequently,Recruiter,5,23274.0,Yes,0.125,12.5,Minimal Risk
+46,Non-Travel,Sales Manager,4,33823.2,No,0.0742,7.42,Minimal Risk
+43,Travel_Rarely,Accountant,4,23992.8,No,0.0708,7.08,Minimal Risk
+57,Travel_Rarely,Software Engineer,2,6340.8,No,0.1302,13.02,Minimal Risk
+41,Travel_Rarely,Lab Technician,3,11313.0,Yes,0.1483,14.83,Minimal Risk
+36,Non-Travel,Finance Manager,5,28221.0,No,0.0746,7.46,Minimal Risk
+58,Travel_Rarely,HR Manager,5,39522.0,Yes,0.1197,11.97,Minimal Risk
+62,Non-Travel,Software Engineer,5,7716.0,No,0.0944,9.44,Minimal Risk
+25,Travel_Frequently,Lab Technician,4,28176.0,No,0.0464,4.64,Minimal Risk
+39,Non-Travel,Sales Manager,2,11102.4,Yes,0.0342,3.42,Minimal Risk
+39,Travel_Frequently,Systems Administrator,3,25110.0,Yes,0.1953,19.53,Minimal Risk
+35,Non-Travel,HR Associate,4,17155.2,Yes,0.0674,6.74,Minimal Risk
+39,Travel_Frequently,Sales Executive,2,17809.2,No,0.0393,3.93,Minimal Risk
+49,Travel_Frequently,Sales Manager,5,31446.0,No,0.1478,14.78,Minimal Risk
+63,Travel_Rarely,Finance Manager,5,38865.0,No,0.1027,10.27,Minimal Risk
+62,Travel_Rarely,Sales Executive,5,16734.0,Yes,0.6739,67.39,High Risk
+53,Travel_Frequently,Finance Manager,3,4802.4,Yes,0.0717,7.17,Minimal Risk
+43,Travel_Rarely,Sales Representative,3,18759.6,Yes,0.0792,7.92,Minimal Risk
+38,Travel_Rarely,IT Manager,5,15825.0,No,0.0316,3.16,Minimal Risk
+30,Travel_Frequently,Software Engineer,4,14467.2,No,0.1037,10.37,Minimal Risk
+35,Travel_Frequently,R&D Manager,5,22041.0,Yes,0.0788,7.88,Minimal Risk
+58,Travel_Frequently,Recruiter,3,14184.0,No,0.0363,3.63,Minimal Risk
+54,Travel_Frequently,R&D Manager,3,14284.8,No,0.0726,7.26,Minimal Risk
+54,Travel_Rarely,HR Associate,3,24625.8,Yes,0.1766,17.66,Minimal Risk
+44,Travel_Rarely,Lab Technician,3,18574.2,No,0.0452,4.52,Minimal Risk
+30,Travel_Frequently,Lab Technician,5,36261.0,Yes,0.1053,10.53,Minimal Risk
+34,Travel_Rarely,Finance Manager,4,27847.2,Yes,0.4807,48.07,Medium Risk
+47,Non-Travel,HR Manager,1,2214.6,Yes,0.1549,15.49,Minimal Risk
+49,Non-Travel,IT Manager,2,10554.0,No,0.1882,18.82,Minimal Risk
+65,Travel_Rarely,Research Scientist,5,25215.0,Yes,0.3008,30.08,Low Risk
+28,Travel_Rarely,Sales Executive,4,31771.2,No,0.1611,16.11,Minimal Risk
+55,Travel_Rarely,Systems Administrator,4,14568.0,Yes,0.1626,16.26,Minimal Risk
+41,Travel_Rarely,Finance Manager,5,35454.0,No,0.0646,6.46,Minimal Risk
+64,Travel_Frequently,Finance Manager,2,4204.8,No,0.0895,8.95,Minimal Risk
+46,Non-Travel,Sales Manager,5,38685.0,Yes,0.122,12.2,Minimal Risk
+25,Travel_Frequently,Software Engineer,4,24516.0,No,0.0456,4.56,Minimal Risk
+43,Travel_Rarely,Finance Manager,4,13245.6,Yes,0.4694,46.94,Medium Risk
+24,Travel_Frequently,Sales Manager,5,41160.0,Yes,0.7838,78.38,High Risk
+57,Non-Travel,Sales Manager,3,17631.0,Yes,0.1618,16.18,Minimal Risk
+53,Travel_Frequently,Research Scientist,5,28566.0,No,0.0555,5.55,Minimal Risk
+40,Travel_Rarely,Research Scientist,3,25174.8,Yes,0.1507,15.07,Minimal Risk
+40,Travel_Rarely,Sales Representative,2,7944.0,Yes,0.5344,53.44,Medium Risk
+43,Travel_Rarely,Lab Technician,4,21352.8,Yes,0.4058,40.58,Medium Risk
+57,Travel_Frequently,Systems Administrator,3,6053.4,No,0.6687,66.87,High Risk
+39,Travel_Frequently,IT Manager,3,17550.0,No,0.0574,5.74,Minimal Risk
+62,Travel_Rarely,Sales Manager,1,8816.4,No,0.0749,7.49,Minimal Risk
+48,Non-Travel,HR Manager,3,24258.6,No,0.0295,2.95,Minimal Risk
+22,Travel_Rarely,Sales Executive,2,15768.0,No,0.7053,70.53,High Risk
+53,Non-Travel,Systems Administrator,1,8288.4,Yes,0.0832,8.32,Minimal Risk
+41,Travel_Frequently,HR Manager,2,11582.4,No,0.0184,1.84,Minimal Risk
+50,Non-Travel,Lab Technician,1,2392.2,Yes,0.2287,22.87,Low Risk
+63,Non-Travel,Research Scientist,4,5748.0,No,0.0376,3.76,Minimal Risk
+28,Non-Travel,Software Engineer,3,9565.2,No,0.0786,7.86,Minimal Risk
+40,Non-Travel,Systems Administrator,3,6721.2,No,0.0563,5.63,Minimal Risk
+54,Travel_Rarely,Finance Manager,2,8433.6,No,0.8845,88.45,Critical Risk
+38,Travel_Rarely,Lab Technician,4,27813.6,No,0.1054,10.54,Minimal Risk
+45,Non-Travel,HR Associate,4,28322.4,No,0.0319,3.19,Minimal Risk
+29,Travel_Frequently,Research Scientist,2,15076.8,No,0.0178,1.78,Minimal Risk
+52,Travel_Rarely,HR Associate,1,4166.4,No,0.038,3.8,Minimal Risk
+54,Travel_Rarely,IT Manager,3,9097.2,Yes,0.2001,20.01,Low Risk
+39,Travel_Frequently,Sales Executive,3,21949.2,Yes,0.2128,21.28,Low Risk
+35,Travel_Frequently,Sales Executive,1,4144.8,Yes,0.177,17.7,Minimal Risk
+22,Travel_Frequently,Recruiter,3,23169.6,Yes,0.2621,26.21,Low Risk
+38,Travel_Frequently,Sales Representative,1,5539.8,Yes,0.6265,62.65,High Risk
+53,Non-Travel,Finance Manager,1,3687.6,No,0.1179,11.79,Minimal Risk
+60,Travel_Rarely,Recruiter,1,8346.6,Yes,0.1452,14.52,Minimal Risk
+58,Non-Travel,Systems Administrator,3,9981.0,No,0.0847,8.47,Minimal Risk
+28,Non-Travel,Research Scientist,5,27420.0,No,0.0738,7.38,Minimal Risk
+51,Travel_Rarely,Sales Representative,3,9243.0,Yes,0.076,7.6,Minimal Risk
+40,Travel_Rarely,Sales Manager,2,10126.8,Yes,0.1428,14.28,Minimal Risk
+52,Travel_Frequently,R&D Manager,2,16326.0,No,0.0579,5.79,Minimal Risk
+23,Travel_Rarely,Sales Representative,1,3988.2,No,0.037,3.7,Minimal Risk
+36,Travel_Frequently,Research Scientist,5,34338.0,Yes,0.1796,17.96,Minimal Risk
+63,Non-Travel,IT Manager,3,24994.8,Yes,0.3923,39.23,Low Risk
+53,Travel_Frequently,IT Manager,3,26668.8,No,0.0738,7.38,Minimal Risk
+39,Travel_Frequently,Recruiter,3,24478.2,Yes,0.0322,3.22,Minimal Risk
+28,Travel_Rarely,Lab Technician,3,25245.0,No,0.1742,17.42,Minimal Risk
+24,Non-Travel,Research Scientist,5,9102.0,Yes,0.1681,16.81,Minimal Risk
+37,Travel_Frequently,Sales Representative,5,6792.0,Yes,0.1509,15.09,Minimal Risk
+37,Travel_Frequently,Software Engineer,1,1865.4,Yes,0.0958,9.58,Minimal Risk
+56,Travel_Frequently,Sales Representative,5,16302.0,Yes,0.0775,7.75,Minimal Risk
+23,Non-Travel,Sales Executive,3,13514.4,No,0.503,50.3,Medium Risk
+30,Travel_Frequently,Financial Analyst,5,28311.0,No,0.0468,4.68,Minimal Risk
+61,Travel_Frequently,Recruiter,4,9396.0,No,0.1148,11.48,Minimal Risk
+41,Non-Travel,Sales Representative,4,27163.2,No,0.0194,1.94,Minimal Risk
+27,Travel_Rarely,HR Associate,4,22732.8,No,0.1158,11.58,Minimal Risk
+65,Non-Travel,Sales Representative,5,29001.0,Yes,0.0802,8.02,Minimal Risk
+53,Travel_Frequently,HR Manager,1,6483.0,Yes,0.7953,79.53,High Risk
+30,Travel_Rarely,Sales Manager,3,6022.8,Yes,0.2072,20.72,Low Risk
+36,Travel_Rarely,Lab Technician,4,28420.8,Yes,0.0528,5.28,Minimal Risk
+40,Travel_Frequently,Research Scientist,1,2535.6,No,0.7449,74.49,High Risk
+39,Travel_Frequently,R&D Manager,2,2956.8,Yes,0.9902,99.02,Critical Risk
+62,Travel_Rarely,Sales Representative,1,8907.6,Yes,0.1062,10.62,Minimal Risk
+49,Non-Travel,Sales Manager,3,25263.0,Yes,0.0617,6.17,Minimal Risk
+63,Travel_Rarely,Systems Administrator,3,8994.6,No,0.0599,5.99,Minimal Risk
+43,Travel_Frequently,Sales Representative,5,23727.0,Yes,0.15,15.0,Minimal Risk
+59,Non-Travel,Accountant,1,6786.6,Yes,0.1017,10.17,Minimal Risk
+57,Travel_Rarely,Financial Analyst,5,18492.0,No,0.0916,9.16,Minimal Risk
+51,Non-Travel,Lab Technician,2,8232.0,No,0.1984,19.84,Minimal Risk
+51,Travel_Frequently,R&D Manager,2,13604.4,No,0.0466,4.66,Minimal Risk
+65,Travel_Rarely,Sales Manager,2,5572.8,No,0.2876,28.76,Low Risk
+46,Travel_Rarely,Sales Executive,5,6780.0,Yes,0.3205,32.05,Low Risk
+53,Non-Travel,R&D Manager,2,14958.0,Yes,0.1196,11.96,Minimal Risk
+50,Travel_Frequently,R&D Manager,3,26899.2,Yes,0.1718,17.18,Minimal Risk
+36,Non-Travel,Sales Representative,5,17193.0,No,0.0439,4.39,Minimal Risk
+55,Non-Travel,Sales Executive,5,7350.0,No,0.161,16.1,Minimal Risk
+30,Non-Travel,Recruiter,5,28620.0,Yes,0.0968,9.68,Minimal Risk
+39,Non-Travel,Sales Representative,5,37929.0,No,0.1034,10.34,Minimal Risk
+33,Non-Travel,Software Engineer,4,21676.8,Yes,0.097,9.7,Minimal Risk
+28,Travel_Frequently,Lab Technician,5,26925.0,Yes,0.7443,74.43,High Risk
+51,Travel_Frequently,HR Associate,5,32442.0,Yes,0.0975,9.75,Minimal Risk
+38,Travel_Frequently,Sales Representative,4,29503.2,No,0.0419,4.19,Minimal Risk
+52,Travel_Rarely,Sales Executive,3,8150.4,No,0.2008,20.08,Low Risk
+59,Travel_Frequently,Finance Manager,2,3006.0,Yes,0.2789,27.89,Low Risk
+23,Travel_Frequently,Financial Analyst,1,3932.4,Yes,0.7506,75.06,High Risk
+37,Travel_Frequently,Research Scientist,3,3781.8,No,0.0979,9.79,Minimal Risk
+62,Non-Travel,IT Manager,5,40839.0,Yes,0.7253,72.53,High Risk
+35,Non-Travel,Recruiter,3,17843.4,No,0.0125,1.25,Minimal Risk
+47,Travel_Frequently,Finance Manager,4,19444.8,No,0.0645,6.45,Minimal Risk
+59,Non-Travel,HR Associate,1,6834.6,No,0.0323,3.23,Minimal Risk
+26,Non-Travel,Sales Representative,5,37719.0,No,0.1044,10.44,Minimal Risk
+38,Travel_Rarely,Sales Manager,2,3952.8,No,0.0542,5.42,Minimal Risk
+28,Travel_Frequently,Lab Technician,5,40773.0,Yes,0.1619,16.19,Minimal Risk
+37,Travel_Rarely,Software Engineer,5,28803.0,No,0.0408,4.08,Minimal Risk
+32,Travel_Rarely,Software Engineer,2,11940.0,No,0.0944,9.44,Minimal Risk
+22,Travel_Rarely,Financial Analyst,1,7461.0,No,0.0931,9.31,Minimal Risk
+35,Travel_Rarely,R&D Manager,3,9162.0,No,0.1182,11.82,Minimal Risk
+32,Non-Travel,Software Engineer,2,7904.4,Yes,0.0711,7.11,Minimal Risk
+27,Non-Travel,Accountant,1,7861.8,Yes,0.6732,67.32,High Risk
+50,Travel_Frequently,HR Manager,3,6469.2,No,0.0814,8.14,Minimal Risk
+44,Non-Travel,HR Associate,2,11690.4,No,0.0275,2.75,Minimal Risk
+60,Travel_Rarely,Recruiter,2,15531.6,Yes,0.7131,71.31,High Risk
+38,Travel_Frequently,Lab Technician,3,25680.6,Yes,0.0707,7.07,Minimal Risk
+42,Travel_Rarely,Sales Manager,5,11229.0,Yes,0.0782,7.82,Minimal Risk
+43,Travel_Rarely,Accountant,3,15784.2,No,0.0787,7.87,Minimal Risk
+63,Travel_Frequently,HR Associate,3,7169.4,Yes,0.2383,23.83,Low Risk
+42,Travel_Frequently,R&D Manager,2,13593.6,No,0.0343,3.43,Minimal Risk
+34,Travel_Rarely,Accountant,4,10459.2,Yes,0.9384,93.84,Critical Risk
+45,Travel_Frequently,R&D Manager,2,4108.8,Yes,0.361,36.1,Low Risk
+64,Travel_Frequently,Accountant,5,13659.0,No,0.1305,13.05,Minimal Risk
+23,Travel_Rarely,Systems Administrator,3,20435.4,No,0.0406,4.06,Minimal Risk
+56,Non-Travel,Lab Technician,1,2938.2,Yes,0.1803,18.03,Minimal Risk
+27,Non-Travel,Software Engineer,2,16071.6,Yes,0.1392,13.92,Minimal Risk
+48,Non-Travel,HR Manager,1,2197.2,Yes,0.1007,10.07,Minimal Risk
+60,Travel_Frequently,Sales Executive,2,6627.6,Yes,0.8131,81.31,Critical Risk
+62,Travel_Rarely,Sales Representative,1,2850.6,Yes,0.8289,82.89,Critical Risk
+53,Travel_Frequently,IT Manager,1,5750.4,Yes,0.1039,10.39,Minimal Risk
+41,Non-Travel,Sales Representative,1,2511.0,Yes,0.8699,86.99,Critical Risk
+32,Travel_Rarely,Sales Executive,3,11422.8,Yes,0.1219,12.19,Minimal Risk
+36,Travel_Frequently,Finance Manager,3,25572.6,No,0.0459,4.59,Minimal Risk
+30,Travel_Frequently,HR Associate,3,25835.4,Yes,0.5521,55.21,Medium Risk
+45,Travel_Frequently,Software Engineer,1,5597.4,Yes,0.3191,31.91,Low Risk
+49,Travel_Frequently,Sales Manager,1,7593.6,No,0.2114,21.14,Low Risk
+63,Travel_Frequently,R&D Manager,2,7044.0,Yes,0.7547,75.47,High Risk
+45,Travel_Rarely,Sales Representative,3,17596.8,No,0.0356,3.56,Minimal Risk
+25,Non-Travel,Recruiter,3,19594.8,Yes,0.0819,8.19,Minimal Risk
+30,Travel_Frequently,Sales Executive,4,22488.0,Yes,0.3191,31.91,Low Risk
+50,Non-Travel,Finance Manager,2,14535.6,Yes,0.0843,8.43,Minimal Risk
+35,Non-Travel,Finance Manager,1,6855.6,No,0.1393,13.93,Minimal Risk
+42,Travel_Rarely,HR Associate,2,10366.8,No,0.0647,6.47,Minimal Risk
+49,Non-Travel,Sales Executive,3,15346.8,No,0.0322,3.22,Minimal Risk
+39,Travel_Frequently,Sales Manager,3,6078.6,No,0.0446,4.46,Minimal Risk
+46,Non-Travel,HR Associate,2,7768.8,Yes,0.6459,64.59,High Risk
+45,Travel_Rarely,HR Associate,1,3766.2,Yes,0.6742,67.42,High Risk
+26,Travel_Frequently,Lab Technician,4,29961.6,Yes,0.2459,24.59,Low Risk
+37,Travel_Frequently,Systems Administrator,2,9984.0,Yes,0.2947,29.47,Low Risk
+27,Non-Travel,HR Associate,2,14608.8,Yes,0.1644,16.44,Minimal Risk
+46,Travel_Frequently,Finance Manager,3,12031.2,Yes,0.6793,67.93,High Risk
+59,Travel_Frequently,Recruiter,5,21906.0,Yes,0.1122,11.22,Minimal Risk
+46,Travel_Frequently,Accountant,1,8373.6,Yes,0.0766,7.66,Minimal Risk
+61,Travel_Frequently,Sales Manager,4,20244.0,No,0.1902,19.02,Minimal Risk
+28,Travel_Rarely,HR Manager,5,21807.0,No,0.0418,4.18,Minimal Risk
+42,Non-Travel,Recruiter,3,8625.6,No,0.0129,1.29,Minimal Risk
+61,Non-Travel,Accountant,2,7408.8,Yes,0.1943,19.43,Minimal Risk
+58,Travel_Rarely,HR Associate,4,13504.8,Yes,0.2378,23.78,Low Risk
+23,Non-Travel,HR Associate,1,5206.8,No,0.1019,10.19,Minimal Risk
+40,Travel_Frequently,Financial Analyst,4,7202.4,No,0.041,4.1,Minimal Risk
+27,Non-Travel,Systems Administrator,2,10568.4,No,0.0387,3.87,Minimal Risk
+44,Travel_Frequently,Sales Executive,3,24120.0,Yes,0.1323,13.23,Minimal Risk
+34,Travel_Rarely,Sales Executive,3,12886.2,No,0.0384,3.84,Minimal Risk
+42,Travel_Rarely,HR Manager,5,26646.0,No,0.0525,5.25,Minimal Risk
+44,Travel_Frequently,R&D Manager,3,17226.0,Yes,0.1121,11.21,Minimal Risk
+59,Travel_Frequently,HR Manager,4,27770.4,Yes,0.0551,5.51,Minimal Risk
+53,Non-Travel,Sales Manager,3,16088.4,No,0.0751,7.51,Minimal Risk
+37,Non-Travel,Research Scientist,4,34154.4,Yes,0.2951,29.51,Low Risk
+30,Non-Travel,Software Engineer,1,5046.0,Yes,0.1361,13.61,Minimal Risk
+57,Travel_Frequently,Systems Administrator,4,20815.2,No,0.0976,9.76,Minimal Risk
+30,Travel_Rarely,Systems Administrator,3,21101.4,No,0.0633,6.33,Minimal Risk
+58,Travel_Rarely,HR Associate,4,20083.2,Yes,0.3057,30.57,Low Risk
+29,Non-Travel,Sales Manager,1,5787.6,No,0.7399,73.99,High Risk
+22,Travel_Frequently,Sales Executive,1,1919.0,Yes,0.9955,99.55,Critical Risk
+53,Travel_Frequently,Lab Technician,1,5060.0,Yes,0.9951,99.51,Critical Risk
+27,Travel_Rarely,Sales Executive,2,6100.0,No,0.9414,94.14,Critical Risk
+30,Travel_Rarely,HR Manager,3,8164.0,Yes,0.954,95.4,Critical Risk
+39,Travel_Frequently,HR Associate,3,6416.0,Yes,0.9609,96.09,Critical Risk
+55,Travel_Frequently,HR Associate,2,5152.0,Yes,0.9774,97.74,Critical Risk
+37,Travel_Frequently,Finance Manager,2,6834.0,Yes,0.9685,96.85,Critical Risk
+29,Travel_Rarely,Sales Manager,2,3871.0,No,0.9493,94.93,Critical Risk
+47,Travel_Frequently,Research Scientist,2,3645.0,Yes,0.9963,99.63,Critical Risk
+39,Travel_Rarely,Financial Analyst,3,10607.0,No,0.9858,98.58,Critical Risk
+44,Travel_Rarely,HR Associate,1,1776.0,Yes,0.9876,98.76,Critical Risk
+50,Travel_Frequently,IT Manager,2,8972.0,Yes,0.9907,99.07,Critical Risk
+53,Non-Travel,Research Scientist,2,7508.0,Yes,0.9065,90.65,Critical Risk
+23,Non-Travel,Software Engineer,1,4711.0,Yes,0.993,99.3,Critical Risk
+47,Non-Travel,Research Scientist,2,3465.0,Yes,0.97,97.0,Critical Risk
+58,Travel_Frequently,Research Scientist,1,4243.0,Yes,0.9954,99.54,Critical Risk
+46,Travel_Frequently,Research Scientist,1,2500.0,Yes,0.9765,97.65,Critical Risk
+24,Travel_Frequently,Financial Analyst,1,2904.0,Yes,0.9885,98.85,Critical Risk
+23,Travel_Rarely,Sales Executive,2,3079.0,Yes,0.8994,89.94,Critical Risk
+25,Travel_Frequently,Lab Technician,1,4695.0,Yes,0.9962,99.62,Critical Risk
+26,Travel_Rarely,Research Scientist,1,5072.0,Yes,0.9921,99.21,Critical Risk
+38,Travel_Rarely,Sales Representative,3,14285.0,Yes,0.992,99.2,Critical Risk
+58,Travel_Frequently,Sales Executive,1,3286.0,No,0.9563,95.63,Critical Risk
+47,Travel_Rarely,Systems Administrator,1,4355.0,Yes,0.9715,97.15,Critical Risk
+28,Travel_Frequently,Software Engineer,2,8534.0,Yes,0.9564,95.64,Critical Risk
+44,Travel_Frequently,Lab Technician,1,2502.0,Yes,0.9541,95.41,Critical Risk
+30,Travel_Frequently,Lab Technician,3,13986.0,Yes,0.9335,93.35,Critical Risk
+58,Travel_Rarely,IT Manager,2,7488.0,No,0.902,90.2,Critical Risk
+58,Travel_Frequently,Financial Analyst,4,10320.0,Yes,0.9408,94.08,Critical Risk
+38,Travel_Rarely,Finance Manager,3,14932.0,No,0.9247,92.47,Critical Risk
+48,Travel_Rarely,Systems Administrator,3,13157.0,Yes,0.7971,79.71,High Risk
+41,Travel_Frequently,Accountant,4,13558.0,Yes,0.7967,79.67,High Risk
+34,Travel_Frequently,Sales Representative,1,2124.0,No,0.974,97.4,Critical Risk
+24,Non-Travel,Financial Analyst,2,6074.0,Yes,0.992,99.2,Critical Risk
+22,Travel_Rarely,Finance Manager,1,3220.0,Yes,0.9976,99.76,Critical Risk
+58,Travel_Rarely,R&D Manager,2,5640.0,Yes,0.9742,97.42,Critical Risk
+33,Travel_Frequently,Financial Analyst,1,2645.0,Yes,0.9931,99.31,Critical Risk
+52,Travel_Frequently,Lab Technician,1,3156.0,Yes,0.9978,99.78,Critical Risk
+36,Travel_Frequently,Systems Administrator,3,8533.0,Yes,0.9976,99.76,Critical Risk
+43,Non-Travel,Sales Representative,2,8713.0,Yes,0.8223,82.23,Critical Risk
+31,Travel_Frequently,Financial Analyst,2,7726.0,Yes,0.9974,99.74,Critical Risk
+35,Travel_Frequently,Finance Manager,4,13871.0,Yes,0.939,93.9,Critical Risk
+58,Travel_Frequently,Sales Executive,3,13199.0,Yes,0.9977,99.77,Critical Risk
+51,Travel_Rarely,HR Manager,1,2179.0,No,0.9844,98.44,Critical Risk
+43,Travel_Rarely,Sales Manager,1,2437.0,Yes,0.9508,95.08,Critical Risk
+53,Travel_Rarely,Research Scientist,1,2925.0,Yes,0.9953,99.53,Critical Risk
+26,Travel_Rarely,Sales Manager,3,5518.0,Yes,0.9759,97.59,Critical Risk
+22,Non-Travel,Sales Executive,2,4960.0,Yes,0.9915,99.15,Critical Risk
+38,Travel_Frequently,HR Associate,2,6142.0,No,0.9256,92.56,Critical Risk
+58,Travel_Rarely,Research Scientist,1,3706.0,No,0.9928,99.28,Critical Risk
+50,Travel_Rarely,Systems Administrator,3,7992.0,Yes,0.9846,98.46,Critical Risk
+32,Non-Travel,Recruiter,1,4337.0,Yes,0.9832,98.32,Critical Risk
+24,Travel_Rarely,HR Associate,1,2431.0,Yes,0.981,98.1,Critical Risk
+30,Travel_Frequently,IT Manager,2,8585.0,Yes,0.9724,97.24,Critical Risk
+27,Travel_Rarely,Finance Manager,1,3309.0,No,0.8779,87.79,Critical Risk
+29,Travel_Rarely,Accountant,1,4899.0,Yes,0.9606,96.06,Critical Risk
+52,Travel_Rarely,IT Manager,2,4120.0,Yes,0.9987,99.87,Critical Risk
+58,Travel_Rarely,Sales Executive,2,7110.0,No,0.9465,94.65,Critical Risk
+58,Travel_Rarely,Financial Analyst,5,39364.0,No,0.8059,80.59,Critical Risk
+56,Non-Travel,Sales Representative,1,3998.0,Yes,0.9645,96.45,Critical Risk
+32,Travel_Rarely,Financial Analyst,2,6039.0,Yes,0.9362,93.62,Critical Risk
+38,Travel_Frequently,Sales Representative,1,2985.0,Yes,0.9988,99.88,Critical Risk
+48,Travel_Frequently,Research Scientist,1,2015.0,No,0.9751,97.51,Critical Risk
+58,Travel_Frequently,Systems Administrator,2,3211.0,Yes,0.9787,97.87,Critical Risk
+50,Travel_Frequently,Systems Administrator,2,6702.0,Yes,0.9852,98.52,Critical Risk
+43,Travel_Frequently,HR Manager,2,3538.0,Yes,0.9784,97.84,Critical Risk
+24,Travel_Frequently,Software Engineer,2,4871.0,Yes,0.998,99.8,Critical Risk
+26,Travel_Rarely,HR Manager,2,4065.0,Yes,0.9283,92.83,Critical Risk
+42,Travel_Rarely,Sales Manager,1,3475.0,Yes,0.9949,99.49,Critical Risk
+27,Travel_Frequently,Research Scientist,3,11067.0,Yes,0.9663,96.63,Critical Risk
+28,Travel_Rarely,Sales Manager,3,14799.0,Yes,0.7816,78.16,High Risk
+22,Travel_Rarely,HR Associate,1,1954.0,Yes,0.9653,96.53,Critical Risk
+22,Travel_Frequently,Recruiter,2,6527.0,Yes,0.9988,99.88,Critical Risk
+23,Travel_Frequently,Sales Executive,2,5371.0,Yes,0.9988,99.88,Critical Risk
+22,Travel_Frequently,Software Engineer,1,2864.0,Yes,0.9977,99.77,Critical Risk
+58,Travel_Rarely,Sales Manager,1,5396.0,Yes,0.9807,98.07,Critical Risk
+28,Travel_Rarely,HR Associate,2,5250.0,Yes,0.9855,98.55,Critical Risk
+54,Non-Travel,IT Manager,3,6172.0,Yes,0.9372,93.72,Critical Risk
+40,Travel_Rarely,Recruiter,5,30172.0,Yes,0.8884,88.84,Critical Risk
+58,Travel_Rarely,Lab Technician,2,7937.0,Yes,0.9988,99.88,Critical Risk
+31,Travel_Rarely,HR Manager,3,14124.0,No,0.9915,99.15,Critical Risk
+50,Travel_Rarely,HR Manager,2,7421.0,Yes,0.9894,98.94,Critical Risk
+42,Travel_Frequently,Sales Executive,2,5334.0,Yes,0.9936,99.36,Critical Risk
+38,Travel_Rarely,Financial Analyst,3,7767.0,No,0.7867,78.67,High Risk
+32,Travel_Frequently,Accountant,4,22380.0,No,0.9668,96.68,Critical Risk
+28,Travel_Frequently,Finance Manager,1,4898.0,No,0.9236,92.36,Critical Risk
+58,Travel_Frequently,HR Associate,2,8102.0,Yes,0.961,96.1,Critical Risk
+53,Travel_Frequently,IT Manager,2,3701.0,Yes,0.8259,82.59,Critical Risk
+36,Travel_Frequently,Systems Administrator,1,4191.0,Yes,0.8399,83.99,Critical Risk
+31,Travel_Frequently,HR Associate,3,12998.0,No,0.9579,95.79,Critical Risk
+43,Travel_Rarely,Lab Technician,1,4185.0,Yes,0.9989,99.89,Critical Risk
+42,Travel_Rarely,HR Manager,1,3967.0,No,0.9747,97.47,Critical Risk
+22,Travel_Rarely,HR Associate,2,6563.0,Yes,0.9763,97.63,Critical Risk
+46,Travel_Frequently,Recruiter,2,5966.0,Yes,0.9955,99.55,Critical Risk
+35,Travel_Frequently,Sales Representative,1,3620.0,No,0.9912,99.12,Critical Risk
+58,Travel_Rarely,Finance Manager,5,23472.0,No,0.9739,97.39,Critical Risk
+46,Travel_Rarely,Systems Administrator,2,7688.0,Yes,0.9881,98.81,Critical Risk
+23,Non-Travel,Recruiter,2,6686.0,Yes,0.981,98.1,Critical Risk
+25,Non-Travel,Financial Analyst,4,22859.0,Yes,0.9482,94.82,Critical Risk
+58,Non-Travel,Research Scientist,3,9836.0,Yes,0.879,87.9,Critical Risk
+49,Travel_Rarely,Recruiter,1,3202.0,Yes,0.9947,99.47,Critical Risk
+22,Travel_Frequently,Recruiter,1,1896.0,Yes,0.9669,96.69,Critical Risk
+27,Travel_Rarely,Sales Executive,1,3110.0,No,0.9029,90.29,Critical Risk
+25,Travel_Rarely,HR Manager,2,6281.0,Yes,0.9946,99.46,Critical Risk
+58,Travel_Frequently,HR Associate,2,7096.0,Yes,0.9978,99.78,Critical Risk
+28,Travel_Rarely,Lab Technician,2,7012.0,Yes,0.9723,97.23,Critical Risk
+36,Travel_Frequently,Recruiter,2,7294.0,Yes,0.9956,99.56,Critical Risk
+26,Travel_Rarely,Research Scientist,4,23300.0,Yes,0.7125,71.25,High Risk
+48,Travel_Frequently,Recruiter,1,3785.0,Yes,0.9496,94.96,Critical Risk
+28,Travel_Rarely,Sales Manager,2,6232.0,Yes,0.9933,99.33,Critical Risk
+22,Travel_Rarely,Sales Manager,1,4021.0,No,0.9815,98.15,Critical Risk
+36,Non-Travel,Research Scientist,1,4174.0,No,0.9122,91.22,Critical Risk
+56,Travel_Frequently,Sales Representative,4,11880.0,No,0.6454,64.54,High Risk
+42,Travel_Rarely,Lab Technician,2,4099.0,No,0.9786,97.86,Critical Risk
+58,Travel_Frequently,HR Associate,2,8232.0,Yes,0.9728,97.28,Critical Risk
+24,Travel_Frequently,Sales Representative,3,5687.0,No,0.9951,99.51,Critical Risk
+24,Travel_Frequently,Sales Executive,1,2127.0,Yes,0.9891,98.91,Critical Risk
+50,Travel_Rarely,Financial Analyst,1,3810.0,Yes,0.998,99.8,Critical Risk
+44,Travel_Frequently,HR Manager,1,3201.0,Yes,0.9545,95.45,Critical Risk
+42,Travel_Rarely,Sales Executive,1,5162.0,Yes,0.9642,96.42,Critical Risk
+43,Travel_Rarely,Accountant,2,7417.0,Yes,0.9893,98.93,Critical Risk
+47,Travel_Frequently,Sales Manager,1,3386.0,Yes,0.9976,99.76,Critical Risk
+38,Travel_Rarely,Recruiter,1,1681.0,Yes,0.9541,95.41,Critical Risk
+38,Travel_Rarely,Research Scientist,5,30080.0,Yes,0.4473,44.73,Medium Risk
+57,Travel_Frequently,HR Associate,2,4222.0,No,0.9662,96.62,Critical Risk
+51,Travel_Frequently,Lab Technician,1,1823.0,Yes,0.9887,98.87,Critical Risk
+51,Travel_Frequently,Research Scientist,4,13967.0,Yes,0.8898,88.98,Critical Risk
+27,Travel_Rarely,Software Engineer,1,2973.0,Yes,0.9985,99.85,Critical Risk
+30,Travel_Rarely,Accountant,2,8898.0,Yes,0.9856,98.56,Critical Risk
+35,Travel_Rarely,Finance Manager,1,5142.0,Yes,0.9704,97.04,Critical Risk
+56,Travel_Frequently,Accountant,2,8462.0,Yes,0.9982,99.82,Critical Risk
+26,Non-Travel,Financial Analyst,1,1894.0,No,0.9731,97.31,Critical Risk
+25,Travel_Rarely,Financial Analyst,2,8323.0,Yes,0.9954,99.54,Critical Risk
+58,Travel_Frequently,Systems Administrator,4,20342.0,No,0.8377,83.77,Critical Risk
+45,Travel_Frequently,Lab Technician,2,7642.0,No,0.9493,94.93,Critical Risk
+58,Travel_Rarely,Research Scientist,4,15499.0,Yes,0.9462,94.62,Critical Risk
+46,Travel_Rarely,Lab Technician,3,6704.0,Yes,0.9987,99.87,Critical Risk
+32,Travel_Frequently,Systems Administrator,2,7544.0,Yes,0.9952,99.52,Critical Risk
+48,Travel_Rarely,Financial Analyst,1,2601.0,Yes,0.999,99.9,Critical Risk
+36,Travel_Frequently,Financial Analyst,1,5386.0,Yes,0.987,98.7,Critical Risk
+30,Non-Travel,Sales Executive,5,22550.0,Yes,0.9016,90.16,Critical Risk
+58,Travel_Frequently,Research Scientist,3,5940.0,No,0.9207,92.07,Critical Risk
+28,Travel_Frequently,Research Scientist,5,28703.0,No,0.8757,87.57,Critical Risk
+42,Travel_Rarely,Research Scientist,2,8284.0,Yes,0.9921,99.21,Critical Risk
+46,Travel_Frequently,Software Engineer,5,28819.0,Yes,0.851,85.1,Critical Risk
+58,Travel_Rarely,HR Manager,1,2729.0,Yes,0.9795,97.95,Critical Risk
+22,Travel_Rarely,Finance Manager,1,4192.0,No,0.9942,99.42,Critical Risk
+41,Travel_Frequently,HR Manager,1,4247.0,Yes,0.9916,99.16,Critical Risk
+50,Travel_Rarely,R&D Manager,1,2477.0,Yes,0.9978,99.78,Critical Risk
+22,Travel_Rarely,Systems Administrator,1,2788.0,Yes,0.9983,99.83,Critical Risk
+43,Travel_Frequently,HR Manager,1,4617.0,Yes,0.9892,98.92,Critical Risk
+54,Travel_Frequently,HR Manager,3,14451.0,No,0.9622,96.22,Critical Risk
+54,Travel_Rarely,Finance Manager,2,8822.0,No,0.9507,95.07,Critical Risk
+23,Travel_Frequently,Sales Representative,3,7060.0,Yes,0.9838,98.38,Critical Risk
+29,Travel_Rarely,HR Manager,1,3196.0,Yes,0.9925,99.25,Critical Risk
+50,Travel_Rarely,HR Manager,2,5934.0,Yes,0.9763,97.63,Critical Risk
+56,Travel_Rarely,HR Manager,3,5766.0,Yes,0.9936,99.36,Critical Risk
+38,Travel_Rarely,Systems Administrator,1,4062.0,Yes,0.9965,99.65,Critical Risk
+22,Travel_Rarely,HR Associate,5,26838.0,Yes,0.9022,90.22,Critical Risk
+43,Travel_Rarely,Lab Technician,2,4344.0,Yes,0.9933,99.33,Critical Risk
+50,Travel_Frequently,Research Scientist,3,9559.0,Yes,0.9488,94.88,Critical Risk
+28,Travel_Rarely,IT Manager,1,3080.0,No,0.8498,84.98,Critical Risk
+38,Travel_Rarely,Software Engineer,1,1776.0,No,0.9754,97.54,Critical Risk
+25,Travel_Frequently,Systems Administrator,1,5272.0,Yes,0.9639,96.39,Critical Risk
+58,Travel_Frequently,Lab Technician,3,8377.0,Yes,0.9649,96.49,Critical Risk
+37,Travel_Frequently,Research Scientist,3,9956.0,Yes,0.9885,98.85,Critical Risk
+23,Travel_Frequently,Sales Manager,3,5542.0,Yes,0.9943,99.43,Critical Risk
+42,Travel_Frequently,Research Scientist,2,7112.0,Yes,0.9804,98.04,Critical Risk
+58,Travel_Frequently,R&D Manager,3,9474.0,Yes,0.9485,94.85,Critical Risk
+38,Travel_Frequently,Finance Manager,2,8957.0,No,0.8079,80.79,Critical Risk
+22,Travel_Rarely,HR Associate,2,7140.0,Yes,0.9962,99.62,Critical Risk
+52,Travel_Frequently,Systems Administrator,4,11230.0,Yes,0.9852,98.52,Critical Risk
+43,Travel_Rarely,Sales Manager,1,4386.0,Yes,0.9811,98.11,Critical Risk
+22,Travel_Rarely,Research Scientist,2,7506.0,No,0.9609,96.09,Critical Risk
+53,Non-Travel,Lab Technician,1,1764.0,Yes,0.9941,99.41,Critical Risk
+31,Travel_Frequently,Lab Technician,2,4533.0,Yes,0.9834,98.34,Critical Risk
+37,Travel_Rarely,Sales Representative,3,9582.0,Yes,0.9677,96.77,Critical Risk
+52,Travel_Frequently,Research Scientist,3,10102.0,Yes,0.9969,99.69,Critical Risk
+32,Travel_Rarely,Accountant,3,8385.0,Yes,0.8634,86.34,Critical Risk
+54,Travel_Rarely,IT Manager,1,2452.0,Yes,0.988,98.8,Critical Risk
+58,Travel_Rarely,Systems Administrator,3,6688.0,Yes,0.9959,99.59,Critical Risk
+58,Non-Travel,Sales Executive,3,9157.0,Yes,0.9741,97.41,Critical Risk
+36,Travel_Frequently,Research Scientist,3,9119.0,Yes,0.9568,95.68,Critical Risk
+58,Travel_Frequently,Finance Manager,1,1777.0,Yes,0.9949,99.49,Critical Risk
+32,Travel_Rarely,HR Manager,3,9195.0,No,0.9945,99.45,Critical Risk
+58,Non-Travel,Financial Analyst,4,20542.0,Yes,0.9806,98.06,Critical Risk
+29,Travel_Frequently,Research Scientist,1,1703.0,Yes,0.9499,94.99,Critical Risk
+30,Non-Travel,Financial Analyst,2,3946.0,Yes,0.9661,96.61,Critical Risk
+32,Travel_Frequently,HR Manager,3,14744.0,Yes,0.9528,95.28,Critical Risk
+58,Travel_Rarely,Finance Manager,3,13279.0,Yes,0.8837,88.37,Critical Risk
+58,Travel_Frequently,IT Manager,5,27266.0,Yes,0.9343,93.43,Critical Risk
+58,Travel_Rarely,Systems Administrator,3,14061.0,Yes,0.9835,98.35,Critical Risk
+36,Travel_Frequently,Recruiter,1,2089.0,Yes,0.9774,97.74,Critical Risk
+33,Travel_Rarely,IT Manager,3,7109.0,Yes,0.9871,98.71,Critical Risk
+36,Travel_Rarely,Software Engineer,3,13942.0,Yes,0.9114,91.14,Critical Risk
+58,Travel_Rarely,R&D Manager,2,8205.0,Yes,0.997,99.7,Critical Risk
+58,Travel_Frequently,IT Manager,1,3843.0,Yes,0.9878,98.78,Critical Risk
+25,Travel_Frequently,Accountant,1,4797.0,Yes,0.9744,97.44,Critical Risk
+22,Travel_Frequently,Sales Manager,5,25262.0,Yes,0.9838,98.38,Critical Risk
+58,Travel_Rarely,IT Manager,1,1732.0,Yes,0.9771,97.71,Critical Risk
+41,Non-Travel,Sales Executive,3,11122.0,Yes,0.9407,94.07,Critical Risk
+42,Travel_Rarely,Software Engineer,4,20136.0,Yes,0.8783,87.83,Critical Risk
+53,Travel_Rarely,Finance Manager,4,10166.0,No,0.9455,94.55,Critical Risk
+48,Travel_Rarely,Lab Technician,3,13488.0,Yes,0.9922,99.22,Critical Risk
+58,Travel_Rarely,Financial Analyst,2,6910.0,Yes,0.9846,98.46,Critical Risk
+42,Travel_Frequently,Research Scientist,2,5507.0,Yes,0.997,99.7,Critical Risk
+57,Travel_Rarely,IT Manager,1,4506.0,Yes,0.9843,98.43,Critical Risk
+29,Travel_Frequently,Sales Representative,3,12328.0,Yes,0.9797,97.97,Critical Risk
+55,Travel_Rarely,Lab Technician,2,3859.0,Yes,0.9981,99.81,Critical Risk
+28,Non-Travel,IT Manager,3,13375.0,Yes,0.9851,98.51,Critical Risk
+57,Travel_Frequently,HR Associate,2,3817.0,No,0.9765,97.65,Critical Risk
+51,Travel_Rarely,HR Manager,4,13395.0,Yes,0.992,99.2,Critical Risk
+34,Travel_Rarely,Sales Representative,5,18223.0,Yes,0.9767,97.67,Critical Risk
+48,Travel_Rarely,R&D Manager,4,16220.0,Yes,0.9117,91.17,Critical Risk
+36,Travel_Rarely,Lab Technician,2,7573.0,Yes,0.9943,99.43,Critical Risk
+40,Travel_Rarely,Sales Representative,2,4925.0,Yes,0.9984,99.84,Critical Risk
+29,Travel_Rarely,Research Scientist,3,10490.0,Yes,0.9972,99.72,Critical Risk
+26,Travel_Rarely,Lab Technician,1,2898.0,Yes,0.9989,99.89,Critical Risk
+58,Travel_Rarely,Finance Manager,1,4877.0,Yes,0.9295,92.95,Critical Risk
+23,Travel_Frequently,Software Engineer,2,7164.0,Yes,0.9765,97.65,Critical Risk
+39,Non-Travel,Sales Representative,5,27838.0,Yes,0.7839,78.39,High Risk
+29,Non-Travel,Financial Analyst,1,4409.0,Yes,0.9698,96.98,Critical Risk
+58,Travel_Frequently,IT Manager,1,1936.0,No,0.9607,96.07,Critical Risk
+40,Travel_Frequently,Finance Manager,3,14705.0,No,0.8359,83.59,Critical Risk
+51,Travel_Rarely,Recruiter,1,5058.0,Yes,0.9432,94.32,Critical Risk
+23,Travel_Frequently,Sales Executive,2,6090.0,Yes,0.9988,99.88,Critical Risk
+54,Travel_Rarely,Accountant,3,10434.0,Yes,0.9893,98.93,Critical Risk
+22,Travel_Rarely,Systems Administrator,2,5712.0,Yes,0.9871,98.71,Critical Risk
+38,Non-Travel,Software Engineer,2,7425.0,No,0.9868,98.68,Critical Risk
+58,Travel_Rarely,Lab Technician,1,4078.0,Yes,0.997,99.7,Critical Risk
+24,Travel_Rarely,HR Associate,2,7710.0,Yes,0.9922,99.22,Critical Risk
+58,Travel_Rarely,HR Associate,1,4974.0,Yes,0.9855,98.55,Critical Risk
+47,Travel_Frequently,Systems Administrator,2,7470.0,Yes,0.9942,99.42,Critical Risk
+40,Non-Travel,Recruiter,1,3190.0,Yes,0.9741,97.41,Critical Risk
+46,Travel_Frequently,Finance Manager,3,9607.0,Yes,0.9142,91.42,Critical Risk
+58,Travel_Rarely,Financial Analyst,3,7996.0,Yes,0.9846,98.46,Critical Risk
+37,Travel_Frequently,Finance Manager,1,3759.0,Yes,0.971,97.1,Critical Risk
+46,Travel_Rarely,IT Manager,3,8985.0,No,0.9189,91.89,Critical Risk
+35,Travel_Rarely,Financial Analyst,2,8030.0,Yes,0.9728,97.28,Critical Risk
+58,Travel_Frequently,Sales Representative,1,5218.0,Yes,0.8662,86.62,Critical Risk
+36,Travel_Frequently,Accountant,2,7814.0,Yes,0.9777,97.77,Critical Risk
+24,Travel_Frequently,Software Engineer,2,5300.0,Yes,0.9629,96.29,Critical Risk
+31,Travel_Rarely,HR Associate,2,4996.0,Yes,0.9625,96.25,Critical Risk
+45,Travel_Rarely,Sales Executive,3,10144.0,Yes,0.9883,98.83,Critical Risk
+58,Travel_Frequently,Sales Executive,2,7838.0,Yes,0.9991,99.91,Critical Risk
+29,Travel_Rarely,R&D Manager,4,17835.0,Yes,0.944,94.4,Critical Risk
+53,Travel_Rarely,Research Scientist,3,14939.0,Yes,0.9857,98.57,Critical Risk
+51,Travel_Rarely,Systems Administrator,2,4682.0,Yes,0.9977,99.77,Critical Risk
+34,Travel_Rarely,Lab Technician,1,3790.0,Yes,0.9927,99.27,Critical Risk
+22,Travel_Frequently,Software Engineer,1,3755.0,Yes,0.9837,98.37,Critical Risk
+29,Travel_Rarely,Accountant,4,15564.0,Yes,0.9227,92.27,Critical Risk
+54,Travel_Frequently,Financial Analyst,1,1647.0,Yes,0.9726,97.26,Critical Risk
+50,Travel_Rarely,Systems Administrator,3,14660.0,No,0.6419,64.19,High Risk
+48,Non-Travel,Financial Analyst,3,9722.0,Yes,0.9254,92.54,Critical Risk
+24,Travel_Frequently,Accountant,2,4805.0,Yes,0.9777,97.77,Critical Risk
+33,Travel_Frequently,Software Engineer,1,2395.0,Yes,0.9893,98.93,Critical Risk
+39,Travel_Rarely,Finance Manager,1,1821.0,Yes,0.9423,94.23,Critical Risk
+58,Travel_Rarely,Financial Analyst,1,3653.0,Yes,0.9855,98.55,Critical Risk
+41,Travel_Frequently,Lab Technician,2,5127.0,Yes,0.9988,99.88,Critical Risk
+25,Travel_Frequently,Systems Administrator,1,3858.0,Yes,0.9972,99.72,Critical Risk
+37,Travel_Frequently,HR Manager,2,5055.0,Yes,0.9408,94.08,Critical Risk
+40,Travel_Frequently,Financial Analyst,1,1996.0,No,0.9003,90.03,Critical Risk
+33,Travel_Rarely,HR Manager,4,23225.0,Yes,0.9765,97.65,Critical Risk
+48,Travel_Frequently,HR Manager,4,21795.0,Yes,0.9765,97.65,Critical Risk
+47,Travel_Frequently,Systems Administrator,1,5337.0,Yes,0.9929,99.29,Critical Risk
+42,Travel_Frequently,Research Scientist,2,4397.0,Yes,0.9939,99.39,Critical Risk
+31,Travel_Rarely,Sales Manager,2,5844.0,Yes,0.9986,99.86,Critical Risk
+40,Travel_Rarely,Software Engineer,3,10408.0,Yes,0.929,92.9,Critical Risk
+27,Travel_Frequently,Financial Analyst,1,4061.0,No,0.9764,97.64,Critical Risk
+49,Travel_Frequently,HR Manager,2,4538.0,Yes,0.9932,99.32,Critical Risk
+58,Travel_Frequently,Accountant,3,13665.0,Yes,0.9793,97.93,Critical Risk
+27,Travel_Frequently,Accountant,3,9578.0,No,0.8336,83.36,Critical Risk
+32,Travel_Rarely,R&D Manager,1,3471.0,Yes,0.9969,99.69,Critical Risk
+46,Travel_Frequently,Lab Technician,1,4709.0,No,0.9973,99.73,Critical Risk
+32,Travel_Rarely,Systems Administrator,3,7259.0,Yes,0.9853,98.53,Critical Risk
+22,Travel_Frequently,Finance Manager,1,4355.0,Yes,0.9986,99.86,Critical Risk
+35,Travel_Frequently,IT Manager,2,6105.0,Yes,0.9802,98.02,Critical Risk
+34,Travel_Frequently,HR Manager,2,3904.0,Yes,0.9924,99.24,Critical Risk
+57,Travel_Rarely,HR Associate,1,3000.0,Yes,0.9975,99.75,Critical Risk
+50,Travel_Frequently,Finance Manager,1,1788.0,No,0.9246,92.46,Critical Risk
+41,Travel_Rarely,Research Scientist,3,14946.0,Yes,0.8385,83.85,Critical Risk
+32,Non-Travel,R&D Manager,2,5659.0,No,0.9365,93.65,Critical Risk
+45,Travel_Rarely,HR Associate,4,9003.0,Yes,0.9815,98.15,Critical Risk
+34,Travel_Rarely,Lab Technician,2,3772.0,Yes,0.9923,99.23,Critical Risk
+58,Travel_Rarely,R&D Manager,1,4882.0,Yes,0.9863,98.63,Critical Risk
+34,Travel_Frequently,IT Manager,3,5687.0,No,0.9446,94.46,Critical Risk
+58,Travel_Rarely,Finance Manager,2,3737.0,No,0.9815,98.15,Critical Risk
+25,Travel_Rarely,Software Engineer,1,3119.0,Yes,0.9984,99.84,Critical Risk
+27,Travel_Frequently,Research Scientist,2,3198.0,Yes,0.9944,99.44,Critical Risk
+43,Travel_Frequently,Software Engineer,4,11419.0,Yes,0.8655,86.55,Critical Risk
+48,Travel_Frequently,Research Scientist,2,8979.0,Yes,0.9608,96.08,Critical Risk
+32,Travel_Frequently,Recruiter,3,11401.0,Yes,0.8955,89.55,Critical Risk
+30,Non-Travel,R&D Manager,2,8836.0,Yes,0.9699,96.99,Critical Risk
+32,Travel_Frequently,Lab Technician,1,3085.0,Yes,0.9976,99.76,Critical Risk
+44,Travel_Rarely,Accountant,2,7693.0,No,0.9438,94.38,Critical Risk
+58,Travel_Frequently,Sales Executive,2,8893.0,No,0.9778,97.78,Critical Risk
+51,Travel_Rarely,IT Manager,2,5186.0,Yes,0.9585,95.85,Critical Risk
+25,Travel_Frequently,Systems Administrator,1,1632.0,Yes,0.982,98.2,Critical Risk
+36,Travel_Rarely,Sales Representative,2,6116.0,Yes,0.9255,92.55,Critical Risk
+31,Travel_Rarely,Lab Technician,2,3403.0,Yes,0.9903,99.03,Critical Risk
+34,Travel_Rarely,Accountant,3,7354.0,No,0.9894,98.94,Critical Risk
+36,Travel_Frequently,Sales Representative,2,8828.0,Yes,0.9704,97.04,Critical Risk
+58,Travel_Frequently,Sales Executive,3,10991.0,Yes,0.9401,94.01,Critical Risk
+31,Travel_Frequently,HR Manager,1,4050.0,Yes,0.9687,96.87,Critical Risk
+23,Travel_Frequently,HR Associate,2,8077.0,Yes,0.9623,96.23,Critical Risk
+53,Travel_Frequently,Sales Representative,3,14876.0,Yes,0.8055,80.55,Critical Risk
+58,Travel_Frequently,Finance Manager,3,9996.0,Yes,0.962,96.2,Critical Risk
+48,Non-Travel,IT Manager,2,4062.0,Yes,0.8905,89.05,Critical Risk
+28,Non-Travel,HR Associate,2,5734.0,No,0.9793,97.93,Critical Risk
+58,Travel_Rarely,Lab Technician,2,3238.0,Yes,0.9977,99.77,Critical Risk
+24,Travel_Frequently,Systems Administrator,3,14037.0,No,0.8879,88.79,Critical Risk
+58,Travel_Rarely,HR Associate,2,7875.0,No,0.7938,79.38,High Risk
+32,Travel_Frequently,Lab Technician,3,8811.0,Yes,0.9589,95.89,Critical Risk
+50,Travel_Frequently,Accountant,3,13026.0,Yes,0.9364,93.64,Critical Risk
+22,Travel_Rarely,Recruiter,2,4719.0,Yes,0.9988,99.88,Critical Risk
+31,Travel_Rarely,Financial Analyst,2,5220.0,Yes,0.9832,98.32,Critical Risk
+40,Travel_Frequently,Software Engineer,2,4466.0,Yes,0.9432,94.32,Critical Risk
+34,Travel_Rarely,Accountant,4,16672.0,Yes,0.9756,97.56,Critical Risk
+40,Travel_Rarely,Sales Representative,2,3247.0,No,0.9805,98.05,Critical Risk
+35,Travel_Frequently,Sales Representative,1,3388.0,Yes,0.9986,99.86,Critical Risk
+58,Travel_Frequently,Research Scientist,2,3638.0,Yes,0.9523,95.23,Critical Risk
+58,Travel_Rarely,R&D Manager,3,10864.0,Yes,0.9141,91.41,Critical Risk
+41,Travel_Rarely,R&D Manager,1,4753.0,Yes,0.9957,99.57,Critical Risk
+23,Travel_Rarely,Accountant,2,5311.0,Yes,0.9959,99.59,Critical Risk
+29,Travel_Rarely,Finance Manager,2,6417.0,Yes,0.94,94.0,Critical Risk
+22,Travel_Frequently,Finance Manager,2,8696.0,Yes,0.9985,99.85,Critical Risk
+58,Travel_Frequently,Sales Executive,4,18442.0,Yes,0.8924,89.24,Critical Risk
+34,Travel_Rarely,HR Manager,3,6779.0,Yes,0.9941,99.41,Critical Risk
+33,Travel_Rarely,Financial Analyst,1,1644.0,No,0.987,98.7,Critical Risk
+29,Travel_Frequently,Financial Analyst,1,4710.0,Yes,0.9748,97.48,Critical Risk
+58,Travel_Frequently,Sales Representative,1,3660.0,No,0.9824,98.24,Critical Risk
+58,Travel_Frequently,IT Manager,2,3950.0,Yes,0.9905,99.05,Critical Risk
+50,Travel_Rarely,HR Manager,2,5586.0,Yes,0.9925,99.25,Critical Risk
+30,Travel_Rarely,Finance Manager,3,8693.0,Yes,0.9243,92.43,Critical Risk
+49,Travel_Frequently,Recruiter,1,1597.0,Yes,0.9886,98.86,Critical Risk
+58,Travel_Frequently,Financial Analyst,1,2254.0,No,0.9369,93.69,Critical Risk
+58,Non-Travel,Research Scientist,1,4829.0,Yes,0.9568,95.68,Critical Risk
+57,Travel_Frequently,HR Associate,1,3840.0,Yes,0.9851,98.51,Critical Risk
+44,Travel_Rarely,R&D Manager,2,6308.0,Yes,0.8894,88.94,Critical Risk
+28,Travel_Frequently,Sales Manager,2,8300.0,Yes,0.9976,99.76,Critical Risk
+58,Travel_Rarely,Research Scientist,2,3695.0,No,0.8525,85.25,Critical Risk
+57,Travel_Rarely,HR Associate,2,3134.0,Yes,0.9899,98.99,Critical Risk
+46,Non-Travel,Accountant,1,4372.0,Yes,0.9404,94.04,Critical Risk
+41,Travel_Frequently,HR Manager,1,4923.0,Yes,0.9658,96.58,Critical Risk
+58,Travel_Frequently,Research Scientist,1,2497.0,Yes,0.9572,95.72,Critical Risk
+47,Travel_Frequently,HR Associate,3,13298.0,No,0.9862,98.62,Critical Risk
+55,Travel_Frequently,Sales Representative,1,1981.0,Yes,0.9251,92.51,Critical Risk
+50,Travel_Rarely,Recruiter,1,4141.0,Yes,0.9936,99.36,Critical Risk
+58,Travel_Rarely,Lab Technician,1,2314.0,Yes,0.9975,99.75,Critical Risk
+43,Travel_Frequently,Lab Technician,4,16454.0,No,0.9798,97.98,Critical Risk
+48,Travel_Rarely,Research Scientist,1,2708.0,Yes,0.966,96.6,Critical Risk
+58,Travel_Frequently,R&D Manager,3,9541.0,No,0.8266,82.66,Critical Risk
+54,Travel_Rarely,IT Manager,3,7105.0,Yes,0.9988,99.88,Critical Risk
+58,Travel_Rarely,Finance Manager,3,5899.0,Yes,0.9154,91.54,Critical Risk
+58,Travel_Frequently,Recruiter,3,14387.0,Yes,0.9782,97.82,Critical Risk
+22,Travel_Frequently,HR Associate,2,3548.0,Yes,0.9852,98.52,Critical Risk
+35,Travel_Frequently,R&D Manager,2,7314.0,Yes,0.9848,98.48,Critical Risk
+26,Travel_Frequently,Accountant,1,1958.0,No,0.8953,89.53,Critical Risk
+50,Travel_Frequently,Systems Administrator,4,12806.0,Yes,0.9068,90.68,Critical Risk
+54,Travel_Frequently,R&D Manager,1,4963.0,Yes,0.9822,98.22,Critical Risk
+58,Travel_Frequently,Lab Technician,2,4680.0,Yes,0.9943,99.43,Critical Risk
+22,Travel_Frequently,Recruiter,5,30896.0,No,0.8657,86.57,Critical Risk
+58,Travel_Frequently,Recruiter,1,4029.0,Yes,0.9898,98.98,Critical Risk
+46,Travel_Frequently,IT Manager,2,7941.0,No,0.8848,88.48,Critical Risk
+58,Travel_Frequently,HR Manager,3,12778.0,No,0.9093,90.93,Critical Risk
+32,Travel_Frequently,Lab Technician,5,37776.0,No,0.8416,84.16,Critical Risk
+42,Travel_Frequently,HR Manager,2,6796.0,No,0.9971,99.71,Critical Risk
+58,Travel_Frequently,Financial Analyst,3,13372.0,No,0.7823,78.23,High Risk
+45,Travel_Rarely,Research Scientist,2,3433.0,Yes,0.9934,99.34,Critical Risk
+44,Travel_Frequently,Sales Manager,3,10432.0,Yes,0.9979,99.79,Critical Risk
+26,Travel_Frequently,Research Scientist,1,2271.0,Yes,0.964,96.4,Critical Risk
+58,Travel_Frequently,HR Associate,5,30141.0,Yes,0.8312,83.12,Critical Risk
+30,Travel_Rarely,HR Manager,3,6196.0,Yes,0.997,99.7,Critical Risk
+54,Non-Travel,Financial Analyst,1,2939.0,Yes,0.9976,99.76,Critical Risk
+47,Travel_Frequently,R&D Manager,1,5193.0,Yes,0.974,97.4,Critical Risk
+38,Travel_Frequently,R&D Manager,1,2787.0,Yes,0.9946,99.46,Critical Risk
+29,Travel_Rarely,Sales Manager,1,3168.0,Yes,0.9917,99.17,Critical Risk
+35,Travel_Frequently,Lab Technician,1,3140.0,Yes,0.9914,99.14,Critical Risk
+58,Travel_Rarely,Recruiter,2,5236.0,Yes,0.9523,95.23,Critical Risk
+34,Travel_Rarely,HR Manager,3,13661.0,Yes,0.8291,82.91,Critical Risk
+23,Travel_Rarely,HR Associate,2,5143.0,Yes,0.9755,97.55,Critical Risk
+25,Travel_Rarely,HR Associate,1,4392.0,Yes,0.9706,97.06,Critical Risk
+35,Travel_Frequently,Financial Analyst,5,23501.0,Yes,0.7266,72.66,High Risk
+28,Travel_Frequently,R&D Manager,1,2778.0,Yes,0.9975,99.75,Critical Risk
+39,Travel_Frequently,R&D Manager,3,5864.0,No,0.989,98.9,Critical Risk
+58,Travel_Rarely,Research Scientist,5,15468.0,Yes,0.9724,97.24,Critical Risk
+39,Travel_Rarely,HR Associate,1,4758.0,No,0.9917,99.17,Critical Risk
+23,Travel_Rarely,Accountant,1,3544.0,Yes,0.9987,99.87,Critical Risk
+57,Travel_Frequently,Accountant,3,6555.0,No,0.9126,91.26,Critical Risk
+48,Travel_Rarely,Systems Administrator,2,8299.0,Yes,0.9634,96.34,Critical Risk
+45,Travel_Rarely,Research Scientist,4,15668.0,Yes,0.9679,96.79,Critical Risk
+58,Travel_Rarely,Research Scientist,1,3893.0,Yes,0.9931,99.31,Critical Risk
+22,Travel_Frequently,Sales Executive,4,14185.0,Yes,0.994,99.4,Critical Risk
+31,Travel_Rarely,Accountant,4,20316.0,No,0.662,66.2,High Risk
+58,Non-Travel,Sales Executive,3,10372.0,Yes,0.9153,91.53,Critical Risk
+28,Travel_Rarely,Research Scientist,3,9775.0,No,0.9415,94.15,Critical Risk
+35,Travel_Frequently,Finance Manager,1,3858.0,Yes,0.9843,98.43,Critical Risk
+49,Travel_Frequently,Recruiter,2,4490.0,No,0.9812,98.12,Critical Risk
+24,Travel_Rarely,Sales Representative,1,5424.0,Yes,0.9965,99.65,Critical Risk
+58,Travel_Rarely,HR Manager,1,5007.0,Yes,0.9867,98.67,Critical Risk
+25,Travel_Frequently,Sales Representative,3,13006.0,No,0.9597,95.97,Critical Risk
+29,Travel_Frequently,Financial Analyst,2,8495.0,Yes,0.9549,95.49,Critical Risk
+58,Travel_Frequently,IT Manager,2,5778.0,Yes,0.9946,99.46,Critical Risk
+37,Travel_Frequently,Finance Manager,4,19042.0,No,0.8052,80.52,Critical Risk
+56,Travel_Rarely,Accountant,1,3413.0,Yes,0.9643,96.43,Critical Risk
+35,Travel_Frequently,Sales Representative,1,4919.0,Yes,0.9854,98.54,Critical Risk
+33,Travel_Frequently,HR Manager,3,7498.0,No,0.9679,96.79,Critical Risk
+23,Non-Travel,Software Engineer,1,4496.0,Yes,0.8738,87.38,Critical Risk
+32,Travel_Frequently,Research Scientist,5,26071.0,Yes,0.8305,83.05,Critical Risk
+54,Travel_Rarely,Systems Administrator,3,13899.0,Yes,0.997,99.7,Critical Risk
+27,Travel_Rarely,Sales Executive,3,13615.0,Yes,0.9068,90.68,Critical Risk
+22,Travel_Rarely,HR Associate,4,17411.0,Yes,0.9766,97.66,Critical Risk
+54,Travel_Rarely,Lab Technician,1,3204.0,No,0.9708,97.08,Critical Risk
+32,Travel_Frequently,Research Scientist,2,3108.0,Yes,0.9976,99.76,Critical Risk
+54,Travel_Frequently,Sales Representative,1,5475.0,Yes,0.9775,97.75,Critical Risk
+46,Travel_Frequently,Sales Manager,4,21104.0,Yes,0.9372,93.72,Critical Risk
+58,Travel_Rarely,Sales Executive,3,14581.0,No,0.979,97.9,Critical Risk
+55,Travel_Frequently,IT Manager,2,8293.0,No,0.9317,93.17,Critical Risk
+51,Travel_Rarely,Recruiter,2,5403.0,No,0.9772,97.72,Critical Risk
+26,Travel_Frequently,Accountant,2,3826.0,Yes,0.9888,98.88,Critical Risk
+22,Travel_Frequently,Sales Executive,1,2428.0,No,0.9831,98.31,Critical Risk
+46,Travel_Rarely,HR Associate,5,38613.0,No,0.6671,66.71,High Risk
+34,Travel_Rarely,R&D Manager,2,3813.0,Yes,0.9896,98.96,Critical Risk
+51,Travel_Rarely,IT Manager,2,8156.0,Yes,0.9973,99.73,Critical Risk
+22,Travel_Rarely,HR Associate,1,2885.0,Yes,0.9875,98.75,Critical Risk
+24,Non-Travel,Sales Manager,2,4203.0,No,0.9434,94.34,Critical Risk
+43,Travel_Rarely,Recruiter,3,7564.0,Yes,0.9886,98.86,Critical Risk
+27,Travel_Frequently,Software Engineer,1,3027.0,No,0.9166,91.66,Critical Risk
+47,Travel_Frequently,R&D Manager,1,4231.0,No,0.9596,95.96,Critical Risk
+58,Travel_Frequently,Systems Administrator,1,5139.0,No,0.9638,96.38,Critical Risk
+22,Travel_Frequently,Sales Executive,1,3571.0,Yes,0.9898,98.98,Critical Risk
+58,Travel_Frequently,Sales Representative,2,5372.0,No,0.9728,97.28,Critical Risk
+58,Travel_Rarely,IT Manager,2,4002.0,Yes,0.9861,98.61,Critical Risk
+54,Travel_Rarely,IT Manager,1,4481.0,Yes,0.9905,99.05,Critical Risk
+50,Travel_Rarely,Lab Technician,3,10560.0,Yes,0.9487,94.87,Critical Risk
+27,Travel_Frequently,Sales Manager,1,4898.0,No,0.881,88.1,Critical Risk
+30,Travel_Frequently,IT Manager,1,1906.0,Yes,0.9849,98.49,Critical Risk
+35,Travel_Frequently,Sales Representative,2,5655.0,Yes,0.9399,93.99,Critical Risk
+54,Travel_Frequently,IT Manager,2,6338.0,Yes,0.9745,97.45,Critical Risk
+35,Travel_Frequently,IT Manager,2,4377.0,No,0.9805,98.05,Critical Risk
+45,Travel_Rarely,Finance Manager,2,5878.0,Yes,0.9875,98.75,Critical Risk
+49,Travel_Rarely,Systems Administrator,1,3567.0,No,0.9493,94.93,Critical Risk
+30,Travel_Rarely,Systems Administrator,2,3016.0,Yes,0.9868,98.68,Critical Risk
+58,Travel_Frequently,IT Manager,3,11364.0,Yes,0.8504,85.04,Critical Risk
+34,Travel_Rarely,Systems Administrator,2,8880.0,Yes,0.9592,95.92,Critical Risk
+22,Travel_Rarely,Sales Executive,2,7520.0,No,0.9698,96.98,Critical Risk
+34,Travel_Frequently,Lab Technician,5,35208.0,No,0.8448,84.48,Critical Risk
+57,Travel_Rarely,Research Scientist,2,3356.0,Yes,0.9987,99.87,Critical Risk
+58,Travel_Frequently,HR Manager,1,2523.0,No,0.8323,83.23,Critical Risk
+43,Travel_Frequently,Research Scientist,1,2866.0,Yes,0.9961,99.61,Critical Risk
+46,Travel_Rarely,R&D Manager,1,2022.0,Yes,0.9985,99.85,Critical Risk
+26,Travel_Frequently,Software Engineer,2,8404.0,Yes,0.9419,94.19,Critical Risk
+22,Travel_Frequently,Recruiter,3,8672.0,Yes,0.9774,97.74,Critical Risk
+58,Travel_Rarely,HR Associate,2,7781.0,Yes,0.9982,99.82,Critical Risk
+51,Travel_Frequently,IT Manager,1,5221.0,Yes,0.9884,98.84,Critical Risk
+27,Non-Travel,Financial Analyst,2,3030.0,No,0.9776,97.76,Critical Risk
+23,Travel_Frequently,Software Engineer,1,2690.0,Yes,0.958,95.8,Critical Risk
+58,Travel_Frequently,HR Associate,3,7157.0,Yes,0.9603,96.03,Critical Risk
+57,Non-Travel,Lab Technician,4,23391.0,No,0.917,91.7,Critical Risk
+33,Travel_Rarely,Sales Representative,1,2108.0,Yes,0.9964,99.64,Critical Risk
+51,Travel_Rarely,Lab Technician,1,3031.0,Yes,0.9904,99.04,Critical Risk
+58,Travel_Frequently,Finance Manager,2,4287.0,Yes,0.9324,93.24,Critical Risk
+30,Travel_Frequently,Financial Analyst,2,7075.0,Yes,0.9916,99.16,Critical Risk
+43,Travel_Frequently,HR Associate,2,5734.0,Yes,0.9986,99.86,Critical Risk
+28,Travel_Rarely,Sales Executive,1,4179.0,No,0.9828,98.28,Critical Risk
+43,Travel_Frequently,Sales Manager,3,12343.0,Yes,0.9777,97.77,Critical Risk
+58,Travel_Rarely,Research Scientist,1,3904.0,Yes,0.9897,98.97,Critical Risk
+46,Travel_Rarely,Software Engineer,1,5440.0,Yes,0.9908,99.08,Critical Risk
+54,Travel_Rarely,HR Associate,1,1735.0,Yes,0.9887,98.87,Critical Risk
+58,Travel_Frequently,R&D Manager,3,13278.0,No,0.9829,98.29,Critical Risk
+36,Travel_Rarely,Research Scientist,2,6790.0,Yes,0.9867,98.67,Critical Risk
+26,Non-Travel,Sales Executive,1,3829.0,Yes,0.9475,94.75,Critical Risk
+25,Travel_Frequently,Research Scientist,1,4639.0,No,0.808,80.8,Critical Risk
+57,Travel_Frequently,Systems Administrator,3,7736.0,Yes,0.9501,95.01,Critical Risk
+58,Travel_Frequently,Lab Technician,3,8259.0,Yes,0.9992,99.92,Critical Risk
+33,Travel_Rarely,Sales Representative,4,15399.0,Yes,0.9697,96.97,Critical Risk
+58,Travel_Frequently,Research Scientist,2,4806.0,Yes,0.9962,99.62,Critical Risk
+29,Travel_Frequently,Sales Manager,1,2960.0,No,0.9832,98.32,Critical Risk
+28,Travel_Rarely,Lab Technician,5,16336.0,Yes,0.9716,97.16,Critical Risk
+36,Travel_Rarely,IT Manager,1,1572.0,No,0.9481,94.81,Critical Risk
+51,Travel_Frequently,Systems Administrator,2,5429.0,Yes,0.9952,99.52,Critical Risk
+28,Travel_Frequently,IT Manager,3,11115.0,Yes,0.9689,96.89,Critical Risk
+52,Travel_Frequently,Software Engineer,1,4098.0,No,0.9807,98.07,Critical Risk
+30,Travel_Frequently,Sales Representative,2,8206.0,Yes,0.9827,98.27,Critical Risk
+51,Travel_Rarely,Systems Administrator,1,3062.0,No,0.912,91.2,Critical Risk
+33,Travel_Frequently,HR Manager,3,8706.0,Yes,0.9891,98.91,Critical Risk
+56,Travel_Rarely,R&D Manager,5,17078.0,Yes,0.8468,84.68,Critical Risk
+58,Non-Travel,Sales Representative,3,9470.0,Yes,0.8991,89.91,Critical Risk
+58,Non-Travel,Systems Administrator,3,5702.0,Yes,0.9436,94.36,Critical Risk
+38,Travel_Rarely,Financial Analyst,3,6956.0,Yes,0.9879,98.79,Critical Risk
+22,Travel_Rarely,Sales Representative,2,6414.0,Yes,0.9835,98.35,Critical Risk
+45,Travel_Frequently,Research Scientist,3,9749.0,Yes,0.9273,92.73,Critical Risk
+54,Travel_Rarely,Recruiter,3,7151.0,Yes,0.9602,96.02,Critical Risk
+32,Travel_Frequently,Finance Manager,4,14164.0,Yes,0.8594,85.94,Critical Risk
+22,Travel_Rarely,Financial Analyst,1,4364.0,Yes,0.9985,99.85,Critical Risk
+38,Travel_Frequently,Financial Analyst,2,8018.0,Yes,0.9796,97.96,Critical Risk
+54,Travel_Rarely,HR Manager,1,3539.0,No,0.9862,98.62,Critical Risk
+22,Non-Travel,Sales Representative,1,5305.0,Yes,0.9322,93.22,Critical Risk
+28,Travel_Rarely,Sales Executive,2,8275.0,No,0.9415,94.15,Critical Risk
+39,Travel_Rarely,Software Engineer,1,3006.0,No,0.9852,98.52,Critical Risk
+30,Travel_Rarely,Sales Manager,1,1537.0,Yes,0.9872,98.72,Critical Risk
+46,Travel_Frequently,IT Manager,5,17045.0,Yes,0.858,85.8,Critical Risk
+50,Travel_Frequently,Lab Technician,3,8433.0,Yes,0.9761,97.61,Critical Risk
+33,Travel_Rarely,Accountant,1,5280.0,Yes,0.9133,91.33,Critical Risk
+52,Travel_Rarely,Research Scientist,1,4167.0,Yes,0.9912,99.12,Critical Risk
+28,Travel_Rarely,Finance Manager,1,3276.0,Yes,0.9649,96.49,Critical Risk
+50,Travel_Rarely,Finance Manager,2,5254.0,Yes,0.9936,99.36,Critical Risk
+53,Travel_Rarely,Research Scientist,1,2012.0,No,0.951,95.1,Critical Risk
+58,Travel_Rarely,Recruiter,1,4584.0,Yes,0.9917,99.17,Critical Risk
+32,Travel_Rarely,Recruiter,1,2010.0,Yes,0.9586,95.86,Critical Risk
+23,Travel_Frequently,HR Associate,4,14769.0,Yes,0.8737,87.37,Critical Risk
+33,Travel_Frequently,Research Scientist,3,12414.0,Yes,0.9863,98.63,Critical Risk
+58,Travel_Rarely,Recruiter,1,3024.0,No,0.9809,98.09,Critical Risk
+45,Travel_Frequently,Systems Administrator,1,1864.0,Yes,0.9935,99.35,Critical Risk
+51,Travel_Rarely,Financial Analyst,2,7010.0,Yes,0.9967,99.67,Critical Risk
+58,Travel_Rarely,HR Manager,2,7852.0,Yes,0.9982,99.82,Critical Risk
+44,Travel_Rarely,Research Scientist,2,5899.0,Yes,0.9959,99.59,Critical Risk
+34,Non-Travel,IT Manager,1,1735.0,Yes,0.7521,75.21,High Risk
+46,Travel_Rarely,Recruiter,4,21221.0,Yes,0.7172,71.72,High Risk
+27,Travel_Frequently,Lab Technician,2,4396.0,Yes,0.9885,98.85,Critical Risk
+55,Travel_Frequently,Software Engineer,4,19534.0,Yes,0.9815,98.15,Critical Risk
+24,Travel_Frequently,Software Engineer,2,4618.0,Yes,0.9987,99.87,Critical Risk
+24,Travel_Frequently,Lab Technician,5,34504.0,Yes,0.9215,92.15,Critical Risk
+33,Travel_Frequently,Lab Technician,1,3463.0,No,0.9646,96.46,Critical Risk
+49,Non-Travel,Sales Executive,3,7566.0,Yes,0.992,99.2,Critical Risk
+58,Travel_Frequently,HR Manager,2,5043.0,Yes,0.9977,99.77,Critical Risk
+22,Travel_Frequently,Sales Manager,1,2287.0,Yes,0.9725,97.25,Critical Risk
+46,Travel_Frequently,R&D Manager,1,2649.0,Yes,0.9933,99.33,Critical Risk
+44,Travel_Frequently,Software Engineer,4,14956.0,Yes,0.9539,95.39,Critical Risk
+58,Travel_Rarely,Research Scientist,1,4541.0,Yes,0.9913,99.13,Critical Risk
+32,Travel_Frequently,Finance Manager,1,3754.0,Yes,0.9863,98.63,Critical Risk
+58,Travel_Frequently,Research Scientist,1,5462.0,No,0.8952,89.52,Critical Risk
+45,Travel_Frequently,Lab Technician,2,4695.0,Yes,0.9932,99.32,Critical Risk
+58,Travel_Rarely,R&D Manager,1,4119.0,Yes,0.9418,94.18,Critical Risk
+54,Non-Travel,Software Engineer,4,13326.0,Yes,0.871,87.1,Critical Risk
+58,Travel_Rarely,Lab Technician,2,8356.0,Yes,0.9987,99.87,Critical Risk
+58,Non-Travel,Sales Representative,1,2243.0,Yes,0.9511,95.11,Critical Risk
+48,Travel_Frequently,Recruiter,1,5223.0,Yes,0.9089,90.89,Critical Risk
+57,Travel_Rarely,Financial Analyst,1,5344.0,Yes,0.9415,94.15,Critical Risk
+58,Travel_Rarely,IT Manager,1,3726.0,Yes,0.9874,98.74,Critical Risk
+23,Travel_Frequently,Finance Manager,2,4850.0,Yes,0.9496,94.96,Critical Risk
+26,Non-Travel,Lab Technician,1,1677.0,Yes,0.9985,99.85,Critical Risk
+58,Non-Travel,IT Manager,3,6751.0,Yes,0.923,92.3,Critical Risk
+48,Travel_Frequently,Research Scientist,1,2022.0,No,0.9715,97.15,Critical Risk
+27,Travel_Rarely,Accountant,3,11801.0,Yes,0.9939,99.39,Critical Risk
+28,Travel_Frequently,Finance Manager,3,7783.0,Yes,0.9946,99.46,Critical Risk
+24,Travel_Frequently,Financial Analyst,5,25179.0,Yes,0.9829,98.29,Critical Risk
+48,Travel_Rarely,Lab Technician,1,3660.0,Yes,0.9738,97.38,Critical Risk
+58,Travel_Rarely,Sales Executive,3,12943.0,Yes,0.9116,91.16,Critical Risk
+58,Travel_Frequently,Recruiter,2,7581.0,Yes,0.9992,99.92,Critical Risk
+22,Travel_Rarely,Recruiter,1,2481.0,Yes,0.9921,99.21,Critical Risk
+58,Travel_Rarely,Research Scientist,1,1881.0,No,0.9753,97.53,Critical Risk
+22,Travel_Rarely,Software Engineer,2,7113.0,Yes,0.931,93.1,Critical Risk
+57,Travel_Frequently,Sales Representative,5,29918.0,Yes,0.6821,68.21,High Risk
+36,Non-Travel,Sales Representative,2,4248.0,Yes,0.9774,97.74,Critical Risk
+28,Travel_Frequently,IT Manager,1,2233.0,Yes,0.93,93.0,Critical Risk
+58,Non-Travel,HR Associate,1,3002.0,No,0.9702,97.02,Critical Risk
+33,Travel_Rarely,Sales Representative,1,2148.0,Yes,0.9713,97.13,Critical Risk
+23,Travel_Frequently,Recruiter,1,3975.0,Yes,0.9516,95.16,Critical Risk
+37,Travel_Rarely,Recruiter,3,13256.0,Yes,0.9965,99.65,Critical Risk
+33,Travel_Rarely,HR Manager,2,5125.0,No,0.9972,99.72,Critical Risk
+53,Travel_Rarely,Financial Analyst,2,3081.0,Yes,0.9716,97.16,Critical Risk
+29,Travel_Frequently,Sales Manager,5,26316.0,No,0.8639,86.39,Critical Risk
+54,Travel_Rarely,IT Manager,1,2359.0,Yes,0.9834,98.34,Critical Risk
+30,Travel_Rarely,Sales Manager,2,5751.0,Yes,0.9622,96.22,Critical Risk
+22,Travel_Rarely,Software Engineer,1,4160.0,No,0.9663,96.63,Critical Risk
+58,Travel_Rarely,R&D Manager,1,5463.0,Yes,0.9758,97.58,Critical Risk
+35,Travel_Frequently,Accountant,4,9535.0,Yes,0.9929,99.29,Critical Risk
+54,Travel_Rarely,HR Associate,1,4106.0,No,0.9815,98.15,Critical Risk
+52,Travel_Frequently,Financial Analyst,1,1881.0,No,0.9102,91.02,Critical Risk
+36,Travel_Rarely,IT Manager,1,2293.0,Yes,0.9902,99.02,Critical Risk
+43,Travel_Rarely,R&D Manager,1,2656.0,Yes,0.9949,99.49,Critical Risk
+28,Travel_Frequently,HR Associate,1,5220.0,Yes,0.9178,91.78,Critical Risk
+25,Travel_Frequently,Research Scientist,1,3596.0,Yes,0.9545,95.45,Critical Risk
+51,Travel_Rarely,Research Scientist,1,4552.0,Yes,0.9955,99.55,Critical Risk
+22,Travel_Frequently,Recruiter,3,12601.0,Yes,0.9407,94.07,Critical Risk
+55,Travel_Frequently,Software Engineer,2,7807.0,Yes,0.9887,98.87,Critical Risk
+41,Travel_Rarely,Software Engineer,2,5575.0,Yes,0.9957,99.57,Critical Risk
+45,Travel_Frequently,Research Scientist,2,8499.0,Yes,0.9922,99.22,Critical Risk
+58,Travel_Frequently,Research Scientist,1,3068.0,Yes,0.9687,96.87,Critical Risk
+58,Travel_Rarely,Lab Technician,3,10000.0,Yes,0.9928,99.28,Critical Risk
+56,Travel_Frequently,HR Associate,1,4881.0,No,0.9896,98.96,Critical Risk
+22,Travel_Rarely,Systems Administrator,1,5379.0,Yes,0.9985,99.85,Critical Risk
+58,Non-Travel,Financial Analyst,2,6660.0,No,0.9822,98.22,Critical Risk
+35,Travel_Rarely,Sales Representative,2,4686.0,Yes,0.989,98.9,Critical Risk
+41,Travel_Rarely,Accountant,1,3359.0,No,0.9804,98.04,Critical Risk
+52,Travel_Rarely,IT Manager,4,18457.0,Yes,0.9589,95.89,Critical Risk
+58,Travel_Rarely,Finance Manager,2,4737.0,Yes,0.9942,99.42,Critical Risk
+51,Travel_Rarely,IT Manager,2,6551.0,Yes,0.9987,99.87,Critical Risk
+50,Travel_Frequently,R&D Manager,3,9895.0,Yes,0.9916,99.16,Critical Risk
+22,Travel_Rarely,Sales Manager,1,2860.0,Yes,0.9988,99.88,Critical Risk
+28,Travel_Frequently,Finance Manager,1,4854.0,Yes,0.9968,99.68,Critical Risk
+54,Travel_Rarely,Systems Administrator,2,3111.0,Yes,0.9972,99.72,Critical Risk
+49,Travel_Rarely,Accountant,3,12556.0,Yes,0.9341,93.41,Critical Risk
+45,Travel_Frequently,Software Engineer,1,3873.0,No,0.9796,97.96,Critical Risk
+58,Travel_Frequently,Systems Administrator,2,4332.0,Yes,0.9842,98.42,Critical Risk
+35,Travel_Frequently,R&D Manager,4,21865.0,Yes,0.6749,67.49,High Risk
+36,Travel_Rarely,Recruiter,2,6269.0,Yes,0.9672,96.72,Critical Risk
+58,Travel_Frequently,Accountant,1,2717.0,Yes,0.9987,99.87,Critical Risk
+22,Travel_Rarely,Finance Manager,4,9432.0,No,0.9747,97.47,Critical Risk
+58,Travel_Frequently,Sales Executive,3,13987.0,Yes,0.9264,92.64,Critical Risk
+35,Travel_Rarely,Sales Representative,3,6368.0,Yes,0.9628,96.28,Critical Risk
+28,Travel_Frequently,Financial Analyst,2,3991.0,Yes,0.9901,99.01,Critical Risk
+35,Travel_Rarely,IT Manager,2,8391.0,Yes,0.9937,99.37,Critical Risk
+46,Travel_Rarely,HR Manager,2,6204.0,No,0.9764,97.64,Critical Risk
+32,Non-Travel,Lab Technician,2,4141.0,Yes,0.9635,96.35,Critical Risk
+58,Travel_Rarely,Sales Executive,1,4429.0,Yes,0.997,99.7,Critical Risk
+47,Travel_Rarely,HR Associate,2,7757.0,Yes,0.9973,99.73,Critical Risk
+57,Travel_Rarely,Sales Representative,3,11792.0,Yes,0.9778,97.78,Critical Risk
+57,Non-Travel,Accountant,2,4636.0,Yes,0.9542,95.42,Critical Risk
+58,Travel_Frequently,Finance Manager,1,4671.0,Yes,0.9982,99.82,Critical Risk
+44,Travel_Rarely,Financial Analyst,4,18324.0,Yes,0.9841,98.41,Critical Risk
+27,Travel_Frequently,R&D Manager,2,7241.0,No,0.8564,85.64,Critical Risk
+58,Travel_Rarely,Accountant,3,6521.0,Yes,0.9117,91.17,Critical Risk
+32,Travel_Frequently,HR Associate,2,4845.0,Yes,0.9972,99.72,Critical Risk
+22,Travel_Frequently,Sales Executive,3,7551.0,Yes,0.9993,99.93,Critical Risk
+48,Travel_Rarely,Research Scientist,3,14285.0,Yes,0.9558,95.58,Critical Risk
+58,Travel_Frequently,HR Manager,2,8386.0,No,0.9252,92.52,Critical Risk
+42,Travel_Frequently,Lab Technician,4,14224.0,No,0.972,97.2,Critical Risk
+58,Travel_Rarely,R&D Manager,1,2462.0,Yes,0.999,99.9,Critical Risk
+41,Travel_Frequently,Recruiter,1,3067.0,No,0.996,99.6,Critical Risk
+58,Non-Travel,Sales Executive,3,9047.0,No,0.9523,95.23,Critical Risk
+27,Non-Travel,Research Scientist,2,7690.0,No,0.947,94.7,Critical Risk
+42,Travel_Frequently,Research Scientist,2,5963.0,Yes,0.9773,97.73,Critical Risk
+22,Travel_Frequently,Sales Executive,2,7559.0,Yes,0.9992,99.92,Critical Risk
+33,Travel_Frequently,Financial Analyst,2,3406.0,Yes,0.9484,94.84,Critical Risk
+58,Travel_Frequently,Lab Technician,1,1947.0,Yes,0.9931,99.31,Critical Risk
+48,Travel_Frequently,Accountant,5,34364.0,Yes,0.9587,95.87,Critical Risk
+48,Travel_Rarely,Research Scientist,3,11136.0,Yes,0.9551,95.51,Critical Risk
+44,Travel_Rarely,R&D Manager,1,5098.0,Yes,0.998,99.8,Critical Risk
+33,Travel_Frequently,Financial Analyst,5,35710.0,Yes,0.8197,81.97,Critical Risk
+31,Travel_Rarely,HR Manager,1,3702.0,Yes,0.9598,95.98,Critical Risk
+55,Travel_Rarely,IT Manager,1,2236.0,Yes,0.9906,99.06,Critical Risk
+58,Non-Travel,Recruiter,4,14805.0,No,0.942,94.2,Critical Risk
+58,Travel_Rarely,R&D Manager,3,12638.0,No,0.9233,92.33,Critical Risk
+23,Travel_Frequently,Sales Executive,3,9305.0,Yes,0.9944,99.44,Critical Risk
+43,Travel_Frequently,Software Engineer,4,14150.0,Yes,0.9925,99.25,Critical Risk
+25,Travel_Rarely,Finance Manager,2,4383.0,Yes,0.9839,98.39,Critical Risk
+28,Travel_Rarely,Accountant,1,1948.0,Yes,0.9877,98.77,Critical Risk
+22,Travel_Frequently,HR Manager,2,5261.0,Yes,0.9973,99.73,Critical Risk
+53,Travel_Rarely,Lab Technician,1,3901.0,No,0.9486,94.86,Critical Risk
+54,Travel_Frequently,Sales Representative,2,4708.0,Yes,0.9551,95.51,Critical Risk
+58,Travel_Rarely,Finance Manager,2,7897.0,Yes,0.9928,99.28,Critical Risk
+43,Travel_Frequently,Sales Manager,1,5113.0,Yes,0.9928,99.28,Critical Risk
+38,Travel_Frequently,Research Scientist,3,12466.0,Yes,0.9599,95.99,Critical Risk
+58,Travel_Frequently,IT Manager,5,33013.0,Yes,0.9795,97.95,Critical Risk
+37,Travel_Rarely,Financial Analyst,2,8880.0,No,0.9289,92.89,Critical Risk
+34,Travel_Frequently,Finance Manager,1,4663.0,Yes,0.9816,98.16,Critical Risk
+28,Travel_Rarely,Research Scientist,2,4243.0,Yes,0.9838,98.38,Critical Risk
+30,Travel_Frequently,Finance Manager,1,5460.0,Yes,0.9767,97.67,Critical Risk
+36,Non-Travel,Sales Representative,2,4901.0,Yes,0.9415,94.15,Critical Risk
+41,Travel_Frequently,HR Manager,3,14075.0,Yes,0.9198,91.98,Critical Risk
+58,Travel_Frequently,Research Scientist,1,3803.0,No,0.9643,96.43,Critical Risk
+31,Travel_Frequently,Accountant,1,5062.0,Yes,0.9743,97.43,Critical Risk
+58,Travel_Rarely,Research Scientist,2,8326.0,Yes,0.9948,99.48,Critical Risk
+26,Travel_Rarely,Research Scientist,1,3205.0,Yes,0.9983,99.83,Critical Risk
+46,Travel_Rarely,Financial Analyst,1,4075.0,Yes,0.9898,98.98,Critical Risk
+45,Travel_Frequently,Financial Analyst,3,10087.0,Yes,0.9941,99.41,Critical Risk
+52,Travel_Rarely,IT Manager,1,2175.0,Yes,0.9481,94.81,Critical Risk
+57,Travel_Rarely,Finance Manager,3,11316.0,Yes,0.9942,99.42,Critical Risk
+50,Travel_Frequently,Finance Manager,1,1603.0,Yes,0.9856,98.56,Critical Risk
+37,Travel_Frequently,Financial Analyst,1,3010.0,Yes,0.9852,98.52,Critical Risk
+43,Non-Travel,Research Scientist,5,33717.0,No,0.9472,94.72,Critical Risk
+23,Travel_Rarely,Sales Executive,1,4111.0,Yes,0.9549,95.49,Critical Risk
+23,Non-Travel,Sales Representative,2,8469.0,Yes,0.9807,98.07,Critical Risk
+57,Travel_Rarely,Research Scientist,1,3409.0,Yes,0.975,97.5,Critical Risk
+51,Travel_Rarely,Finance Manager,4,13042.0,Yes,0.9815,98.15,Critical Risk
+25,Travel_Frequently,Sales Manager,1,2708.0,No,0.9907,99.07,Critical Risk
+38,Travel_Rarely,Finance Manager,5,27216.0,Yes,0.9768,97.68,Critical Risk
+58,Travel_Rarely,Lab Technician,1,3809.0,Yes,0.998,99.8,Critical Risk
+28,Travel_Rarely,Finance Manager,1,1589.0,Yes,0.9956,99.56,Critical Risk
+22,Travel_Rarely,Software Engineer,3,13806.0,No,0.8541,85.41,Critical Risk
+48,Travel_Rarely,Lab Technician,1,1870.0,Yes,0.968,96.8,Critical Risk
+41,Travel_Rarely,Software Engineer,1,3774.0,Yes,0.9819,98.19,Critical Risk
+46,Travel_Frequently,R&D Manager,4,15551.0,Yes,0.9349,93.49,Critical Risk
+48,Travel_Frequently,Research Scientist,1,2983.0,No,0.9436,94.36,Critical Risk
+58,Travel_Frequently,Research Scientist,1,2774.0,Yes,0.9986,99.86,Critical Risk
+25,Travel_Frequently,Sales Executive,3,8135.0,Yes,0.9984,99.84,Critical Risk
+38,Non-Travel,IT Manager,2,6879.0,No,0.8431,84.31,Critical Risk
+58,Travel_Rarely,HR Associate,2,6727.0,Yes,0.9978,99.78,Critical Risk
+32,Travel_Frequently,IT Manager,2,6659.0,Yes,0.9605,96.05,Critical Risk
+58,Travel_Frequently,Systems Administrator,5,35576.0,Yes,0.8903,89.03,Critical Risk
+58,Non-Travel,Finance Manager,1,5298.0,Yes,0.9631,96.31,Critical Risk
+27,Travel_Rarely,Accountant,3,6300.0,Yes,0.9701,97.01,Critical Risk
+38,Travel_Rarely,HR Associate,2,5250.0,Yes,0.9971,99.71,Critical Risk
+42,Travel_Rarely,Financial Analyst,2,6896.0,Yes,0.9873,98.73,Critical Risk
+22,Travel_Rarely,Sales Manager,1,3492.0,Yes,0.9975,99.75,Critical Risk
+28,Travel_Rarely,Financial Analyst,2,3191.0,Yes,0.9858,98.58,Critical Risk
+48,Travel_Rarely,Research Scientist,3,12071.0,Yes,0.9715,97.15,Critical Risk
+30,Travel_Rarely,R&D Manager,2,6681.0,No,0.9719,97.19,Critical Risk
+35,Travel_Rarely,Recruiter,2,4135.0,Yes,0.9975,99.75,Critical Risk
+58,Travel_Rarely,Sales Representative,2,4581.0,No,0.9569,95.69,Critical Risk
+58,Travel_Rarely,HR Manager,2,4981.0,Yes,0.9753,97.53,Critical Risk
+58,Travel_Frequently,Research Scientist,2,5130.0,No,0.4516,45.16,Medium Risk
+58,Non-Travel,Finance Manager,2,6604.0,Yes,0.9262,92.62,Critical Risk
+30,Travel_Frequently,Sales Representative,3,13007.0,Yes,0.9374,93.74,Critical Risk
+47,Travel_Frequently,Financial Analyst,1,3019.0,Yes,0.9907,99.07,Critical Risk
+48,Travel_Frequently,HR Manager,1,2740.0,Yes,0.9934,99.34,Critical Risk
+30,Travel_Rarely,HR Manager,2,6111.0,No,0.9528,95.28,Critical Risk
+29,Travel_Rarely,R&D Manager,1,4556.0,Yes,0.8563,85.63,Critical Risk
+53,Travel_Rarely,IT Manager,3,6801.0,Yes,0.9454,94.54,Critical Risk
+42,Travel_Rarely,Financial Analyst,3,6543.0,Yes,0.9632,96.32,Critical Risk
+35,Travel_Frequently,IT Manager,2,3818.0,Yes,0.9963,99.63,Critical Risk
+43,Travel_Frequently,Sales Manager,2,5324.0,Yes,0.9841,98.41,Critical Risk
+33,Travel_Rarely,Accountant,2,7061.0,Yes,0.9962,99.62,Critical Risk
+48,Travel_Rarely,Research Scientist,2,8609.0,Yes,0.9952,99.52,Critical Risk
+58,Travel_Rarely,Software Engineer,1,5320.0,No,0.9413,94.13,Critical Risk
+42,Travel_Frequently,Software Engineer,5,24587.0,Yes,0.9598,95.98,Critical Risk
+44,Travel_Frequently,Accountant,1,3560.0,Yes,0.9939,99.39,Critical Risk
+58,Non-Travel,Sales Executive,2,3485.0,Yes,0.9855,98.55,Critical Risk
+41,Travel_Frequently,Research Scientist,1,2504.0,Yes,0.9889,98.89,Critical Risk
+37,Travel_Rarely,Financial Analyst,2,5728.0,Yes,0.9423,94.23,Critical Risk
+44,Non-Travel,HR Manager,2,7634.0,Yes,0.9668,96.68,Critical Risk
+54,Travel_Rarely,Lab Technician,3,14903.0,Yes,0.9891,98.91,Critical Risk
+51,Travel_Rarely,Lab Technician,3,12584.0,Yes,0.9935,99.35,Critical Risk
+24,Travel_Rarely,Finance Manager,1,4864.0,Yes,0.9974,99.74,Critical Risk
+33,Non-Travel,Research Scientist,1,2791.0,Yes,0.9749,97.49,Critical Risk
+32,Travel_Rarely,HR Manager,1,1701.0,No,0.9442,94.42,Critical Risk
+44,Non-Travel,HR Manager,2,4723.0,Yes,0.942,94.2,Critical Risk
+56,Travel_Frequently,Systems Administrator,1,5374.0,Yes,0.9923,99.23,Critical Risk
+23,Travel_Frequently,Sales Executive,3,6138.0,Yes,0.989,98.9,Critical Risk
+56,Non-Travel,Accountant,3,5991.0,Yes,0.933,93.3,Critical Risk
+35,Travel_Frequently,Recruiter,2,7902.0,No,0.9747,97.47,Critical Risk
+57,Travel_Rarely,Systems Administrator,2,5551.0,Yes,0.9923,99.23,Critical Risk
+25,Travel_Frequently,Sales Executive,1,3154.0,Yes,0.9858,98.58,Critical Risk
+23,Non-Travel,Systems Administrator,1,5211.0,Yes,0.9319,93.19,Critical Risk
+53,Travel_Rarely,Research Scientist,5,26292.0,Yes,0.9061,90.61,Critical Risk
+42,Travel_Rarely,Software Engineer,2,8433.0,No,0.9835,98.35,Critical Risk
+28,Travel_Frequently,Systems Administrator,4,14030.0,Yes,0.8798,87.98,Critical Risk
+58,Travel_Rarely,Sales Manager,2,7346.0,Yes,0.9866,98.66,Critical Risk
+43,Non-Travel,Lab Technician,2,4656.0,Yes,0.9556,95.56,Critical Risk
+40,Travel_Frequently,Systems Administrator,3,6594.0,Yes,0.9794,97.94,Critical Risk
+40,Non-Travel,Research Scientist,1,3144.0,Yes,0.9604,96.04,Critical Risk
+58,Travel_Rarely,HR Associate,1,2011.0,Yes,0.9926,99.26,Critical Risk
+24,Travel_Frequently,Sales Representative,1,4497.0,Yes,0.9927,99.27,Critical Risk
+38,Travel_Rarely,Sales Representative,1,4231.0,No,0.9888,98.88,Critical Risk
+43,Travel_Rarely,Lab Technician,2,7251.0,Yes,0.9871,98.71,Critical Risk
+45,Travel_Rarely,Sales Representative,1,4150.0,No,0.9522,95.22,Critical Risk
+52,Non-Travel,Research Scientist,3,12981.0,Yes,0.9419,94.19,Critical Risk
+28,Travel_Rarely,Financial Analyst,1,3143.0,Yes,0.9701,97.01,Critical Risk
+52,Travel_Frequently,R&D Manager,2,4525.0,Yes,0.9486,94.86,Critical Risk
+52,Travel_Rarely,IT Manager,2,7586.0,No,0.9315,93.15,Critical Risk
+32,Travel_Frequently,R&D Manager,3,10315.0,Yes,0.7523,75.23,High Risk
+30,Travel_Rarely,Accountant,1,2715.0,Yes,0.9945,99.45,Critical Risk
+22,Non-Travel,Financial Analyst,3,9818.0,Yes,0.9886,98.86,Critical Risk
+41,Travel_Frequently,Sales Representative,3,9232.0,Yes,0.9486,94.86,Critical Risk
+58,Travel_Frequently,Research Scientist,2,5847.0,Yes,0.9919,99.19,Critical Risk
+22,Travel_Frequently,Finance Manager,3,10491.0,Yes,0.9169,91.69,Critical Risk
+26,Travel_Frequently,R&D Manager,1,3194.0,Yes,0.9921,99.21,Critical Risk
+58,Travel_Rarely,Lab Technician,3,11747.0,Yes,0.9934,99.34,Critical Risk
+23,Travel_Rarely,Software Engineer,1,3350.0,Yes,0.967,96.7,Critical Risk
+53,Travel_Rarely,HR Associate,2,3568.0,No,0.9785,97.85,Critical Risk
+58,Travel_Rarely,IT Manager,2,8096.0,Yes,0.9901,99.01,Critical Risk
+37,Travel_Rarely,HR Manager,1,3362.0,Yes,0.9342,93.42,Critical Risk
+32,Travel_Frequently,IT Manager,1,5272.0,No,0.7054,70.54,High Risk
+56,Travel_Frequently,HR Associate,1,5367.0,Yes,0.9915,99.15,Critical Risk
+36,Travel_Frequently,Research Scientist,4,14031.0,Yes,0.9714,97.14,Critical Risk
+35,Travel_Rarely,R&D Manager,2,7164.0,No,0.9798,97.98,Critical Risk
+58,Travel_Rarely,HR Manager,1,3062.0,Yes,0.9682,96.82,Critical Risk
+23,Travel_Frequently,Software Engineer,2,6463.0,Yes,0.9903,99.03,Critical Risk
+52,Travel_Rarely,IT Manager,2,8701.0,Yes,0.9937,99.37,Critical Risk
+28,Travel_Frequently,Research Scientist,3,9784.0,Yes,0.9554,95.54,Critical Risk
+22,Travel_Frequently,Recruiter,1,4341.0,Yes,0.9858,98.58,Critical Risk
+58,Travel_Frequently,Sales Executive,1,3392.0,No,0.9804,98.04,Critical Risk
+25,Travel_Frequently,Research Scientist,1,3664.0,No,0.9825,98.25,Critical Risk
+47,Travel_Frequently,Accountant,1,3087.0,Yes,0.9975,99.75,Critical Risk
+26,Travel_Frequently,Accountant,5,27908.0,Yes,0.9485,94.85,Critical Risk
+58,Travel_Frequently,Sales Representative,1,3180.0,Yes,0.9987,99.87,Critical Risk
+58,Travel_Rarely,R&D Manager,1,3670.0,Yes,0.9937,99.37,Critical Risk
+23,Travel_Rarely,Recruiter,3,12252.0,Yes,0.9957,99.57,Critical Risk
+26,Travel_Rarely,Finance Manager,3,12084.0,No,0.9804,98.04,Critical Risk
+50,Non-Travel,Finance Manager,3,10931.0,Yes,0.9392,93.92,Critical Risk
+29,Travel_Frequently,HR Manager,1,4786.0,Yes,0.9923,99.23,Critical Risk
+31,Travel_Frequently,Accountant,2,3322.0,Yes,0.9663,96.63,Critical Risk
+30,Travel_Frequently,Finance Manager,1,3015.0,Yes,0.998,99.8,Critical Risk
+40,Travel_Rarely,HR Manager,5,24967.0,Yes,0.8136,81.36,Critical Risk
+35,Travel_Frequently,Accountant,5,34518.0,Yes,0.6958,69.58,High Risk
+40,Travel_Frequently,Accountant,2,6004.0,Yes,0.988,98.8,Critical Risk
+55,Travel_Frequently,IT Manager,2,5610.0,No,0.9439,94.39,Critical Risk
+22,Travel_Frequently,Sales Representative,3,6653.0,Yes,0.9988,99.88,Critical Risk
+49,Travel_Rarely,Lab Technician,1,4436.0,Yes,0.9921,99.21,Critical Risk
+40,Travel_Frequently,Accountant,1,2309.0,Yes,0.9677,96.77,Critical Risk
+36,Travel_Rarely,IT Manager,1,3247.0,Yes,0.998,99.8,Critical Risk
+38,Travel_Frequently,Finance Manager,3,12806.0,Yes,0.9691,96.91,Critical Risk
+58,Travel_Rarely,Financial Analyst,2,7006.0,Yes,0.9313,93.13,Critical Risk
+58,Travel_Rarely,Sales Executive,1,4522.0,No,0.988,98.8,Critical Risk
+35,Non-Travel,Finance Manager,1,1567.0,Yes,0.9848,98.48,Critical Risk
+58,Travel_Rarely,Finance Manager,2,8454.0,Yes,0.9902,99.02,Critical Risk
+26,Travel_Rarely,IT Manager,1,2772.0,No,0.9848,98.48,Critical Risk
+33,Non-Travel,HR Manager,3,10620.0,Yes,0.897,89.7,Critical Risk
+58,Travel_Rarely,Finance Manager,1,3592.0,Yes,0.9975,99.75,Critical Risk
+58,Travel_Rarely,Research Scientist,2,4829.0,Yes,0.9534,95.34,Critical Risk
+53,Travel_Frequently,Lab Technician,1,5124.0,Yes,0.9931,99.31,Critical Risk
+49,Travel_Rarely,Systems Administrator,4,11418.0,Yes,0.9979,99.79,Critical Risk
+49,Travel_Frequently,Research Scientist,3,14553.0,No,0.9518,95.18,Critical Risk
+58,Travel_Rarely,Recruiter,1,3595.0,Yes,0.9896,98.96,Critical Risk
+38,Travel_Frequently,Financial Analyst,1,3140.0,Yes,0.9924,99.24,Critical Risk
+51,Travel_Rarely,HR Manager,2,3429.0,Yes,0.9946,99.46,Critical Risk
+58,Travel_Frequently,Finance Manager,1,4427.0,Yes,0.9977,99.77,Critical Risk
+58,Travel_Frequently,Sales Representative,1,4070.0,Yes,0.9964,99.64,Critical Risk
+37,Travel_Rarely,Sales Representative,2,7192.0,Yes,0.9454,94.54,Critical Risk
+58,Travel_Frequently,Finance Manager,1,4064.0,No,0.9767,97.67,Critical Risk
+27,Travel_Frequently,Research Scientist,3,13555.0,Yes,0.9952,99.52,Critical Risk
+58,Travel_Rarely,Research Scientist,5,16186.0,Yes,0.9757,97.57,Critical Risk
+30,Non-Travel,Lab Technician,5,19706.0,Yes,0.9833,98.33,Critical Risk
+29,Travel_Frequently,Lab Technician,2,3518.0,Yes,0.9774,97.74,Critical Risk
+40,Travel_Rarely,R&D Manager,3,13350.0,No,0.9497,94.97,Critical Risk
+22,Travel_Rarely,Software Engineer,1,1862.0,Yes,0.9985,99.85,Critical Risk
+45,Travel_Frequently,R&D Manager,1,4835.0,Yes,0.9963,99.63,Critical Risk
+39,Travel_Frequently,Finance Manager,4,19241.0,No,0.9056,90.56,Critical Risk
+35,Travel_Rarely,Financial Analyst,1,3754.0,Yes,0.9956,99.56,Critical Risk
+32,Travel_Rarely,IT Manager,3,7243.0,Yes,0.9845,98.45,Critical Risk
+58,Travel_Frequently,Recruiter,3,14379.0,Yes,0.9977,99.77,Critical Risk
+55,Travel_Frequently,Finance Manager,2,5811.0,Yes,0.9839,98.39,Critical Risk
+35,Travel_Rarely,HR Manager,3,11787.0,Yes,0.9279,92.79,Critical Risk
+55,Travel_Frequently,Sales Representative,3,7040.0,Yes,0.8642,86.42,Critical Risk
+51,Travel_Rarely,Recruiter,4,16281.0,No,0.7264,72.64,High Risk
+28,Travel_Frequently,IT Manager,1,2134.0,Yes,0.9849,98.49,Critical Risk
+39,Travel_Frequently,Sales Representative,2,8740.0,No,0.8239,82.39,Critical Risk
+23,Travel_Frequently,Recruiter,3,6596.0,Yes,0.9971,99.71,Critical Risk
+41,Non-Travel,Software Engineer,2,5154.0,Yes,0.9349,93.49,Critical Risk
+22,Travel_Rarely,Software Engineer,1,3648.0,Yes,0.997,99.7,Critical Risk
+45,Travel_Rarely,Research Scientist,2,3580.0,Yes,0.9737,97.37,Critical Risk
+38,Travel_Rarely,Financial Analyst,1,2812.0,Yes,0.9885,98.85,Critical Risk
+31,Travel_Rarely,Accountant,2,3614.0,Yes,0.9799,97.99,Critical Risk
+36,Travel_Rarely,Sales Representative,4,23014.0,No,0.6637,66.37,High Risk
+54,Travel_Frequently,IT Manager,4,14311.0,Yes,0.9034,90.34,Critical Risk
+51,Travel_Rarely,IT Manager,1,4309.0,No,0.9815,98.15,Critical Risk
+51,Travel_Rarely,Lab Technician,1,3827.0,Yes,0.9943,99.43,Critical Risk
+29,Non-Travel,Sales Manager,2,5269.0,Yes,0.9787,97.87,Critical Risk
+52,Non-Travel,Research Scientist,1,1787.0,Yes,0.9945,99.45,Critical Risk
+27,Travel_Frequently,Research Scientist,2,7674.0,Yes,0.9198,91.98,Critical Risk
+27,Travel_Rarely,Lab Technician,5,21838.0,Yes,0.9275,92.75,Critical Risk
+58,Travel_Rarely,Finance Manager,2,4748.0,Yes,0.9886,98.86,Critical Risk
+58,Travel_Rarely,Finance Manager,1,3544.0,No,0.991,99.1,Critical Risk
+27,Travel_Rarely,Sales Manager,4,15216.0,Yes,0.9902,99.02,Critical Risk
+29,Non-Travel,Finance Manager,1,2544.0,Yes,0.9721,97.21,Critical Risk
+40,Travel_Frequently,Accountant,4,10513.0,Yes,0.9357,93.57,Critical Risk
+43,Travel_Rarely,Software Engineer,1,1877.0,Yes,0.9816,98.16,Critical Risk
+58,Travel_Frequently,Sales Manager,3,8428.0,Yes,0.9961,99.61,Critical Risk
+25,Travel_Rarely,Sales Representative,4,15452.0,No,0.979,97.9,Critical Risk
+28,Travel_Frequently,Financial Analyst,2,3004.0,Yes,0.9832,98.32,Critical Risk
+58,Travel_Rarely,HR Associate,3,8889.0,Yes,0.9982,99.82,Critical Risk
+43,Travel_Rarely,Lab Technician,1,5043.0,Yes,0.9986,99.86,Critical Risk
+23,Travel_Frequently,HR Associate,1,5430.0,Yes,0.9883,98.83,Critical Risk
+32,Travel_Frequently,IT Manager,5,28710.0,Yes,0.8382,83.82,Critical Risk
+25,Travel_Rarely,Systems Administrator,2,8093.0,Yes,0.9976,99.76,Critical Risk
+35,Travel_Rarely,Sales Representative,1,4026.0,Yes,0.9941,99.41,Critical Risk
+48,Travel_Frequently,Lab Technician,3,9850.0,Yes,0.8511,85.11,Critical Risk
+37,Non-Travel,Software Engineer,1,3787.0,No,0.9293,92.93,Critical Risk
+29,Non-Travel,Finance Manager,1,5484.0,Yes,0.9573,95.73,Critical Risk
+47,Travel_Frequently,HR Associate,2,7641.0,Yes,0.9583,95.83,Critical Risk
+30,Travel_Frequently,Finance Manager,1,5100.0,No,0.9087,90.87,Critical Risk
+44,Travel_Frequently,Sales Manager,1,4761.0,Yes,0.9972,99.72,Critical Risk
+58,Travel_Frequently,Finance Manager,1,2768.0,Yes,0.9701,97.01,Critical Risk
+26,Travel_Frequently,Lab Technician,1,3982.0,No,0.9766,97.66,Critical Risk
+28,Travel_Frequently,Financial Analyst,2,6285.0,No,0.9455,94.55,Critical Risk
+43,Non-Travel,R&D Manager,1,4460.0,Yes,0.9957,99.57,Critical Risk
+24,Travel_Frequently,Software Engineer,1,1700.0,Yes,0.9986,99.86,Critical Risk
+44,Travel_Rarely,Sales Representative,3,8514.0,No,0.9655,96.55,Critical Risk
+58,Travel_Rarely,Sales Executive,2,8827.0,Yes,0.9945,99.45,Critical Risk
+41,Travel_Rarely,Accountant,3,6145.0,Yes,0.9881,98.81,Critical Risk
+39,Travel_Rarely,R&D Manager,1,2790.0,No,0.9325,93.25,Critical Risk
+34,Travel_Frequently,Software Engineer,4,22146.0,Yes,0.7112,71.12,High Risk
+58,Non-Travel,R&D Manager,2,8945.0,No,0.6941,69.41,High Risk
+25,Travel_Frequently,Accountant,1,2162.0,Yes,0.9813,98.13,Critical Risk
+22,Travel_Rarely,Sales Manager,3,9924.0,Yes,0.993,99.3,Critical Risk
+56,Travel_Frequently,Research Scientist,4,20883.0,Yes,0.9885,98.85,Critical Risk
+48,Travel_Rarely,Sales Executive,3,12584.0,Yes,0.948,94.8,Critical Risk
+50,Travel_Rarely,Systems Administrator,1,3010.0,Yes,0.9985,99.85,Critical Risk
+22,Travel_Frequently,Sales Executive,2,3954.0,Yes,0.9982,99.82,Critical Risk
+54,Travel_Rarely,Systems Administrator,5,35803.0,No,0.9451,94.51,Critical Risk
+31,Travel_Frequently,Financial Analyst,1,3650.0,Yes,0.9714,97.14,Critical Risk
+30,Travel_Rarely,HR Manager,2,7434.0,Yes,0.9562,95.62,Critical Risk
+36,Travel_Frequently,R&D Manager,1,1781.0,Yes,0.9463,94.63,Critical Risk
+44,Travel_Frequently,Financial Analyst,4,20480.0,Yes,0.9664,96.64,Critical Risk
+24,Travel_Rarely,HR Associate,1,3742.0,No,0.998,99.8,Critical Risk
+29,Travel_Rarely,Lab Technician,1,1969.0,Yes,0.9664,96.64,Critical Risk
+56,Travel_Rarely,Sales Representative,1,2393.0,Yes,0.995,99.5,Critical Risk
+57,Travel_Frequently,Systems Administrator,2,8402.0,No,0.9648,96.48,Critical Risk
+58,Travel_Frequently,Research Scientist,1,4700.0,Yes,0.9978,99.78,Critical Risk
+58,Travel_Rarely,Sales Executive,1,2418.0,Yes,0.9946,99.46,Critical Risk
+25,Non-Travel,Sales Representative,2,8258.0,Yes,0.8705,87.05,Critical Risk
+26,Travel_Frequently,Lab Technician,1,5422.0,No,0.8953,89.53,Critical Risk
+52,Travel_Rarely,IT Manager,3,12460.0,Yes,0.9923,99.23,Critical Risk
+58,Travel_Rarely,HR Associate,2,6529.0,Yes,0.9661,96.61,Critical Risk
+25,Non-Travel,Research Scientist,2,4111.0,Yes,0.9596,95.96,Critical Risk
+22,Travel_Frequently,Sales Representative,2,8153.0,Yes,0.9966,99.66,Critical Risk
+47,Travel_Frequently,Lab Technician,1,2961.0,Yes,0.95,95.0,Critical Risk
+35,Travel_Frequently,Finance Manager,1,1750.0,No,0.9647,96.47,Critical Risk
+35,Travel_Frequently,R&D Manager,2,8606.0,Yes,0.98,98.0,Critical Risk
+24,Travel_Rarely,HR Associate,4,18694.0,No,0.6962,69.62,High Risk
+39,Travel_Frequently,R&D Manager,1,3983.0,No,0.9839,98.39,Critical Risk
+58,Travel_Rarely,Recruiter,3,14676.0,Yes,0.9896,98.96,Critical Risk
+38,Travel_Rarely,Financial Analyst,1,3701.0,Yes,0.982,98.2,Critical Risk
+54,Travel_Frequently,Sales Representative,3,14457.0,Yes,0.994,99.4,Critical Risk
+58,Travel_Rarely,Finance Manager,3,6828.0,Yes,0.9979,99.79,Critical Risk
+52,Travel_Frequently,Finance Manager,1,4829.0,Yes,0.9948,99.48,Critical Risk
+44,Travel_Frequently,Software Engineer,2,3022.0,Yes,0.944,94.4,Critical Risk
+58,Travel_Rarely,Research Scientist,2,5634.0,Yes,0.9978,99.78,Critical Risk
+27,Travel_Rarely,Software Engineer,2,5908.0,Yes,0.9926,99.26,Critical Risk
+37,Travel_Frequently,Sales Representative,2,7335.0,No,0.7935,79.35,High Risk
+58,Travel_Frequently,Financial Analyst,1,4256.0,Yes,0.9889,98.89,Critical Risk
+58,Travel_Rarely,Research Scientist,2,4752.0,Yes,0.9749,97.49,Critical Risk
+22,Travel_Rarely,Systems Administrator,3,11546.0,Yes,0.9807,98.07,Critical Risk
+28,Non-Travel,Sales Executive,3,7285.0,Yes,0.9536,95.36,Critical Risk
+37,Travel_Frequently,Software Engineer,3,9412.0,Yes,0.9725,97.25,Critical Risk
+58,Travel_Rarely,HR Manager,2,8908.0,Yes,0.981,98.1,Critical Risk
+54,Travel_Rarely,Accountant,3,6874.0,No,0.9643,96.43,Critical Risk
+40,Travel_Frequently,Software Engineer,1,4689.0,No,0.9203,92.03,Critical Risk
+35,Non-Travel,Sales Representative,4,23455.0,No,0.966,96.6,Critical Risk
+24,Travel_Frequently,Sales Executive,1,3670.0,Yes,0.9984,99.84,Critical Risk
+58,Travel_Frequently,Finance Manager,1,1649.0,Yes,0.9847,98.47,Critical Risk
+29,Travel_Rarely,Sales Manager,1,4341.0,Yes,0.9689,96.89,Critical Risk
+56,Travel_Rarely,Sales Representative,1,4552.0,Yes,0.9956,99.56,Critical Risk
+23,Travel_Rarely,Recruiter,4,19177.0,Yes,0.9567,95.67,Critical Risk
+36,Travel_Rarely,Software Engineer,2,7330.0,Yes,0.9905,99.05,Critical Risk
+31,Travel_Rarely,Sales Representative,1,2685.0,No,0.9515,95.15,Critical Risk
+27,Travel_Rarely,Accountant,3,12974.0,No,0.9503,95.03,Critical Risk
+38,Travel_Rarely,Research Scientist,3,8369.0,Yes,0.9876,98.76,Critical Risk
+24,Travel_Frequently,Software Engineer,1,4628.0,Yes,0.9887,98.87,Critical Risk
+55,Travel_Rarely,Lab Technician,2,8384.0,Yes,0.8302,83.02,Critical Risk
+26,Travel_Frequently,Accountant,3,12613.0,Yes,0.9777,97.77,Critical Risk
+27,Travel_Rarely,Finance Manager,1,2879.0,Yes,0.9695,96.95,Critical Risk
+35,Travel_Rarely,HR Associate,1,4581.0,No,0.9913,99.13,Critical Risk
+58,Travel_Frequently,Financial Analyst,5,13835.0,No,0.9232,92.32,Critical Risk
+27,Travel_Rarely,Sales Executive,2,6368.0,Yes,0.9984,99.84,Critical Risk
+46,Travel_Rarely,Research Scientist,3,12244.0,No,0.9361,93.61,Critical Risk
+28,Travel_Rarely,Financial Analyst,1,5336.0,Yes,0.9782,97.82,Critical Risk
+23,Travel_Frequently,Sales Representative,2,3648.0,No,0.9422,94.22,Critical Risk
+24,Travel_Rarely,Sales Representative,2,5825.0,Yes,0.9978,99.78,Critical Risk
+55,Travel_Frequently,Accountant,1,4848.0,No,0.9087,90.87,Critical Risk
+34,Travel_Frequently,Accountant,1,1557.0,Yes,0.9916,99.16,Critical Risk
+38,Travel_Rarely,Software Engineer,2,6489.0,No,0.9292,92.92,Critical Risk
+25,Travel_Rarely,Accountant,2,8215.0,Yes,0.8874,88.74,Critical Risk
+58,Travel_Frequently,Sales Executive,2,4400.0,Yes,0.9919,99.19,Critical Risk
+32,Travel_Frequently,HR Manager,1,4167.0,Yes,0.9968,99.68,Critical Risk
+51,Non-Travel,HR Manager,3,6055.0,Yes,0.9589,95.89,Critical Risk
+58,Travel_Rarely,Research Scientist,2,3540.0,No,0.9447,94.47,Critical Risk
+25,Travel_Rarely,Sales Representative,2,8379.0,Yes,0.9775,97.75,Critical Risk
+44,Travel_Rarely,R&D Manager,3,7621.0,Yes,0.976,97.6,Critical Risk
+36,Travel_Frequently,Finance Manager,1,5164.0,Yes,0.9715,97.15,Critical Risk
+58,Travel_Frequently,Recruiter,2,5057.0,Yes,0.994,99.4,Critical Risk
+23,Travel_Rarely,Finance Manager,3,9140.0,Yes,0.9466,94.66,Critical Risk
+35,Non-Travel,Systems Administrator,2,7714.0,Yes,0.9625,96.25,Critical Risk
+44,Travel_Rarely,Software Engineer,2,6164.0,Yes,0.9533,95.33,Critical Risk
+56,Travel_Rarely,R&D Manager,2,7726.0,Yes,0.9971,99.71,Critical Risk
+54,Travel_Frequently,Sales Representative,1,1940.0,Yes,0.9902,99.02,Critical Risk
+22,Non-Travel,Finance Manager,1,4967.0,Yes,0.9831,98.31,Critical Risk
+58,Travel_Rarely,HR Associate,1,3457.0,Yes,0.9882,98.82,Critical Risk
+51,Travel_Rarely,Software Engineer,2,5289.0,Yes,0.9653,96.53,Critical Risk
+54,Travel_Rarely,Finance Manager,1,4016.0,Yes,0.9743,97.43,Critical Risk
+23,Travel_Rarely,Systems Administrator,1,2468.0,Yes,0.9983,99.83,Critical Risk
+23,Travel_Frequently,HR Associate,1,2742.0,Yes,0.9922,99.22,Critical Risk
+49,Travel_Frequently,HR Manager,2,7221.0,Yes,0.969,96.9,Critical Risk
+55,Travel_Rarely,Recruiter,2,8135.0,Yes,0.9776,97.76,Critical Risk
+58,Travel_Frequently,R&D Manager,2,7249.0,Yes,0.993,99.3,Critical Risk
+53,Travel_Rarely,IT Manager,4,14331.0,Yes,0.9969,99.69,Critical Risk
+26,Travel_Rarely,Accountant,1,3372.0,No,0.9782,97.82,Critical Risk
+47,Travel_Rarely,R&D Manager,2,7793.0,Yes,0.9952,99.52,Critical Risk
+55,Travel_Rarely,R&D Manager,2,7039.0,Yes,0.995,99.5,Critical Risk
+34,Travel_Frequently,HR Manager,1,1786.0,Yes,0.9914,99.14,Critical Risk
+51,Travel_Frequently,Lab Technician,3,7114.0,Yes,0.9474,94.74,Critical Risk
+43,Travel_Rarely,HR Manager,2,5861.0,Yes,0.9952,99.52,Critical Risk
+47,Non-Travel,Sales Executive,1,3088.0,Yes,0.9437,94.37,Critical Risk
+25,Travel_Rarely,Accountant,1,5296.0,Yes,0.9872,98.72,Critical Risk
+43,Travel_Rarely,R&D Manager,2,7986.0,Yes,0.9896,98.96,Critical Risk
+43,Travel_Rarely,Lab Technician,3,6962.0,Yes,0.9627,96.27,Critical Risk
+49,Travel_Frequently,Sales Executive,2,8977.0,No,0.948,94.8,Critical Risk
+58,Travel_Frequently,IT Manager,1,3787.0,Yes,0.9814,98.14,Critical Risk
+58,Travel_Frequently,Lab Technician,5,36644.0,Yes,0.9273,92.73,Critical Risk
+30,Travel_Rarely,Sales Executive,1,3358.0,No,0.9753,97.53,Critical Risk
+29,Travel_Rarely,Financial Analyst,1,3473.0,No,0.9578,95.78,Critical Risk
+28,Travel_Rarely,Research Scientist,2,4064.0,Yes,0.9987,99.87,Critical Risk
+42,Travel_Frequently,Sales Representative,2,6322.0,Yes,0.9234,92.34,Critical Risk
+42,Travel_Rarely,Lab Technician,4,13116.0,Yes,0.9986,99.86,Critical Risk
+24,Travel_Rarely,Sales Executive,3,12259.0,Yes,0.9469,94.69,Critical Risk
+28,Travel_Frequently,Financial Analyst,1,4448.0,Yes,0.9723,97.23,Critical Risk
+39,Travel_Frequently,Lab Technician,5,22029.0,No,0.9337,93.37,Critical Risk
+50,Travel_Frequently,R&D Manager,1,1522.0,Yes,0.994,99.4,Critical Risk
+34,Travel_Frequently,HR Manager,1,4996.0,Yes,0.9964,99.64,Critical Risk
+33,Travel_Rarely,Sales Representative,4,9611.0,Yes,0.9657,96.57,Critical Risk
+24,Travel_Frequently,Finance Manager,1,3993.0,Yes,0.9966,99.66,Critical Risk
+22,Travel_Frequently,Sales Executive,2,5397.0,No,0.9394,93.94,Critical Risk
+28,Travel_Frequently,HR Manager,3,13944.0,Yes,0.9953,99.53,Critical Risk
+24,Non-Travel,HR Associate,3,7231.0,Yes,0.9305,93.05,Critical Risk
+51,Travel_Rarely,Recruiter,4,21780.0,Yes,0.9438,94.38,Critical Risk
+29,Travel_Frequently,Lab Technician,4,23474.0,Yes,0.9624,96.24,Critical Risk
+33,Travel_Rarely,Financial Analyst,2,3767.0,Yes,0.9834,98.34,Critical Risk
+38,Travel_Frequently,Accountant,4,11464.0,Yes,0.9484,94.84,Critical Risk
+53,Travel_Frequently,Finance Manager,2,3360.0,No,0.9473,94.73,Critical Risk
+57,Travel_Rarely,Systems Administrator,4,15908.0,Yes,0.906,90.6,Critical Risk
+58,Travel_Frequently,HR Associate,1,3080.0,Yes,0.9767,97.67,Critical Risk
+26,Travel_Frequently,Software Engineer,2,5117.0,Yes,0.9843,98.43,Critical Risk
+30,Non-Travel,HR Manager,1,4208.0,No,0.616,61.6,High Risk
+58,Travel_Frequently,IT Manager,4,14262.0,Yes,0.9455,94.55,Critical Risk
+29,Travel_Frequently,Lab Technician,1,2684.0,Yes,0.9836,98.36,Critical Risk
+50,Travel_Rarely,Financial Analyst,2,8975.0,Yes,0.9975,99.75,Critical Risk
+58,Travel_Frequently,Recruiter,2,5171.0,Yes,0.9628,96.28,Critical Risk
+55,Travel_Rarely,IT Manager,1,2893.0,Yes,0.9785,97.85,Critical Risk
+43,Travel_Frequently,Research Scientist,1,3443.0,No,0.9795,97.95,Critical Risk
+45,Travel_Frequently,R&D Manager,2,3402.0,Yes,0.9673,96.73,Critical Risk
+39,Travel_Frequently,Software Engineer,2,5677.0,Yes,0.9857,98.57,Critical Risk
+58,Non-Travel,IT Manager,3,9116.0,Yes,0.8375,83.75,Critical Risk
+42,Travel_Frequently,Software Engineer,2,5736.0,Yes,0.9983,99.83,Critical Risk
+58,Travel_Rarely,Financial Analyst,2,5544.0,No,0.959,95.9,Critical Risk
+23,Travel_Rarely,Sales Manager,2,3491.0,Yes,0.9975,99.75,Critical Risk
+50,Travel_Rarely,R&D Manager,4,13476.0,No,0.779,77.9,High Risk
+32,Travel_Rarely,Financial Analyst,4,14605.0,Yes,0.9103,91.03,Critical Risk
+49,Travel_Frequently,Systems Administrator,1,2537.0,Yes,0.999,99.9,Critical Risk

@@ -85,16 +85,8 @@ const EmployeeAttrition = () => {
     EnvironmentSatisfaction: '3',
     RelationshipSatisfaction: '3',
     YearsAtCompany: '2',
-    YearsSinceLastPromotion: '0',
-    YearsWithCurrManager: '2',
-    YearsInCurrentRole: '2',
-    TotalWorkingYears: '5',
-    PercentSalaryHike: '12',
     JobInvolvement: '3',
-    PerformanceRating: '3',
     StockOptionLevel: '1',
-    DistanceFromHome: '5',
-    NumCompaniesWorked: '1',
     Department: 'Research & Development',
     MaritalStatus: 'Married'
   });
@@ -164,7 +156,22 @@ const EmployeeAttrition = () => {
       }
 
       const parsedHistory = JSON.parse(storedHistory);
-      setBatchHistory(Array.isArray(parsedHistory) ? parsedHistory : []);
+      const allEntries = Array.isArray(parsedHistory) ? parsedHistory : [];
+
+      // Purge corrupted entries: those with 0 avg risk but non-zero employee count
+      // (created when the model was broken and returned None for all scores)
+      const validEntries = allEntries.filter(
+        (entry) => !(entry.totalEmployees > 0 && entry.averageRiskScore === 0)
+      );
+
+      if (validEntries.length !== allEntries.length) {
+        console.info(
+          `Purged ${allEntries.length - validEntries.length} corrupted history entries (0% avg risk score).`
+        );
+        window.localStorage.setItem(ATTRITION_HISTORY_STORAGE_KEY, JSON.stringify(validEntries));
+      }
+
+      setBatchHistory(validEntries);
     } catch (storageError) {
       console.error('Failed to restore attrition batch history:', storageError);
       window.localStorage.removeItem(ATTRITION_HISTORY_STORAGE_KEY);
@@ -370,16 +377,8 @@ const EmployeeAttrition = () => {
       EnvironmentSatisfaction: Number(singleEmployeeForm.EnvironmentSatisfaction),
       RelationshipSatisfaction: Number(singleEmployeeForm.RelationshipSatisfaction),
       YearsAtCompany: Number(singleEmployeeForm.YearsAtCompany),
-      YearsSinceLastPromotion: Number(singleEmployeeForm.YearsSinceLastPromotion),
-      YearsWithCurrManager: Number(singleEmployeeForm.YearsWithCurrManager),
-      YearsInCurrentRole: Number(singleEmployeeForm.YearsInCurrentRole),
-      TotalWorkingYears: Number(singleEmployeeForm.TotalWorkingYears),
-      PercentSalaryHike: Number(singleEmployeeForm.PercentSalaryHike),
       JobInvolvement: Number(singleEmployeeForm.JobInvolvement),
-      PerformanceRating: Number(singleEmployeeForm.PerformanceRating),
       StockOptionLevel: Number(singleEmployeeForm.StockOptionLevel),
-      DistanceFromHome: Number(singleEmployeeForm.DistanceFromHome),
-      NumCompaniesWorked: Number(singleEmployeeForm.NumCompaniesWorked),
       Department: singleEmployeeForm.Department,
       MaritalStatus: singleEmployeeForm.MaritalStatus
     };
@@ -442,8 +441,8 @@ const EmployeeAttrition = () => {
 
     const recommendations = [];
 
-    // High risk recommendations
-    if (riskScore >= 0.65) {
+    // High risk recommendations — triggers at High Risk threshold (>= 0.60)
+    if (riskScore >= RISK_THRESHOLDS.high) {
       recommendations.push({
         priority: 'Critical',
         icon: '🔴',
@@ -834,10 +833,10 @@ const EmployeeAttrition = () => {
         // Get all employees from preview
         let allEmployees = normalizedPreview || [];
 
-        // Filter employees with risk score >= 0.45 (High & Critical Risk)
+        // Filter employees with risk score >= 0.60 (High & Critical Risk per official thresholds)
         const highRisk = allEmployees.filter(emp => {
           const riskScore = extractRiskScore(emp);
-          return riskScore >= 0.45;
+          return riskScore >= RISK_THRESHOLDS.high;
         });
 
         console.log(`Found ${highRisk.length} high-risk employees in live reload`);
@@ -874,14 +873,44 @@ const EmployeeAttrition = () => {
 
   const extractRiskScore = (employee) => parseFloat(employee?.Risk_Score || employee?.risk_score || 0);
 
-  const getFrontendRiskLabel = (riskScore, fallbackLabel = '') => {
-    if (riskScore >= 0.70) return 'Critical Risk';
-    if (riskScore >= 0.45) return 'High Risk';
-    if (riskScore >= 0.25) return 'Medium Risk';
-    if (riskScore >= 0.10) return 'Low Risk';
-    
+  // ── Shared Risk Threshold Constants ──────────────────────────────────────────
+  // Single source of truth — used by labels, colours, meter, badges, and text.
+  const RISK_THRESHOLDS = { low: 0.20, medium: 0.40, high: 0.60, critical: 0.80 };
+
+  const getRiskLabel = (riskScore, fallbackLabel = '') => {
+    if (riskScore >= RISK_THRESHOLDS.critical) return 'Critical Risk';
+    if (riskScore >= RISK_THRESHOLDS.high)     return 'High Risk';
+    if (riskScore >= RISK_THRESHOLDS.medium)   return 'Medium Risk';
+    if (riskScore >= RISK_THRESHOLDS.low)      return 'Low Risk';
     if (fallbackLabel) return fallbackLabel;
     return 'Minimal Risk';
+  };
+
+  // Keep old name as alias so existing call-sites continue to work
+  const getFrontendRiskLabel = getRiskLabel;
+
+  const getRiskColor = (score) => {
+    if (score >= RISK_THRESHOLDS.critical) return '#c62828'; // Red    – Critical
+    if (score >= RISK_THRESHOLDS.high)     return '#f57c00'; // Orange – High
+    if (score >= RISK_THRESHOLDS.medium)   return '#fbc02d'; // Amber  – Medium
+    if (score >= RISK_THRESHOLDS.low)      return '#1976d2'; // Blue   – Low
+    return '#2e7d32';                                        // Green  – Minimal
+  };
+
+  const getRiskMeterLevel = (score) => {
+    if (score >= RISK_THRESHOLDS.critical) return 'critical';
+    if (score >= RISK_THRESHOLDS.high)     return 'high';
+    if (score >= RISK_THRESHOLDS.medium)   return 'medium';
+    if (score >= RISK_THRESHOLDS.low)      return 'low';
+    return 'minimal';
+  };
+
+  const getRiskStatusText = (score) => {
+    if (score >= RISK_THRESHOLDS.critical) return 'CRITICAL: Immediate retention intervention required.';
+    if (score >= RISK_THRESHOLDS.high)     return 'HIGH: This employee needs prioritized retention attention.';
+    if (score >= RISK_THRESHOLDS.medium)   return 'MEDIUM: Monitor closely with proactive engagement.';
+    if (score >= RISK_THRESHOLDS.low)      return 'LOW: Regular engagement and check-ins recommended.';
+    return 'MINIMAL: This employee shows a stable attrition risk profile.';
   };
 
   const normalizeRiskRows = (rows = []) =>
@@ -931,11 +960,8 @@ const EmployeeAttrition = () => {
   };
 
 
-  const getRiskScoreColor = (score) => {
-    if (score > 0.20) return semanticHex.danger;
-    if (score > 0.10) return semanticHex.warning;
-    return semanticHex.success;
-  };
+  // Alias pointing to the unified getRiskColor function
+  const getRiskScoreColor = getRiskColor;
 
   const formatScorePercent = (score) => `${(parseFloat(score || 0) * 100).toFixed(1)}%`;
 
@@ -987,25 +1013,25 @@ const EmployeeAttrition = () => {
         key: 'low',
         label: 'Low',
         count: riskCounts.low,
-        color: '#fbc02d' // Yellow
+        color: '#1976d2' // Blue
       },
       {
         key: 'medium',
         label: 'Medium',
         count: riskCounts.medium,
-        color: '#f57c00' // Orange
+        color: '#fbc02d' // Amber/Yellow
       },
       {
         key: 'high',
         label: 'High',
         count: riskCounts.high,
-        color: '#c62828' // Red
+        color: '#f57c00' // Orange
       },
       {
         key: 'critical',
         label: 'Critical',
         count: riskCounts.critical,
-        color: '#4a148c' // Deep Purple/Wine
+        color: '#c62828' // Red
       }
     ].map((item) => ({
       ...item,
@@ -1180,7 +1206,7 @@ const EmployeeAttrition = () => {
         monthlyIncome: row.MonthlyIncome || row.monthly_income || 'N/A',
         overTime: row.OverTime || row.over_time || 'N/A',
         riskScore,
-        riskScoreText: `${(riskScore * 100).toFixed(0)}%`,
+        riskScoreText: row.Risk_Percentage ? `${parseFloat(row.Risk_Percentage).toFixed(1)}%` : `${(riskScore * 100).toFixed(1)}%`,
         riskLabel,
         riskTone: getResultRowLabelClass(riskLabel),
         topFactors: row.Top_Factors || row.top_factors || []
@@ -1883,57 +1909,6 @@ const EmployeeAttrition = () => {
                   </label>
 
                   <label className="single-field">
-                    <span>Distance From Home (km)</span>
-                    <input
-                      type="number"
-                      min="1"
-                      max="100"
-                      value={singleEmployeeForm.DistanceFromHome}
-                      onChange={(evt) => handleSingleEmployeeFieldChange('DistanceFromHome', evt.target.value)}
-                    />
-                  </label>
-
-                  <div className="form-divider" style={{ gridColumn: '1 / -1', margin: '14px 0', borderBottom: '1px solid #eee' }}></div>
-                  <h4 style={{ gridColumn: '1 / -1', fontSize: '1rem', color: '#4b5878', marginBottom: '8px' }}>
-                    Career Progression & Performance
-                  </h4>
-
-                  <label className="single-field">
-                    <span>Years Since Last Promotion</span>
-                    <input
-                      type="number"
-                      min="0"
-                      max="20"
-                      value={singleEmployeeForm.YearsSinceLastPromotion}
-                      onChange={(evt) => handleSingleEmployeeFieldChange('YearsSinceLastPromotion', evt.target.value)}
-                    />
-                  </label>
-
-                  <label className="single-field">
-                    <span>Years With Current Manager</span>
-                    <input
-                      type="number"
-                      min="0"
-                      max="40"
-                      value={singleEmployeeForm.YearsWithCurrManager}
-                      onChange={(evt) => handleSingleEmployeeFieldChange('YearsWithCurrManager', evt.target.value)}
-                    />
-                  </label>
-
-                  <label className="single-field">
-                    <span>Performance Rating</span>
-                    <select
-                      value={singleEmployeeForm.PerformanceRating}
-                      onChange={(evt) => handleSingleEmployeeFieldChange('PerformanceRating', evt.target.value)}
-                    >
-                      <option value="1">1 - Needs Development</option>
-                      <option value="2">2 - Developing</option>
-                      <option value="3">3 - Proficient</option>
-                      <option value="4">4 - Outstanding</option>
-                    </select>
-                  </label>
-
-                  <label className="single-field">
                     <span>Job Involvement</span>
                     <select
                       value={singleEmployeeForm.JobInvolvement}
@@ -1946,27 +1921,6 @@ const EmployeeAttrition = () => {
                     </select>
                   </label>
 
-                  <label className="single-field">
-                    <span>% Salary Hike</span>
-                    <input
-                      type="number"
-                      min="0"
-                      max="50"
-                      value={singleEmployeeForm.PercentSalaryHike}
-                      onChange={(evt) => handleSingleEmployeeFieldChange('PercentSalaryHike', evt.target.value)}
-                    />
-                  </label>
-
-                  <label className="single-field">
-                    <span>Num Companies Worked</span>
-                    <input
-                      type="number"
-                      min="0"
-                      max="20"
-                      value={singleEmployeeForm.NumCompaniesWorked}
-                      onChange={(evt) => handleSingleEmployeeFieldChange('NumCompaniesWorked', evt.target.value)}
-                    />
-                  </label>
 
                   <div className="form-actions" style={{ gridColumn: '1 / -1', display: 'flex', gap: '12px', marginTop: '12px' }}>
                     <button
@@ -1985,9 +1939,8 @@ const EmployeeAttrition = () => {
                       onClick={() => setSingleEmployeeForm({
                         Age: '', MonthlyIncome: '', JobRole: '', JobLevel: '', BusinessTravel: '', OverTime: '',
                         JobSatisfaction: '3', WorkLifeBalance: '3', EnvironmentSatisfaction: '3', RelationshipSatisfaction: '3',
-                        YearsAtCompany: '2', YearsSinceLastPromotion: '0', YearsWithCurrManager: '2', YearsInCurrentRole: '2',
-                        TotalWorkingYears: '5', PercentSalaryHike: '12', JobInvolvement: '3', PerformanceRating: '3',
-                        StockOptionLevel: '1', DistanceFromHome: '5', NumCompaniesWorked: '1', Department: '', MaritalStatus: ''
+                        YearsAtCompany: '2', JobInvolvement: '3',
+                        StockOptionLevel: '1', Department: '', MaritalStatus: ''
                       })}
                     >
                       <i className="fas fa-redo"></i>
@@ -2017,15 +1970,7 @@ const EmployeeAttrition = () => {
                           {singlePredictionResult.risk_label}
                         </span>
                         <p>
-                          {singlePredictionResult.risk_score >= 0.70
-                            ? 'CRITICAL: Immediate retention intervention required.'
-                            : singlePredictionResult.risk_score >= 0.45
-                              ? 'HIGH: This employee needs prioritized retention attention.'
-                              : singlePredictionResult.risk_score >= 0.25
-                                ? 'MEDIUM: Monitor closely with proactive engagement.'
-                                : singlePredictionResult.risk_score >= 0.10
-                                  ? 'LOW: Regular engagement and check-ins recommended.'
-                                  : 'MINIMAL: This employee shows a stable attrition risk profile.'}
+                          {getRiskStatusText(singlePredictionResult.risk_score)}
                         </p>
                       </div>
                     </div>
@@ -2443,6 +2388,18 @@ const EmployeeAttrition = () => {
                   </h4>
                   <p>Stored prediction files with downloadable result snapshots.</p>
                 </div>
+                <button
+                  type="button"
+                  className="clear-saved-results-btn"
+                  onClick={() => {
+                    window.localStorage.removeItem(ATTRITION_HISTORY_STORAGE_KEY);
+                    setBatchHistory([]);
+                  }}
+                  title="Remove all batch history entries"
+                >
+                  <i className="fas fa-trash-alt"></i>
+                  Clear History
+                </button>
               </div>
 
               <div className="batch-history-table-shell">
@@ -2464,7 +2421,7 @@ const EmployeeAttrition = () => {
                         <td>{formatBatchHistoryDate(item.createdAt)}</td>
                         <td>{item.totalEmployees}</td>
                         <td>
-                          <span className={`history-risk-badge ${item.averageRiskScore > 0.2 ? 'high' : item.averageRiskScore > 0.1 ? 'medium' : 'low'}`}>
+                          <span className={`history-risk-badge ${getRiskMeterLevel(item.averageRiskScore)}`}>
                             {formatScorePercent(item.averageRiskScore)}
                           </span>
                         </td>
@@ -3414,12 +3371,14 @@ const EmployeeAttrition = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 18px;
+          gap: 12px;
           padding: 16px;
           margin-bottom: 16px;
           border: 1px solid #dce2ed;
           border-radius: 22px;
           background: #fdfdff;
+          flex-wrap: nowrap;
+          overflow-x: auto;
         }
 
         .results-toolbar-chip,
@@ -3436,9 +3395,10 @@ const EmployeeAttrition = () => {
         .results-searchbar {
           display: flex;
           align-items: center;
-          gap: 12px;
-          flex: 1;
-          max-width: 430px;
+          gap: 10px;
+          flex: 1 1 150px;
+          min-width: 150px;
+          max-width: 250px;
           padding: 0 16px;
         }
 
@@ -3465,19 +3425,21 @@ const EmployeeAttrition = () => {
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          gap: 12px;
-          flex-wrap: wrap;
+          gap: 10px;
+          flex-wrap: nowrap;
+          flex: 0 0 auto;
         }
 
         .results-inline-select {
           display: flex;
           align-items: center;
-          gap: 12px;
-          min-width: 220px;
+          gap: 8px;
+          min-width: auto;
           padding: 0 16px;
           border-radius: 14px;
           border: 1px solid #d6dceb;
           background: #f4f5fb;
+          white-space: nowrap;
         }
 
         .results-inline-select span {
@@ -3617,36 +3579,36 @@ const EmployeeAttrition = () => {
         .table-pill.score.critical,
         .table-pill.risk.critical,
         .history-risk-badge.critical {
-          background: #4a148c;
+          background: #c62828;
           color: #ffffff;
         }
 
         .table-pill.score.high,
         .table-pill.risk.high,
         .history-risk-badge.high {
-          background: var(--color-danger);
+          background: #f57c00;
           color: #ffffff;
         }
 
         .table-pill.score.medium,
         .table-pill.risk.medium,
         .history-risk-badge.medium {
-          background: var(--color-warning-soft);
-          color: var(--color-warning-text);
+          background: #fbc02d;
+          color: #263238;
         }
 
         .table-pill.score.low,
         .table-pill.risk.low,
         .history-risk-badge.low {
-          background: #fbc02d;
-          color: #263238;
+          background: #1976d2;
+          color: #ffffff;
         }
 
         .table-pill.score.minimal,
         .table-pill.risk.minimal,
         .history-risk-badge.minimal {
-          background: var(--color-success-soft);
-          color: var(--color-success-text);
+          background: #2e7d32;
+          color: #ffffff;
         }
 
         .table-pill.score.neutral,
@@ -3987,31 +3949,31 @@ const EmployeeAttrition = () => {
         }
 
         .popup-summary-card.critical {
-          background: #f3e5f5;
-          color: #4a148c;
-          border: 1px solid #d1c4e9;
-          box-shadow: 0 4px 12px rgba(74, 20, 140, 0.05);
+          background: #ffebee;
+          color: #c62828;
+          border: 1px solid #ffcdd2;
+          box-shadow: 0 4px 12px rgba(198, 40, 40, 0.05);
         }
 
         .popup-summary-card.high {
-          background: #fdf0f0;
-          color: #9f3030;
-          border: 1px solid #f3c0c0;
-          box-shadow: 0 4px 12px rgba(159, 48, 48, 0.05);
+          background: #fff3e0;
+          color: #e65100;
+          border: 1px solid #ffe0b2;
+          box-shadow: 0 4px 12px rgba(230, 81, 0, 0.05);
         }
 
         .popup-summary-card.medium {
-          background: #fff7e7;
-          color: #8b6714;
-          border: 1px solid #efd493;
-          box-shadow: 0 4px 12px rgba(139, 103, 20, 0.05);
+          background: #fffde7;
+          color: #f57f17;
+          border: 1px solid #fff59d;
+          box-shadow: 0 4px 12px rgba(245, 127, 23, 0.05);
         }
 
         .popup-summary-card.low {
-          background: #fffde7;
-          color: #827717;
-          border: 1px solid #f9fbe7;
-          box-shadow: 0 4px 12px rgba(130, 119, 23, 0.05);
+          background: #e3f2fd;
+          color: #1565c0;
+          border: 1px solid #bbdefb;
+          box-shadow: 0 4px 12px rgba(21, 101, 192, 0.05);
         }
 
         .popup-summary-card.minimal {
