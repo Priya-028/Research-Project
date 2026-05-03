@@ -4,9 +4,13 @@ import { AuthContext } from './AuthContext';
 import FeaturePageHero from './common/FeaturePageHero';
 import { semanticHex } from './common/semanticPalette';
 
+const getCandidateFitApiBaseUrl = () => {
+  const { protocol, hostname } = window.location;
+  const normalizedHostname = hostname === 'localhost' ? '127.0.0.1' : hostname;
+  return `${protocol}//${normalizedHostname}:5001`;
+};
 
-
-const API_BASE_URL = 'http://localhost:5001';
+const API_BASE_URL = getCandidateFitApiBaseUrl();
 
 const getCandidateFileSummary = (fileNames) => {
   if (!fileNames.length) {
@@ -40,17 +44,46 @@ const getJobUploadDisplayText = (fileName) => fileName || 'No job description up
 
 const getJobFooterText = (fileName) => fileName ? 'Job description selected' : 'No job description uploaded';
 
-const HIDDEN_PREVIEW_COLUMNS = new Set(['Experience_Years', 'Job_Role_Applied']);
+const getApiErrorMessage = async (response, fallback) => {
+  try {
+    const contentType = response.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      const data = await response.json();
+      return data.error || data.message || fallback;
+    }
+
+    const text = await response.text();
+    return text || fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+const getNetworkErrorMessage = (err) => {
+  if (err instanceof TypeError && /fetch/i.test(err.message)) {
+    return `Cannot reach Candidate Fit API at ${API_BASE_URL}. Restart the Flask API and try again.`;
+  }
+
+  return err.message || 'Request failed';
+};
+
+const HIDDEN_PREVIEW_COLUMNS = new Set(['Job_Role_Applied']);
 const PREVIEW_PAGE_SIZE = 10;
+
+const getPreviewColumnLabel = (column) => {
+  if (column === 'Experience_Years') return 'Experience Years';
+  if (column === 'Fit_Percentage') return 'Fit Percentage';
+  return column.replace(/_/g, ' ');
+};
 
 const getPreviewFitValue = (row) => Number(row?.Fit_Percentage || 0);
 
 const getPreviewFitBucket = (fitValue) => {
-  if (fitValue >= 65) {
-    return 'High Match';
+  if (fitValue >= 60) {
+    return 'Good Match';
   }
 
-  if (fitValue >= 50) {
+  if (fitValue >= 35) {
     return 'Medium Match';
   }
 
@@ -191,9 +224,7 @@ const CandidateFitPredictor = () => {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Server error:', errorText);
-        throw new Error(`Server returned ${response.status}`);
+        throw new Error(await getApiErrorMessage(response, `Server returned ${response.status}`));
       }
 
       const data = await response.json();
@@ -205,7 +236,7 @@ const CandidateFitPredictor = () => {
       }
     } catch (err) {
       console.error('Batch prediction error:', err);
-      setError(err.message);
+      setError(getNetworkErrorMessage(err));
     } finally {
       setLoading(false);
     }
@@ -237,7 +268,7 @@ const CandidateFitPredictor = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`Server returned ${response.status}`);
+        throw new Error(await getApiErrorMessage(response, `Server returned ${response.status}`));
       }
 
       const data = await response.json();
@@ -253,7 +284,7 @@ const CandidateFitPredictor = () => {
       }
     } catch (err) {
       console.error('Preview error:', err);
-      setError(err.message);
+      setError(getNetworkErrorMessage(err));
     } finally {
       setLoading(false);
     }
@@ -535,7 +566,7 @@ const CandidateFitPredictor = () => {
                     <thead>
                       <tr>
                         {visibleCols.map((col) => (
-                          <th key={col}>{col}</th>
+                          <th key={col}>{getPreviewColumnLabel(col)}</th>
                         ))}
                       </tr>
                     </thead>
@@ -666,8 +697,9 @@ const CandidateFitPredictor = () => {
 };
 
 const getScoreColor = (score) => {
-  if (score >= 80) return semanticHex.success;
-  if (score >= 60) return semanticHex.warning;
+  const value = Number(score || 0);
+  if (value >= 60) return semanticHex.success;
+  if (value >= 35) return semanticHex.warning;
   return semanticHex.danger;
 };
 

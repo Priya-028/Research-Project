@@ -17,18 +17,43 @@ import time
 import re
 import uuid
 
+def _load_dotenv():
+    for _dir in (os.path.dirname(os.path.abspath(__file__)), os.getcwd()):
+        _env_path = os.path.join(_dir, ".env")
+        if os.path.exists(_env_path):
+            with open(_env_path, "r", encoding="utf-8-sig") as _f:
+                for _line in _f:
+                    _line = _line.strip()
+                    if _line and not _line.startswith("#") and "=" in _line:
+                        _k, _v = _line.split("=", 1)
+                        _k = _k.strip().lstrip("\ufeff")
+                        _v = _v.strip().strip('"').strip("'")
+                        if _k and _k not in os.environ:
+                            os.environ[_k] = _v
+            return
+
+
+_load_dotenv()
+
 # Import your existing working modules
 from Setup_File import logger
 from config import Config
 from Train import train_model
+from semantic_matching import (
+    clean_text as semantic_clean_text,
+    detect_job_role,
+    extract_skills as extract_semantic_skills,
+    score_candidates as score_semantic_candidates,
+)
 
 # ──────────────────────────────────────────────────────────────────────
-# Gemini toggle  →  1 = use Gemini 2.0 Flash (needs internet + API key)
-#                   0 = use local regex extraction only
-USE_GEMINI = 1
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDNAGWa709_DJX1kHZW_wg1VvaH4lq7U7U")
+# Gemini toggle  -> 1 = use Gemini 2.0 Flash (needs internet + API key)
+#                  0 = use local semantic/heuristic extraction only
+USE_GEMINI = os.environ.get("CV_SCREEN_USE_GEMINI", "0").lower() in {"1", "true", "yes"}
+USE_GEMINI_EXPERIENCE = os.environ.get("CV_SCREEN_USE_GEMINI_EXPERIENCE", "0").lower() in {"1", "true", "yes"}
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
-if USE_GEMINI:
+if USE_GEMINI or USE_GEMINI_EXPERIENCE:
     try:
         from google import genai as _genai_mod
         if GEMINI_API_KEY:
@@ -36,8 +61,9 @@ if USE_GEMINI:
         else:
             import logging as _lg
             _lg.getLogger(__name__).warning(
-                "USE_GEMINI=1 but GEMINI_API_KEY env var is not set — Gemini disabled")
+                "Gemini is enabled but GEMINI_API_KEY env var is not set — Gemini disabled")
             USE_GEMINI = 0
+            USE_GEMINI_EXPERIENCE = 0
             _gemini_client = None
     except ImportError:
         import logging as _lg
@@ -45,6 +71,7 @@ if USE_GEMINI:
             "google-genai not installed — Gemini disabled. "
             "Run: pip install google-genai")
         USE_GEMINI = 0
+        USE_GEMINI_EXPERIENCE = 0
         _gemini_client = None
 else:
     _gemini_client = None
@@ -55,6 +82,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE_DIR)  # Add current dir to path
 MODEL_PATH = os.path.join(BASE_DIR, "CV Models", "cv_job_fit_model.pkl")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "CV Models", "cv_job_fit_vectorizer.pkl")
+TECH_TAXONOMY_PATH = os.path.join(BASE_DIR, "technology_taxonomy.json")
+_TECH_TAXONOMY_CACHE = None
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -418,164 +447,87 @@ def extract_job_text_from_pdf(pdf_path):
 
 
 def extract_job_role_from_job_text(job_text):
-    """Extract the job title/position from job description text."""
-    if not job_text or not job_text.strip():
+    """Extract the job title/position using semantic title-candidate ranking."""
+    try:
+        return detect_job_role(job_text)
+    except Exception as exc:
+        logger.warning(f"Semantic job role detection failed: {exc}")
         return ""
-    lines = [ln.strip() for ln in job_text.splitlines() if ln.strip()]
-    # Common patterns: "Job Title:", "Position:", "Role:", "Job:", first substantial line
-    patterns = [
-        r"(?:job\s*title|position|role|job\s*type)[:\s\-]+(.+?)(?:\n|$)",
-        r"(?:we\s+are\s+looking\s+for|seeking|hiring)\s+(?:a|an)?\s*(.+?)(?:\s+to|\s+who|\.|$)",
-        r"^([A-Z][A-Za-z\s&\-\/]+(?:Engineer|Analyst|Developer|Manager|Specialist|Lead|Consultant))(?:\s|$|,|\.)",
-    ]
-    for pat in patterns:
-        m = re.search(pat, job_text, re.IGNORECASE | re.MULTILINE)
-        if m:
-            role = m.group(1).strip()
-            if len(role) > 3 and len(role) < 80:
-                return role
-    if lines:
-        first = lines[0]
-        if len(first) > 3 and len(first) < 80 and not first.startswith(("http", "www", "©")):
-            return first
-    return ""
+
+
+def load_technology_taxonomy():
+    """Load local technology aliases used for Experience_Source extraction."""
+    global _TECH_TAXONOMY_CACHE
+    if _TECH_TAXONOMY_CACHE is not None:
+        return _TECH_TAXONOMY_CACHE
+
+    fallback = {
+        "Python": ["python"],
+        "Java": ["java"],
+        "JavaScript": ["javascript", "java script", "js"],
+        "React.js": ["react", "react js", "react.js", "reactjs"],
+        "Node.js": ["node", "node.js", "nodejs"],
+        "REST API": ["rest api", "rest apis", "restful api"],
+        "SQL": ["sql"],
+        "MySQL": ["mysql"],
+        "MongoDB": ["mongodb", "mongo db"],
+        "Git": ["git"],
+    }
+
+    try:
+        with open(TECH_TAXONOMY_PATH, "r", encoding="utf-8") as taxonomy_file:
+            taxonomy = json.load(taxonomy_file)
+        if not isinstance(taxonomy, dict):
+            raise ValueError("Technology taxonomy must be a JSON object")
+
+        cleaned = {}
+        for label, aliases in taxonomy.items():
+            if not isinstance(label, str) or not label.strip():
+                continue
+            if isinstance(aliases, str):
+                aliases = [aliases]
+            if not isinstance(aliases, list):
+                continue
+            alias_list = [str(alias).strip() for alias in aliases if str(alias).strip()]
+            if alias_list:
+                cleaned[label.strip()] = alias_list
+
+        _TECH_TAXONOMY_CACHE = cleaned or fallback
+    except Exception as exc:
+        logger.warning(f"Could not load technology taxonomy: {exc}. Using fallback list.")
+        _TECH_TAXONOMY_CACHE = fallback
+
+    return _TECH_TAXONOMY_CACHE
+
+
+def _technology_alias_matches(text, alias):
+    compact_text = re.sub(r"[^a-z0-9+#.]+", "", (text or "").lower())
+    compact_alias = re.sub(r"[^a-z0-9+#.]+", "", (alias or "").lower())
+    alias_lower = (alias or "").lower().strip()
+    if not compact_alias:
+        return False
+
+    if len(compact_alias) <= 2:
+        return bool(re.search(rf"(?<![a-z0-9+#.]){re.escape(alias_lower)}(?![a-z0-9+#.])", text))
+
+    if " " in alias_lower or "." in alias_lower:
+        return alias_lower in text or compact_alias in compact_text
+
+    return bool(re.search(rf"(?<![a-z0-9+#.]){re.escape(alias_lower)}(?![a-z0-9+#.])", text))
 
 
 def extract_technologies_from_text(text):
-    """Extract programming languages and tools from experience/skills text."""
-    if not text or not text.strip():
+    """Extract likely skills/tools dynamically instead of using a fixed taxonomy."""
+    try:
+        return extract_semantic_skills(text)
+    except Exception as exc:
+        logger.warning(f"Semantic skill extraction failed: {exc}")
         return ""
-    lower = normalize_text_for_matching(text).lower()
-    found = set()
-    techs = [
-        "python", "java", "javascript", "typescript", "sql", "r", "c++", "c#", "scala", "go", "kotlin", "swift", "php", "ruby", "matlab", "sas",
-        "power bi", "powerbi", "excel", "tableau", "spark", "pyspark", "hadoop", "snowflake", "airflow", "aws glue",
-        "great expectations", "tensorflow", "pytorch", "scikit-learn", "pandas", "numpy", "opencv", "cv2",
-        "nlp", "natural language processing", "machine learning", "deep learning", "computer vision", "data visualization",
-        "etl", "elt", "aws", "aws rds", "azure", "gcp", "docker", "kubernetes", "helm", "git", "github", "github actions",
-        "jenkins", "jira", "agile", "figma", "react", "node", "vue", "django", "fastapi", "flask", "rest api", "html",
-        "css", "mongodb", "postgresql", "pgvector", "mysql", "jupyter", "semantic search", "vector embeddings", "llm",
-        "large language models"
-    ]
-    for t in techs:
-        compact_term = t.replace(" ", "")
-        if len(compact_term) <= 2:
-            matched = bool(re.search(rf"(?<![a-z0-9+#]){re.escape(t)}(?![a-z0-9+#])", lower))
-        elif " " in t:
-            matched = t in lower or compact_term in lower.replace(" ", "")
-        else:
-            matched = bool(re.search(rf"(?<![a-z0-9+#]){re.escape(t)}(?![a-z0-9+#])", lower))
-
-        if matched:
-            label_overrides = {
-                "power bi": "Power BI", "powerbi": "Power BI", "pyspark": "PySpark",
-                "aws": "AWS", "aws glue": "AWS Glue", "aws rds": "AWS RDS",
-                "sql": "SQL", "mysql": "MySQL", "postgresql": "PostgreSQL",
-                "pgvector": "pgvector", "fastapi": "FastAPI", "rest api": "REST API",
-                "github": "GitHub", "github actions": "GitHub Actions",
-                "opencv": "OpenCV", "cv2": "OpenCV", "nlp": "NLP", "llm": "LLM",
-                "elt": "ELT", "etl": "ETL", "html": "HTML",
-                "javascript": "JavaScript", "pytorch": "PyTorch",
-                "tensorflow": "TensorFlow", "numpy": "NumPy",
-            }
-            label = label_overrides.get(t, t.title())
-            found.add(label)
-    return ", ".join(sorted(found)) if found else ""
 
 
 def normalize_text_for_matching(text):
-    """Clean common PDF extraction artifacts before similarity scoring."""
-    if not text:
-        return ""
-
-    normalized = str(text)
-    replacements = {
-        "__POSTGRESQL 2__": "PostgreSQL",
-        "__POSTGRESQL2__": "PostgreSQL",
-        "AWSGlue": "AWS Glue",
-        "AWSRDS": "AWS RDS",
-        "My Sql": "MySQL",
-        "Fast Api": "FastAPI",
-        "RESTAPI": "REST API",
-        "RESTful": "RESTful",
-        "GitHubActions": "GitHub Actions",
-        "GitHubActions.Jenkins": "GitHub Actions Jenkins",
-        "Data Enginneringtools": "Data Engineering tools",
-        "Machine Learningand": "Machine Learning and",
-        "Computer Scienceand": "Computer Science and",
-        "Universityof": "University of",
-        "Experiencewithdeep": "Experience with deep",
-        "modeltraining": "model training",
-        "ConfluenceAIAssistant": "Confluence AI Assistant",
-        "Designedand": "Designed and",
-        "developedafull": "developed a full",
-        "automateddataqualitypipeline": "automated data quality pipeline",
-        "validationefficiency": "validation efficiency",
-        "Medallionarchitecture": "Medallion architecture",
-        "datavalidation": "data validation",
-        "dataconsistency": "data consistency",
-        "data completeness": "data completeness",
-        "referentialintegrity": "referential integrity",
-        "Snowflaketables": "Snowflake tables",
-        "schema consistency": "schema consistency",
-        "semanticsearch": "semantic search",
-        "vectorembeddings": "vector embeddings",
-        "Large Language Models": "Large Language Models",
-    }
-    for old, new in replacements.items():
-        normalized = normalized.replace(old, new)
-
-    normalized = re.sub(r"([a-z])([A-Z])", r"\1 \2", normalized)
-    normalized = re.sub(r"([A-Za-z])(\d)", r"\1 \2", normalized)
-    normalized = re.sub(r"(\d)([A-Za-z])", r"\1 \2", normalized)
-    post_replacements = {
-        "Py Spark": "PySpark",
-        "Fast API": "FastAPI",
-        "My SQL": "MySQL",
-        "Postgre SQL": "PostgreSQL",
-        "Git Hub": "GitHub",
-        "Git Hub Actions": "GitHub Actions",
-        "AWS Glue": "AWS Glue",
-        "AWS RDS": "AWS RDS",
-        "S 3": "S3",
-        "JSONand HTML": "JSON and HTML",
-        "Designed andimplementedanautomated": "Designed and implemented an automated",
-        "replacingmanualchecks": "replacing manual checks",
-        "andenablingfulldatasetcoveragecomparedto": "and enabling full dataset coverage compared to",
-        "Integratedautomated": "Integrated automated",
-        "reportgenerationwithinthevalidationpipelinetoprovidestructured": "report generation within the validation pipeline to provide structured",
-        "Developedadedicateddata validation": "Developed a dedicated data validation",
-        "sub-pipelinetoverifydata": "sub-pipeline to verify data",
-        "consistencyandcompletenessduringdata": "consistency and completeness during data",
-        "loadingfrom S3 to ODS": "loading from S3 to ODS",
-        "CTE-drivenauditqueriesthatmirrorstored-procedurelogictovalidatedataintegrityacrosslayers": "CTE-driven audit queries that mirror stored procedure logic to validate data integrity across layers",
-        "Implementedrobustvalidationchecksacrossmultiple": "Implemented robust validation checks across multiple",
-        "coveringschemaconsistency": "covering schema consistency",
-        "andreferentialintegrity": "and referential integrity",
-        "Designed anddeveloped": "Designed and developed",
-        "full-fledgedbudgetapprovalmanagementsystemusing": "full-fledged budget approval management system using",
-        "RESTfulbackendservices": "RESTful backend services",
-        "role-basedfunctionalities": "role-based functionalities",
-        "Dockeranddeployedon": "Docker and deployed on",
-        "Kubernetesclusterswith": "Kubernetes clusters with",
-        "Test Railintegrationagent": "TestRail integration agent",
-        "multi-agent SDLCautomationecosystem": "multi-agent SDLC automation ecosystem",
-        "semanticsearchassistant": "semantic search assistant",
-        "natural-languagequerying": "natural-language querying",
-        "enterprise Confluencedocumentation": "enterprise Confluence documentation",
-        "usingvectorembeddings": "using vector embeddings",
-        "Builta FastAPI": "Built a FastAPI",
-        "async RESTAPI": "async REST API",
-        "healthchecks": "health checks",
-        "errormanagement": "error management",
-        "contentingestionpipeline": "content ingestion pipeline",
-        "embeddinggeneration": "embedding generation",
-        "vectorstorage": "vector storage",
-    }
-    for old, new in post_replacements.items():
-        normalized = normalized.replace(old, new)
-    normalized = re.sub(r"[^\S\r\n]+", " ", normalized)
-    return normalized.strip()
+    """Generalized cleanup for semantic matching."""
+    return semantic_clean_text(text)
 
 
 def normalize_candidate_name(name):
@@ -737,16 +689,31 @@ def parse_certification_names(text):
         re.IGNORECASE
     )
     stop_heading_re = re.compile(
-        r"^(languages?|references?|referees?|declaration|personal\s+skills?|soft\s+skills?|"
-        r"education|experience|work\s+experience|projects?|activities|volunteer|membership)\s*[:\-]?",
+        r"^(references?|referees?|declaration|personal\s+skills?|soft\s+skills?|"
+        r"education|experience|work\s+experience|projects?|activities|volunteer|membership|"
+        r"skills?|technical\s+skills?|key\s+skills?|core\s+competencies|tools?)\s*[:\-]?",
         re.IGNORECASE
     )
+    metadata_re = re.compile(
+        r"^(languages?|provider|platform|credential\s+id|"
+        r"credential\s+url|verify|verification)\s*[:\-]?",
+        re.IGNORECASE
+    )
+    issuer_re = re.compile(r"^(institution|issued\s+by)\s*[:\-]?\s*(.+)$", re.IGNORECASE)
     for p in parts:
         p = p.strip().lstrip("-–—").strip()
         if heading_only_re.match(p):
             continue
         if stop_heading_re.match(p):
             break
+        issuer_match = issuer_re.match(p)
+        if issuer_match and certs:
+            issuer = re.sub(r"\s+", " ", issuer_match.group(2)).strip()
+            if issuer and issuer.lower() not in certs[-1].lower():
+                certs[-1] = f"{certs[-1]} ({issuer})"
+            continue
+        if metadata_re.match(p):
+            continue
         if len(p) > 4 and len(p) < 120:
             p = re.sub(r"\s+", " ", p)
             if p and p not in certs and not re.match(r"^\d+$", p):
@@ -963,6 +930,56 @@ def extract_candidate_features_with_gemini(raw_text, original_filename=None, job
         "Certifications_Output": certs_text,
     }
 
+
+def extract_experience_years_with_gemini(raw_text, original_filename=None):
+    """Use Gemini only to estimate real professional experience years."""
+    if not (_gemini_client and raw_text):
+        return None
+
+    try:
+        from google.genai import types as _gtypes
+
+        prompt = (
+            "Read this CV text and return only one JSON object like "
+            '{"experience_years": 2.0}. '
+            "Calculate real professional work experience only. "
+            "Do not count education, school, university dates, certifications, or project-only dates. "
+            "If date ranges overlap, do not double count overlapping months. "
+            "If a role says Present, use the current date. "
+            "Round to the nearest 0.5 year. "
+            "CV text:\n"
+            f"{raw_text[:6000]}"
+        )
+        response = _gemini_client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt,
+            config=_gtypes.GenerateContentConfig(
+                temperature=0,
+            ),
+        )
+        raw_json = (response.text or "").strip()
+        if raw_json.startswith("```"):
+            raw_json = re.sub(r"^```[a-zA-Z]*\n?", "", raw_json)
+            raw_json = re.sub(r"```$", "", raw_json).strip()
+        parsed = json.loads(raw_json)
+        years = parsed.get("experience_years")
+        if years is None or years == "":
+            return None
+        years = float(years)
+        if 0 <= years <= 50:
+            logger.info(f"[GeminiExperience] {original_filename or 'CV'} -> {years} years")
+            return round_experience_to_half_year(years)
+    except Exception as exc:
+        logger.warning(f"[GeminiExperience] Failed for {original_filename or 'CV'}: {exc}")
+
+    return None
+
+
+def round_experience_to_half_year(years):
+    """Round experience to the nearest 0.5 year using normal half-up rounding."""
+    return int((float(years) * 2) + 0.5) / 2
+
+
 def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_role=""):
     """
     Extract basic structured features from a candidate CV PDF so that the
@@ -1153,7 +1170,36 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
             logger.warning(f"Could not parse age from CV PDF: {str(e)}")
 
         # Parse years of experience — explicit phrases first, then date ranges
+        if USE_GEMINI_EXPERIENCE:
+            gemini_years = extract_experience_years_with_gemini(raw_text, original_filename)
+            if gemini_years is not None:
+                experience_years = gemini_years
+                exp_source = "gemini"
+
         try:
+            month_patterns = [
+                r"(\d+(?:\.\d+)?)\s*[- ]?\s*months?.{0,80}\b(?:experience|work|internship|intern)\b",
+                r"(\d+(?:\.\d+)?)\s*[- ]?\s*month[a-zA-Z]*.{0,80}\b(?:experience|work|internship|intern)\b",
+            ]
+            for pat in month_patterns:
+                m = re.search(pat, raw_text, re.IGNORECASE)
+                if m:
+                    months = min(float(m.group(1)), 600)
+                    experience_years = min(round_experience_to_half_year(months / 12), 50)
+                    exp_source = "parsed"
+                    break
+            if experience_years is None:
+                compact_experience_text = re.sub(r"[^a-z0-9.]+", "", raw_text.lower())
+                m = re.search(
+                    r"(\d+(?:\.\d+)?)month.{0,120}(?:experience|work|internship|intern)",
+                    compact_experience_text,
+                    re.IGNORECASE,
+                )
+                if m:
+                    months = min(float(m.group(1)), 600)
+                    experience_years = min(round_experience_to_half_year(months / 12), 50)
+                    exp_source = "parsed"
+
             exp_patterns = [
                 r"(\d+)\+?\s+years?\s+of\s+(?:experience|work)",
                 r"experience[:\s]+(\d+)\+?\s*years?",
@@ -1162,12 +1208,13 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                 r"over\s+(\d+)\s+years",
                 r"(\d+)\s+years?\s+in\s+(?:the\s+)?industry",
             ]
-            for pat in exp_patterns:
-                m = re.search(pat, raw_text, re.IGNORECASE)
-                if m:
-                    experience_years = min(int(m.group(1)), 50)
-                    exp_source = "parsed"
-                    break
+            if experience_years is None:
+                for pat in exp_patterns:
+                    m = re.search(pat, raw_text, re.IGNORECASE)
+                    if m:
+                        experience_years = min(int(m.group(1)), 50)
+                        exp_source = "parsed"
+                        break
 
             # FIX: fallback — calculate from date ranges e.g. "Mar 2025 – Aug 2025"
             if experience_years is None:
@@ -1175,34 +1222,48 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                     'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,
                     'jul':7,'aug':8,'sep':9,'oct':10,'nov':11,'dec':12
                 }
-                _current_year, _current_month = 2026, 4
+                _now = datetime.now()
+                _current_year, _current_month = _now.year, _now.month
                 _date_re = re.compile(
-                    r'(?:(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+)?(\d{4})' +
-                    r'\s*(?:[-\u2013\u2014]|\s+)\s*' +
-                    r'(?:(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+)?(\d{4}|present)',
+                    r'(?P<sm>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?\s*(?P<sy>\d{4})'
+                    r'\s*(?:'
+                    r'(?P<dash>[-\u2013\u2014])\s*(?P<em1>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?\s*(?P<ey1>\d{4}|present)?'
+                    r'|\s+(?P<em2>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)?[a-z]*\.?\s*(?P<ey2>\d{4}|present)'
+                    r')',
                     re.IGNORECASE
                 )
+                work_section_re = re.search(
+                    r"(?is)(?:^|\n)\s*(?:work\s+experience|professional\s+experience|employment\s+history|experience)\s*"
+                    r"(?::|-)?\s*(.*?)"
+                    r"(?=\n\s*(?:education|academic|skills?|technical\s+skills?|certifications?|projects?|additional\s+information|references?)\s*(?::|-)?|\Z)",
+                    raw_text,
+                )
+                experience_text_for_dates = work_section_re.group(1) if work_section_re else raw_text
                 total_months = 0
                 exp_context_keywords = [
                     "experience", "work", "employment", "intern", "internship",
                     "trainee", "associate", "developer", "engineer", "company",
                     "freelance", "contract",
                 ]
-                for date_match in _date_re.finditer(raw_text):
-                    sm, sy, em, ey = date_match.groups()
+                for date_match in _date_re.finditer(experience_text_for_dates):
+                    date_parts = date_match.groupdict()
+                    sm = date_parts.get("sm")
+                    sy = date_parts.get("sy")
+                    em = date_parts.get("em1") or date_parts.get("em2")
+                    ey = date_parts.get("ey1") or date_parts.get("ey2")
                     context_start = max(0, date_match.start() - 180)
-                    context_end = min(len(raw_text), date_match.end() + 180)
-                    date_context = raw_text[context_start:context_end].lower()
+                    context_end = min(len(experience_text_for_dates), date_match.end() + 180)
+                    date_context = experience_text_for_dates[context_start:context_end].lower()
                     if not any(keyword in date_context for keyword in exp_context_keywords):
                         continue
                     try:
                         sy_i = int(sy)
                         sm_i = _month_map.get(sm[:3].lower(), 1) if sm else 1
-                        if ey.lower() == 'present':
+                        if not ey or ey.lower() == 'present':
                             ey_i, em_i = _current_year, _current_month
                         else:
                             ey_i = int(ey)
-                            em_i = _month_map.get(em[:3].lower(), 12) if em else 12
+                            em_i = _month_map.get(em[:3].lower(), sm_i) if em else sm_i
                         if 1990 <= sy_i <= _current_year and sy_i <= ey_i:
                             months = (ey_i - sy_i) * 12 + (em_i - sm_i)
                             if 0 < months <= 600:
@@ -1210,7 +1271,7 @@ def extract_candidate_features_from_pdf(pdf_path, original_filename=None, job_ro
                     except (ValueError, AttributeError):
                         continue
                 if total_months > 0:
-                    experience_years = min(round(total_months / 12 * 2) / 2, 50)
+                    experience_years = min(round_experience_to_half_year(total_months / 12), 50)
                     exp_source = "parsed"
         except Exception as e:
             logger.warning(f"Could not parse experience from CV PDF: {str(e)}")
@@ -1733,12 +1794,63 @@ def _software_engineering_profile_score(candidate_text):
     return max(0.0, min(100.0, profile_score))
 
 
+def _parse_experience_years(value):
+    """Return numeric experience years from CSV/PDF extracted values."""
+    if value is None:
+        return None
+
+    if isinstance(value, (int, float)):
+        if pd.isna(value):
+            return None
+        return max(0.0, float(value))
+
+    text = str(value).strip()
+    if not text or text.lower() in {"n/a", "na", "none", "nan", "not found"}:
+        return None
+
+    match = re.search(r"\d+(?:\.\d+)?", text)
+    if not match:
+        return None
+
+    return max(0.0, float(match.group(0)))
+
+
+def _extract_required_experience_years(job_text):
+    """Extract minimum years requested by the job description, if available."""
+    lower_job = (job_text or "").lower()
+    patterns = [
+        r"(\d+(?:\.\d+)?)\s*\+\s*years?",
+        r"minimum\s+(?:of\s+)?(\d+(?:\.\d+)?)\s*years?",
+        r"at\s+least\s+(\d+(?:\.\d+)?)\s*years?",
+        r"(\d+(?:\.\d+)?)\s*(?:or\s+more|plus)\s+years?",
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, lower_job)
+        if match:
+            return max(0.5, float(match.group(1)))
+
+    return None
+
+
+def _experience_score(years, required_years=None):
+    """Score candidate experience from 0-100 for a small final-score bonus."""
+    if years is None:
+        return 0.0
+
+    if required_years:
+        return min(100.0, (years / required_years) * 100)
+
+    # When the job description does not state a requirement, treat 5 years as
+    # enough to receive full experience credit.
+    return min(100.0, (years / 5.0) * 100)
+
+
 def predict_fit_batch_from_dataframe(df, job_text):
     import numpy as _np
-    from sklearn.feature_extraction.text import TfidfVectorizer as _TfidfVectorizer
-    from sklearn.metrics.pairwise import cosine_similarity as _cosine_similarity
 
     candidate_texts = []
+    experience_years = []
     for _, row in df.iterrows():
         candidate = {
             "Education": row.get("Education", ""),
@@ -1751,52 +1863,25 @@ def predict_fit_batch_from_dataframe(df, job_text):
             "Project_Details": row.get("Project_Details", "")
         }
         candidate_texts.append(candidate_to_text_format(candidate))
+        experience_years.append(_parse_experience_years(row.get("Experience_Years", None)))
 
     normalized_job_text = normalize_text_for_matching(job_text)
-    raw_sim = []
-    for candidate_text in candidate_texts:
-        tfidf = _TfidfVectorizer(stop_words="english", max_features=500, ngram_range=(1, 2))
-        tfidf_matrix = tfidf.fit_transform([candidate_text, normalized_job_text])
-        raw_sim.append(float(_cosine_similarity(tfidf_matrix[0], tfidf_matrix[1]).flatten()[0]))
-    raw_sim = _np.array(raw_sim)
-
-    # Scale scores to a meaningful 0–100 range.
-    # Map: raw 0 → 10 (minimum baseline), raw max → 95 (best possible).
-    # This keeps relative ranking intact while producing readable percentages.
-    text_scores = 20 + _np.sqrt(_np.clip(raw_sim, 0, 1)) * 70
-
-    weighted_terms = _get_job_weighted_terms(normalized_job_text)
-    skill_scores = _np.array([
-        _weighted_term_score(candidate_text, weighted_terms)
-        for candidate_text in candidate_texts
+    required_experience_years = _extract_required_experience_years(normalized_job_text)
+    experience_scores = _np.array([
+        _experience_score(years, required_experience_years)
+        for years in experience_years
     ])
-
-    if weighted_terms:
-        skill_scores = _np.sqrt(skill_scores / 100) * 100
-        scaled = (text_scores * 0.5) + (skill_scores * 0.5)
-    else:
-        scaled = text_scores
-
-    if _is_data_ai_job(normalized_job_text):
-        data_scores = _np.array([
-            _data_ai_profile_score(candidate_text)
-            for candidate_text in candidate_texts
-        ])
-        scaled = (scaled * 0.75) + (data_scores * 0.25)
-
-    if _is_software_engineering_job(normalized_job_text):
-        software_scores = _np.array([
-            _software_engineering_profile_score(candidate_text)
-            for candidate_text in candidate_texts
-        ])
-        scaled = (scaled * 0.65) + (software_scores * 0.35)
+    scaled = _np.array(score_semantic_candidates(
+        candidate_texts,
+        normalized_job_text,
+        experience_scores=experience_scores,
+    ))
 
     df_result = df.copy()
-    scaled = _np.clip(scaled, 5, 95)
+    scaled = _np.clip(scaled, 0, 99)
     df_result["Fit_Percentage"] = [round(float(s), 2) for s in scaled]
 
     return df_result.sort_values("Fit_Percentage", ascending=False).reset_index(drop=True)
-
 
 @app.route('/api/batch-predict-preview', methods=['POST', 'OPTIONS'])
 def batch_predict_preview():
@@ -1865,13 +1950,13 @@ def batch_predict_pdfs_preview():
     temp_files = []
 
     try:
-        # The current PDF matching path uses local TF-IDF/heuristic scoring and
+        # The current PDF matching path uses semantic similarity scoring and
         # does not require the legacy pickled sklearn model. Try loading it for
         # health visibility, but do not block predictions on version mismatch.
         if model is None or vectorizer is None:
             if not load_model_global():
                 logger.warning(
-                    "Legacy CV model is unavailable; continuing with TF-IDF heuristic scoring."
+                    "Legacy CV model is unavailable; continuing with semantic similarity scoring."
                 )
 
         if 'job_pdf' not in request.files:
@@ -2039,7 +2124,7 @@ def batch_predict_csv():
     if model is None or vectorizer is None:
         if not load_model_global():
             logger.warning(
-                "Legacy CV model is unavailable; continuing with TF-IDF heuristic scoring."
+                "Legacy CV model is unavailable; continuing with semantic similarity scoring."
             )
 
     temp_files = []
@@ -2185,7 +2270,7 @@ def batch_predict_pdfs():
     if model is None or vectorizer is None:
         if not load_model_global():
             logger.warning(
-                "Legacy CV model is unavailable; continuing with TF-IDF heuristic scoring."
+                "Legacy CV model is unavailable; continuing with semantic similarity scoring."
             )
 
     temp_files = []
