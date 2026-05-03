@@ -185,11 +185,14 @@ def get_recommendation(row):
 
     if row["attendance_rate"] <= 2:
         recommendations.append("Improve attendance")
-    if row["overtime_hours"] >= 25:
+    # Raised threshold: 35h+ is genuinely excessive; 25-34h is manageable
+    if row["overtime_hours"] >= 35:
         recommendations.append("Reduce overtime")
     if row["training_hours"] < 15:
         recommendations.append("Increase training")
-    if row["projects_handled"] >= 10 or row["Predicted_Productivity_Risk"] in ["Medium", "High"]:
+    # Only flag workload for very high project count OR confirmed High risk
+    # (avoids contradicting the productivity score boost for moderate project counts)
+    if row["projects_handled"] >= 20 or row["Predicted_Productivity_Risk"] == "High":
         recommendations.append("Monitor workload")
     if row["avg_task_completion"] <= 2:
         recommendations.append("Improve task completion")
@@ -218,11 +221,20 @@ def predict_productivity_percentage(input_data: pd.DataFrame):
 
     attendance_factor = np.where(attendance_rate <= 2, 0.72, np.where(attendance_rate == 3, 0.86, 1.0))
     task_factor = np.where(task_completion <= 2, 0.74, np.where(task_completion == 3, 0.88, 1.0))
-    overtime_factor = np.where(overtime_hours >= 30, 0.92, np.where(overtime_hours >= 25, 0.96, 1.0))
+    # 4-tier overtime: 40h+ severe | 30-39h moderate | 20-29h mild | <20h neutral
+    overtime_factor = np.where(
+        overtime_hours >= 40, 0.85,
+        np.where(
+            overtime_hours >= 30, 0.92,
+            np.where(overtime_hours >= 20, 0.96, 1.0)
+        )
+    )
     training_factor = np.where(training_hours < 10, 0.94, np.where(training_hours < 15, 0.98, 1.0))
-    project_factor = np.where(projects_handled >= 15, 1.03, np.where(projects_handled >= 10, 1.01, 1.0))
+    # project_factor REMOVED: the 1.03x boost for high projects directly contradicted
+    # the Monitor workload recommendation for the same employees.
+    # The ANN already captures project-productivity correlation from training data.
 
-    calibration_factor = attendance_factor * task_factor * overtime_factor * training_factor * project_factor
+    calibration_factor = attendance_factor * task_factor * overtime_factor * training_factor
     calibration_factor = np.clip(calibration_factor, 0.45, 1.05)
     predictions = np.clip(predictions * calibration_factor, 0, 100)
 
@@ -307,32 +319,34 @@ def generate_prediction_graphs(results: pd.DataFrame, result_stem: str) -> dict:
     ).fillna(0)
 
     # 1) Employee Productivity Comparison
+    pred_col = "Predicted_Productivity" if "Predicted_Productivity" in plot_df.columns else "Predicted_Feedback_Percentage"
+    
     fig_width = max(12, min(24, len(plot_df) * 0.38))
     plt.figure(figsize=(fig_width, 6))
     plt.bar(
         plot_df["_Employee_ID"],
-        plot_df["Predicted_Feedback_Percentage"],
+        plot_df[pred_col],
         color="#5b7cfa",
     )
     plt.xlabel("Employee_ID")
-    plt.ylabel("Predicted_Feedback_Percentage")
-    plt.title("Employee Feedback Comparison")
+    plt.ylabel("Predicted Productivity (%)")
+    plt.title("Employee Productivity Comparison")
     plt.xticks(rotation=70, ha="right", fontsize=8)
     plt.tight_layout()
     plt.savefig(output_paths["employee_productivity_comparison"], dpi=160, bbox_inches="tight")
     plt.close()
 
     # 2) Top 10 Employees by Predicted Productivity
-    top10_df = plot_df.sort_values("Predicted_Feedback_Percentage", ascending=False).head(10)
+    top10_df = plot_df.sort_values(pred_col, ascending=False).head(10)
     plt.figure(figsize=(12, 6))
     plt.bar(
         top10_df["_Employee_ID"],
-        top10_df["Predicted_Feedback_Percentage"],
+        top10_df[pred_col],
         color="#0ea5a8",
     )
     plt.xlabel("Employee_ID")
-    plt.ylabel("Predicted_Feedback_Percentage")
-    plt.title("Top 10 Employees by Predicted Feedback")
+    plt.ylabel("Predicted Productivity (%)")
+    plt.title("Top 10 Employees by Predicted Productivity")
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
     plt.savefig(output_paths["top_10_productivity"], dpi=160, bbox_inches="tight")
@@ -371,8 +385,13 @@ def generate_prediction_graphs(results: pd.DataFrame, result_stem: str) -> dict:
 
 
 def save_prediction_excel(results: pd.DataFrame, excel_path: str):
-    risk_counts = results["Predicted_Productivity_Risk"].value_counts().to_dict()
-    class_counts = results["Productivity_Class"].value_counts().to_dict()
+    excel_results = results.copy()
+    excel_results = excel_results.rename(columns={
+        "Predicted_Feedback_Percentage": "Predicted_Productivity"
+    })
+
+    risk_counts = excel_results["Predicted_Productivity_Risk"].value_counts().to_dict()
+    class_counts = excel_results["Productivity_Class"].value_counts().to_dict()
 
     summary_df = pd.DataFrame(
         {
@@ -389,10 +408,10 @@ def save_prediction_excel(results: pd.DataFrame, excel_path: str):
                 "High Productivity Class Count",
             ],
             "Value": [
-                int(len(results)),
-                float(results["Predicted_Feedback_Percentage"].mean()),
-                float(results["Predicted_Feedback_Percentage"].min()),
-                float(results["Predicted_Feedback_Percentage"].max()),
+                int(len(excel_results)),
+                float(excel_results["Predicted_Productivity"].mean()),
+                float(excel_results["Predicted_Productivity"].min()),
+                float(excel_results["Predicted_Productivity"].max()),
                 int(risk_counts.get("Low", 0)),
                 int(risk_counts.get("Medium", 0)),
                 int(risk_counts.get("High", 0)),
@@ -403,12 +422,12 @@ def save_prediction_excel(results: pd.DataFrame, excel_path: str):
         }
     )
 
-    top10_df = results.sort_values("Predicted_Feedback_Percentage", ascending=False).head(10).copy()
+    top10_df = excel_results.sort_values("Predicted_Productivity", ascending=False).head(10).copy()
     if "Employee_ID" not in top10_df.columns and "employee_id" in top10_df.columns:
         top10_df.rename(columns={"employee_id": "Employee_ID"}, inplace=True)
 
     with pd.ExcelWriter(excel_path) as writer:
-        results.to_excel(writer, sheet_name="Predictions", index=False)
+        excel_results.to_excel(writer, sheet_name="Predictions", index=False)
         summary_df.to_excel(writer, sheet_name="Summary", index=False)
         top10_df.to_excel(writer, sheet_name="Top10", index=False)
 
@@ -542,7 +561,12 @@ def predict_batch():
         timestamp_token = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_filename = f"productivity_results_{timestamp_token}.csv"
         output_path = os.path.join(app.config["RESULT_FOLDER"], output_filename)
-        results.to_csv(output_path, index=False)
+        
+        csv_results = results.copy()
+        csv_results = csv_results.rename(columns={
+            "Predicted_Feedback_Percentage": "Predicted_Productivity"
+        })
+        csv_results.to_csv(output_path, index=False)
 
         output_stem = os.path.splitext(output_filename)[0]
         output_excel_filename = f"{output_stem}.xlsx"

@@ -2,17 +2,20 @@ from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import joblib
 import pandas as pd
-from scipy.sparse import hstack
+# UNUSED: legacy sklearn feature stacking import; semantic scoring no longer uses it.
+# from scipy.sparse import hstack
 import pdfplumber
 import os
 import sys
 import warnings
 from werkzeug.utils import secure_filename
-import logging
+# UNUSED: top-level logging import; this file uses Setup_File.logger instead.
+# import logging
 from datetime import datetime
 import json
 import traceback
-import tempfile
+# UNUSED: no temporary-file APIs are used directly in this module.
+# import tempfile
 import time
 import re
 import uuid
@@ -264,8 +267,9 @@ def load_model_global():
                 with warnings.catch_warnings():
                     warnings.filterwarnings("ignore")
                     # Try with different protocol
-                    import importlib
-                    import sklearn
+                    # UNUSED: these legacy compatibility imports are not referenced.
+                    # import importlib
+                    # import sklearn
                     model = joblib.load(MODEL_PATH, mmap_mode=None)
                     vectorizer = joblib.load(VECTORIZER_PATH, mmap_mode=None)
                 model_load_error = None
@@ -455,6 +459,12 @@ def extract_job_role_from_job_text(job_text):
         return ""
 
 
+r'''
+UNUSED legacy taxonomy code.
+The current semantic matching flow uses semantic_matching.extract_skills()
+through extract_technologies_from_text(), so these helpers are not called by
+the active routes.
+
 def load_technology_taxonomy():
     """Load local technology aliases used for Experience_Source extraction."""
     global _TECH_TAXONOMY_CACHE
@@ -500,6 +510,7 @@ def load_technology_taxonomy():
     return _TECH_TAXONOMY_CACHE
 
 
+# UNUSED with load_technology_taxonomy(); kept for legacy reference only.
 def _technology_alias_matches(text, alias):
     compact_text = re.sub(r"[^a-z0-9+#.]+", "", (text or "").lower())
     compact_alias = re.sub(r"[^a-z0-9+#.]+", "", (alias or "").lower())
@@ -514,6 +525,7 @@ def _technology_alias_matches(text, alias):
         return alias_lower in text or compact_alias in compact_text
 
     return bool(re.search(rf"(?<![a-z0-9+#.]){re.escape(alias_lower)}(?![a-z0-9+#.])", text))
+'''
 
 
 def extract_technologies_from_text(text):
@@ -1581,6 +1593,10 @@ def candidate_to_text_format(candidate):
             f"{normalize_text_for_matching(candidate.get('Job_Role_Applied', ''))}")
 
 
+r'''
+UNUSED legacy manual scoring helpers.
+Current candidate fit scoring is handled by semantic_matching.score_candidates().
+
 def _contains_term(text, term):
     compact_text = re.sub(r"[^a-z0-9+#]+", "", (text or "").lower())
     compact_term = re.sub(r"[^a-z0-9+#]+", "", (term or "").lower())
@@ -1792,6 +1808,7 @@ def _software_engineering_profile_score(candidate_text):
         profile_score -= 7
 
     return max(0.0, min(100.0, profile_score))
+'''
 
 
 def _parse_experience_years(value):
@@ -1883,6 +1900,10 @@ def predict_fit_batch_from_dataframe(df, job_text):
 
     return df_result.sort_values("Fit_Percentage", ascending=False).reset_index(drop=True)
 
+r'''
+UNUSED legacy CSV preview endpoint.
+The active CandidateFitPredictor frontend uses /api/batch-predict-pdfs-preview.
+
 @app.route('/api/batch-predict-preview', methods=['POST', 'OPTIONS'])
 def batch_predict_preview():
     # Handle preflight request
@@ -1932,6 +1953,7 @@ def batch_predict_preview():
         logger.error(f"Preview error: {str(e)}")
         logger.error(traceback.format_exc())
         return jsonify({'success': False, 'error': str(e)}), 500
+'''
 
 
 @app.route('/api/batch-predict-pdfs-preview', methods=['POST', 'OPTIONS'])
@@ -2105,6 +2127,10 @@ def health_check():
     })
 
 
+r'''
+UNUSED legacy CSV + job-PDF endpoint.
+The active CandidateFitPredictor frontend uses /api/batch-predict-pdfs.
+
 @app.route('/api/batch-predict-csv', methods=['POST', 'OPTIONS'])
 def batch_predict_csv():
     # Handle preflight request
@@ -2252,6 +2278,7 @@ def batch_predict_csv():
                     logger.info(f"Cleaned up temporary file: {file_path}")
             except Exception as e:
                 logger.error(f"Error cleaning up file {file_path}: {str(e)}")
+'''
 
 
 @app.route('/api/batch-predict-pdfs', methods=['POST', 'OPTIONS'])
@@ -2464,6 +2491,10 @@ def download_file(filename):
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
+r'''
+UNUSED optional admin endpoints.
+The current frontend does not call manual cleanup or result listing.
+
 @app.route('/api/cleanup', methods=['POST'])
 def manual_cleanup():
     """
@@ -2481,6 +2512,8 @@ def manual_cleanup():
 
 
 @app.route('/api/list-results', methods=['GET'])
+# UNUSED by the current frontend.
+# Optional admin/history endpoint; downloads work through /api/download/<filename>.
 def list_results():
     """
     List all available result files
@@ -2509,6 +2542,7 @@ def list_results():
     except Exception as e:
         logger.error(f"List results error: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
+'''
 
 
 # Error handlers

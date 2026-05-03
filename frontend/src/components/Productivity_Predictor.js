@@ -120,7 +120,7 @@ const EmployeeProductivity = () => {
 
           if (response.ok) {
             const data = await response.json();
-          const modelsLoaded = Boolean(data?.models_loaded ?? data?.model_loaded);
+            const modelsLoaded = Boolean(data?.models_loaded ?? data?.model_loaded);
             setError('');
             setApiStatus({
               status: 'connected',
@@ -1286,9 +1286,9 @@ const EmployeeProductivity = () => {
   const getPreviewEmployeeId = (row) => String(row.employee_id || row.Employee_ID || '').trim();
   const getPreviewRiskLevel = (row) => String(row.Predicted_Productivity_Risk || row.Risk_Level || row.risk_level || 'Unknown').trim();
 
-    const getSimplifiedRiskLevel = (fullRiskLevel) => {
-      return String(fullRiskLevel || '').split(' - ')[0].trim() || 'Unknown';
-    };
+  const getSimplifiedRiskLevel = (fullRiskLevel) => {
+    return String(fullRiskLevel || '').split(' - ')[0].trim() || 'Unknown';
+  };
   const getPreviewProductivityValue = (row) => {
     const baseScore = Number(row.Productivity_Score);
     return Number.isFinite(baseScore) ? baseScore : 0;
@@ -1693,7 +1693,10 @@ const EmployeeProductivity = () => {
             'role_level',
             'position',
             'Predicted_Feedback_Percentage',
+            'Predicted Productivity',
+            'Predicted_Productivity',
             'Predicted_Productivity_Percentage',
+            'Productivity_Prediction',
             'Predicted_Productivity_Risk',
             'Risk_Level',
             'Output_Summary',
@@ -1715,6 +1718,9 @@ const EmployeeProductivity = () => {
           training_hours: 'Training Hours',
           Predicted_Productivity_Percentage: 'Productivity Prediction',
           Predicted_Feedback_Percentage: 'Productivity Prediction',
+          'Predicted Productivity': 'Productivity Prediction',
+          'Predicted_Productivity': 'Productivity Prediction',
+          Productivity_Prediction: 'Productivity Prediction',
           Predicted_Productivity_Risk: 'Risk Level',
           Productivity_Class: 'Productivity Class',
           Predicted_Class: 'Productivity Class',
@@ -1878,7 +1884,7 @@ const EmployeeProductivity = () => {
               </div>
             </div>
 
-            
+
 
             <div className="stat-card">
               <i className="fas fa-tachometer-alt"></i>
@@ -2232,35 +2238,49 @@ const EmployeeProductivity = () => {
           )}
 
           {predictionGraphCards.length > 0 && (
-            <div className="risk-pie-section">
-              <div className="risk-pie-header">
-                <h4>Employee Output Comparison Graphs</h4>
+            <div className="risk-pie-section" style={{ background: 'linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%)', padding: '32px', borderRadius: '24px', border: 'none', marginTop: '32px' }}>
+              <div className="risk-pie-header" style={{ borderBottom: 'none', paddingBottom: '0', marginBottom: '24px' }}>
+                <h4 style={{ color: '#1e1b4b', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', margin: 0 }}>Employee Output Comparison Graphs</h4>
               </div>
 
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '16px',
-                  marginTop: '12px',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '24px',
                 }}
               >
                 {predictionGraphCards.map((graphCard) => (
                   <article
                     key={graphCard.key}
                     style={{
-                      border: '1px solid var(--chart-border)',
-                      background: 'var(--chart-surface)',
-                      borderRadius: '14px',
-                      padding: '14px',
+                      background: '#ffffff',
+                      borderRadius: '20px',
+                      padding: '24px',
+                      boxShadow: '0 10px 40px -10px rgba(77, 47, 178, 0.08)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                      cursor: 'default',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.boxShadow = '0 14px 45px -10px rgba(77, 47, 178, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 10px 40px -10px rgba(77, 47, 178, 0.08)';
                     }}
                   >
-                    <h5 style={{ margin: '0 0 6px 0', color: 'var(--chart-text)', fontSize: '0.98rem' }}>{graphCard.title}</h5>
-                    <p style={{ margin: '0 0 10px 0', color: 'var(--chart-text-muted)', fontSize: '0.86rem' }}>{graphCard.description}</p>
+                    <div>
+                      <h5 style={{ margin: '0 0 12px 0', color: '#312e81', fontSize: '1.15rem', fontWeight: '600', lineHeight: '1.3' }}>{graphCard.title}</h5>
+                      <p style={{ margin: '0 0 24px 0', color: '#6366f1', fontSize: '0.95rem', lineHeight: '1.5', opacity: '0.8' }}>{graphCard.description}</p>
+                    </div>
                     <img
                       src={`${API_BASE_URL}${graphCard.url}`}
                       alt={graphCard.title}
-                      style={{ width: '100%', borderRadius: '10px', border: '1px solid var(--chart-border)' }}
+                      style={{ width: '100%', height: 'auto', borderRadius: '12px', border: '1px solid #f1f5f9', objectFit: 'contain' }}
                       loading="lazy"
                     />
                   </article>

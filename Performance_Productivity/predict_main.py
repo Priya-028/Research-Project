@@ -103,11 +103,13 @@ def get_recommendation(row):
 
     if row["attendance_rate"] <= 2:
         recommendations.append("Improve attendance")
-    if row["overtime_hours"] >= 25:
+    # Raised threshold: 35h+ is genuinely excessive; 25-34h is manageable
+    if row["overtime_hours"] >= 35:
         recommendations.append("Reduce overtime")
     if row["training_hours"] < 15:
         recommendations.append("Increase training")
-    if row["projects_handled"] >= 10 or row["Predicted_Productivity_Risk"] in ["Medium", "High"]:
+    # Only flag workload for very high project count OR confirmed High risk
+    if row["projects_handled"] >= 20 or row["Predicted_Productivity_Risk"] == "High":
         recommendations.append("Monitor workload")
 
     if row["avg_task_completion"] <= 2:
@@ -143,11 +145,19 @@ def generate_predictions(input_df: pd.DataFrame):
 
     attendance_factor = np.where(attendance_rate <= 2, 0.72, np.where(attendance_rate == 3, 0.86, 1.0))
     task_factor = np.where(task_completion <= 2, 0.74, np.where(task_completion == 3, 0.88, 1.0))
-    overtime_factor = np.where(overtime_hours >= 30, 0.92, np.where(overtime_hours >= 25, 0.96, 1.0))
+    # 4-tier overtime: 40h+ severe | 30-39h moderate | 20-29h mild | <20h neutral
+    overtime_factor = np.where(
+        overtime_hours >= 40, 0.85,
+        np.where(
+            overtime_hours >= 30, 0.92,
+            np.where(overtime_hours >= 20, 0.96, 1.0)
+        )
+    )
     training_factor = np.where(training_hours < 10, 0.94, np.where(training_hours < 15, 0.98, 1.0))
-    project_factor = np.where(projects_handled >= 15, 1.03, np.where(projects_handled >= 10, 1.01, 1.0))
+    # project_factor REMOVED: the 1.03x boost for high projects directly contradicted
+    # the Monitor workload recommendation for the same employees.
 
-    calibration_factor = attendance_factor * task_factor * overtime_factor * training_factor * project_factor
+    calibration_factor = attendance_factor * task_factor * overtime_factor * training_factor
     calibration_factor = np.clip(calibration_factor, 0.45, 1.05)
     predicted_productivity = np.clip(predicted_productivity * calibration_factor, 0, 100)
 
@@ -198,10 +208,19 @@ def generate_predictions(input_df: pd.DataFrame):
 def save_outputs(results: pd.DataFrame):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    results.to_csv(OUTPUT_CSV, index=False)
+    csv_results = results.copy()
+    csv_results = csv_results.rename(columns={
+        "Predicted_Feedback_Percentage": "Predicted_Productivity"
+    })
+    csv_results.to_csv(OUTPUT_CSV, index=False)
+
+    excel_results = results.copy()
+    excel_results = excel_results.rename(columns={
+        "Predicted_Feedback_Percentage": "Predicted_Productivity"
+    })
 
     with pd.ExcelWriter(OUTPUT_XLSX, engine="openpyxl") as writer:
-        results.to_excel(writer, sheet_name="Predictions", index=False)
+        excel_results.to_excel(writer, sheet_name="Predictions", index=False)
 
         summary = pd.DataFrame({
             "Metric": [
@@ -217,16 +236,16 @@ def save_outputs(results: pd.DataFrame):
                 "High Risk Count",
             ],
             "Value": [
-                len(results),
-                round(results["Predicted_Feedback_Percentage"].mean(), 2),
-                round(results["Predicted_Feedback_Percentage"].min(), 2),
-                round(results["Predicted_Feedback_Percentage"].max(), 2),
-                int((results["Productivity_Class"] == "Low").sum()),
-                int((results["Productivity_Class"] == "Medium").sum()),
-                int((results["Productivity_Class"] == "High").sum()),
-                int((results["Predicted_Productivity_Risk"] == "Low").sum()),
-                int((results["Predicted_Productivity_Risk"] == "Medium").sum()),
-                int((results["Predicted_Productivity_Risk"] == "High").sum()),
+                len(excel_results),
+                round(excel_results["Predicted_Productivity"].mean(), 2),
+                round(excel_results["Predicted_Productivity"].min(), 2),
+                round(excel_results["Predicted_Productivity"].max(), 2),
+                int((excel_results["Productivity_Class"] == "Low").sum()),
+                int((excel_results["Productivity_Class"] == "Medium").sum()),
+                int((excel_results["Productivity_Class"] == "High").sum()),
+                int((excel_results["Predicted_Productivity_Risk"] == "Low").sum()),
+                int((excel_results["Predicted_Productivity_Risk"] == "Medium").sum()),
+                int((excel_results["Predicted_Productivity_Risk"] == "High").sum()),
             ]
         })
         summary.to_excel(writer, sheet_name="Summary", index=False)
@@ -271,10 +290,11 @@ def generate_graphs(results: pd.DataFrame):
     if "Employee_ID" not in plot_df.columns:
         plot_df["Employee_ID"] = ["Emp_" + str(i + 1) for i in range(len(plot_df))]
 
-    top10 = plot_df.sort_values("Predicted_Feedback_Percentage", ascending=False).head(10)
+    pred_col = "Predicted_Productivity" if "Predicted_Productivity" in plot_df.columns else "Predicted_Feedback_Percentage"
+    top10 = plot_df.sort_values(pred_col, ascending=False).head(10)
 
     plt.figure(figsize=(12, 6))
-    plt.bar(top10["Employee_ID"].astype(str), top10["Predicted_Feedback_Percentage"])
+    plt.bar(top10["Employee_ID"].astype(str), top10[pred_col])
     plt.xlabel("Employee")
     plt.ylabel("Predicted Productivity Percentage")
     plt.title("Top 10 Employees by Predicted Productivity")
