@@ -5,6 +5,14 @@ import { semanticCss, semanticHex } from './common/semanticPalette';
 import html2pdf from "html2pdf.js";
 import Swal from "sweetalert2";
 
+// Sub-components for modular architecture
+import CandidatesOverview from './DynamicInterview/CandidatesOverview';
+import InterviewSetup from './DynamicInterview/InterviewSetup';
+import SubmissionAnalytics from './DynamicInterview/SubmissionAnalytics';
+import SkillsMatrix from './DynamicInterview/SkillsMatrix';
+import ResponseDetails from './DynamicInterview/ResponseDetails';
+import PDFExportTemplates from './DynamicInterview/PDFExportTemplates';
+
 const API_BASE_URL = "http://localhost:5004";
 const CANDIDATES_PAGE_SIZE = 10;
 
@@ -264,6 +272,12 @@ const DynamicInterview = () => {
     "DevOps Engineer",
     "HR Manager",
     "Cybersecurity Specialist",
+    "Product Manager",
+    "Software Architect",
+    "Data Engineer",
+    "QA Engineer",
+    "Technical Lead",
+    "SRE",
   ];
 
   const fetchCandidates = async () => {
@@ -374,8 +388,14 @@ const DynamicInterview = () => {
     return semanticHex.danger;
   };
 
+  const getConsistencyColor = (score) => {
+    if (score >= 0.8) return semanticHex.success;
+    if (score >= 0.6) return semanticHex.warning;
+    return semanticHex.danger;
+  };
+
   const handleGenerateInterviewLink = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setLoading(true);
     setError("");
     setCopyStatus("");
@@ -418,7 +438,7 @@ const DynamicInterview = () => {
   };
 
   const handleLoadExistingInterview = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const id = (lookupInterviewId || "").trim();
     if (!id) return;
     setLoading(true);
@@ -476,18 +496,10 @@ const DynamicInterview = () => {
 
       {apiStatus && (
         <div className={`api-status ${apiStatus.status}`}>
-          <i
-            className={`fas fa-${apiStatus.status === "connected" ? "check-circle" : "exclamation-circle"}`}
-          ></i>
+          <i className={`fas fa-${apiStatus.status === "connected" ? "check-circle" : "exclamation-circle"}`} />
           <span>{apiStatus.message}</span>
-          <button
-            onClick={checkApiHealth}
-            className="refresh-status"
-            disabled={isCheckingApi}
-          >
-            <i
-              className={`fas fa-sync-alt ${isCheckingApi ? "fa-spin" : ""}`}
-            ></i>
+          <button onClick={checkApiHealth} className="refresh-status" disabled={isCheckingApi}>
+            <i className={`fas fa-sync-alt ${isCheckingApi ? "fa-spin" : ""}`} />
             {isCheckingApi ? "Checking..." : "Refresh"}
           </button>
         </div>
@@ -497,1047 +509,171 @@ const DynamicInterview = () => {
         <div className="productivity-input-switcher-header">
           <div>
             <h3>Choose Workspace View</h3>
-            <p>Toggle between interview setup tools and candidate submission insights without showing both at once.</p>
+            <p>Toggle between interview setup tools and candidate submission insights.</p>
           </div>
           <div className="productivity-input-toggle" role="tablist" aria-label="Dynamic interview views">
             <button
               type="button"
-              role="tab"
-              aria-selected={dashboardView === "interview"}
-              className={`productivity-input-toggle-btn ${
-                dashboardView === "interview" ? "active" : ""
-              }`}
+              className={`productivity-input-toggle-btn ${dashboardView === "interview" ? "active" : ""}`}
               onClick={() => setDashboardView("interview")}
             >
-              <i className="fas fa-plus-circle"></i>
-              <span>Interview Setup &amp; Link</span>
+              <i className="fas fa-plus-circle" />
+              <span>Interview Setup & Link</span>
             </button>
             <button
               type="button"
-              role="tab"
-              aria-selected={dashboardView === "candidates"}
-              className={`productivity-input-toggle-btn ${
-                dashboardView === "candidates" ? "active" : ""
-              }`}
+              className={`productivity-input-toggle-btn ${dashboardView === "candidates" ? "active" : ""}`}
               onClick={() => setDashboardView("candidates")}
             >
-              <i className="fas fa-users"></i>
+              <i className="fas fa-users" />
               <span>Candidates Details</span>
             </button>
           </div>
         </div>
       </section>
 
-
       {error && (
         <div className="error-message">
-          <i className="fas fa-exclamation-circle"></i>
+          <i className="fas fa-exclamation-circle" />
           <span>{error}</span>
-          <button onClick={() => setError("")} className="dismiss-error">
-            ×
-          </button>
+          <button onClick={() => setError("")} className="dismiss-error">×</button>
         </div>
       )}
 
       <div className="productivity-input-panel interview-view-panel" key={dashboardView}>
-      {dashboardView === "candidates" &&
-        (() => {
-          const totalCandidates = candidates.length;
-          const avgScore =
-            totalCandidates > 0
-              ? Math.round(
-                  candidates.reduce(
-                    (acc, c) => acc + (c.average_score || 0),
-                    0,
-                  ) / totalCandidates,
-                )
-              : 0;
-
-          const filteredCandidates = candidates.filter((c) => {
-            if (!searchQuery) return true;
-            const term = searchQuery.toLowerCase();
-            return (
-              (c.candidate_name?.toLowerCase() || "").includes(term) ||
-              (c.candidate_email?.toLowerCase() || "").includes(term) ||
-              (c.role?.toLowerCase() || "").includes(term) ||
-              (c.interview_id?.toLowerCase() || "").includes(term)
-            );
-          });
-
-          const candidateTotalPages = Math.max(
-            1,
-            Math.ceil(filteredCandidates.length / CANDIDATES_PAGE_SIZE),
-          );
-          const safeCandidatePage = Math.min(candidatePage, candidateTotalPages);
-          const paginatedCandidates = filteredCandidates.slice(
-            (safeCandidatePage - 1) * CANDIDATES_PAGE_SIZE,
-            safeCandidatePage * CANDIDATES_PAGE_SIZE,
-          );
-          const showingFrom =
-            filteredCandidates.length === 0
-              ? 0
-              : (safeCandidatePage - 1) * CANDIDATES_PAGE_SIZE + 1;
-          const showingTo = Math.min(
-            safeCandidatePage * CANDIDATES_PAGE_SIZE,
-            filteredCandidates.length,
-          );
-
-          return (
-            <div className="interview-section">
-              <h3>Candidates Overview</h3>
-
-              <div className="analytics-row">
-                <div className="analytics-card">
-                  <div className="icon">
-                    <i className="fas fa-users" />
-                  </div>
-                  <div className="info">
-                    <span>Total Candidates</span>
-                    <strong>{totalCandidates}</strong>
-                  </div>
-                </div>
-                <div className="analytics-card">
-                  <div className="icon">
-                    <i className="fas fa-star" style={{ color: semanticCss.warning }} />
-                  </div>
-                  <div className="info">
-                    <span>Average Score</span>
-                    <strong>
-                      {totalCandidates > 0 ? `${avgScore}%` : "—"}
-                    </strong>
-                  </div>
-                </div>
-              </div>
-
-              <div className="filters-card" style={{ marginBottom: 24 }}>
-                <div
-                  className="form-row candidates-filters-row"
-                  style={{
-                    display: "flex",
-                    gap: 16,
-                    flexWrap: "wrap",
-                    alignItems: "stretch",
-                  }}
-                >
-                  <div className="form-group live-search-wrapper">
-                    <label style={{ visibility: "hidden" }}>Search</label>
-                    <div className="live-search-container">
-                      <i className="fas fa-search" />
-                      <input
-                        type="text"
-                        className="live-search-input"
-                        placeholder="Search name, email, role, or ID..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group" style={{ minWidth: 160 }}>
-                    <label>Role</label>
-                    <select
-                      value={candidateRoleFilter}
-                      onChange={(e) => setCandidateRoleFilter(e.target.value)}
-                    >
-                      <option value="">All roles</option>
-                      {ROLES.map((r) => (
-                        <option key={r} value={r}>
-                          {r}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="form-group" style={{ width: 100 }}>
-                    <label>Min %</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value={candidateMinScore}
-                      onChange={(e) => setCandidateMinScore(e.target.value)}
-                      placeholder="0"
-                    />
-                  </div>
-                  <div className="form-group" style={{ width: 100 }}>
-                    <label>Max %</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value={candidateMaxScore}
-                      onChange={(e) => setCandidateMaxScore(e.target.value)}
-                      placeholder="100"
-                    />
-                  </div>
-                  <div className="form-group candidates-filter-action">
-                    <label style={{ visibility: "hidden" }}>Refresh</label>
-                    <button
-                      type="button"
-                      className="evaluate-btn candidates-filter-refresh-btn"
-                      onClick={fetchCandidates}
-                      disabled={candidatesLoading}
-                    >
-                      <i
-                        className={`fas fa-sync-alt ${candidatesLoading ? "fa-spin" : ""}`}
-                      />
-                      {candidatesLoading ? " Loading..." : " Refresh"}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="results-list">
-                {candidatesLoading ? (
-                  <div style={{ marginTop: 24 }}>
-                    <div className="skeleton-box skeleton-card"></div>
-                    <div className="skeleton-box skeleton-card"></div>
-                    <div className="skeleton-box skeleton-card"></div>
-                  </div>
-                ) : candidates.length === 0 ? (
-                  <div className="empty-state-container">
-                    <i className="fas fa-inbox empty-state-icon" />
-                    <h4>No submissions yet</h4>
-                    <p>
-                      Generate an interview link from the "Interview Setup" tab
-                      and share it. Candidate submissions will appear here.
-                    </p>
-                  </div>
-                ) : filteredCandidates.length === 0 ? (
-                  <div
-                    className="empty-state-container"
-                    style={{ padding: "32px 24px" }}
-                  >
-                    <i
-                      className="fas fa-search empty-state-icon"
-                      style={{ fontSize: "2.5rem" }}
-                    />
-                    <h4>No matches found</h4>
-                    <p>Try adjusting your search query or filters.</p>
-                  </div>
-                ) : (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "16px",
-                    }}
-                  >
-                    <div
-                      style={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      <button
-                        type="button"
-                        className="generate-btn"
-                        style={{
-                          padding: "8px 16px",
-                          fontSize: "0.9rem",
-                        }}
-                        onClick={handleBulkDownloadPDF}
-                        disabled={
-                          isGeneratingBulkPDF || candidates.length === 0
-                        }
-                      >
-                        <i
-                          className={`fas ${isGeneratingBulkPDF ? "fa-spinner fa-spin" : "fa-file-pdf"}`}
-                        />
-                        {isGeneratingBulkPDF ? " Processing..." : " Export PDF"}
-                      </button>
-                    </div>
-                    <div
-                      style={{
-                        color: "#64748b",
-                        fontSize: "0.95rem",
-                        fontWeight: 500,
-                      }}
-                    >
-                      Total rows: {filteredCandidates.length} | Showing {showingFrom}-{showingTo}
-                    </div>
-                    <div className="candidates-table-wrap">
-                      <table className="candidates-table">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Role</th>
-                            <th>Interview ID</th>
-                            <th className="candidates-table-cell-score">Avg Score</th>
-                            <th>Submitted</th>
-                            <th className="candidates-table-cell-actions">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {paginatedCandidates.map((c) => (
-                            <tr key={`${c.interview_id}-${c.submission_id}`}>
-                              <td>{c.candidate_name || "—"}</td>
-                              <td>{c.candidate_email || "—"}</td>
-                              <td>{c.candidate_phone || "—"}</td>
-                              <td>{c.role || "—"}</td>
-                              <td
-                                className="candidates-table-cell-id"
-                                style={{
-                                  fontFamily: "monospace",
-                                  fontSize: "0.85rem",
-                                }}
-                              >
-                                {c.interview_id}
-                              </td>
-                              <td className="candidates-table-cell-score">
-                                <span
-                                  className="score-badge candidates-score-badge"
-                                  style={{
-                                    backgroundColor: getScoreColor(
-                                      c.average_score,
-                                    ),
-                                    color: "#fff",
-                                    padding: "4px 8px",
-                                    borderRadius: 6,
-                                    fontWeight: 600,
-                                  }}
-                                >
-                                  {c.average_score}%
-                                </span>
-                              </td>
-                              <td
-                                className="candidates-table-cell-submitted"
-                                style={{
-                                  fontSize: "0.85rem",
-                                  color: "#6b7280",
-                                }}
-                              >
-                                {c.submitted_at
-                                  ? new Date(c.submitted_at).toLocaleString()
-                                  : "—"}
-                              </td>
-                              <td className="candidates-table-cell-actions">
-                                <div className="candidates-table-actions">
-                                  <button
-                                    type="button"
-                                    className="action-icon-btn primary"
-                                    title="View Details"
-                                    onClick={() => {
-                                      setInterviewId(c.interview_id);
-                                      setOpenSubmissionId(c.submission_id);
-                                      setDashboardView("interview");
-                                    }}
-                                  >
-                                    <i className="fas fa-eye"></i>
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="action-icon-btn success"
-                                    title="Download PDF"
-                                    onClick={() => handleDownloadRowPDF(c)}
-                                  >
-                                    <i
-                                      className={`fas ${autoDownloadPdfId === c.submission_id ? "fa-spinner fa-spin" : "fa-file-pdf"}`}
-                                    ></i>
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="action-icon-btn danger"
-                                    title="Delete Candidate"
-                                    onClick={() =>
-                                      handleDeleteCandidate(
-                                        c.interview_id,
-                                        c.submission_id,
-                                        c.candidate_name,
-                                      )
-                                    }
-                                  >
-                                    <i className="fas fa-trash-alt"></i>
-                                  </button>
-                                </div>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                    {filteredCandidates.length > CANDIDATES_PAGE_SIZE && (
-                      <div className="preview-pagination">
-                        <button
-                          type="button"
-                          className="preview-page-btn"
-                          onClick={() =>
-                            setCandidatePage((page) => Math.max(1, page - 1))
-                          }
-                          disabled={safeCandidatePage === 1}
-                        >
-                          Previous
-                        </button>
-                        <span className="preview-page-indicator">
-                          Page {safeCandidatePage} of {candidateTotalPages}
-                        </span>
-                        <button
-                          type="button"
-                          className="preview-page-btn"
-                          onClick={() =>
-                            setCandidatePage((page) =>
-                              Math.min(candidateTotalPages, page + 1),
-                            )
-                          }
-                          disabled={safeCandidatePage === candidateTotalPages}
-                        >
-                          Next
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })()}
-
-      {dashboardView === "interview" && (
-        <>
-          <div className="interview-setup-card">
-            <h3>Interview Setup</h3>
-            <form onSubmit={handleGenerateInterviewLink}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Job Role *</label>
-                  <select
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                    required
-                  >
-                    <option value="">-- Select Job Role --</option>
-                    <option value="Mobile Developer">Mobile Developer</option>
-                    <option value="Frontend Developer">
-                      Frontend Developer
-                    </option>
-                    <option value="Backend Engineer">Backend Engineer</option>
-                    <option value="BI Analyst">BI Analyst</option>
-                    <option value="ML Engineer">ML Engineer</option>
-                    <option value="Cloud Engineer">Cloud Engineer</option>
-                    <option value="Data Scientist">Data Scientist</option>
-                    <option value="DevOps Engineer">DevOps Engineer</option>
-                    <option value="HR Manager">HR Manager</option>
-                    <option value="Cybersecurity Specialist">
-                      Cybersecurity Specialist
-                    </option>
-                  </select>
-                </div>
-
-                <div className="form-group" style={{ display: "none" }}>
-                  <label>Number of Questions</label>
-                  <input
-                    type="number"
-                    value={numQuestions}
-                    onChange={(e) =>
-                      setNumQuestions(parseInt(e.target.value) || 10)
-                    }
-                    min="1"
-                    max="10"
-                  />
-                </div>
-              </div>
-
-              <button type="submit" className="generate-btn" disabled={loading}>
-                {loading ? (
-                  <>
-                    <i className="fas fa-spinner fa-spin"></i>
-                    Generating Link...
-                  </>
-                ) : (
-                  <>
-                    <i className="fas fa-magic"></i>
-                    Generate Interview Link
-                  </>
-                )}
-              </button>
-            </form>
-
-            <hr
-              style={{
-                margin: "18px 0",
-                border: "none",
-                borderTop: "1px dashed rgba(148, 163, 184, 0.6)",
-              }}
+        {dashboardView === "candidates" ? (
+          <CandidatesOverview 
+            candidates={candidates}
+            loading={candidatesLoading}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            candidateRoleFilter={candidateRoleFilter}
+            setCandidateRoleFilter={setCandidateRoleFilter}
+            candidateMinScore={candidateMinScore}
+            setCandidateMinScore={setCandidateMinScore}
+            candidateMaxScore={candidateMaxScore}
+            setCandidateMaxScore={setCandidateMaxScore}
+            candidatePage={candidatePage}
+            setCandidatePage={setCandidatePage}
+            pageSize={CANDIDATES_PAGE_SIZE}
+            ROLES={ROLES}
+            onViewDetails={(iid, sid) => {
+              setInterviewId(iid);
+              setOpenSubmissionId(sid);
+              setDashboardView("interview");
+            }}
+            onDeleteCandidate={handleDeleteCandidate}
+            onDownloadRowPDF={handleDownloadRowPDF}
+            getScoreColor={getScoreColor}
+            semanticCss={semanticCss}
+            fetchCandidates={fetchCandidates}
+            isGeneratingBulkPDF={isGeneratingBulkPDF}
+            onBulkDownload={handleBulkDownloadPDF}
+            autoDownloadPdfId={autoDownloadPdfId}
+          />
+        ) : (
+          <>
+            <InterviewSetup 
+              role={role}
+              setRole={setRole}
+              numQuestions={numQuestions}
+              setNumQuestions={setNumQuestions}
+              onGenerateInterviewLink={handleGenerateInterviewLink}
+              loading={loading}
+              interviewId={interviewId}
+              shareLink={shareLink}
+              onCopyLink={handleCopyLink}
+              copyStatus={copyStatus}
+              lookupInterviewId={lookupInterviewId}
+              setLookupInterviewId={setLookupInterviewId}
+              onLoadExistingInterview={handleLoadExistingInterview}
+              ROLES={ROLES}
+              interviewDetails={interviewDetails}
+              apiStatus={apiStatus}
+              isCheckingApi={isCheckingApi}
+              submissions={submissions}
+              fetchSubmissions={fetchSubmissions}
+              selectedSubmissionId={selectedSubmissionId}
+              isLoadingSubmission={isLoadingSubmission}
+              fetchSubmissionDetails={fetchSubmissionDetails}
+              selectedSubmission={selectedSubmission}
+              getScoreColor={getScoreColor}
+              getConsistencyColor={getConsistencyColor}
+              onDeleteCandidate={handleDeleteCandidate}
+              onDownloadPDF={handleDownloadPDF}
+              isGeneratingPDF={isGeneratingPDF}
             />
 
-            <h4>Load existing interview</h4>
-            <p style={{ fontSize: "0.85rem", color: "#6b7280" }}>
-              Paste the interview ID from a previously shared link (the last
-              part of the candidate URL) to view their scores again.
-            </p>
-            <form onSubmit={handleLoadExistingInterview}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Interview ID</label>
-                  <input
-                    type="text"
-                    value={lookupInterviewId}
-                    onChange={(e) => setLookupInterviewId(e.target.value)}
-                    placeholder="e.g. add76c4c47f2"
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="generate-btn"
-                disabled={loading || !lookupInterviewId.trim()}
-              >
-                <i className="fas fa-search"></i>
-                Load Interview
-              </button>
-            </form>
-          </div>
-
-          {interviewId && (
-            <div className="interview-section">
-              <h3>Shareable Candidate Link</h3>
-
-              <div className="link-widget-container">
-                <label
-                  style={{
-                    fontSize: "0.9rem",
-                    fontWeight: 600,
-                    color: "#334155",
-                  }}
-                >
-                  Candidate Link
-                </label>
-                <div className="link-input-group">
-                  <input type="text" value={shareLink} readOnly />
-                  <div className="link-actions">
-                    <button
-                      type="button"
-                      className="btn-copy"
-                      onClick={handleCopyLink}
-                    >
-                      <i className="fas fa-copy"></i> Copy
+            {selectedSubmission && interviewId && (
+              <div className="results-list" style={{ marginTop: 32 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }} className="action-buttons no-print">
+                  <h4 style={{ margin: 0 }}>Detailed Analysis</h4>
+                  <div style={{ display: "flex", gap: "10px" }}>
+                    <button type="button" className="evaluate-btn danger-btn" onClick={() => handleDeleteCandidate()}>
+                      <i className="fas fa-trash-alt" /> Delete Results
                     </button>
-                    <a
-                      className="btn-open"
-                      href={shareLink}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <i className="fas fa-external-link-alt"></i> Open
-                    </a>
+                    <button type="button" className="generate-btn" onClick={handleDownloadPDF} disabled={isGeneratingPDF}>
+                      <i className={`fas ${isGeneratingPDF ? "fa-spinner fa-spin" : "fa-file-pdf"}`} />
+                      {isGeneratingPDF ? " Formatting..." : " Download PDF"}
+                    </button>
                   </div>
                 </div>
-                {(copyStatus || interviewId) && (
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      fontSize: "0.8rem",
-                      color: "#64748b",
-                      marginTop: "2px",
-                    }}
-                  >
-                    {copyStatus ? (
-                      <span style={{ color: semanticCss.success, fontWeight: 500 }}>
-                        <i
-                          className="fas fa-check-circle"
-                          style={{ marginRight: 4 }}
-                        ></i>{" "}
-                        {copyStatus}
+
+                <div className="pdf-visible-container">
+                  <div className="result-card" style={{ marginBottom: 32 }}>
+                    <div className="result-header">
+                      <span className="question-number">{selectedSubmission.candidate_name}</span>
+                      <span className="score-badge" style={{ backgroundColor: "var(--color-accent)" }}>
+                        Master Score: {selectedSubmission.average_score}%
                       </span>
-                    ) : (
-                      <span>Share this unique link with your candidate.</span>
-                    )}
-                    {interviewId && (
-                      <span>
-                        ID:{" "}
-                        <code
-                          style={{
-                            background: "#f1f5f9",
-                            padding: "2px 6px",
-                            borderRadius: 4,
-                          }}
-                        >
-                          {interviewId}
-                        </code>
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {interviewDetails?.questions?.length > 0 && (
-                <>
-                  <h4 style={{ marginTop: 18 }}>Generated Questions</h4>
-                  <p
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "#64748b",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <i className="fas fa-lock" style={{ marginRight: 4 }} />{" "}
-                    These questions are locked and ready for the candidate.
-                  </p>
-                  <div
-                    className="compact-question-list"
-                    style={{ userSelect: "auto", pointerEvents: "none" }}
-                  >
-                    {interviewDetails.questions.map((q, idx) => (
-                      <div
-                        key={idx}
-                        className="compact-question-item"
-                        style={{ background: "#f8fafc" }}
-                      >
-                        <span
-                          className="q-number"
-                          style={{ background: "#e2e8f0" }}
-                        >
-                          Q{idx + 1}
-                        </span>
-                        <p className="q-text" style={{ flex: 1, margin: 0 }}>
-                          {q}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              <div
-                className="action-buttons"
-                style={{ justifyContent: "space-between" }}
-              >
-                <button
-                  className="evaluate-btn"
-                  type="button"
-                  onClick={() => fetchSubmissions(interviewId)}
-                  disabled={loading}
-                >
-                  <i className="fas fa-sync-alt"></i> Refresh Submissions
-                </button>
-              </div>
-
-              <div className="results-list">
-                <h4>Candidate Submissions (Semantic Scores)</h4>
-                {submissions.length === 0 ? (
-                  <div className="result-card">
-                    <p style={{ margin: 0 }}>
-                      No submissions yet. Share the link with a candidate and
-                      refresh after they submit.
-                    </p>
-                  </div>
-                ) : (
-                  submissions.map((s) => (
-                    <div key={s.submission_id} className="result-card">
-                      <div className="result-header">
-                        <span className="question-number">
-                          {s.candidate_name || "Candidate"}
-                        </span>
-                        <span
-                          className="score-badge"
-                          style={{ backgroundColor: "#4facfe" }}
-                        >
-                          Avg: {s.average_score}%
-                        </span>
-                      </div>
-                      <div className="question-text">
-                        <span className="data-label">Email:</span>{" "}
-                        <span style={{ color: "#1e293b" }}>
-                          {s.candidate_email || "N/A"}
-                        </span>
-                      </div>
-                      <div className="question-text">
-                        <span className="data-label">Phone:</span>{" "}
-                        <span style={{ color: "#1e293b" }}>
-                          {s.candidate_phone || "N/A"}
-                        </span>
-                      </div>
-                      <div className="question-text">
-                        <span className="data-label">Submitted:</span>{" "}
-                        <span style={{ color: "#1e293b" }}>
-                          {s.submitted_at}
-                        </span>
-                      </div>
-                      <div
-                        className="question-text"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                        }}
-                      >
-                        <span className="data-label">Performance:</span>
-                        <span
-                          style={{
-                            background: semanticCss.successSoft,
-                            color: semanticCss.successText,
-                            padding: "2px 8px",
-                            borderRadius: "4px",
-                            fontSize: "0.85rem",
-                            fontWeight: "600",
-                            border: `1px solid ${semanticCss.successBorder}`,
-                          }}
-                        >
-                          {s.strong_matches} Strong
-                        </span>
-                        <span
-                          style={{
-                            background: semanticCss.dangerSoft,
-                            color: semanticCss.dangerText,
-                            padding: "2px 8px",
-                            borderRadius: "4px",
-                            fontSize: "0.85rem",
-                            fontWeight: "600",
-                            border: `1px solid ${semanticCss.dangerBorder}`,
-                          }}
-                        >
-                          {s.weak_matches} Weak
-                        </span>
-                      </div>
-                      <div
-                        className="action-buttons"
-                        style={{ justifyContent: "flex-end", marginTop: 10 }}
-                      >
-                        <button
-                          type="button"
-                          className="evaluate-btn"
-                          onClick={() =>
-                            fetchSubmissionDetails(interviewId, s.submission_id)
-                          }
-                          disabled={isLoadingSubmission}
-                          style={{
-                            padding: "8px 12px",
-                            fontSize: "0.85rem",
-                            background:
-                              selectedSubmissionId === s.submission_id
-                                ? "#e0e7ff"
-                                : undefined,
-                          }}
-                        >
-                          <i className="fas fa-eye"></i>
-                          {selectedSubmissionId === s.submission_id
-                            ? " Viewing"
-                            : " View details"}
-                        </button>
-                      </div>
                     </div>
-                  ))
-                )}
-              </div>
-
-              {selectedSubmission && (
-                <div className="results-list" style={{ marginTop: 18 }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginBottom: "1rem",
-                    }}
-                    className="action-buttons no-print"
-                  >
-                    <h4 style={{ margin: 0 }}>Detailed Responses</h4>
-                    <div style={{ display: "flex", gap: "10px" }}>
-                      <button
-                        type="button"
-                        className="evaluate-btn danger-btn"
-                        style={{ padding: "8px 16px", fontSize: "0.9rem" }}
-                        onClick={handleDeleteCandidate}
-                      >
-                        <i className="fas fa-trash-alt"></i> Delete Candidate
-                      </button>
-                      <button
-                        type="button"
-                        className="generate-btn"
-                        style={{ padding: "8px 16px", fontSize: "0.9rem" }}
-                        onClick={handleDownloadPDF}
-                        disabled={isGeneratingPDF}
-                      >
-                        <i
-                          className={`fas ${isGeneratingPDF ? "fa-spinner fa-spin" : "fa-file-pdf"}`}
-                        ></i>
-                        {isGeneratingPDF ? " Formatting..." : " Download PDF"}
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="pdf-visible-container">
-                    <div className="result-card">
-                      <div className="result-header">
-                        <span className="question-number">
-                          {selectedSubmission.candidate_name || "Candidate"}
-                        </span>
-                        <span
-                          className="score-badge"
-                          style={{ backgroundColor: "var(--color-accent)" }}
-                        >
-                          Avg: {selectedSubmission.average_score}%
-                        </span>
-                      </div>
-                      <div className="question-text">
-                        <span className="data-label">Email:</span>{" "}
-                        <span style={{ color: "#1e293b" }}>
-                          {selectedSubmission.candidate_email || "N/A"}
-                        </span>
-                      </div>
-                      <div className="question-text">
-                        <span className="data-label">Phone:</span>{" "}
-                        <span style={{ color: "#1e293b" }}>
-                          {selectedSubmission.candidate_phone || "N/A"}
-                        </span>
-                      </div>
-                      <div className="question-text">
-                        <span className="data-label">Submitted:</span>{" "}
-                        <span style={{ color: "#1e293b" }}>
-                          {selectedSubmission.submitted_at}
-                        </span>
-                      </div>
+                    <div className="candidate-id-meta" style={{ display: 'flex', gap: '24px', padding: '16px 0', borderBottom: '1px solid #f1f5f9', marginBottom: '24px' }}>
+                       <div style={{ fontSize: '0.85rem' }}><span style={{ color: '#94a3b8' }}>EMAIL:</span> <span style={{ color: '#1e293b', fontWeight: 600 }}>{selectedSubmission.candidate_email}</span></div>
+                       <div style={{ fontSize: '0.85rem' }}><span style={{ color: '#94a3b8' }}>PHONE:</span> <span style={{ color: '#1e293b', fontWeight: 600 }}>{selectedSubmission.candidate_phone || 'N/A'}</span></div>
+                       <div style={{ fontSize: '0.85rem' }}><span style={{ color: '#94a3b8' }}>SUBMITTED:</span> <span style={{ color: '#1e293b', fontWeight: 600 }}>{selectedSubmission.submitted_at}</span></div>
                     </div>
 
-                    {(selectedSubmission.results || []).map((r) => (
-                      <div key={r.question_number} className="result-card">
-                        <div className="result-header">
-                          <span className="question-number">
-                            Question {r.question_number}
-                          </span>
-                          <span
-                            className="score-badge"
-                            style={{ backgroundColor: getScoreColor(r.score) }}
-                          >
-                            {r.score}%
-                          </span>
-                        </div>
-                        <div className="question-text">
-                          <span
-                            className="data-label"
-                            style={{ color: "var(--color-accent)" }}
-                          >
-                            Q:
-                          </span>{" "}
-                          {r.question}
-                        </div>
-                        <div className="answer-comparison">
-                          <div className="candidate-answer">
-                            <span
-                              className="data-label"
-                              style={{ display: "block", marginBottom: "6px" }}
-                            >
-                              Candidate Answer
-                            </span>
-                            <p>{r.candidate_answer || "No answer provided"}</p>
-                          </div>
-                          <div className="ideal-answer">
-                            <span
-                              className="data-label"
-                              style={{ display: "block", marginBottom: "6px" }}
-                            >
-                              Ideal Answer
-                            </span>
-                            <p>{r.ideal_answer}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                    <SubmissionAnalytics 
+                      selectedSubmission={selectedSubmission}
+                      getConsistencyColor={getConsistencyColor}
+                      getScoreColor={getScoreColor}
+                    />
+
+                    <SkillsMatrix 
+                      skills={selectedSubmission.skills_matrix}
+                      results={selectedSubmission.results}
+                      getScoreColor={getScoreColor}
+                    />
+
+                    <ResponseDetails 
+                      results={selectedSubmission.results}
+                      getScoreColor={getScoreColor}
+                    />
                   </div>
                 </div>
-              )}
-            </div>
-          )}
-        </>
-      )}
+              </div>
+            )}
+          </>
+        )}
       </div>
 
-      <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
-        <div
-          ref={bulkReportRef}
-          className="pdf-export-container pdf-export-landscape"
-        >
-          <h2
-            style={{
-              textAlign: "center",
-              marginBottom: "8px",
-              color: "#1e293b",
-            }}
-          >
-            Candidate List
-          </h2>
-          <p
-            style={{
-              textAlign: "center",
-              marginBottom: "20px",
-              color: "#64748b",
-              fontSize: "14px",
-            }}
-          >
-            Exported on {new Date().toLocaleDateString()}
-          </p>
-
-          <table className="bulk-report-table">
-            <thead>
-              <tr>
-                <th>Candidate Name</th>
-                <th>Role</th>
-                <th>Avg Score</th>
-                <th>Date Submitted</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dashboardView === "candidates" &&
-                candidates
-                  .filter((c) => {
-                    if (!searchQuery) return true;
-                    const term = searchQuery.toLowerCase();
-                    return (
-                      (c.candidate_name?.toLowerCase() || "").includes(term) ||
-                      (c.candidate_email?.toLowerCase() || "").includes(term) ||
-                      (c.role?.toLowerCase() || "").includes(term) ||
-                      (c.interview_id?.toLowerCase() || "").includes(term)
-                    );
-                  })
-                  .filter((c) => {
-                    let match = true;
-                    if (candidateRoleFilter && c.role !== candidateRoleFilter)
-                      match = false;
-                    if (
-                      candidateMinScore &&
-                      c.average_score < parseFloat(candidateMinScore)
-                    )
-                      match = false;
-                    if (
-                      candidateMaxScore &&
-                      c.average_score > parseFloat(candidateMaxScore)
-                    )
-                      match = false;
-                    return match;
-                  })
-                  .map((c) => (
-                    <tr key={c.submission_id}>
-                      <td style={{ fontWeight: 600 }}>
-                        {c.candidate_name || "—"}
-                      </td>
-                      <td>{c.role || "—"}</td>
-                      <td
-                        style={{
-                          color: getScoreColor(c.average_score),
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {c.average_score}%
-                      </td>
-                      <td>
-                        {c.submitted_at
-                          ? new Date(c.submitted_at).toLocaleDateString()
-                          : "—"}
-                      </td>
-                      <td>{c.candidate_email || "—"}</td>
-                    </tr>
-                  ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {selectedSubmission && (
-        <div style={{ position: "absolute", top: "-9999px", left: "-9999px" }}>
-          <div
-            ref={reportRef}
-            className="pdf-export-container pdf-export-portrait"
-          >
-            <h2>Candidate Interview Report</h2>
-
-            <div className="pdf-header-card">
-              <div
-                className="result-header"
-                style={{
-                  marginBottom: "15px",
-                  paddingBottom: "15px",
-                  borderBottom: "1px dashed #cbd5e1",
-                }}
-              >
-                <span
-                  className="question-number"
-                  style={{ fontSize: "18px", fontWeight: "bold" }}
-                >
-                  {selectedSubmission.candidate_name || "Candidate"}
-                </span>
-                <span
-                  className="score-badge"
-                  style={{
-                    backgroundColor: "#4f46e5",
-                    color: "#fff",
-                    padding: "4px 10px",
-                    borderRadius: "6px",
-                    fontSize: "14px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Overall Match: {selectedSubmission.average_score}%
-                </span>
-              </div>
-              <div className="question-text">
-                <span className="data-label">Email:</span>
-                <span style={{ color: "#1e293b", fontWeight: "500" }}>
-                  {selectedSubmission.candidate_email || "N/A"}
-                </span>
-              </div>
-              <div className="question-text">
-                <span className="data-label">Phone:</span>
-                <span style={{ color: "#1e293b", fontWeight: "500" }}>
-                  {selectedSubmission.candidate_phone || "N/A"}
-                </span>
-              </div>
-              <div className="question-text">
-                <span className="data-label">Submitted:</span>
-                <span style={{ color: "#1e293b", fontWeight: "500" }}>
-                  {selectedSubmission.submitted_at}
-                </span>
-              </div>
-            </div>
-
-            {(selectedSubmission.results || []).map((r) => (
-              <div key={r.question_number} className="pdf-question-card">
-                <div className="result-header">
-                  <span
-                    className="question-number"
-                    style={{ fontSize: "16px", fontWeight: "600" }}
-                  >
-                    Question {r.question_number}
-                  </span>
-                  <span
-                    className="score-badge"
-                    style={{
-                      backgroundColor: getScoreColor(r.score),
-                      color: "#fff",
-                      padding: "4px 8px",
-                      borderRadius: "4px",
-                      fontSize: "13px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Score: {r.score}%
-                  </span>
-                </div>
-                <div className="question-text">{r.question}</div>
-                <div className="pdf-answer-section">
-                  <div className="pdf-answer-block candidate">
-                    <span className="pdf-answer-label">Candidate Answer</span>
-                    <p className="pdf-answer-text">
-                      {r.candidate_answer || "No answer provided"}
-                    </p>
-                  </div>
-                  <div className="pdf-answer-block ideal">
-                    <span className="pdf-answer-label">
-                      Ideal Answer Requirement
-                    </span>
-                    <p className="pdf-answer-text">{r.ideal_answer}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <PDFExportTemplates 
+        ref={{ bulkReportRef, reportRef }}
+        candidates={candidates}
+        searchQuery={searchQuery}
+        candidateRoleFilter={candidateRoleFilter}
+        candidateMinScore={candidateMinScore}
+        candidateMaxScore={candidateMaxScore}
+        dashboardView={dashboardView}
+        selectedSubmission={selectedSubmission}
+        interviewDetails={interviewDetails}
+        getScoreColor={getScoreColor}
+        getConsistencyColor={getConsistencyColor}
+      />
 
       {toastMessage && (
         <div className="toast-container">
-          <i className="fas fa-check-circle toast-icon"></i>
+          <i className="fas fa-check-circle toast-icon" />
           <span>{toastMessage}</span>
         </div>
       )}

@@ -9,6 +9,7 @@ import re
 import json
 import uuid
 import threading
+import math
 
 # Load .env so OPENAI_API_KEY is set before QuestionGenerator/Config are imported
 def _load_dotenv():
@@ -107,6 +108,7 @@ def _pick_questions_with_ideal_answers(role: str, n_questions: int):
 
     questions = []
     ideal_answers = []
+    skills = []
     previous_questions = []
     seen = set()
     openai_success_count = 0
@@ -120,6 +122,7 @@ def _pick_questions_with_ideal_answers(role: str, n_questions: int):
 
             q = str(item.get("question", "")).strip()
             a = str(item.get("ideal_answer", "")).strip()
+            s = str(item.get("skill", "General")).strip() or "General"
 
             if not q or not a:
                 logger.warning("OpenAI returned empty question or ideal answer")
@@ -132,6 +135,7 @@ def _pick_questions_with_ideal_answers(role: str, n_questions: int):
 
             questions.append(q)
             ideal_answers.append(a)
+            skills.append(s)
             previous_questions.append(q)
             seen.add(q_key)
             openai_success_count += 1
@@ -142,47 +146,57 @@ def _pick_questions_with_ideal_answers(role: str, n_questions: int):
     fallback_pairs = [
         (
             f"What experience do you have as a {role}?",
-            f"A strong answer should explain relevant experience as a {role}, the main tools or technologies used, challenges handled, and measurable outcomes."
+            f"A strong answer should explain relevant experience as a {role}, the main tools or technologies used, challenges handled, and measurable outcomes.",
+            "Experience"
         ),
         (
             f"Describe a challenging project you handled as a {role}.",
-            f"A strong answer should describe the project context, responsibilities, technical challenges, actions taken, and the final result."
+            f"A strong answer should describe the project context, responsibilities, technical challenges, actions taken, and the final result.",
+            "Project Delivery"
         ),
         (
             f"What are the most important skills for a {role}?",
-            f"A strong answer should mention core technical skills, problem-solving ability, communication, collaboration, and role-specific best practices."
+            f"A strong answer should mention core technical skills, problem-solving ability, communication, collaboration, and role-specific best practices.",
+            "Core Skills"
         ),
         (
             f"How do you approach problem-solving in a {role} position?",
-            f"A strong answer should explain a structured approach such as understanding the issue, analyzing options, implementing a solution, testing, and learning from results."
+            f"A strong answer should explain a structured approach such as understanding the issue, analyzing options, implementing a solution, testing, and learning from results.",
+            "Problem Solving"
         ),
         (
             f"How do you stay updated with trends and tools related to {role}?",
-            f"A strong answer should mention continuous learning through documentation, courses, community discussions, practical experimentation, and applying new knowledge appropriately."
+            f"A strong answer should mention continuous learning through documentation, courses, community discussions, practical experimentation, and applying new knowledge appropriately.",
+            "Continuous Learning"
         ),
         (
             f"How do you measure success in a {role} role?",
-            f"A strong answer should explain measurable outcomes, KPIs, quality of work, stakeholder value, and continuous improvement."
+            f"A strong answer should explain measurable outcomes, KPIs, quality of work, stakeholder value, and continuous improvement.",
+            "Impact Measurement"
         ),
         (
             f"How do you communicate technical findings as a {role} to non-technical stakeholders?",
-            f"A strong answer should explain simplifying complex ideas, using visuals or examples, focusing on business impact, and adapting communication to the audience."
+            f"A strong answer should explain simplifying complex ideas, using visuals or examples, focusing on business impact, and adapting communication to the audience.",
+            "Communication"
         ),
         (
             f"What tools and techniques do you use most often as a {role}?",
-            f"A strong answer should mention role-specific tools, why they are used, how they improve efficiency, and examples of practical use."
+            f"A strong answer should mention role-specific tools, why they are used, how they improve efficiency, and examples of practical use.",
+            "Tools and Techniques"
         ),
         (
             f"Describe a time when you improved a process in your {role} work.",
-            f"A strong answer should describe the original process, the problem identified, the improvement made, and the measurable impact."
+            f"A strong answer should describe the original process, the problem identified, the improvement made, and the measurable impact.",
+            "Process Improvement"
         ),
         (
             f"What challenges are common in a {role} position, and how do you handle them?",
-            f"A strong answer should identify realistic role challenges, explain a practical strategy to address them, and show problem-solving ability."
+            f"A strong answer should identify realistic role challenges, explain a practical strategy to address them, and show problem-solving ability.",
+            "Risk Handling"
         ),
     ]
 
-    for fq, fa in fallback_pairs:
+    for fq, fa, fs in fallback_pairs:
         if len(questions) >= n_questions:
             break
 
@@ -190,6 +204,7 @@ def _pick_questions_with_ideal_answers(role: str, n_questions: int):
         if fq_key not in seen:
             questions.append(fq)
             ideal_answers.append(fa)
+            skills.append(fs)
             previous_questions.append(fq)
             seen.add(fq_key)
 
@@ -197,7 +212,7 @@ def _pick_questions_with_ideal_answers(role: str, n_questions: int):
         f"_pick_questions_with_ideal_answers: role={role}, OpenAI success count={openai_success_count}, total returned={len(questions)}"
     )
 
-    return questions[:n_questions], ideal_answers[:n_questions], (
+    return questions[:n_questions], ideal_answers[:n_questions], skills[:n_questions], (
         "openai" if openai_success_count > 0 else "fallback"
     )
 
@@ -261,7 +276,7 @@ def create_interview():
         if not role.strip():
             return jsonify({"success": False, "error": "Job role is required"}), 400
 
-        questions, ideal_answers, source = _pick_questions_with_ideal_answers(role, n_questions)
+        questions, ideal_answers, skills, source = _pick_questions_with_ideal_answers(role, n_questions)
         interview_id = uuid.uuid4().hex[:12]
         now = datetime.now().isoformat()
 
@@ -273,6 +288,7 @@ def create_interview():
                 "created_at": now,
                 "questions": questions,
                 "ideal_answers": ideal_answers,
+                "skills": skills,
                 "source": source,
                 "submissions": []
             }
@@ -331,6 +347,8 @@ def submit_interview(interview_id):
         candidate_email = (payload.get("candidate_email") or "").strip()
         candidate_phone = (payload.get("candidate_phone") or payload.get("phone") or "").strip()
         answers = payload.get("answers") or []
+        audio_metrics = payload.get("audio_metrics") or {}
+        proctoring_logs = payload.get("proctoring_logs") or []
         logger.info(f"Submit interview: name={candidate_name!r}, email={candidate_email!r}, phone={candidate_phone!r}")
 
         with _STORE_LOCK:
@@ -342,9 +360,19 @@ def submit_interview(interview_id):
 
         questions = interview.get("questions", [])
         ideal_answers = interview.get("ideal_answers", [])
+        skills_tags = interview.get("skills", [])
+        if not isinstance(skills_tags, list):
+            skills_tags = []
+        if len(skills_tags) < len(questions):
+            skills_tags = skills_tags + ["General"] * (len(questions) - len(skills_tags))
+        skills_tags = skills_tags[:len(questions)]
 
         if not isinstance(answers, list):
             return jsonify({"success": False, "error": "answers must be a list"}), 400
+        if not isinstance(audio_metrics, dict):
+            audio_metrics = {}
+        if not isinstance(proctoring_logs, list):
+            proctoring_logs = []
 
         if len(answers) < len(questions):
             answers = answers + [""] * (len(questions) - len(answers))
@@ -352,14 +380,20 @@ def submit_interview(interview_id):
 
         results = []
         total_score = 0.0
+        skill_totals = {}
+        skill_details = {}
 
-        for i, (cand, ideal) in enumerate(zip(answers, ideal_answers), 1):
+        for i, (cand, ideal, skill) in enumerate(zip(answers, ideal_answers, skills_tags), 1):
             cand_text = str(cand or "").strip()
             ideal_text = str(ideal or "").strip()
+            skill_name = str(skill or "General").strip() or "General"
 
             try:
                 score = predict_similarity(cand_text, ideal_text)
-                score_percentage = round(score * 100, 2) if score <= 1 else round(score, 2)
+                if score <= 1:
+                    score_percentage = round(math.sqrt(max(0.0, min(1.0, score))) * 100, 2)
+                else:
+                    score_percentage = round(score, 2)
             except Exception as e:
                 logger.error(f"Error evaluating answer {i}: {str(e)}")
                 score_percentage = 0.0
@@ -368,6 +402,7 @@ def submit_interview(interview_id):
             results.append({
                 "question_number": i,
                 "question": questions[i - 1] if i - 1 < len(questions) else "",
+                "skill": skill_name,
                 "candidate_answer": cand_text,
                 "ideal_answer": ideal_text,
                 "score": score_percentage,
@@ -375,6 +410,20 @@ def submit_interview(interview_id):
                 "result_label": "Strong Match" if is_strong else "Weak Match"
             })
             total_score += score_percentage
+            skill_totals.setdefault(skill_name, []).append(score_percentage)
+            skill_details.setdefault(skill_name, []).append({
+                "question_number": i,
+                "score": score_percentage
+            })
+
+        skills_matrix = [
+            {
+                "skill": skill,
+                "score": round(sum(scores) / len(scores), 2),
+                "details": skill_details.get(skill, [])
+            }
+            for skill, scores in skill_totals.items()
+        ]
 
         average_score = round((total_score / len(results)) if results else 0.0, 2)
         submission_id = uuid.uuid4().hex[:12]
@@ -389,6 +438,9 @@ def submit_interview(interview_id):
             "average_score": average_score,
             "strong_matches": sum(1 for r in results if r.get("is_strong_match")),
             "weak_matches": sum(1 for r in results if not r.get("is_strong_match")),
+            "skills_matrix": skills_matrix,
+            "audio_metrics": audio_metrics,
+            "proctoring_logs": proctoring_logs,
         }
 
         with _STORE_LOCK:
@@ -407,6 +459,9 @@ def submit_interview(interview_id):
                 "strong_matches": submission_summary["strong_matches"],
                 "weak_matches": submission_summary["weak_matches"],
                 "results": results,
+                "skills_matrix": skills_matrix,
+                "audio_metrics": audio_metrics,
+                "proctoring_logs": proctoring_logs,
             }
             interview.setdefault("submissions", []).append(record)
             store["interviews"][interview_id] = interview
@@ -455,6 +510,9 @@ def list_submissions(interview_id):
                     "average_score",
                     "strong_matches",
                     "weak_matches",
+                    "skills_matrix",
+                    "audio_metrics",
+                    "proctoring_logs",
                 ]
             }
             for s in submissions
@@ -503,7 +561,10 @@ def get_submission_details(interview_id, submission_id):
                 "average_score": submission.get("average_score"),
                 "strong_matches": submission.get("strong_matches"),
                 "weak_matches": submission.get("weak_matches"),
-                "results": submission.get("results", [])
+                "results": submission.get("results", []),
+                "skills_matrix": submission.get("skills_matrix"),
+                "audio_metrics": submission.get("audio_metrics") or {},
+                "proctoring_logs": submission.get("proctoring_logs") or []
             }
         })
 
@@ -642,7 +703,7 @@ def generate_questions():
 
         logger.info(f"Generating {n_questions} questions for role: {role}")
 
-        questions, ideal_answers, source = _pick_questions_with_ideal_answers(role, n_questions)
+        questions, ideal_answers, _skills, source = _pick_questions_with_ideal_answers(role, n_questions)
 
         return jsonify({
             "success": True,
@@ -757,7 +818,7 @@ def full_interview():
         if not candidate_answers:
             return jsonify({"success": False, "error": "Candidate answers are required"}), 400
 
-        questions, ideal_answers, source = _pick_questions_with_ideal_answers(role, n_questions)
+        questions, ideal_answers, _skills, source = _pick_questions_with_ideal_answers(role, n_questions)
 
         while len(questions) < len(candidate_answers):
             questions.append(f"Tell me about your experience with {role}.")
