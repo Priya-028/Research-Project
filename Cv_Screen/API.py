@@ -357,7 +357,7 @@ def _extract_page_text_multicolumn(page):
         and best_gap[0] >= page_width * 0.04
         and len(gap_left_words) >= 20
         and len(gap_right_words) >= 20
-        and 0.4 <= (len(gap_right_words) / max(len(gap_left_words), 1)) <= 2.5
+        and 0.25 <= (len(gap_right_words) / max(len(gap_left_words), 1)) <= 2.5
     )
 
     is_two_column = (
@@ -365,7 +365,7 @@ def _extract_page_text_multicolumn(page):
         or (
             len(right_words) > 5
             and len(centre_words) < max(len(left_words), len(right_words)) * 0.25
-            and 0.4 <= (len(right_words) / max(len(left_words), 1)) <= 2.5
+            and 0.25 <= (len(right_words) / max(len(left_words), 1)) <= 2.5
         )
     )
 
@@ -1921,7 +1921,8 @@ def candidate_to_text_format(candidate):
             f"{certs} {certs} "
             f"{experience} {experience} "
             f"{projects} "
-            f"{technologies}")
+            f"{technologies} "
+            f"{normalize_text_for_matching(candidate.get('Job_Role_Applied', ''))}")
 
 
 r'''

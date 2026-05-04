@@ -37,6 +37,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.metrics import (classification_report, accuracy_score,
                              roc_auc_score, brier_score_loss)
+try:
+    from sklearn.frozen import FrozenEstimator
+except ImportError:
+    FrozenEstimator = None
 from xgboost import XGBClassifier
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -80,6 +84,16 @@ def build_preprocessor(numeric_features, categorical_features):
                           ('ohe', OneHotEncoder(handle_unknown='ignore'))]),
          categorical_features),
     ])
+
+
+def build_prefit_calibrator(estimator, method):
+    if FrozenEstimator is not None:
+        return CalibratedClassifierCV(
+            estimator=FrozenEstimator(estimator),
+            method=method,
+        )
+
+    return CalibratedClassifierCV(estimator, cv='prefit', method=method)
 
 
 def main():
@@ -155,7 +169,6 @@ def main():
         max_depth=4,
         learning_rate=0.05,
         scale_pos_weight=scale_pos_weight,
-        use_label_encoder=False,
         eval_metric='logloss',
         subsample=0.8,
         colsample_bytree=0.8,
@@ -193,13 +206,13 @@ def main():
     print_prob_dist("Uncalibrated XGBoost", probs_uncal)
 
     # Sigmoid Calibrated
-    cal_sigmoid = CalibratedClassifierCV(base_pipeline, cv='prefit', method='sigmoid')
+    cal_sigmoid = build_prefit_calibrator(base_pipeline, method='sigmoid')
     cal_sigmoid.fit(X_cal, y_cal)
     probs_sig = cal_sigmoid.predict_proba(X_test)[:, 1]
     print_prob_dist("Sigmoid Calibrated", probs_sig)
 
     # Isotonic Calibrated
-    cal_isotonic = CalibratedClassifierCV(base_pipeline, cv='prefit', method='isotonic')
+    cal_isotonic = build_prefit_calibrator(base_pipeline, method='isotonic')
     cal_isotonic.fit(X_cal, y_cal)
     probs_iso = cal_isotonic.predict_proba(X_test)[:, 1]
     print_prob_dist("Isotonic Calibrated", probs_iso)

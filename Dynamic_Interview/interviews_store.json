@@ -3284,6 +3284,1286 @@
           ]
         }
       ]
+    },
+    "003f81b4bdf7": {
+      "id": "003f81b4bdf7",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T11:36:09.596874",
+      "questions": [
+        "Can you explain the importance of database indexing in the context of backend development?",
+        "How do you ensure the scalability and performance of backend APIs in a high-traffic system?",
+        "How do you approach designing and implementing efficient algorithms for data processing in the backend?",
+        "Can you discuss a time when you had to optimize database queries to improve the performance of a backend service?",
+        "How do you handle authentication and authorization mechanisms in a backend application, ensuring data security and user access control?",
+        "How do you approach designing and implementing fault-tolerant systems in the backend to ensure high availability?",
+        "How do you leverage caching mechanisms in backend development to improve system performance and reduce database load?",
+        "How do you incorporate best practices for code maintainability and readability in your backend development projects?",
+        "How do you approach optimizing backend code to reduce latency and improve response times?",
+        "How do you handle asynchronous programming in backend development, and can you provide an example of when you utilized async/await for improved performance?"
+      ],
+      "ideal_answers": [
+        "Database indexing plays a crucial role in optimizing query performance by allowing the database to retrieve and filter data more efficiently. It helps speed up searches, reduce disk I/O operations, and overall improve the application's responsiveness. By carefully choosing which columns to index and monitoring their usage patterns, we can ensure that our backend systems perform effectively at scale.",
+        "As a Backend Engineer, I focus on designing efficient algorithms, optimizing database queries, caching frequently accessed data, using appropriate data structures, and employing asynchronous processing where applicable to ensure the scalability and performance of our backend APIs in high-traffic systems.",
+        "As a Backend Engineer, I prioritize analyzing the specific use case requirements to determine the most suitable algorithmic approach. This involves considering factors such as data volume, complexity, and expected performance metrics. I leverage my experience with algorithm design principles to create efficient solutions that optimize data processing speed and resource utilization. Additionally, I conduct thorough testing and performance profiling to validate the effectiveness of the chosen algorithms before integrating them into the backend system.",
+        "In my previous role, we had a slow-performing endpoint due to inefficient database queries. I identified the bottlenecks by analyzing query execution plans and indexes. By re-writing some queries, adding appropriate indexes, and denormalizing data in certain cases, we were able to significantly boost the response time of that particular service.",
+        "In handling authentication and authorization in a backend application, it's crucial to implement secure protocols such as OAuth or JWT for user identification. I ensure that only authorized users can access certain resources by setting up role-based access controls and implementing proper validation checks. Additionally, encrypting sensitive data both at rest and in transit helps maintain data security. Regularly reviewing and updating these mechanisms to stay ahead of potential security threats is also part of my approach.",
+        "As a Backend Engineer, I prioritize building fault-tolerant systems by incorporating redundancy, monitoring for failures, and implementing graceful degradation strategies. This involves designing with failover mechanisms, load balancing, and automatic recovery processes to minimize downtime and maintain system availability under various failure scenarios.",
+        "As a Backend Engineer, I acknowledge the importance of caching in optimizing system performance. By implementing caching mechanisms such as in-memory caches or content delivery networks, we can store frequently accessed data closer to the user, reducing the need for repeated database queries. This not only speeds up response times but also lessens the burden on the database, ultimately leading to improved scalability and overall efficiency of the backend system.",
+        "In my backend development projects, I prioritize code maintainability and readability by following coding standards, documenting my code properly, and using clear naming conventions. I also make use of design patterns to structure my code in a logical way that is easy to understand by other team members. Regular code reviews and refactoring sessions are important to ensure that the codebase remains clean and easy to work with over time.",
+        "As a Backend Engineer, I prioritize performance optimization by profiling code, identifying bottlenecks, and implementing efficient solutions such as algorithm improvements, asynchronous processing, or utilizing caching mechanisms. I also focus on minimizing network calls, database queries, and overall resource utilization to ensure low latency and fast response times for end-users.",
+        "In backend development, handling asynchronous operations is crucial for optimizing performance by allowing non-blocking execution. I typically use async/await to work with Promises in a more readable and manageable way. For instance, in a recent project, we implemented async functions to fetch data from multiple APIs concurrently, improving response times significantly. This approach helped us leverage the full potential of our server resources and ensure efficient handling of parallel tasks."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "0efac168f84d",
+          "candidate_name": "Gnanachandran Rasaratnam",
+          "candidate_email": "balapiriya@gmail.com",
+          "candidate_phone": "+94757100195",
+          "submitted_at": "2026-05-04T11:38:02.111926",
+          "average_score": 56.41,
+          "strong_matches": 4,
+          "weak_matches": 6,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the importance of database indexing in the context of backend development?",
+              "candidate_answer": "Indexing improves query performance by allowing the database to locate data faster instead of scanning entire tables. It’s critical for large datasets but should be used carefully since it adds overhead to write operations.",
+              "ideal_answer": "Database indexing plays a crucial role in optimizing query performance by allowing the database to retrieve and filter data more efficiently. It helps speed up searches, reduce disk I/O operations, and overall improve the application's responsiveness. By carefully choosing which columns to index and monitoring their usage patterns, we can ensure that our backend systems perform effectively at scale.",
+              "score": 80.53,
+              "is_strong_match": true,
+              "result_label": "Strong Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure the scalability and performance of backend APIs in a high-traffic system?",
+              "candidate_answer": "Use horizontal scaling (load balancers), caching, efficient database queries, rate limiting, and asynchronous processing. Also monitor performance using logging and metrics.",
+              "ideal_answer": "As a Backend Engineer, I focus on designing efficient algorithms, optimizing database queries, caching frequently accessed data, using appropriate data structures, and employing asynchronous processing where applicable to ensure the scalability and performance of our backend APIs in high-traffic systems.",
+              "score": 62.34,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "How do you approach designing and implementing efficient algorithms for data processing in the backend?",
+              "candidate_answer": "Focus on time and space complexity (Big-O), choose the right data structures, and optimize based on use case (e.g., hashing for fast lookups, queues for streaming data).",
+              "ideal_answer": "As a Backend Engineer, I prioritize analyzing the specific use case requirements to determine the most suitable algorithmic approach. This involves considering factors such as data volume, complexity, and expected performance metrics. I leverage my experience with algorithm design principles to create efficient solutions that optimize data processing speed and resource utilization. Additionally, I conduct thorough testing and performance profiling to validate the effectiveness of the chosen algorithms before integrating them into the backend system.",
+              "score": 46.68,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 4,
+              "question": "Can you discuss a time when you had to optimize database queries to improve the performance of a backend service?",
+              "candidate_answer": "I reduced API response time by adding indexes on frequently queried columns and replacing nested queries with joins. Also used query profiling to identify bottlenecks.",
+              "ideal_answer": "In my previous role, we had a slow-performing endpoint due to inefficient database queries. I identified the bottlenecks by analyzing query execution plans and indexes. By re-writing some queries, adding appropriate indexes, and denormalizing data in certain cases, we were able to significantly boost the response time of that particular service.",
+              "score": 74.2,
+              "is_strong_match": true,
+              "result_label": "Strong Match"
+            },
+            {
+              "question_number": 5,
+              "question": "How do you handle authentication and authorization mechanisms in a backend application, ensuring data security and user access control?",
+              "candidate_answer": "i dont know",
+              "ideal_answer": "In handling authentication and authorization in a backend application, it's crucial to implement secure protocols such as OAuth or JWT for user identification. I ensure that only authorized users can access certain resources by setting up role-based access controls and implementing proper validation checks. Additionally, encrypting sensitive data both at rest and in transit helps maintain data security. Regularly reviewing and updating these mechanisms to stay ahead of potential security threats is also part of my approach.",
+              "score": -2.71,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 6,
+              "question": "How do you approach designing and implementing fault-tolerant systems in the backend to ensure high availability?",
+              "candidate_answer": "Use secure methods like JWT or OAuth for authentication and role-based access control (RBAC) for authorization. Always hash passwords and enforce HTTPS.",
+              "ideal_answer": "As a Backend Engineer, I prioritize building fault-tolerant systems by incorporating redundancy, monitoring for failures, and implementing graceful degradation strategies. This involves designing with failover mechanisms, load balancing, and automatic recovery processes to minimize downtime and maintain system availability under various failure scenarios.",
+              "score": 14.48,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 7,
+              "question": "How do you leverage caching mechanisms in backend development to improve system performance and reduce database load?",
+              "candidate_answer": "Use tools like Redis or in-memory caching to store frequently accessed data, reducing database load and improving response time.",
+              "ideal_answer": "As a Backend Engineer, I acknowledge the importance of caching in optimizing system performance. By implementing caching mechanisms such as in-memory caches or content delivery networks, we can store frequently accessed data closer to the user, reducing the need for repeated database queries. This not only speeds up response times but also lessens the burden on the database, ultimately leading to improved scalability and overall efficiency of the backend system.",
+              "score": 75.62,
+              "is_strong_match": true,
+              "result_label": "Strong Match"
+            },
+            {
+              "question_number": 8,
+              "question": "How do you incorporate best practices for code maintainability and readability in your backend development projects?",
+              "candidate_answer": "Follow clean code principles, modular design, proper naming conventions, documentation, and consistent coding standards.",
+              "ideal_answer": "In my backend development projects, I prioritize code maintainability and readability by following coding standards, documenting my code properly, and using clear naming conventions. I also make use of design patterns to structure my code in a logical way that is easy to understand by other team members. Regular code reviews and refactoring sessions are important to ensure that the codebase remains clean and easy to work with over time.",
+              "score": 61.95,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 9,
+              "question": "How do you approach optimizing backend code to reduce latency and improve response times?",
+              "candidate_answer": "Optimize queries, use caching, minimize external API calls, compress responses, and use asynchronous processing.",
+              "ideal_answer": "As a Backend Engineer, I prioritize performance optimization by profiling code, identifying bottlenecks, and implementing efficient solutions such as algorithm improvements, asynchronous processing, or utilizing caching mechanisms. I also focus on minimizing network calls, database queries, and overall resource utilization to ensure low latency and fast response times for end-users.",
+              "score": 69.55,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 10,
+              "question": "How do you handle asynchronous programming in backend development, and can you provide an example of when you utilized async/await for improved performance?",
+              "candidate_answer": "Async/await allows non-blocking execution. Example: handling multiple API calls concurrently instead of sequentially to improve performance.",
+              "ideal_answer": "In backend development, handling asynchronous operations is crucial for optimizing performance by allowing non-blocking execution. I typically use async/await to work with Promises in a more readable and manageable way. For instance, in a recent project, we implemented async functions to fetch data from multiple APIs concurrently, improving response times significantly. This approach helped us leverage the full potential of our server resources and ensure efficient handling of parallel tasks.",
+              "score": 81.48,
+              "is_strong_match": true,
+              "result_label": "Strong Match"
+            }
+          ]
+        }
+      ]
+    },
+    "10803ff69a84": {
+      "id": "10803ff69a84",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T11:39:24.414667",
+      "questions": [
+        "Can you describe a challenging feature you implemented in a previous backend project and how you overcame the obstacles?",
+        "How do you ensure the backend systems you develop are scalable and able to handle increasing user loads efficiently?",
+        "Can you explain a time when you optimized database queries to improve the performance of a backend system?",
+        "How do you approach designing and implementing RESTful APIs in your backend projects?",
+        "Can you discuss a situation where you had to troubleshoot and resolve a critical issue in a backend system under tight deadlines? How did you prioritize tasks and ensure the timely resolution of the issue?",
+        "How do you ensure the security of sensitive data when developing backend systems and handling user information?",
+        "How do you stay updated with the latest backend technologies and trends to ensure your skills remain relevant and competitive in the rapidly evolving field of backend development?",
+        "How do you approach optimizing the performance of a backend service that is experiencing bottlenecks in processing a high volume of data?",
+        "How do you handle and mitigate potential security vulnerabilities in the backend code you write as a Backend Engineer?",
+        "How do you prioritize and plan your tasks when working on multiple backend features simultaneously?"
+      ],
+      "ideal_answers": [
+        "In my previous role, I was tasked with implementing a real-time notification system that required efficient handling of large amounts of data. I encountered difficulties optimizing database queries for performance. To overcome this, I fine-tuned the indexing on the tables involved and implemented caching mechanisms to reduce query load. This significantly improved the response time and overall system efficiency.",
+        "I prioritize designing efficient database schemas, optimizing query performance, utilizing caching mechanisms, implementing load balancing strategies, and closely monitoring system metrics to ensure scalability and performance as user traffic grows.",
+        "In my previous role, I worked on a project where we noticed slow response times due to inefficient database queries. I conducted a thorough analysis of the queries being executed and identified areas for optimization. By re-writing some of the queries, adding appropriate indexes, and denormalizing certain data structures, we were able to significantly improve the performance of the system. This experience taught me the importance of regularly monitoring and optimizing database interactions for better overall system performance.",
+        "When designing and implementing RESTful APIs, I focus on creating clear and consistent endpoint structures that adhere to standard HTTP methods. I ensure proper resource naming conventions, use of status codes for responses, and maintain a stateless communication between client and server. Documentation is also important to provide clear guidance for API consumers. Additionally, I consider factors like authentication, authorization, versioning, error handling, and pagination to create robust and user-friendly APIs.",
+        "In a previous role, there was an incident where our backend system went down during peak hours due to an unexpected spike in traffic. I immediately triaged the issue by isolating the root cause through log analysis and debugging. To prioritize tasks, I focused on restoring basic functionality first to minimize downtime. Once stability was regained, I collaborated with cross-functional teams to address underlying issues and implement preventive measures. By efficiently managing time and resources, we were able to resolve the problem within the deadline without compromising overall system performance.",
+        "As a Backend Engineer, I prioritize security by implementing encryption techniques, following best practices for access control, and regularly conducting security audits. I also stay updated on the latest security threats and vulnerabilities to proactively address any potential risks in our backend systems.",
+        "As a Backend Engineer, I prioritize continuous learning by regularly attending industry conferences, participating in online courses, reading tech blogs, and engaging with developer communities. By staying abreast of emerging technologies and best practices, I can leverage new tools and techniques to enhance the efficiency, scalability, and security of the backend systems I develop.",
+        "I would start by identifying the specific areas causing the bottlenecks, such as inefficient algorithms or resource-intensive operations. Then, I would analyze and implement optimizations, such as caching frequently accessed data, parallelizing tasks, or utilizing indexing for database queries. Load testing and profiling tools can help measure the impact of these optimizations to ensure they are effective in improving performance under high data loads.",
+        "As a Backend Engineer, I prioritize security in my code by following best practices such as input validation, parameterized queries to prevent SQL injection, using secure authentication methods like OAuth or JWT, and regularly updating dependencies with security patches. I also conduct regular code reviews and security audits to identify and address any vulnerabilities proactively. Additionally, staying informed about common attack vectors and keeping abreast of new security standards helps me ensure that the backend systems I develop are robust against potential threats.",
+        "When working on multiple backend features, I first assess the complexity and dependencies of each feature to determine the optimal sequence. I prioritize tasks based on their impact on project milestones and user experience. I also communicate with stakeholders to align priorities and expectations. Using tools like Kanban boards or project management software helps me track progress and ensure timely delivery of all features."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "51ab806be002",
+          "candidate_name": "PIRIYANTHINI.G it22030894",
+          "candidate_email": "it22030894@my.sliit.lk",
+          "candidate_phone": "+94757100183",
+          "submitted_at": "2026-05-04T11:40:02.198098",
+          "average_score": 3.19,
+          "strong_matches": 0,
+          "weak_matches": 10,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you describe a challenging feature you implemented in a previous backend project and how you overcame the obstacles?",
+              "candidate_answer": "vncvmc",
+              "ideal_answer": "In my previous role, I was tasked with implementing a real-time notification system that required efficient handling of large amounts of data. I encountered difficulties optimizing database queries for performance. To overcome this, I fine-tuned the indexing on the tables involved and implemented caching mechanisms to reduce query load. This significantly improved the response time and overall system efficiency.",
+              "score": 2.74,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure the backend systems you develop are scalable and able to handle increasing user loads efficiently?",
+              "candidate_answer": "cvncn",
+              "ideal_answer": "I prioritize designing efficient database schemas, optimizing query performance, utilizing caching mechanisms, implementing load balancing strategies, and closely monitoring system metrics to ensure scalability and performance as user traffic grows.",
+              "score": 6.91,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "Can you explain a time when you optimized database queries to improve the performance of a backend system?",
+              "candidate_answer": "cncvnc",
+              "ideal_answer": "In my previous role, I worked on a project where we noticed slow response times due to inefficient database queries. I conducted a thorough analysis of the queries being executed and identified areas for optimization. By re-writing some of the queries, adding appropriate indexes, and denormalizing certain data structures, we were able to significantly improve the performance of the system. This experience taught me the importance of regularly monitoring and optimizing database interactions for better overall system performance.",
+              "score": 2.75,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 4,
+              "question": "How do you approach designing and implementing RESTful APIs in your backend projects?",
+              "candidate_answer": "vncvn",
+              "ideal_answer": "When designing and implementing RESTful APIs, I focus on creating clear and consistent endpoint structures that adhere to standard HTTP methods. I ensure proper resource naming conventions, use of status codes for responses, and maintain a stateless communication between client and server. Documentation is also important to provide clear guidance for API consumers. Additionally, I consider factors like authentication, authorization, versioning, error handling, and pagination to create robust and user-friendly APIs.",
+              "score": -11.67,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 5,
+              "question": "Can you discuss a situation where you had to troubleshoot and resolve a critical issue in a backend system under tight deadlines? How did you prioritize tasks and ensure the timely resolution of the issue?",
+              "candidate_answer": "vbnv",
+              "ideal_answer": "In a previous role, there was an incident where our backend system went down during peak hours due to an unexpected spike in traffic. I immediately triaged the issue by isolating the root cause through log analysis and debugging. To prioritize tasks, I focused on restoring basic functionality first to minimize downtime. Once stability was regained, I collaborated with cross-functional teams to address underlying issues and implement preventive measures. By efficiently managing time and resources, we were able to resolve the problem within the deadline without compromising overall system performance.",
+              "score": 5.75,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 6,
+              "question": "How do you ensure the security of sensitive data when developing backend systems and handling user information?",
+              "candidate_answer": "bvncv",
+              "ideal_answer": "As a Backend Engineer, I prioritize security by implementing encryption techniques, following best practices for access control, and regularly conducting security audits. I also stay updated on the latest security threats and vulnerabilities to proactively address any potential risks in our backend systems.",
+              "score": 11.85,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 7,
+              "question": "How do you stay updated with the latest backend technologies and trends to ensure your skills remain relevant and competitive in the rapidly evolving field of backend development?",
+              "candidate_answer": "vcnc",
+              "ideal_answer": "As a Backend Engineer, I prioritize continuous learning by regularly attending industry conferences, participating in online courses, reading tech blogs, and engaging with developer communities. By staying abreast of emerging technologies and best practices, I can leverage new tools and techniques to enhance the efficiency, scalability, and security of the backend systems I develop.",
+              "score": 9.11,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 8,
+              "question": "How do you approach optimizing the performance of a backend service that is experiencing bottlenecks in processing a high volume of data?",
+              "candidate_answer": "ncvnc",
+              "ideal_answer": "I would start by identifying the specific areas causing the bottlenecks, such as inefficient algorithms or resource-intensive operations. Then, I would analyze and implement optimizations, such as caching frequently accessed data, parallelizing tasks, or utilizing indexing for database queries. Load testing and profiling tools can help measure the impact of these optimizations to ensure they are effective in improving performance under high data loads.",
+              "score": -1.76,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 9,
+              "question": "How do you handle and mitigate potential security vulnerabilities in the backend code you write as a Backend Engineer?",
+              "candidate_answer": "gnfcgn",
+              "ideal_answer": "As a Backend Engineer, I prioritize security in my code by following best practices such as input validation, parameterized queries to prevent SQL injection, using secure authentication methods like OAuth or JWT, and regularly updating dependencies with security patches. I also conduct regular code reviews and security audits to identify and address any vulnerabilities proactively. Additionally, staying informed about common attack vectors and keeping abreast of new security standards helps me ensure that the backend systems I develop are robust against potential threats.",
+              "score": 6.23,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 10,
+              "question": "How do you prioritize and plan your tasks when working on multiple backend features simultaneously?",
+              "candidate_answer": "gfhf",
+              "ideal_answer": "When working on multiple backend features, I first assess the complexity and dependencies of each feature to determine the optimal sequence. I prioritize tasks based on their impact on project milestones and user experience. I also communicate with stakeholders to align priorities and expectations. Using tools like Kanban boards or project management software helps me track progress and ensure timely delivery of all features.",
+              "score": 0.04,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ]
+        }
+      ]
+    },
+    "a43edb9ccea3": {
+      "id": "a43edb9ccea3",
+      "role": "Frontend Developer",
+      "created_at": "2026-05-04T11:59:57.029888",
+      "questions": [
+        "Can you explain the importance of responsive design in frontend development and provide an example of how you have implemented it in a previous project?",
+        "How do you ensure that your frontend code is maintainable and scalable as the project grows? Can you provide an example of a technique or tool you have used to achieve this?",
+        "Can you discuss the advantages and disadvantages of using React hooks versus class components in frontend development, and provide an example where you chose one over the other?",
+        "How do you approach optimizing website performance as a Frontend Developer, and can you share an example of a technique or tool you have utilized to improve loading speed?",
+        "How do you handle cross-browser compatibility issues in frontend development, and can you share a specific instance where you had to troubleshoot and resolve such an issue?"
+      ],
+      "ideal_answers": [
+        "Responsive design is crucial for ensuring a seamless user experience across various devices. In one of my past projects, I utilized media queries to adjust the layout and styling based on screen sizes, resulting in a website that looked and functioned well on desktops, tablets, and mobile phones.",
+        "As a frontend developer, maintaining and scaling code are crucial aspects of my work. To ensure maintainability and scalability, I follow coding best practices such as modularization, DRY (Don't Repeat Yourself) principle, and using design patterns like MVC. In one project, I implemented a component-based architecture using React.js where each UI element was encapsulated into reusable components. This approach not only made the code more organized but also allowed for easy modifications and additions as the project scaled.",
+        "In my experience, React hooks offer more concise code and better performance optimizations compared to class components. However, there are cases where class components might be preferred for complex state management or legacy codebases. For example, I opted for React hooks when building a new feature requiring reusable logic, but used a class component in an existing project with heavy lifecycle methods dependencies.",
+        "As a Frontend Developer, I prioritize website performance by optimizing assets, reducing server requests, and fine-tuning code for efficiency. In a previous project, I utilized lazy loading for images to defer offscreen image loading until needed. This significantly improved the website's loading speed and user experience.",
+        "As a Frontend Developer, I approach cross-browser compatibility by conducting thorough testing across different browsers and devices. I use tools like BrowserStack to simulate various environments and identify any discrepancies. One specific instance was when I encountered styling differences between Chrome and Internet Explorer regarding CSS flexbox properties. By inspecting the elements using browser developer tools and applying vendor prefixes where necessary, I was able to ensure consistent layout across all targeted browsers."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "73e1d9727cfa",
+          "candidate_name": "vijay",
+          "candidate_email": "vija@gmail.com",
+          "candidate_phone": "+94757100195",
+          "submitted_at": "2026-05-04T12:01:02.111478",
+          "average_score": -2.17,
+          "strong_matches": 0,
+          "weak_matches": 5,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the importance of responsive design in frontend development and provide an example of how you have implemented it in a previous project?",
+              "candidate_answer": "cvnfc",
+              "ideal_answer": "Responsive design is crucial for ensuring a seamless user experience across various devices. In one of my past projects, I utilized media queries to adjust the layout and styling based on screen sizes, resulting in a website that looked and functioned well on desktops, tablets, and mobile phones.",
+              "score": -5.66,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure that your frontend code is maintainable and scalable as the project grows? Can you provide an example of a technique or tool you have used to achieve this?",
+              "candidate_answer": "vbmncvn",
+              "ideal_answer": "As a frontend developer, maintaining and scaling code are crucial aspects of my work. To ensure maintainability and scalability, I follow coding best practices such as modularization, DRY (Don't Repeat Yourself) principle, and using design patterns like MVC. In one project, I implemented a component-based architecture using React.js where each UI element was encapsulated into reusable components. This approach not only made the code more organized but also allowed for easy modifications and additions as the project scaled.",
+              "score": 5.31,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "Can you discuss the advantages and disadvantages of using React hooks versus class components in frontend development, and provide an example where you chose one over the other?",
+              "candidate_answer": "cvmnc",
+              "ideal_answer": "In my experience, React hooks offer more concise code and better performance optimizations compared to class components. However, there are cases where class components might be preferred for complex state management or legacy codebases. For example, I opted for React hooks when building a new feature requiring reusable logic, but used a class component in an existing project with heavy lifecycle methods dependencies.",
+              "score": -1.43,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 4,
+              "question": "How do you approach optimizing website performance as a Frontend Developer, and can you share an example of a technique or tool you have utilized to improve loading speed?",
+              "candidate_answer": "ncvmc",
+              "ideal_answer": "As a Frontend Developer, I prioritize website performance by optimizing assets, reducing server requests, and fine-tuning code for efficiency. In a previous project, I utilized lazy loading for images to defer offscreen image loading until needed. This significantly improved the website's loading speed and user experience.",
+              "score": -2.44,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 5,
+              "question": "How do you handle cross-browser compatibility issues in frontend development, and can you share a specific instance where you had to troubleshoot and resolve such an issue?",
+              "candidate_answer": "vmcmx",
+              "ideal_answer": "As a Frontend Developer, I approach cross-browser compatibility by conducting thorough testing across different browsers and devices. I use tools like BrowserStack to simulate various environments and identify any discrepancies. One specific instance was when I encountered styling differences between Chrome and Internet Explorer regarding CSS flexbox properties. By inspecting the elements using browser developer tools and applying vendor prefixes where necessary, I was able to ensure consistent layout across all targeted browsers.",
+              "score": -6.64,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ]
+        }
+      ]
+    },
+    "76b3efd3b825": {
+      "id": "76b3efd3b825",
+      "role": "Frontend Developer",
+      "created_at": "2026-05-04T12:07:39.639236",
+      "questions": [
+        "Can you explain the difference between stateful and stateless components in React, and provide a use case for each?",
+        "How do you ensure the responsiveness and cross-browser compatibility of a frontend application you have developed?",
+        "How do you handle performance optimization in a React application, especially when dealing with rendering large lists of data?",
+        "How do you approach debugging and fixing common UI/UX issues in a frontend application?",
+        "How do you implement lazy loading for images in a frontend application to improve page load speed?"
+      ],
+      "ideal_answers": [
+        "A stateful component in React is one that maintains its own internal state data, while a stateless component does not manage any internal state. An ideal use case for a stateful component would be a form where input values need to be tracked and updated. On the other hand, a common use case for a stateless component would be presentational components like buttons or headers, which do not require any internal data management.",
+        "I conduct thorough testing across different browsers and devices to identify and fix any issues. Additionally, I utilize CSS media queries and polyfills to optimize the website's layout for various screen sizes and ensure a consistent user experience.",
+        "I focus on using efficient list rendering techniques such as utilizing virtualization libraries like react-virtualized or implementing pagination. Additionally, I leverage tools like React Profiler to identify performance bottlenecks and optimize re-renders by memoizing components with useMemo or useCallback.",
+        "As a frontend developer, when facing UI/UX issues in an application, I first identify the problem by reproducing it and checking browser developer tools for any errors or warnings. Then, I analyze the HTML structure, CSS styles, and JavaScript code to pinpoint the root cause. Utilizing tools like Chrome DevTools helps me inspect elements, modify styles on-the-fly, and debug JavaScript. Once I identify the issue, I implement the necessary fixes while ensuring compatibility across different browsers to enhance user experience.",
+        "One way to implement lazy loading for images is by using the 'Intersection Observer' API in JavaScript. This allows us to track when an image enters the viewport and then load it dynamically at that point, reducing initial page load time. By only loading the images that are currently visible on the screen, we can significantly improve performance, especially for pages with multiple or large images."
+      ],
+      "source": "openai",
+      "submissions": []
+    },
+    "4013d669b3ad": {
+      "id": "4013d669b3ad",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T12:07:54.691016",
+      "questions": [
+        "Can you explain the process of optimizing database queries for a large-scale system?",
+        "How do you ensure the security and integrity of data in a backend system, especially when handling sensitive user information?",
+        "How do you approach designing and implementing a highly scalable backend architecture to accommodate rapid growth and increased traffic?",
+        "Can you discuss a time when you had to troubleshoot a difficult performance issue in a backend system and explain how you resolved it?",
+        "How do you approach designing and implementing efficient caching strategies to improve the performance of a backend system?",
+        "Can you describe how you would design and implement a RESTful API for a complex backend system?",
+        "How do you handle asynchronous processing and background jobs in your backend applications, and can you provide an example of a project where this was critical?",
+        "How do you approach structuring and organizing code to promote maintainability and extensibility in a backend application?",
+        "How do you handle data migration and schema changes in a live production environment as a Backend Engineer?",
+        "How do you ensure proper error handling and logging in your backend code to facilitate debugging and monitoring of the system as a Backend Engineer?"
+      ],
+      "ideal_answers": [
+        "When faced with optimizing database queries for a large-scale system, my approach involves analyzing query performance using tools like EXPLAIN and identifying slow queries. I then focus on indexing strategies, query caching, and denormalization where applicable to improve performance. Constant monitoring and tweaking are essential to ensure optimal query execution in a high-traffic environment.",
+        "As a Backend Engineer, I prioritize data security by implementing encryption techniques for sensitive data at rest and in transit. I also follow best practices such as input validation, parameterized queries to prevent SQL injection attacks, and regular security audits. Additionally, I stay updated on latest security threats and industry standards to continuously improve the system's defenses against potential breaches.",
+        "As a Backend Engineer, I prioritize scalability by leveraging technologies like microservices, load balancing, caching mechanisms, and horizontal scaling. I conduct thorough performance testing to identify bottlenecks early on and ensure our system can handle increased traffic without compromising performance or reliability.",
+        "In my previous role, we faced a performance issue where our API response times were significantly slow. I conducted thorough analysis using profiling tools and identified the bottleneck in our code related to inefficient database queries. To resolve it, I optimized the queries by adding indexes and rewriting some of the logic to reduce unnecessary database calls, which resulted in a notable improvement in response times.",
+        "As a Backend Engineer, I believe in leveraging caching techniques like content delivery network (CDN) caching, in-memory caching with tools like Redis, and database query result caching to reduce latency and optimize response times. By strategically identifying hotspots in the system that can benefit from caching and regularly monitoring cache hits/misses, I ensure that our backend services operate efficiently even under heavy loads.",
+        "To design and implement a RESTful API for a complex backend system, I would first analyze the requirements to determine the resources that need to be exposed. Then, I would follow best practices such as using clear and consistent URL structures, employing appropriate HTTP methods for CRUD operations, ensuring proper error handling with meaningful status codes, and implementing authentication and authorization mechanisms to secure the endpoints. Additionally, I would consider versioning strategies to support backward compatibility and effective documentation to assist developers in consuming the API efficiently.",
+        "As a Backend Engineer, I utilize tools like message queues or job schedulers to manage background tasks efficiently. In a previous project, we implemented a system that processed large amounts of data uploaded by users asynchronously to avoid impacting the main application flow. By using technologies like Celery with RabbitMQ, we were able to distribute these tasks across multiple workers, ensuring timely completion without affecting user experience.",
+        "As a Backend Engineer, I believe in following best practices like using design patterns, modularizing code components, and clearly documenting functionality. By breaking down the application into smaller, reusable modules with well-defined interfaces, it becomes easier to maintain and extend the system without introducing unintended side effects. Additionally, writing clean and self-explanatory code with proper comments allows for better collaboration among team members and future scalability of the codebase.",
+        "As a Backend Engineer, I approach data migration and schema changes with meticulous planning and caution to minimize any disruptions to the live production environment. This involves thorough testing in staging environments, creating rollback strategies in case of unforeseen issues, and communicating transparently with stakeholders about the potential impacts. By implementing gradual migrations, utilizing database migration tools, and monitoring performance closely during the process, I ensure that data integrity is maintained while delivering necessary updates smoothly.",
+        "As a Backend Engineer, I always prioritize robust error handling and logging mechanisms in my code. This involves implementing try-catch blocks, custom exceptions, and detailed logging statements to capture and track errors effectively. By centralizing logs using tools like ELK stack or Splunk, we can monitor system behavior, identify issues quickly, and make informed decisions for optimization. Proper error handling not only aids in debugging during development but also ensures smooth operation post-deployment by providing insights into system performance and potential areas for improvement."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "cd48073ed418",
+          "candidate_name": "PIRIYANTHINI.G it22030894",
+          "candidate_email": "it22030894@my.sliit.lk",
+          "candidate_phone": "+94757100183",
+          "submitted_at": "2026-05-04T12:08:16.813886",
+          "average_score": 1.17,
+          "strong_matches": 0,
+          "weak_matches": 10,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the process of optimizing database queries for a large-scale system?",
+              "candidate_answer": "vn cm",
+              "ideal_answer": "When faced with optimizing database queries for a large-scale system, my approach involves analyzing query performance using tools like EXPLAIN and identifying slow queries. I then focus on indexing strategies, query caching, and denormalization where applicable to improve performance. Constant monitoring and tweaking are essential to ensure optimal query execution in a high-traffic environment.",
+              "score": 0.63,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure the security and integrity of data in a backend system, especially when handling sensitive user information?",
+              "candidate_answer": "vbmvc",
+              "ideal_answer": "As a Backend Engineer, I prioritize data security by implementing encryption techniques for sensitive data at rest and in transit. I also follow best practices such as input validation, parameterized queries to prevent SQL injection attacks, and regular security audits. Additionally, I stay updated on latest security threats and industry standards to continuously improve the system's defenses against potential breaches.",
+              "score": 7.84,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "How do you approach designing and implementing a highly scalable backend architecture to accommodate rapid growth and increased traffic?",
+              "candidate_answer": "",
+              "ideal_answer": "As a Backend Engineer, I prioritize scalability by leveraging technologies like microservices, load balancing, caching mechanisms, and horizontal scaling. I conduct thorough performance testing to identify bottlenecks early on and ensure our system can handle increased traffic without compromising performance or reliability.",
+              "score": 5.64,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 4,
+              "question": "Can you discuss a time when you had to troubleshoot a difficult performance issue in a backend system and explain how you resolved it?",
+              "candidate_answer": "vmbvm,",
+              "ideal_answer": "In my previous role, we faced a performance issue where our API response times were significantly slow. I conducted thorough analysis using profiling tools and identified the bottleneck in our code related to inefficient database queries. To resolve it, I optimized the queries by adding indexes and rewriting some of the logic to reduce unnecessary database calls, which resulted in a notable improvement in response times.",
+              "score": -5.36,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 5,
+              "question": "How do you approach designing and implementing efficient caching strategies to improve the performance of a backend system?",
+              "candidate_answer": "bn,v,",
+              "ideal_answer": "As a Backend Engineer, I believe in leveraging caching techniques like content delivery network (CDN) caching, in-memory caching with tools like Redis, and database query result caching to reduce latency and optimize response times. By strategically identifying hotspots in the system that can benefit from caching and regularly monitoring cache hits/misses, I ensure that our backend services operate efficiently even under heavy loads.",
+              "score": 2.14,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 6,
+              "question": "Can you describe how you would design and implement a RESTful API for a complex backend system?",
+              "candidate_answer": "vbmcm",
+              "ideal_answer": "To design and implement a RESTful API for a complex backend system, I would first analyze the requirements to determine the resources that need to be exposed. Then, I would follow best practices such as using clear and consistent URL structures, employing appropriate HTTP methods for CRUD operations, ensuring proper error handling with meaningful status codes, and implementing authentication and authorization mechanisms to secure the endpoints. Additionally, I would consider versioning strategies to support backward compatibility and effective documentation to assist developers in consuming the API efficiently.",
+              "score": -2.81,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 7,
+              "question": "How do you handle asynchronous processing and background jobs in your backend applications, and can you provide an example of a project where this was critical?",
+              "candidate_answer": "vbmcvm",
+              "ideal_answer": "As a Backend Engineer, I utilize tools like message queues or job schedulers to manage background tasks efficiently. In a previous project, we implemented a system that processed large amounts of data uploaded by users asynchronously to avoid impacting the main application flow. By using technologies like Celery with RabbitMQ, we were able to distribute these tasks across multiple workers, ensuring timely completion without affecting user experience.",
+              "score": 7.67,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 8,
+              "question": "How do you approach structuring and organizing code to promote maintainability and extensibility in a backend application?",
+              "candidate_answer": "",
+              "ideal_answer": "As a Backend Engineer, I believe in following best practices like using design patterns, modularizing code components, and clearly documenting functionality. By breaking down the application into smaller, reusable modules with well-defined interfaces, it becomes easier to maintain and extend the system without introducing unintended side effects. Additionally, writing clean and self-explanatory code with proper comments allows for better collaboration among team members and future scalability of the codebase.",
+              "score": 4.33,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 9,
+              "question": "How do you handle data migration and schema changes in a live production environment as a Backend Engineer?",
+              "candidate_answer": "vgjmfvj",
+              "ideal_answer": "As a Backend Engineer, I approach data migration and schema changes with meticulous planning and caution to minimize any disruptions to the live production environment. This involves thorough testing in staging environments, creating rollback strategies in case of unforeseen issues, and communicating transparently with stakeholders about the potential impacts. By implementing gradual migrations, utilizing database migration tools, and monitoring performance closely during the process, I ensure that data integrity is maintained while delivering necessary updates smoothly.",
+              "score": 1.51,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 10,
+              "question": "How do you ensure proper error handling and logging in your backend code to facilitate debugging and monitoring of the system as a Backend Engineer?",
+              "candidate_answer": "vgjmjvfgmj",
+              "ideal_answer": "As a Backend Engineer, I always prioritize robust error handling and logging mechanisms in my code. This involves implementing try-catch blocks, custom exceptions, and detailed logging statements to capture and track errors effectively. By centralizing logs using tools like ELK stack or Splunk, we can monitor system behavior, identify issues quickly, and make informed decisions for optimization. Proper error handling not only aids in debugging during development but also ensures smooth operation post-deployment by providing insights into system performance and potential areas for improvement.",
+              "score": -9.92,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T06:38:00.250Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T06:38:00.257Z"
+            }
+          ]
+        }
+      ]
+    },
+    "2fec6ffda6b8": {
+      "id": "2fec6ffda6b8",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T12:08:51.237633",
+      "questions": [
+        "Can you discuss your experience with optimizing database performance in a high-traffic backend system?",
+        "How do you approach designing and implementing scalable architecture for a backend system to handle increasing user load and data volume?",
+        "How do you ensure data security and privacy in the backend systems you develop?",
+        "Can you explain a complex technical challenge you faced while developing a backend service and how you successfully resolved it?",
+        "How do you prioritize and implement unit testing and integration testing in your backend development process?",
+        "How do you handle asynchronous processing and background jobs in your backend applications?",
+        "Can you discuss your experience with implementing caching strategies to improve performance in backend systems?",
+        "How do you approach designing and implementing RESTful API endpoints for a backend system to ensure efficiency and ease of use for client applications?",
+        "How do you stay updated with the latest trends and technologies in backend development, and how do you incorporate them into your work as a Backend Engineer?",
+        "How do you approach handling concurrency issues and ensuring data consistency in a multi-threaded backend system?"
+      ],
+      "ideal_answers": [
+        "In my previous role, I worked on optimizing database queries by creating proper indexes, denormalizing data where needed, and implementing caching strategies. This led to significant improvements in response times and overall system performance.",
+        "I believe in following best practices such as microservices architecture, horizontal scaling, and asynchronous processing to design a scalable backend system. By utilizing technologies like load balancers, caching mechanisms, and database sharding, I ensure that the system can handle increased user load and data volume effectively while maintaining performance.",
+        "As a Backend Engineer, I prioritize data security and privacy by implementing encryption protocols, access control mechanisms, and regularly auditing for vulnerabilities. I also follow industry best practices such as using secure communication channels and hashing sensitive information to protect user data from unauthorized access or breaches.",
+        "During the implementation of a microservice to handle real-time data processing, we encountered issues with data consistency across multiple instances. I tackled this challenge by implementing a distributed locking mechanism using Redis to ensure atomicity and prevent conflicts. This solution not only resolved the immediate issue but also improved overall system reliability.",
+        "In my backend development process, I prioritize unit testing by writing test cases for individual components to ensure they function as expected. I also focus on integration testing to verify that different modules work together seamlessly. I believe a robust testing strategy is crucial for identifying bugs early, maintaining code quality, and enabling smoother deployment processes.",
+        "In my backend applications, I utilize tools like message queues (e.g. RabbitMQ) and job schedulers (e.g. Celery) to manage asynchronous processing and background tasks effectively. By offloading time-consuming tasks to separate processes or workers, it ensures that the main application remains responsive and scalable. I also monitor and optimize these background jobs to ensure optimal performance and reliability.",
+        "In previous projects, I have implemented various caching strategies such as using in-memory caches like Redis or Memcached to store frequently accessed data, reducing the load on the database and improving response times. By strategically caching certain data or query results, we were able to significantly boost performance and scalability of our backend systems.",
+        "When designing and implementing RESTful API endpoints, I first carefully analyze the requirements of the client applications that will be consuming these endpoints. I focus on creating clear and intuitive endpoint paths with proper HTTP methods to support CRUD operations efficiently. I also pay attention to response data structures, ensuring they are well-formatted, consistent, and include relevant information without being overwhelming. Additionally, I consider factors like pagination, filtering, sorting, versioning, error handling, and authentication in my API design to provide a seamless experience for front-end developers integrating with our backend system.",
+        "As a Backend Engineer, staying current with industry trends and technologies is crucial for professional growth. I regularly follow blogs, attend conferences, participate in online forums, and take relevant courses to enhance my knowledge. I also actively engage with the developer community to exchange ideas and best practices. When incorporating new technologies into my work, I evaluate their potential impact on our systems' performance, scalability, security, and maintainability. By adopting a continuous learning mindset and embracing innovation responsibly, I ensure that our backend solutions remain competitive and efficient.",
+        "As a Backend Engineer, I prioritize using locking mechanisms such as mutexes or semaphores to control access to shared resources and prevent race conditions. Additionally, I design database transactions carefully to maintain data integrity during concurrent operations. By implementing these strategies, I ensure that the backend system functions smoothly under heavy load without compromising data consistency."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "58a887a99d18",
+          "candidate_name": "PIRIYANTHINI.G it22030894",
+          "candidate_email": "it22030894@my.sliit.lk",
+          "candidate_phone": "+94757100183",
+          "submitted_at": "2026-05-04T12:09:23.309210",
+          "average_score": 8.61,
+          "strong_matches": 0,
+          "weak_matches": 10,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you discuss your experience with optimizing database performance in a high-traffic backend system?",
+              "candidate_answer": "cvncxn",
+              "ideal_answer": "In my previous role, I worked on optimizing database queries by creating proper indexes, denormalizing data where needed, and implementing caching strategies. This led to significant improvements in response times and overall system performance.",
+              "score": 3.35,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you approach designing and implementing scalable architecture for a backend system to handle increasing user load and data volume?",
+              "candidate_answer": "cncvn",
+              "ideal_answer": "I believe in following best practices such as microservices architecture, horizontal scaling, and asynchronous processing to design a scalable backend system. By utilizing technologies like load balancers, caching mechanisms, and database sharding, I ensure that the system can handle increased user load and data volume effectively while maintaining performance.",
+              "score": 2.88,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "How do you ensure data security and privacy in the backend systems you develop?",
+              "candidate_answer": "vmcm",
+              "ideal_answer": "As a Backend Engineer, I prioritize data security and privacy by implementing encryption protocols, access control mechanisms, and regularly auditing for vulnerabilities. I also follow industry best practices such as using secure communication channels and hashing sensitive information to protect user data from unauthorized access or breaches.",
+              "score": 10.03,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 4,
+              "question": "Can you explain a complex technical challenge you faced while developing a backend service and how you successfully resolved it?",
+              "candidate_answer": "vbmcm",
+              "ideal_answer": "During the implementation of a microservice to handle real-time data processing, we encountered issues with data consistency across multiple instances. I tackled this challenge by implementing a distributed locking mechanism using Redis to ensure atomicity and prevent conflicts. This solution not only resolved the immediate issue but also improved overall system reliability.",
+              "score": 11.72,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 5,
+              "question": "How do you prioritize and implement unit testing and integration testing in your backend development process?",
+              "candidate_answer": "vncvmc",
+              "ideal_answer": "In my backend development process, I prioritize unit testing by writing test cases for individual components to ensure they function as expected. I also focus on integration testing to verify that different modules work together seamlessly. I believe a robust testing strategy is crucial for identifying bugs early, maintaining code quality, and enabling smoother deployment processes.",
+              "score": -4.86,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 6,
+              "question": "How do you handle asynchronous processing and background jobs in your backend applications?",
+              "candidate_answer": "Optimize queries, use caching, minimize external API calls, compress responses, and use asynchronous processing.",
+              "ideal_answer": "In my backend applications, I utilize tools like message queues (e.g. RabbitMQ) and job schedulers (e.g. Celery) to manage asynchronous processing and background tasks effectively. By offloading time-consuming tasks to separate processes or workers, it ensures that the main application remains responsive and scalable. I also monitor and optimize these background jobs to ensure optimal performance and reliability.",
+              "score": 49.64,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 7,
+              "question": "Can you discuss your experience with implementing caching strategies to improve performance in backend systems?",
+              "candidate_answer": "fjdj",
+              "ideal_answer": "In previous projects, I have implemented various caching strategies such as using in-memory caches like Redis or Memcached to store frequently accessed data, reducing the load on the database and improving response times. By strategically caching certain data or query results, we were able to significantly boost performance and scalability of our backend systems.",
+              "score": 9.35,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 8,
+              "question": "How do you approach designing and implementing RESTful API endpoints for a backend system to ensure efficiency and ease of use for client applications?",
+              "candidate_answer": "dgjdj",
+              "ideal_answer": "When designing and implementing RESTful API endpoints, I first carefully analyze the requirements of the client applications that will be consuming these endpoints. I focus on creating clear and intuitive endpoint paths with proper HTTP methods to support CRUD operations efficiently. I also pay attention to response data structures, ensuring they are well-formatted, consistent, and include relevant information without being overwhelming. Additionally, I consider factors like pagination, filtering, sorting, versioning, error handling, and authentication in my API design to provide a seamless experience for front-end developers integrating with our backend system.",
+              "score": -6.73,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 9,
+              "question": "How do you stay updated with the latest trends and technologies in backend development, and how do you incorporate them into your work as a Backend Engineer?",
+              "candidate_answer": "fdjdj",
+              "ideal_answer": "As a Backend Engineer, staying current with industry trends and technologies is crucial for professional growth. I regularly follow blogs, attend conferences, participate in online forums, and take relevant courses to enhance my knowledge. I also actively engage with the developer community to exchange ideas and best practices. When incorporating new technologies into my work, I evaluate their potential impact on our systems' performance, scalability, security, and maintainability. By adopting a continuous learning mindset and embracing innovation responsibly, I ensure that our backend solutions remain competitive and efficient.",
+              "score": 9.92,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 10,
+              "question": "How do you approach handling concurrency issues and ensuring data consistency in a multi-threaded backend system?",
+              "candidate_answer": "cfhnxh",
+              "ideal_answer": "As a Backend Engineer, I prioritize using locking mechanisms such as mutexes or semaphores to control access to shared resources and prevent race conditions. Additionally, I design database transactions carefully to maintain data integrity during concurrent operations. By implementing these strategies, I ensure that the backend system functions smoothly under heavy load without compromising data consistency.",
+              "score": 0.76,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T06:38:56.789Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T06:38:56.796Z"
+            },
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T06:39:00.814Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T06:39:00.820Z"
+            },
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T06:39:11.243Z"
+            },
+            {
+              "type": "PASTE_ATTEMPT",
+              "timestamp": "2026-05-04T06:39:16.451Z"
+            }
+          ]
+        }
+      ]
+    },
+    "6d7c46b6363a": {
+      "id": "6d7c46b6363a",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T12:11:16.050173",
+      "questions": [
+        "Can you explain the benefits of using microservices architecture in developing backend systems?",
+        "How do you ensure the scalability and performance of a backend system you are developing as a Backend Engineer?",
+        "How do you approach optimizing database queries for a backend system as a Backend Engineer?",
+        "How do you handle asynchronous tasks and background processing in a backend system as a Backend Engineer?",
+        "What strategies do you use to ensure the security and protection of sensitive data in backend systems as a Backend Engineer?",
+        "Can you discuss the importance of implementing caching mechanisms in a backend system as a Backend Engineer?",
+        "How do you approach designing and implementing RESTful APIs in a backend system as a Backend Engineer?",
+        "How do you handle data validation and input sanitization to prevent security vulnerabilities in the backend systems you develop as a Backend Engineer?",
+        "How do you handle versioning and backwards compatibility issues in the APIs you develop as a Backend Engineer?",
+        "How do you approach designing and implementing efficient data storage solutions for a backend system as a Backend Engineer?"
+      ],
+      "ideal_answers": [
+        "Microservices architecture allows for better scalability, flexibility, and fault isolation in backend systems. It enables teams to work independently on different services, leading to faster development cycles and easier maintenance. Additionally, it supports a decentralized approach to deployments and reduces the impact of failures by isolating them within specific services.",
+        "As a Backend Engineer, I focus on designing efficient algorithms, using caching mechanisms, optimizing database queries, and leveraging scalable technologies like cloud services. I also conduct regular performance testing and monitoring to identify bottlenecks and make necessary adjustments to ensure optimal scalability and performance of the system.",
+        "As a Backend Engineer, I approach optimizing database queries by first analyzing the query execution plans and identifying any bottlenecks. I then focus on indexing strategies, query restructuring, and utilizing caching mechanisms to improve overall performance. Constant monitoring and tweaking are essential to ensure optimal query performance for the backend system.",
+        "As a Backend Engineer, I would utilize technologies like message queues or task queues to manage asynchronous tasks and background processing efficiently. By decoupling time-consuming operations from the main application flow, we can improve performance and responsiveness. Additionally, employing techniques such as job scheduling and worker processes can help distribute workloads effectively across the system while ensuring that critical processes are given priority.",
+        "As a Backend Engineer, I prioritize security by implementing encryption mechanisms, role-based access control, secure authentication processes, and regularly updating security patches. I conduct thorough code reviews, perform penetration testing, and adhere to best practices like OWASP guidelines to mitigate vulnerabilities. Additionally, I stay informed about the latest security threats and proactively address any potential risks to safeguard sensitive data.",
+        "As a Backend Engineer, implementing caching mechanisms is crucial for improving performance and reducing load on servers. Caching allows frequently accessed data to be stored temporarily, reducing the need to fetch it from the database repeatedly. By using techniques like caching at different levels such as application-level caches or distributed caches, we can enhance overall system speed and responsiveness. Additionally, caching helps in handling spikes in traffic effectively by serving precomputed results quickly. It's essential to understand cache invalidation strategies to ensure that stale data doesn't impact system integrity.",
+        "As a Backend Engineer, when designing and implementing RESTful APIs, I focus on creating clear and consistent endpoints that follow the industry standards. I ensure proper HTTP methods are used for different actions, resource naming is intuitive, and responses are structured in a predictable format like JSON. Documentation plays a key role in my API development process to aid others in understanding how to interact with the services effectively. Additionally, I prioritize security measures such as authentication and authorization mechanisms to protect the API from unauthorized access or misuse.",
+        "As a Backend Engineer, I prioritize data validation and input sanitization to prevent common security vulnerabilities such as injection attacks. I implement strict validation rules on both client-side and server-side inputs to ensure that only clean and expected data is processed. This includes validating data types, length limits, format checks, and using parameterized queries for databases. By proactively addressing these concerns, I aim to minimize the risk of security breaches due to malicious input.",
+        "As a Backend Engineer, I ensure smooth transitions and backward compatibility by carefully planning API versioning strategies. I maintain backward compatibility through well-documented deprecation processes, clear communication with stakeholders, and providing ample time for clients to adjust to the new versions. Additionally, robust testing procedures are in place to catch any potential breaking changes before deployment.",
+        "As a Backend Engineer, I would first analyze the data requirements of the system to determine the most suitable database type (relational, NoSQL, etc.) based on factors like scalability, performance, and data structure. I would then design an optimized database schema considering query patterns and indexing strategies to ensure efficient data retrieval. Utilizing techniques such as denormalization and partitioning where necessary can further enhance performance. Continuous monitoring and optimization of database queries and indexes are also essential to maintain efficiency in the long run."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "3f9f521947e8",
+          "candidate_name": "Ssarmilan Bala",
+          "candidate_email": "sarmilan@gmail.com",
+          "candidate_phone": "+94757100183",
+          "submitted_at": "2026-05-04T12:11:51.555248",
+          "average_score": 5.2,
+          "strong_matches": 0,
+          "weak_matches": 10,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the benefits of using microservices architecture in developing backend systems?",
+              "candidate_answer": "sdfgh",
+              "ideal_answer": "Microservices architecture allows for better scalability, flexibility, and fault isolation in backend systems. It enables teams to work independently on different services, leading to faster development cycles and easier maintenance. Additionally, it supports a decentralized approach to deployments and reduces the impact of failures by isolating them within specific services.",
+              "score": 9.91,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure the scalability and performance of a backend system you are developing as a Backend Engineer?",
+              "candidate_answer": "Async/await allows non-blocking execution. Example: handling multiple API calls concurrently instead of sequentially to improve performance.",
+              "ideal_answer": "As a Backend Engineer, I focus on designing efficient algorithms, using caching mechanisms, optimizing database queries, and leveraging scalable technologies like cloud services. I also conduct regular performance testing and monitoring to identify bottlenecks and make necessary adjustments to ensure optimal scalability and performance of the system.",
+              "score": 27.59,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "How do you approach optimizing database queries for a backend system as a Backend Engineer?",
+              "candidate_answer": "fcjvb,n",
+              "ideal_answer": "As a Backend Engineer, I approach optimizing database queries by first analyzing the query execution plans and identifying any bottlenecks. I then focus on indexing strategies, query restructuring, and utilizing caching mechanisms to improve overall performance. Constant monitoring and tweaking are essential to ensure optimal query performance for the backend system.",
+              "score": 2.11,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 4,
+              "question": "How do you handle asynchronous tasks and background processing in a backend system as a Backend Engineer?",
+              "candidate_answer": "xcvbnsdfghj",
+              "ideal_answer": "As a Backend Engineer, I would utilize technologies like message queues or task queues to manage asynchronous tasks and background processing efficiently. By decoupling time-consuming operations from the main application flow, we can improve performance and responsiveness. Additionally, employing techniques such as job scheduling and worker processes can help distribute workloads effectively across the system while ensuring that critical processes are given priority.",
+              "score": -6.54,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 5,
+              "question": "What strategies do you use to ensure the security and protection of sensitive data in backend systems as a Backend Engineer?",
+              "candidate_answer": "dcfvgbhnm",
+              "ideal_answer": "As a Backend Engineer, I prioritize security by implementing encryption mechanisms, role-based access control, secure authentication processes, and regularly updating security patches. I conduct thorough code reviews, perform penetration testing, and adhere to best practices like OWASP guidelines to mitigate vulnerabilities. Additionally, I stay informed about the latest security threats and proactively address any potential risks to safeguard sensitive data.",
+              "score": 5.67,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 6,
+              "question": "Can you discuss the importance of implementing caching mechanisms in a backend system as a Backend Engineer?",
+              "candidate_answer": "sdfghj",
+              "ideal_answer": "As a Backend Engineer, implementing caching mechanisms is crucial for improving performance and reducing load on servers. Caching allows frequently accessed data to be stored temporarily, reducing the need to fetch it from the database repeatedly. By using techniques like caching at different levels such as application-level caches or distributed caches, we can enhance overall system speed and responsiveness. Additionally, caching helps in handling spikes in traffic effectively by serving precomputed results quickly. It's essential to understand cache invalidation strategies to ensure that stale data doesn't impact system integrity.",
+              "score": 5.55,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 7,
+              "question": "How do you approach designing and implementing RESTful APIs in a backend system as a Backend Engineer?",
+              "candidate_answer": "sdfgh",
+              "ideal_answer": "As a Backend Engineer, when designing and implementing RESTful APIs, I focus on creating clear and consistent endpoints that follow the industry standards. I ensure proper HTTP methods are used for different actions, resource naming is intuitive, and responses are structured in a predictable format like JSON. Documentation plays a key role in my API development process to aid others in understanding how to interact with the services effectively. Additionally, I prioritize security measures such as authentication and authorization mechanisms to protect the API from unauthorized access or misuse.",
+              "score": 0.46,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 8,
+              "question": "How do you handle data validation and input sanitization to prevent security vulnerabilities in the backend systems you develop as a Backend Engineer?",
+              "candidate_answer": "sdfghj",
+              "ideal_answer": "As a Backend Engineer, I prioritize data validation and input sanitization to prevent common security vulnerabilities such as injection attacks. I implement strict validation rules on both client-side and server-side inputs to ensure that only clean and expected data is processed. This includes validating data types, length limits, format checks, and using parameterized queries for databases. By proactively addressing these concerns, I aim to minimize the risk of security breaches due to malicious input.",
+              "score": 8.73,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 9,
+              "question": "How do you handle versioning and backwards compatibility issues in the APIs you develop as a Backend Engineer?",
+              "candidate_answer": "sdfghjk",
+              "ideal_answer": "As a Backend Engineer, I ensure smooth transitions and backward compatibility by carefully planning API versioning strategies. I maintain backward compatibility through well-documented deprecation processes, clear communication with stakeholders, and providing ample time for clients to adjust to the new versions. Additionally, robust testing procedures are in place to catch any potential breaking changes before deployment.",
+              "score": -0.72,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 10,
+              "question": "How do you approach designing and implementing efficient data storage solutions for a backend system as a Backend Engineer?",
+              "candidate_answer": "sdfghnm,.",
+              "ideal_answer": "As a Backend Engineer, I would first analyze the data requirements of the system to determine the most suitable database type (relational, NoSQL, etc.) based on factors like scalability, performance, and data structure. I would then design an optimized database schema considering query patterns and indexing strategies to ensure efficient data retrieval. Utilizing techniques such as denormalization and partitioning where necessary can further enhance performance. Continuous monitoring and optimization of database queries and indexes are also essential to maintain efficiency in the long run.",
+              "score": -0.76,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T06:41:26.905Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T06:41:26.910Z"
+            },
+            {
+              "type": "PASTE_ATTEMPT",
+              "timestamp": "2026-05-04T06:41:38.302Z"
+            }
+          ]
+        }
+      ]
+    },
+    "e54c1d617771": {
+      "id": "e54c1d617771",
+      "role": "Frontend Developer",
+      "created_at": "2026-05-04T12:12:44.615230",
+      "questions": [
+        "Can you explain the concept of Virtual DOM and how it is utilized in frontend development?",
+        "How do you ensure that the frontend code you write is optimized for performance and user experience?"
+      ],
+      "ideal_answers": [
+        "The Virtual DOM is a representation of the actual DOM in memory. Instead of directly updating the real DOM when changes occur, the virtual DOM is updated first. This allows for more efficient manipulation and batch updates to the real DOM, resulting in improved performance and user experience.",
+        "As a Frontend Developer, I prioritize performance optimization by following best practices such as reducing unnecessary renders, lazy loading resources, and optimizing images and assets. I also conduct thorough testing to identify potential bottlenecks and use tools like Lighthouse to measure performance metrics. Improving user experience involves creating intuitive interfaces, ensuring responsiveness across devices, and constantly seeking feedback from end users to iterate on the design."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "b58411273bac",
+          "candidate_name": "ajith",
+          "candidate_email": "priyan@gmail.com",
+          "candidate_phone": "+94757100183",
+          "submitted_at": "2026-05-04T12:13:47.217605",
+          "average_score": 51.05,
+          "strong_matches": 1,
+          "weak_matches": 1,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the concept of Virtual DOM and how it is utilized in frontend development?",
+              "candidate_answer": "The Virtual DOM (VDOM) is a lightweight, in-memory representation of the actual DOM (Document Object Model) used in web browsers. It is widely used in modern frontend libraries like React to improve performance and efficiency.",
+              "ideal_answer": "The Virtual DOM is a representation of the actual DOM in memory. Instead of directly updating the real DOM when changes occur, the virtual DOM is updated first. This allows for more efficient manipulation and batch updates to the real DOM, resulting in improved performance and user experience.",
+              "score": 81.95,
+              "is_strong_match": true,
+              "result_label": "Strong Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure that the frontend code you write is optimized for performance and user experience?",
+              "candidate_answer": "The Virtual DOM (VDOM) is a lightweight, in-memory representation of the actual DOM (Document Object Model) used in web browsers. It is widely used in mod",
+              "ideal_answer": "As a Frontend Developer, I prioritize performance optimization by following best practices such as reducing unnecessary renders, lazy loading resources, and optimizing images and assets. I also conduct thorough testing to identify potential bottlenecks and use tools like Lighthouse to measure performance metrics. Improving user experience involves creating intuitive interfaces, ensuring responsiveness across devices, and constantly seeking feedback from end users to iterate on the design.",
+              "score": 20.16,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T06:43:15.250Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T06:43:15.259Z"
+            },
+            {
+              "type": "PASTE_ATTEMPT",
+              "timestamp": "2026-05-04T06:43:37.134Z"
+            },
+            {
+              "type": "PASTE_ATTEMPT",
+              "timestamp": "2026-05-04T06:43:39.742Z"
+            }
+          ]
+        }
+      ]
+    },
+    "5b9b5215cf7b": {
+      "id": "5b9b5215cf7b",
+      "role": "Frontend Developer",
+      "created_at": "2026-05-04T12:14:25.678541",
+      "questions": [
+        "Can you explain the importance of responsive design and how you ensure your code is optimized for various devices in frontend development?",
+        "How do you approach optimizing a website's performance in terms of loading speed and resource usage as a Frontend Developer?"
+      ],
+      "ideal_answers": [
+        "Responsive design is crucial in ensuring a seamless user experience across different devices. When developing, I prioritize using CSS media queries to make sure the layout adjusts accordingly based on screen sizes. I also conduct testing on multiple devices and browsers to identify any issues early on and make necessary adjustments to optimize performance.",
+        "As a Frontend Developer, I first analyze the current performance metrics using tools like Lighthouse or GTmetrix. Then, I focus on techniques such as code minification, lazy loading images, caching strategies, reducing HTTP requests, and optimizing asset sizes to improve loading speed. Constant monitoring and refining based on real user data is crucial to maintaining optimal performance."
+      ],
+      "source": "openai",
+      "submissions": []
+    },
+    "714233819830": {
+      "id": "714233819830",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T13:41:12.330946",
+      "questions": [
+        "Can you explain the importance of data structures and algorithms in backend development?",
+        "How do you ensure the scalability and efficiency of a backend system when designing database schemas?",
+        "How do you approach optimizing API endpoints for a backend system to ensure fast response times and minimal resource consumption?"
+      ],
+      "ideal_answers": [
+        "Data structures and algorithms are essential in backend development as they help optimize the performance and efficiency of the code. By understanding various data structures like arrays, linked lists, trees, and hash tables, engineers can choose the most appropriate structure to store and manipulate data efficiently. Similarly, knowledge of algorithms enables engineers to design optimized solutions for various problems such as searching, sorting, or optimizing resource utilization. Overall, a solid grasp of data structures and algorithms is crucial for building scalable and high-performance backend systems.",
+        "When designing database schemas, I pay close attention to normalization to reduce redundancy and improve data integrity. I also optimize queries by indexing frequently accessed columns and considering the expected workload. Additionally, I incorporate caching mechanisms to reduce database load and enhance performance for commonly requested data.",
+        "In optimizing API endpoints, I typically start by profiling the existing endpoints to identify bottlenecks. From there, I consider strategies such as implementing caching mechanisms, reducing unnecessary database queries, asynchronous processing where feasible, and employing efficient algorithms for data manipulation. Regular monitoring and performance testing help me fine-tune optimizations to strike a balance between speed and resource utilization."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "33a38beaa5dc",
+          "candidate_name": "shamilika",
+          "candidate_email": "siva",
+          "candidate_phone": "+94757100195",
+          "submitted_at": "2026-05-04T13:42:13.630803",
+          "average_score": 32.34,
+          "strong_matches": 0,
+          "weak_matches": 3,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the importance of data structures and algorithms in backend development?",
+              "candidate_answer": "ata structures and algorithms (DSA) are not just academic—they directly impact performance, scalability, and cost in backend systems.\n\nWhy they matter:\n\n1. Efficient Data Handling\n\nChoosing the right structure (e.g., hash maps vs arrays) affects lookup time.\nExample:\nSearching in a list → O(n)\nUsing a hash map → O(1)\n\n2. Performance Optimization\n\nBackend systems often handle large datasets and high traffic.\nPoor algorithm choice = slow APIs, high latency, bad UX.\n\n3. Scalability\n\nEfficient algorithms reduce CPU and memory usage.\nThis allows systems to handle more users without increasing infrastructure cost.\n\n4. Real-world Backend Examples\n\nCaching systems → Hash tables\nDatabase indexing → Trees (B-Trees)\nTask scheduling → Queues / Priority Queues\nRecommendation systems → Graph algorithms\n\n5. Problem Solving\n\nHelps design:\nSearch systems\nMatching engines (like your CV screening project)\nData pipelines\n\n👉 In short:\nGood DSA = Faster systems + Lower cost + Better scalability",
+              "ideal_answer": "Data structures and algorithms are essential in backend development as they help optimize the performance and efficiency of the code. By understanding various data structures like arrays, linked lists, trees, and hash tables, engineers can choose the most appropriate structure to store and manipulate data efficiently. Similarly, knowledge of algorithms enables engineers to design optimized solutions for various problems such as searching, sorting, or optimizing resource utilization. Overall, a solid grasp of data structures and algorithms is crucial for building scalable and high-performance backend systems.",
+              "score": 57.02,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you ensure the scalability and efficiency of a backend system when designing database schemas?",
+              "candidate_answer": "Data structures and algorithms (DSA) are not just academic—they directly impact performance, scalability, and cost in backend systems.\n\nWhy they matter:\n\n1. Efficient Data Handling",
+              "ideal_answer": "When designing database schemas, I pay close attention to normalization to reduce redundancy and improve data integrity. I also optimize queries by indexing frequently accessed columns and considering the expected workload. Additionally, I incorporate caching mechanisms to reduce database load and enhance performance for commonly requested data.",
+              "score": 43.25,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "How do you approach optimizing API endpoints for a backend system to ensure fast response times and minimal resource consumption?",
+              "candidate_answer": "asdfghj",
+              "ideal_answer": "In optimizing API endpoints, I typically start by profiling the existing endpoints to identify bottlenecks. From there, I consider strategies such as implementing caching mechanisms, reducing unnecessary database queries, asynchronous processing where feasible, and employing efficient algorithms for data manipulation. Regular monitoring and performance testing help me fine-tune optimizations to strike a balance between speed and resource utilization.",
+              "score": -3.24,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T08:11:18.725Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T08:11:18.731Z"
+            },
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T08:11:29.960Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T08:11:29.965Z"
+            },
+            {
+              "type": "PASTE_ATTEMPT",
+              "timestamp": "2026-05-04T08:11:55.409Z"
+            },
+            {
+              "type": "PASTE_ATTEMPT",
+              "timestamp": "2026-05-04T08:11:58.348Z"
+            }
+          ]
+        }
+      ]
+    },
+    "a192a6e6aab3": {
+      "id": "a192a6e6aab3",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T13:46:11.976661",
+      "questions": [
+        "Can you explain the role of caching in backend development and how you have utilized it in your previous projects?",
+        "How would you approach optimizing database queries for a high-traffic backend system?",
+        "Can you discuss a project where you implemented efficient error handling and logging in a backend application, and how it positively impacted the overall performance and maintenance?"
+      ],
+      "ideal_answers": [
+        "Caching plays a crucial role in optimizing backend performance by storing frequently accessed data. In my previous projects, I implemented caching mechanisms using tools like Redis to reduce database load and speed up response times. For instance, I cached commonly queried user profiles or product information to minimize latency and enhance system efficiency.",
+        "I would start by analyzing the slow-performing queries using tools like query profiling and indexing. I would then optimize the queries by eliminating unnecessary joins, restructuring indexes, and utilizing caching techniques. Continuous monitoring and fine-tuning of the database performance would be essential to ensure optimal efficiency in handling high traffic volumes.",
+        "In one of my previous projects, I implemented a comprehensive system for error handling and logging in the backend application. By strategically logging different levels of errors and exceptions, we were able to quickly identify issues during development and production phases. This helped us proactively address potential bugs before they caused major problems for end-users. Furthermore, by properly handling errors at various stages of processing, we improved the overall stability and reliability of the system. Overall, this approach not only enhanced performance but also simplified troubleshooting and maintenance tasks."
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "802ad6187498",
+          "candidate_name": "priya bala",
+          "candidate_email": "riyachandran2808@gmail.com",
+          "candidate_phone": "+94757100195",
+          "submitted_at": "2026-05-04T13:46:43.121991",
+          "average_score": 32.75,
+          "strong_matches": 0,
+          "weak_matches": 3,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the role of caching in backend development and how you have utilized it in your previous projects?",
+              "candidate_answer": "Key strategies:\n\n1. Normalization vs Denormalization\n\nNormalization → avoids redundancy (good for consistency)\nDenormalization → improves read performance (good for high traffic)\n\n👉 Use both strategically:\n\nOLTP systems → more normalized\nRead-heavy apps → partial denormalization",
+              "ideal_answer": "Caching plays a crucial role in optimizing backend performance by storing frequently accessed data. In my previous projects, I implemented caching mechanisms using tools like Redis to reduce database load and speed up response times. For instance, I cached commonly queried user profiles or product information to minimize latency and enhance system efficiency.",
+              "score": 32.41,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How would you approach optimizing database queries for a high-traffic backend system?",
+              "candidate_answer": "Key strategies:\n\n1. Normalization vs Denormalization\n\nNormalization → avoids redundancy (good for consistency)\nDenormalization → improves read performance (good for high traffic)",
+              "ideal_answer": "I would start by analyzing the slow-performing queries using tools like query profiling and indexing. I would then optimize the queries by eliminating unnecessary joins, restructuring indexes, and utilizing caching techniques. Continuous monitoring and fine-tuning of the database performance would be essential to ensure optimal efficiency in handling high traffic volumes.",
+              "score": 53.73,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "Can you discuss a project where you implemented efficient error handling and logging in a backend application, and how it positively impacted the overall performance and maintenance?",
+              "candidate_answer": "Key strategies:\n\n1. Normalization vs Denormalization\n\nNormalization → avoids redundancy (good for consistency)\nDenormalization",
+              "ideal_answer": "In one of my previous projects, I implemented a comprehensive system for error handling and logging in the backend application. By strategically logging different levels of errors and exceptions, we were able to quickly identify issues during development and production phases. This helped us proactively address potential bugs before they caused major problems for end-users. Furthermore, by properly handling errors at various stages of processing, we improved the overall stability and reliability of the system. Overall, this approach not only enhanced performance but also simplified troubleshooting and maintenance tasks.",
+              "score": 12.11,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T08:16:26.171Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T08:16:26.176Z"
+            },
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T08:16:27.639Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T08:16:27.644Z"
+            }
+          ]
+        }
+      ]
+    },
+    "13a0b6ece128": {
+      "id": "13a0b6ece128",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T13:55:36.618867",
+      "questions": [
+        "Can you explain the role of asynchronous programming in backend development and provide an example where it has been crucial in optimizing performance?",
+        "How do you approach designing and implementing RESTful APIs in backend development, and can you give an example of a complex API you have worked on?",
+        "How do you ensure data security and integrity in the backend systems you develop, especially when handling sensitive user information?"
+      ],
+      "ideal_answers": [
+        "Asynchronous programming allows tasks to run independently, which is essential in backend development for handling multiple requests simultaneously without blocking the main thread. An example where asynchronous programming was crucial for performance optimization is when fetching data from external APIs. By making these calls asynchronously, we can continue executing other tasks while waiting for the response, thus improving overall system responsiveness and efficiency.",
+        "When designing RESTful APIs, I focus on creating resources that are intuitive and follow standard conventions for HTTP methods. For a complex API project, I worked on an e-commerce platform where we had endpoints for managing products, orders, and user accounts. Each endpoint was carefully designed to support CRUD operations efficiently while ensuring security and scalability.",
+        "As a Backend Engineer, I prioritize data security and integrity by implementing industry best practices such as encryption, access controls, parameterized queries to prevent SQL injection attacks, and regular security audits. I also follow compliance standards like GDPR or HIPAA as necessary. By closely monitoring system logs for any suspicious activities and conducting thorough testing for vulnerabilities, I strive to maintain a secure environment for sensitive user information."
+      ],
+      "skills": [
+        "General",
+        "General",
+        "General"
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "409b5cc95c24",
+          "candidate_name": "priya bala",
+          "candidate_email": "riyachandran2808@gmail.com",
+          "candidate_phone": "+94757100195",
+          "submitted_at": "2026-05-04T13:56:39.567123",
+          "average_score": 31.94,
+          "strong_matches": 0,
+          "weak_matches": 3,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the role of asynchronous programming in backend development and provide an example where it has been crucial in optimizing performance?",
+              "skill": "General",
+              "candidate_answer": "Add indexes on:\nFrequently queried columns\nForeign keys\nAvoid over-indexing (slows writes)",
+              "ideal_answer": "Asynchronous programming allows tasks to run independently, which is essential in backend development for handling multiple requests simultaneously without blocking the main thread. An example where asynchronous programming was crucial for performance optimization is when fetching data from external APIs. By making these calls asynchronously, we can continue executing other tasks while waiting for the response, thus improving overall system responsiveness and efficiency.",
+              "score": 33.61,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you approach designing and implementing RESTful APIs in backend development, and can you give an example of a complex API you have worked on?",
+              "skill": "General",
+              "candidate_answer": "Add indexes on:\nFrequently queried columns\nForeign keys\nAvoid over-indexing (slows writes)",
+              "ideal_answer": "When designing RESTful APIs, I focus on creating resources that are intuitive and follow standard conventions for HTTP methods. For a complex API project, I worked on an e-commerce platform where we had endpoints for managing products, orders, and user accounts. Each endpoint was carefully designed to support CRUD operations efficiently while ensuring security and scalability.",
+              "score": 24.22,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            },
+            {
+              "question_number": 3,
+              "question": "How do you ensure data security and integrity in the backend systems you develop, especially when handling sensitive user information?",
+              "skill": "General",
+              "candidate_answer": "Add indexes on:\nFrequently queried columns\nForeign keys\nAvoid over-indexing (slows writes)",
+              "ideal_answer": "As a Backend Engineer, I prioritize data security and integrity by implementing industry best practices such as encryption, access controls, parameterized queries to prevent SQL injection attacks, and regular security audits. I also follow compliance standards like GDPR or HIPAA as necessary. By closely monitoring system logs for any suspicious activities and conducting thorough testing for vulnerabilities, I strive to maintain a secure environment for sensitive user information.",
+              "score": 37.99,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "skills_matrix": [
+            {
+              "skill": "General",
+              "score": 31.94,
+              "details": [
+                {
+                  "question_number": 1,
+                  "score": 33.61
+                },
+                {
+                  "question_number": 2,
+                  "score": 24.22
+                },
+                {
+                  "question_number": 3,
+                  "score": 37.99
+                }
+              ]
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": [
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T08:26:26.657Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T08:26:26.662Z"
+            },
+            {
+              "type": "WINDOW_BLUR",
+              "timestamp": "2026-05-04T08:26:36.194Z"
+            },
+            {
+              "type": "TAB_SWITCH",
+              "timestamp": "2026-05-04T08:26:36.215Z"
+            }
+          ]
+        }
+      ]
+    },
+    "462aeb6ddc37": {
+      "id": "462aeb6ddc37",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T13:59:27.037359",
+      "questions": [
+        "Can you explain the concept of database indexing and how it can improve the performance of backend services?",
+        "How do you approach optimizing database queries in a backend system to ensure efficient data retrieval and minimal response times?"
+      ],
+      "ideal_answers": [
+        "Database indexing is a technique used to optimize queries by creating a data structure that allows for quick lookups of specific columns in a table. By reducing the number of disk accesses needed to retrieve data, indexing can significantly improve query performance. It helps in speeding up search queries, sorting operations, and joins between tables. As a Backend Engineer, I would ensure that relevant columns are properly indexed based on the types of queries expected to be executed frequently.",
+        "As a Backend Engineer, I prioritize query optimization by analyzing the database schema, indexing key columns, avoiding unnecessary joins or subqueries, utilizing caching mechanisms where applicable, and constantly monitoring query performance using tools like EXPLAIN in SQL. I also focus on writing efficient SQL queries and considering factors like data volume and distribution to improve overall backend service efficiency."
+      ],
+      "skills": [
+        "General",
+        "General"
+      ],
+      "source": "openai",
+      "submissions": [
+        {
+          "submission_id": "9050c5bbdbc2",
+          "candidate_name": "ajith",
+          "candidate_email": "priyan@gmail.com",
+          "candidate_phone": "+94757100183",
+          "submitted_at": "2026-05-04T13:59:56.416274",
+          "average_score": 69.86,
+          "strong_matches": 1,
+          "weak_matches": 1,
+          "results": [
+            {
+              "question_number": 1,
+              "question": "Can you explain the concept of database indexing and how it can improve the performance of backend services?",
+              "skill": "General",
+              "candidate_answer": "Add indexes on:\nFrequently queried columns\nForeign keys\nAvoid over-indexing (slows writes)",
+              "ideal_answer": "Database indexing is a technique used to optimize queries by creating a data structure that allows for quick lookups of specific columns in a table. By reducing the number of disk accesses needed to retrieve data, indexing can significantly improve query performance. It helps in speeding up search queries, sorting operations, and joins between tables. As a Backend Engineer, I would ensure that relevant columns are properly indexed based on the types of queries expected to be executed frequently.",
+              "score": 77.4,
+              "is_strong_match": true,
+              "result_label": "Strong Match"
+            },
+            {
+              "question_number": 2,
+              "question": "How do you approach optimizing database queries in a backend system to ensure efficient data retrieval and minimal response times?",
+              "skill": "General",
+              "candidate_answer": "Add indexes on:\nFrequently queried columns\nForeign keys\nAvoid over-indexing (slows writes)",
+              "ideal_answer": "As a Backend Engineer, I prioritize query optimization by analyzing the database schema, indexing key columns, avoiding unnecessary joins or subqueries, utilizing caching mechanisms where applicable, and constantly monitoring query performance using tools like EXPLAIN in SQL. I also focus on writing efficient SQL queries and considering factors like data volume and distribution to improve overall backend service efficiency.",
+              "score": 62.32,
+              "is_strong_match": false,
+              "result_label": "Weak Match"
+            }
+          ],
+          "skills_matrix": [
+            {
+              "skill": "General",
+              "score": 69.86,
+              "details": [
+                {
+                  "question_number": 1,
+                  "score": 77.4
+                },
+                {
+                  "question_number": 2,
+                  "score": 62.32
+                }
+              ]
+            }
+          ],
+          "audio_metrics": {
+            "total_duration": 0,
+            "responses": []
+          },
+          "proctoring_logs": []
+        }
+      ]
+    },
+    "c14d07254b2f": {
+      "id": "c14d07254b2f",
+      "role": "Backend Engineer",
+      "created_at": "2026-05-04T14:00:29.685784",
+      "questions": [
+        "Can you explain the process of optimizing database queries for a high traffic backend system?",
+        "How do you approach designing a scalable microservices architecture in the context of a backend system?"
+      ],
+      "ideal_answers": [
+        "Yes, when optimizing database queries for a high traffic backend system, I typically start by analyzing the existing query execution plans to identify bottlenecks. I then consider indexing strategies, query restructuring techniques, and caching mechanisms to improve performance. Additionally, I focus on reducing unnecessary data retrieval and minimizing round trips between the application server and database. Continuous monitoring and measuring of query performance help in fine-tuning optimizations over time.",
+        "When designing a scalable microservices architecture, I first identify the different components of the system and break them down into smaller services. I ensure each service is responsible for specific functionality, making it easier to scale independently. I also implement communication protocols like REST or messaging queues to allow seamless interaction between services. Lastly, I prioritize fault tolerance and monitoring to ensure high availability and performance across all services."
+      ],
+      "skills": [
+        "General",
+        "General"
+      ],
+      "source": "openai",
+      "submissions": []
     }
   }
 }

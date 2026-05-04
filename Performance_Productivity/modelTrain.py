@@ -25,8 +25,9 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 # =========================
 # SETTINGS
 # =========================
-DATA_PATH = "DataSet_New.csv"
-OUTPUT_DIR = "Two_Model_Output"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "DataSet_New.csv")
+OUTPUT_DIR = os.path.join(BASE_DIR, "Two_Model_Output")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # =========================

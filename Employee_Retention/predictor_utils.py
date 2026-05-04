@@ -170,6 +170,7 @@ def _looks_like_stale_model_error(exc):
         "node array",
         "incompatible dtype",
         "transform_input",
+        "numpy._core",
     )
     return any(marker in error_msg for marker in stale_model_markers)
 
